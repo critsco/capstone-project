@@ -1,0 +1,59 @@
+.footer {
+    width: 100%;
+    background: #f3f4f6;
+    padding-block: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 -4px 9px rgba(23, 26, 31, 0.12);
+}
+
+#navbar {
+    display: flex;
+    box-shadow: 0 4px 9px rgba(23, 26, 31, 0.12);
+    padding-inline: 6%;
+    height: 50px;
+
+    .nav-buttons {
+        height: 50px;
+
+        .ant-btn {
+            height: 100%;
+            width: 125px;
+            border-bottom: 4px solid #f3f4f6;
+            border-radius: 0;
+            text-decoration: none;
+            background: #f3f4f6;
+        }
+        .ant-btn:hover {
+            background: #d9d9d9;
+            border-bottom: 4px solid #d9d9d9;
+        }
+        .ant-btn.selected {
+            font-weight: bold;
+            font-size: 14px;
+            color: #2c3d8f;
+            border-bottom: 4px solid #2c3d8f;
+        }
+    }
+    .ant-btn {
+        height: 100%;
+        border-radius: 0;
+    }
+}
+
+.dashboard-title {
+    font-weight: bolder;
+    font-size: 18px;
+    padding-bottom: 16px;
+}
+
+.ant-popover {
+    font-family: "Poppins";
+
+    .ant-input {
+        font-family: "Poppins";
+    }
+}

@@ -1,0 +1,198 @@
+#page_faculty_dashboard {
+    .ant-layout-content {
+        padding-block: 30px;
+        padding-inline: 5%;
+        gap: 10px;
+        height: 90vh;
+    }
+}
+
+#faculty_dashboard_intern_table {
+    .ant-table-container {
+        .ant-table-content {
+            font-size: 13px;
+
+            .ant-table-thead {
+                font-size: 14px;
+            }
+            // .ant-table-tbody {
+            // }
+            .ant-table-selection-col {
+                width: 44px;
+            }
+        }
+    }
+
+    .ant-table-cell {
+        padding: 12px;
+
+        .ant-select {
+            width: 110px;
+
+            .ant-select-selection-item {
+                font-size: 13px;
+                font-weight: normal;
+            }
+        }
+        .ant-select.status {
+            width: 95px;
+        }
+        .ant-select.status.applied .ant-select-selector {
+            background: #eef8ae !important; /* For .applied */
+        }
+        .ant-select.status.accepted .ant-select-selector {
+            background: #93bade !important;
+        }
+        .ant-select.status.started .ant-select-selector {
+            background: #99de93 !important;
+        }
+        .ant-select.moa {
+            .ant-select-selector {
+                .ant-select-selection-item {
+                    font-size: 13px;
+                    font-weight: lighter;
+                }
+            }
+        }
+        .ant-select.moa.inprogress {
+            width: 110px;
+
+            .ant-select-selector {
+                background: #eef8ae !important;
+            }
+        }
+        .ant-select.moa.completed {
+            width: 110px;
+
+            .ant-select-selector {
+                background: #189124 !important;
+                color: white;
+            }
+        }
+        .ant-select.letterparent.inprogress {
+            width: 110px;
+
+            .ant-select-selector {
+                background: #eef8ae !important;
+            }
+        }
+        .ant-select.letterparent.completed {
+            width: 110px;
+
+            .ant-select-selector {
+                background: #189124 !important;
+                color: white;
+            }
+        }
+        .ant-select.waiverparent.inprogress {
+            width: 110px;
+
+            .ant-select-selector {
+                background: #eef8ae !important;
+            }
+        }
+        .ant-select.waiverparent.completed {
+            width: 110px;
+
+            .ant-select-selector {
+                background: #189124 !important;
+                color: white;
+            }
+        }
+        .ant-select.waiverschool.inprogress {
+            width: 110px;
+
+            .ant-select-selector {
+                background: #eef8ae !important;
+            }
+        }
+        .ant-select.waiverschool.completed {
+            width: 110px;
+
+            .ant-select-selector {
+                background: #189124 !important;
+                color: white;
+            }
+        }
+        .ant-select.endorsementletter.inprogress {
+            width: 110px;
+
+            .ant-select-selector {
+                background: #eef8ae !important;
+            }
+        }
+        .ant-select.endorsementletter.completed {
+            width: 110px;
+
+            .ant-select-selector {
+                background: #189124 !important;
+                color: white;
+            }
+        }
+        .ant-select.dtr.inprogress {
+            width: 110px;
+
+            .ant-select-selector {
+                background: #eef8ae !important;
+            }
+        }
+        .ant-select.dtr.completed {
+            width: 110px;
+
+            .ant-select-selector {
+                background: #189124 !important;
+                color: white;
+            }
+        }
+        .ant-select.evaluation.inprogress {
+            width: 110px;
+
+            .ant-select-selector {
+                background: #eef8ae !important;
+            }
+        }
+        .ant-select.evaluation.completed {
+            width: 110px;
+
+            .ant-select-selector {
+                background: #189124 !important;
+                color: white;
+            }
+        }
+        .ant-select.terminalreport.inprogress {
+            width: 110px;
+
+            .ant-select-selector {
+                background: #eef8ae !important;
+            }
+        }
+        .ant-select.terminalreport.completed {
+            width: 110px;
+
+            .ant-select-selector {
+                background: #189124 !important;
+                color: white;
+            }
+        }
+    }
+}
+
+#faculty-dashboard-schedule-table {
+    font-size: 13px;
+
+    .ant-table-container {
+        height: 320px;
+
+        // .ant-table-content {
+        //     .ant-table-thead {
+        //     }
+        //     .ant-table-tbody {
+        //         font-size: 12px;
+        //     }
+        // }
+    }
+}
+
+.moa-notes {
+    cursor: pointer;
+}

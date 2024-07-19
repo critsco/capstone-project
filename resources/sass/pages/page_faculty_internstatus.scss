@@ -1,0 +1,246 @@
+#page_faculty_internstatus {
+    .ant-layout-content {
+        padding-block: 30px;
+        padding-inline: 5%;
+        gap: 10px;
+        height: 90vh;
+    }
+}
+
+#status_searchBar {
+    display: flex;
+    margin-inline: auto;
+
+    .ant-input-group-wrapper {
+        .ant-input-wrapper {
+            display: flex;
+            justify-content: center;
+            height: 35px;
+
+            .ant-input-affix-wrapper {
+                width: 35%;
+                border-top-left-radius: 25px;
+                border-bottom-left-radius: 25px;
+
+                .ant-input {
+                    font-family: "Poppins";
+                    font-size: 14px;
+                    padding-left: 4px;
+                }
+            }
+
+            .ant-btn {
+                background: #2c3d8f;
+                color: white;
+                border-top-right-radius: 25px;
+                border-bottom-right-radius: 25px;
+                height: 100%;
+                box-shadow: none;
+            }
+        }
+    }
+}
+
+#faculty_internstatus_table {
+    .ant-spin-container {
+        .ant-pagination {
+            .ant-pagination-item-active {
+                background: #2c3d8f;
+                color: white;
+                border-color: #2c3d8f;
+            }
+        }
+        .ant-table {
+            .ant-table-container {
+                font-size: 13px;
+                margin-top: 30px;
+
+                .ant-table-thead {
+                    font-size: 14px;
+
+                    // .ant-table-cell.ant-table-selection-column {
+                    //     width: 50px !important;
+                    //     height: 69px;
+                    //     display: flex;
+                    //     align-items: center;
+                    //     justify-content: center;
+                    // }
+                }
+                // .ant-table-tbody {
+                //     // .ant-table-cell {
+                //     //     display: flex;
+                //     //     justify-content: center;
+                //     //     align-items: center;
+                //     // }
+                //     // .ant-table-selection-column {
+                //     //     width: 50px !important;
+                //     //     height: 69px;
+                //     //     display: flex;
+                //     //     flex: none !important;
+                //     //     align-items: center;
+                //     //     justify-content: center;
+                //     //     flex: none;
+                //     // }
+                // }
+                .ant-table-row.ant-table-row-selected {
+                    .ant-table-cell {
+                        background: rgba(233, 233, 233, 0.4);
+                    }
+                }
+            }
+            .ant-table-cell {
+                padding: 12px;
+
+                .ant-select {
+                    width: 110px;
+
+                    .ant-select-selection-item {
+                        font-size: 13px;
+                        font-weight: normal;
+                    }
+                }
+                .ant-select.status {
+                    width: 100%;
+                }
+                .ant-select.status.applied .ant-select-selector {
+                    background: #eef8ae !important; /* For .applied */
+                }
+                .ant-select.status.accepted .ant-select-selector {
+                    background: #93bade !important;
+                }
+                .ant-select.status.started .ant-select-selector {
+                    background: #99de93 !important;
+                }
+                .ant-select.moa {
+                    .ant-select-selector {
+                        .ant-select-selection-item {
+                            font-size: 13px;
+                            font-weight: lighter;
+                        }
+                    }
+                }
+                .ant-select.moa.inprogress {
+                    width: 110px;
+
+                    .ant-select-selector {
+                        background: #eef8ae !important;
+                    }
+                }
+                .ant-select.moa.completed {
+                    width: 110px;
+
+                    .ant-select-selector {
+                        background: #99de93 !important;
+                    }
+                }
+                .ant-select.letterparent.inprogress {
+                    width: 110px;
+
+                    .ant-select-selector {
+                        background: #eef8ae !important;
+                    }
+                }
+                .ant-select.letterparent.completed {
+                    width: 110px;
+
+                    .ant-select-selector {
+                        background: #99de93 !important;
+                    }
+                }
+                .ant-select.waiverparent.inprogress {
+                    width: 110px;
+
+                    .ant-select-selector {
+                        background: #eef8ae !important;
+                    }
+                }
+                .ant-select.waiverparent.completed {
+                    width: 110px;
+
+                    .ant-select-selector {
+                        background: #99de93 !important;
+                    }
+                }
+                .ant-select.waiverschool.inprogress {
+                    width: 110px;
+
+                    .ant-select-selector {
+                        background: #eef8ae !important;
+                    }
+                }
+                .ant-select.waiverschool.completed {
+                    width: 110px;
+
+                    .ant-select-selector {
+                        background: #99de93 !important;
+                    }
+                }
+                .ant-select.endorsementletter.inprogress {
+                    width: 110px;
+
+                    .ant-select-selector {
+                        background: #eef8ae !important;
+                    }
+                }
+                .ant-select.endorsementletter.completed {
+                    width: 110px;
+
+                    .ant-select-selector {
+                        background: #99de93 !important;
+                    }
+                }
+                .ant-select.dtr.inprogress {
+                    width: 110px;
+
+                    .ant-select-selector {
+                        background: #eef8ae !important;
+                    }
+                }
+                .ant-select.dtr.completed {
+                    width: 110px;
+
+                    .ant-select-selector {
+                        background: #99de93 !important;
+                    }
+                }
+                .ant-select.evaluation.inprogress {
+                    width: 110px;
+
+                    .ant-select-selector {
+                        background: #eef8ae !important;
+                    }
+                }
+                .ant-select.evaluation.completed {
+                    width: 110px;
+
+                    .ant-select-selector {
+                        background: #99de93 !important;
+                    }
+                }
+                .ant-select.terminalreport.inprogress {
+                    width: 110px;
+
+                    .ant-select-selector {
+                        background: #eef8ae !important;
+                    }
+                }
+                .ant-select.terminalreport.completed {
+                    width: 110px;
+
+                    .ant-select-selector {
+                        background: #99de93 !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#status_export_button {
+    .ant-btn {
+        background: #2c3d8f;
+        color: white;
+        font-weight: normal;
+        border: none;
+    }
+}
