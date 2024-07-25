@@ -92,9 +92,25 @@
             }
         }
     }
-    .export {
+    .document_export_button {
         margin-inline: 22px;
         padding-top: 22px;
         border-top: 1px solid #dee1e6;
+        .ant-btn {
+            background: #2c3d8f;
+            color: white;
+            font-weight: normal;
+            border: none;
+        }
     }
+}
+
+#document_card {
+    width: 100%;
+    height: 100%;
+    background: #f1f1f1;
+    display: flex;
+    top: 0;
+    padding: 25px 100px 25px 100px;
+    justify-content: center;
 }

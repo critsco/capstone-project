@@ -9,7 +9,7 @@ export default function FacultyDashboardCalendar() {
     };
 
     return (
-        <div className="faculty-dashboard-calendar">
+        <div className="faculty-calendar">
             <Calendar
                 value={value}
                 fullscreen={false}

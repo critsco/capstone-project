@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Button, Flex } from "antd";
 import DocumentRadio from "./DocumentRadio";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleInfo } from "@fortawesome/pro-regular-svg-icons";
 
 export default function DocumentSidebar() {
     return (
@@ -11,8 +12,14 @@ export default function DocumentSidebar() {
             <div className="documents">
                 <DocumentRadio />
             </div>
-            <Flex vertical="vertical" justify="center" className="export">
-                <Button>Export</Button>
+            <Flex
+                vertical="vertical"
+                justify="center"
+                align="center"
+                className="document_export_button"
+                gap={10}
+            >
+                <Button style={{}}>Export</Button>
                 <Flex align="center" gap={4}>
                     <FontAwesomeIcon
                         icon={faCircleInfo}

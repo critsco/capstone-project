@@ -12379,8 +12379,7 @@ p {
   width: 110px;
 }
 #faculty_dashboard_intern_table .ant-table-cell .ant-select.moa.completed .ant-select-selector {
-  background: #189124 !important;
-  color: white;
+  background: #99de93 !important;
 }
 #faculty_dashboard_intern_table .ant-table-cell .ant-select.letterparent.inprogress {
   width: 110px;
@@ -12392,8 +12391,7 @@ p {
   width: 110px;
 }
 #faculty_dashboard_intern_table .ant-table-cell .ant-select.letterparent.completed .ant-select-selector {
-  background: #189124 !important;
-  color: white;
+  background: #99de93 !important;
 }
 #faculty_dashboard_intern_table .ant-table-cell .ant-select.waiverparent.inprogress {
   width: 110px;
@@ -12405,8 +12403,7 @@ p {
   width: 110px;
 }
 #faculty_dashboard_intern_table .ant-table-cell .ant-select.waiverparent.completed .ant-select-selector {
-  background: #189124 !important;
-  color: white;
+  background: #99de93 !important;
 }
 #faculty_dashboard_intern_table .ant-table-cell .ant-select.waiverschool.inprogress {
   width: 110px;
@@ -12418,8 +12415,7 @@ p {
   width: 110px;
 }
 #faculty_dashboard_intern_table .ant-table-cell .ant-select.waiverschool.completed .ant-select-selector {
-  background: #189124 !important;
-  color: white;
+  background: #99de93 !important;
 }
 #faculty_dashboard_intern_table .ant-table-cell .ant-select.endorsementletter.inprogress {
   width: 110px;
@@ -12431,8 +12427,7 @@ p {
   width: 110px;
 }
 #faculty_dashboard_intern_table .ant-table-cell .ant-select.endorsementletter.completed .ant-select-selector {
-  background: #189124 !important;
-  color: white;
+  background: #99de93 !important;
 }
 #faculty_dashboard_intern_table .ant-table-cell .ant-select.dtr.inprogress {
   width: 110px;
@@ -12444,8 +12439,7 @@ p {
   width: 110px;
 }
 #faculty_dashboard_intern_table .ant-table-cell .ant-select.dtr.completed .ant-select-selector {
-  background: #189124 !important;
-  color: white;
+  background: #99de93 !important;
 }
 #faculty_dashboard_intern_table .ant-table-cell .ant-select.evaluation.inprogress {
   width: 110px;
@@ -12457,8 +12451,7 @@ p {
   width: 110px;
 }
 #faculty_dashboard_intern_table .ant-table-cell .ant-select.evaluation.completed .ant-select-selector {
-  background: #189124 !important;
-  color: white;
+  background: #99de93 !important;
 }
 #faculty_dashboard_intern_table .ant-table-cell .ant-select.terminalreport.inprogress {
   width: 110px;
@@ -12470,8 +12463,7 @@ p {
   width: 110px;
 }
 #faculty_dashboard_intern_table .ant-table-cell .ant-select.terminalreport.completed .ant-select-selector {
-  background: #189124 !important;
-  color: white;
+  background: #99de93 !important;
 }
 
 #faculty-dashboard-schedule-table {
@@ -12481,7 +12473,7 @@ p {
   height: 320px;
 }
 
-.moa-notes {
+.table-notes {
   cursor: pointer;
 }
 
@@ -12661,7 +12653,7 @@ p {
 #status_export_button .ant-btn {
   background: #2c3d8f;
   color: white;
-  font-weight: normal;
+  font-weight: lighter;
   border: none;
 }
 
@@ -12748,10 +12740,26 @@ p {
   color: black;
   background: rgba(217, 217, 217, 0.3058823529);
 }
-#document_sidebar .export {
+#document_sidebar .document_export_button {
   margin-inline: 22px;
   padding-top: 22px;
   border-top: 1px solid #dee1e6;
+}
+#document_sidebar .document_export_button .ant-btn {
+  background: #2c3d8f;
+  color: white;
+  font-weight: normal;
+  border: none;
+}
+
+#document_card {
+  width: 100%;
+  height: 100%;
+  background: #f1f1f1;
+  display: flex;
+  top: 0;
+  padding: 25px 100px 25px 100px;
+  justify-content: center;
 }
 
 #page_faculty_calendar .ant-layout-content {
@@ -12825,27 +12833,30 @@ p {
   font-family: "Poppins";
 }
 
-.faculty-dashboard-calendar {
+.faculty-calendar {
   border-radius: 8px;
   box-shadow: 2px 4px 8px rgba(23, 26, 31, 0.12);
 }
-.faculty-dashboard-calendar .ant-picker-calendar .ant-picker-calendar-header {
+.faculty-calendar .ant-picker-calendar .ant-picker-calendar-header {
   padding-inline: 5%;
 }
-.faculty-dashboard-calendar .ant-picker-calendar .ant-picker-calendar-header .ant-radio-group {
+.faculty-calendar .ant-picker-calendar .ant-picker-calendar-header .ant-radio-group {
   display: none;
 }
-.faculty-dashboard-calendar .ant-picker-calendar .ant-picker-panel {
+.faculty-calendar .ant-picker-calendar .ant-picker-panel {
   padding-inline: 5%;
 }
-.faculty-dashboard-calendar .ant-picker-calendar .ant-picker-panel .ant-picker-date-panel .ant-picker-body .ant-picker-content th {
+.faculty-calendar .ant-picker-calendar .ant-picker-panel .ant-picker-date-panel .ant-picker-body .ant-picker-content th {
   font-weight: bold;
   font-size: 16px;
   padding-bottom: 8px;
   color: #2c3d8f;
 }
-.faculty-dashboard-calendar .ant-picker-calendar .ant-picker-panel .ant-picker-date-panel .ant-picker-body .ant-picker-content .ant-picker-cell-selected .ant-picker-calendar-date {
+.faculty-calendar .ant-picker-calendar .ant-picker-panel .ant-picker-date-panel .ant-picker-body .ant-picker-content .ant-picker-cell-selected .ant-picker-calendar-date {
   background: #2c3d8f;
   color: white;
   border: 0;
+}
+.faculty-calendar .ant-picker-calendar .ant-picker-panel .ant-picker-date-panel .ant-picker-body .ant-picker-content .ant-picker-cell-inner::before {
+  border: 1px solid #a5a9bf;
 }

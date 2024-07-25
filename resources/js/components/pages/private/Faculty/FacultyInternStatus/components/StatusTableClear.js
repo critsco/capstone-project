@@ -13,30 +13,6 @@ export default function StatusTableClear({ record, note }) {
     const clearNote = () => {
         setCurrentNote("");
     };
-    // const clearContent = (
-    //     <Flex vertical={true} style={{ padding: "4px" }}>
-    //         <Flex gap={8} style={{ marginBlock: "auto" }}>
-    //             <FontAwesomeIcon
-    //                 icon={faCircleExclamation}
-    //                 fontSize={18}
-    //                 color="orange"
-    //             />
-    //             <p>Are you sure you want to clear the notes?</p>
-    //         </Flex>
-    //         <Flex justify="flex-end" gap={6}>
-    //             <Button onClick={}>Cancel</Button>
-    //             <Button
-    //                 style={{
-    //                     background: "#2c3d8f",
-    //                     color: "white",
-    //                 }}
-    //                 onClick={clearNote}
-    //             >
-    //                 Confirm
-    //             </Button>
-    //         </Flex>
-    //     </Flex>
-    // );
     const noteContent = (
         <Flex gap={2}>
             <Flex
@@ -56,7 +32,7 @@ export default function StatusTableClear({ record, note }) {
                 />
                 <Popconfirm
                     title="Clear the note"
-                    description="Are you sure you want to clear this note?"
+                    description="Do you want to clear this note?"
                     okText="Yes"
                     onConfirm={clearNote}
                     cancelText="No"
@@ -76,7 +52,7 @@ export default function StatusTableClear({ record, note }) {
             content={noteContent}
             title="Notes"
             trigger="click"
-            className="moa-notes"
+            className="table-notes"
         >
             <FontAwesomeIcon icon={faNotes} fontSize="16px" fontWeight="bold" />
         </Popover>

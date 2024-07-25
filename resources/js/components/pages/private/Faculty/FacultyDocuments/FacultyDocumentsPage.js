@@ -5,6 +5,7 @@ import Navbar from "../../../../ui/Navbar";
 import { Col, Layout, Row } from "antd";
 import DocumentSearchBar from "./components/DocumentSearchBar";
 import DocumentSidebar from "./components/DocumentSidebar";
+import DocumentCard from "./components/DocumentCard";
 
 export default function FacultyDocumentsPage(props) {
     const { title } = props;
@@ -35,7 +36,7 @@ export default function FacultyDocumentsPage(props) {
                         <DocumentSidebar />
                     </Col>
                     <Col xs={24} sm={24} md={19} lg={19}>
-                        Documents
+                        <DocumentCard />
                     </Col>
                 </Row>
             </Layout.Content>

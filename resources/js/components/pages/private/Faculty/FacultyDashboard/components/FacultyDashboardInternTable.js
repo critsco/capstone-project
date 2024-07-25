@@ -113,7 +113,6 @@ export default function FacultyInternTable() {
         },
     ];
     const columns = [
-        Table.SELECTION_COLUMN,
         {
             title: "Intern Name",
             dataIndex: "name",
@@ -141,6 +140,26 @@ export default function FacultyInternTable() {
                     options={statusOptions}
                 />
             ),
+            sorter: (a, b) => a.status.localeCompare(b.status),
+            filters: [
+                {
+                    text: "Started",
+                    value: "Started",
+                },
+                {
+                    text: "Accepted",
+                    value: "Accepted",
+                },
+                {
+                    text: "Applied",
+                    value: "Applied",
+                },
+                {
+                    text: "No Progress",
+                    value: "No Progress",
+                },
+            ],
+            onFilter: (value, record) => record.status.indexOf(value) === 0,
         },
         {
             title: "Date Started",
@@ -368,12 +387,10 @@ export default function FacultyInternTable() {
             id="faculty_dashboard_intern_table"
             dataSource={data}
             columns={columns}
-            rowSelection={{}}
             pagination={false}
             bordered={true}
-            tableLayout="fixed"
             scroll={{
-                x: 1300,
+                x: 1800,
             }}
         />
     );

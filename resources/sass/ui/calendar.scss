@@ -1,4 +1,4 @@
-.faculty-dashboard-calendar {
+.faculty-calendar {
     border-radius: 8px;
     box-shadow: 2px 4px 8px rgba(23, 26, 31, 0.12);
 
@@ -29,6 +29,9 @@
                                 color: white;
                                 border: 0;
                             }
+                        }
+                        .ant-picker-cell-inner::before {
+                            border: 1px solid #a5a9bf;
                         }
                     }
                 }
