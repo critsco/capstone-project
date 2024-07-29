@@ -12768,6 +12768,47 @@ p {
   gap: 10px;
   height: 90vh;
 }
+#page_faculty_calendar .ant-layout-content .ant-row .ant-col .ant-flex.calendar-buttons {
+  width: 120px;
+  margin-inline: auto;
+}
+#page_faculty_calendar .ant-layout-content .ant-row .ant-col .ant-flex.calendar-buttons .ant-btn {
+  color: white;
+}
+#page_faculty_calendar .ant-layout-content .ant-row .ant-col .ant-flex.calendar-buttons .ant-btn:hover {
+  border: 0;
+}
+#page_faculty_calendar .ant-layout-content .schedule-row .ant-col .ant-flex .ant-radio-group {
+  background: #2c3d8f;
+  border-radius: 4px;
+  height: 34px;
+  padding-inline: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#page_faculty_calendar .ant-layout-content .schedule-row .ant-col .ant-flex .ant-radio-group .ant-radio-button-wrapper {
+  width: 95px;
+  border-radius: 4px;
+  background: #2c3d8f;
+  color: white;
+  border: 0;
+  border-radius: 4px;
+  text-align: center;
+}
+#page_faculty_calendar .ant-layout-content .schedule-row .ant-col .ant-flex .ant-radio-group .ant-radio-button-wrapper-checked {
+  width: 95px;
+  background: white;
+  color: #2c3d8f;
+  border: 0;
+  border-radius: 3px;
+}
+#page_faculty_calendar .ant-layout-content .schedule-row .ant-col .ant-flex .ant-radio-group :where(.css-dev-only-do-not-override-f7vrd6).ant-radio-button-wrapper:not(:first-child)::before {
+  width: 0;
+}
+#page_faculty_calendar .ant-layout-content .schedule-row .ant-col #faculty_schedule_table {
+  margin-top: 20px;
+}
 
 #page_faculty_profile .ant-layout-content {
   padding-block: 30px;

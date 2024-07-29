@@ -4,5 +4,64 @@
         padding-inline: 5%;
         gap: 10px;
         height: 90vh;
+
+        .ant-row {
+            .ant-col {
+                .ant-flex.calendar-buttons {
+                    width: 120px;
+                    margin-inline: auto;
+
+                    .ant-btn {
+                        color: white;
+                    }
+                    .ant-btn:hover {
+                        border: 0;
+                    }
+                }
+            }
+        }
+
+        .schedule-row {
+            .ant-col {
+                .ant-flex {
+                    .ant-radio-group {
+                        background: #2c3d8f;
+                        border-radius: 4px;
+                        height: 34px;
+                        padding-inline: 1px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        .ant-radio-button-wrapper {
+                            width: 95px;
+                            border-radius: 4px;
+                            background: #2c3d8f;
+                            color: white;
+                            border: 0;
+                            border-radius: 4px;
+                            text-align: center;
+                        }
+                        .ant-radio-button-wrapper-checked {
+                            width: 95px;
+                            background: white;
+                            color: #2c3d8f;
+                            border: 0;
+                            border-radius: 3px;
+                        }
+                        :where(
+                                .css-dev-only-do-not-override-f7vrd6
+                            ).ant-radio-button-wrapper:not(
+                                :first-child
+                            )::before {
+                            width: 0;
+                        }
+                    }
+                }
+                #faculty_schedule_table {
+                    margin-top: 20px;
+                }
+            }
+        }
     }
 }
