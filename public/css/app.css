@@ -12811,12 +12811,28 @@ p {
 }
 
 #page_faculty_profile .ant-layout-content {
-  padding-block: 30px;
-  padding-inline: 5%;
-  gap: 10px;
+  padding-block: 50px;
+  padding-inline: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
   height: 90vh;
 }
-
+#page_faculty_profile .ant-layout-content .ant-row .ant-col .ant-flex .ant-btn {
+  height: 40px;
+  font-size: 12px;
+}
+#page_faculty_profile .ant-layout-content .ant-row .ant-col .ant-flex .ant-btn.image {
+  background: #2c3d8f;
+  color: white;
+  border-radius: 4px;
+}
+#page_faculty_profile .ant-layout-content .ant-row .ant-col .ant-flex .ant-btn.remove {
+  background: white;
+  color: #9095a1;
+  border-radius: 4px;
+  border: 1px solid #9095a1;
+}
 .footer {
   width: 100%;
   background: #f3f4f6;

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { Flex, Select, Table } from "antd";
-import StatusTableClear from "./StatusTableClear";
+import FacultyStatusTableNotes from "../../../../../ui/FacultyStatusTableNotes";
 
 const statusOptions = [
     { value: "tograde", label: "To Grade" },
@@ -65,7 +65,7 @@ export default function InternStatusTable() {
             moa: "Completed",
             moanote: "salamat",
             letterparent: "Completed",
-            letterparentnote: "salamat",
+            letterparentnote: "huh?",
         },
         {
             key: "2",
@@ -76,7 +76,7 @@ export default function InternStatusTable() {
             moa: "Completed",
             moanote: "no",
             letterparent: "Completed",
-            letterparentnote: "no",
+            letterparentnote: "hmm",
         },
         {
             key: "3",
@@ -87,7 +87,7 @@ export default function InternStatusTable() {
             moa: "Completed",
             moanote: "huh?",
             letterparent: "Completed",
-            letterparentnote: "huh?",
+            letterparentnote: "mao?",
         },
         {
             key: "4",
@@ -98,7 +98,7 @@ export default function InternStatusTable() {
             moa: "Completed",
             moanote: "huh?",
             letterparent: "Completed",
-            letterparentnote: "huh?",
+            letterparentnote: "secret",
         },
         {
             key: "5",
@@ -109,7 +109,7 @@ export default function InternStatusTable() {
             moa: "Completed",
             moanote: "naol",
             letterparent: "Completed",
-            letterparentnote: "naol",
+            letterparentnote: "yes",
         },
         {
             key: "6",
@@ -120,7 +120,7 @@ export default function InternStatusTable() {
             moa: "Completed",
             moanote: "naol",
             letterparent: "Completed",
-            letterparentnote: "naol",
+            letterparentnote: "hakdog",
         },
         {
             key: "7",
@@ -131,7 +131,7 @@ export default function InternStatusTable() {
             moa: "Completed",
             moanote: "naol",
             letterparent: "Completed",
-            letterparentnote: "naol",
+            letterparentnote: "ahk",
         },
         {
             key: "8",
@@ -249,7 +249,10 @@ export default function InternStatusTable() {
                         } ${record.moa === "Completed" ? "completed" : ""}`}
                         options={options}
                     />
-                    <StatusTableClear record={record} note={record.moanote} />
+                    <FacultyStatusTableNotes
+                        record={record}
+                        note={record.moanote}
+                    />
                 </Flex>
             ),
             sorter: (a, b) => a.moa.localeCompare(b.moa),
@@ -292,7 +295,10 @@ export default function InternStatusTable() {
                         }`}
                         options={options}
                     />
-                    <StatusTableClear />
+                    <FacultyStatusTableNotes
+                        record={record}
+                        note={record.letterparentnote}
+                    />
                 </Flex>
             ),
             sorter: (a, b) => a.moa.localeCompare(b.moa),
@@ -335,7 +341,7 @@ export default function InternStatusTable() {
                         }`}
                         options={options}
                     />
-                    <StatusTableClear />
+                    <FacultyStatusTableNotes />
                 </Flex>
             ),
             sorter: (a, b) => a.moa.localeCompare(b.moa),
@@ -378,7 +384,7 @@ export default function InternStatusTable() {
                         }`}
                         options={options}
                     />
-                    <StatusTableClear />
+                    <FacultyStatusTableNotes />
                 </Flex>
             ),
             sorter: (a, b) => a.moa.localeCompare(b.moa),
@@ -421,7 +427,7 @@ export default function InternStatusTable() {
                         }`}
                         options={options}
                     />
-                    <StatusTableClear />
+                    <FacultyStatusTableNotes />
                 </Flex>
             ),
             sorter: (a, b) => a.moa.localeCompare(b.moa),
@@ -458,7 +464,7 @@ export default function InternStatusTable() {
                         } ${record.dtr === "Completed" ? "completed" : ""}`}
                         options={options}
                     />
-                    <StatusTableClear />
+                    <FacultyStatusTableNotes />
                 </Flex>
             ),
             sorter: (a, b) => a.moa.localeCompare(b.moa),
@@ -499,7 +505,7 @@ export default function InternStatusTable() {
                         }`}
                         options={options}
                     />
-                    <StatusTableClear />
+                    <FacultyStatusTableNotes />
                 </Flex>
             ),
             sorter: (a, b) => a.moa.localeCompare(b.moa),
@@ -542,7 +548,7 @@ export default function InternStatusTable() {
                         }`}
                         options={options}
                     />
-                    <StatusTableClear />
+                    <FacultyStatusTableNotes />
                 </Flex>
             ),
             sorter: (a, b) => a.moa.localeCompare(b.moa),

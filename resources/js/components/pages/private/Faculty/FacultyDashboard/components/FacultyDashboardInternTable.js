@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { Flex, Select, Table } from "antd";
-import InternTableDropdown from "./InternTableDropdown";
+import FacultyStatusTableNotes from "../../../../../ui/FacultyStatusTableNotes";
 
 const statusOptions = [
     { value: "tograde", label: "To Grade" },
@@ -65,7 +65,7 @@ export default function FacultyInternTable() {
             moa: "Completed",
             moanote: "salamat",
             letterparent: "Completed",
-            letterparentnote: "salamat",
+            letterparentnote: "huh?",
         },
         {
             key: "2",
@@ -76,7 +76,7 @@ export default function FacultyInternTable() {
             moa: "Completed",
             moanote: "no",
             letterparent: "Completed",
-            letterparentnote: "no",
+            letterparentnote: "hmm",
         },
         {
             key: "3",
@@ -87,7 +87,7 @@ export default function FacultyInternTable() {
             moa: "Completed",
             moanote: "huh?",
             letterparent: "Completed",
-            letterparentnote: "huh?",
+            letterparentnote: "mao?",
         },
         {
             key: "4",
@@ -98,7 +98,7 @@ export default function FacultyInternTable() {
             moa: "Completed",
             moanote: "huh?",
             letterparent: "Completed",
-            letterparentnote: "huh?",
+            letterparentnote: "secret",
         },
         {
             key: "5",
@@ -109,7 +109,7 @@ export default function FacultyInternTable() {
             moa: "Completed",
             moanote: "naol",
             letterparent: "Completed",
-            letterparentnote: "naol",
+            letterparentnote: "yes",
         },
     ];
     const columns = [
@@ -192,7 +192,7 @@ export default function FacultyInternTable() {
                         } ${record.moa === "Completed" ? "completed" : ""}`}
                         options={options}
                     />
-                    <InternTableDropdown
+                    <FacultyStatusTableNotes
                         record={record}
                         note={record.moanote}
                     />
@@ -222,7 +222,10 @@ export default function FacultyInternTable() {
                         }`}
                         options={options}
                     />
-                    <InternTableDropdown />
+                    <FacultyStatusTableNotes
+                        record={record}
+                        note={record.letterparentnote}
+                    />
                 </Flex>
             ),
         },
@@ -249,7 +252,7 @@ export default function FacultyInternTable() {
                         }`}
                         options={options}
                     />
-                    <InternTableDropdown />
+                    <FacultyStatusTableNotes />
                 </Flex>
             ),
         },
@@ -276,7 +279,7 @@ export default function FacultyInternTable() {
                         }`}
                         options={options}
                     />
-                    <InternTableDropdown />
+                    <FacultyStatusTableNotes />
                 </Flex>
             ),
         },
@@ -303,7 +306,7 @@ export default function FacultyInternTable() {
                         }`}
                         options={options}
                     />
-                    <InternTableDropdown />
+                    <FacultyStatusTableNotes />
                 </Flex>
             ),
         },
@@ -324,7 +327,7 @@ export default function FacultyInternTable() {
                         } ${record.dtr === "Completed" ? "completed" : ""}`}
                         options={options}
                     />
-                    <InternTableDropdown />
+                    <FacultyStatusTableNotes />
                 </Flex>
             ),
         },
@@ -349,7 +352,7 @@ export default function FacultyInternTable() {
                         }`}
                         options={options}
                     />
-                    <InternTableDropdown />
+                    <FacultyStatusTableNotes />
                 </Flex>
             ),
         },
@@ -376,7 +379,7 @@ export default function FacultyInternTable() {
                         }`}
                         options={options}
                     />
-                    <InternTableDropdown />
+                    <FacultyStatusTableNotes />
                 </Flex>
             ),
         },
