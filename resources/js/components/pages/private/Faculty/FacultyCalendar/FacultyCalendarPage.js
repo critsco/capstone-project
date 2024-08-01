@@ -7,16 +7,26 @@ import FacultyCalendar from "./components/FacultyCalendar";
 import TableSortRadio from "./components/TableSortRadio";
 import VisitationTable from "./components/VisitationTable";
 import OthersTable from "./components/OthersTable";
+import SetSchedule from "./components/SetSchedule";
 
 export default function FacultyCalendarPage(props) {
     const { title } = props;
     const [selectedSort, setSelectedSort] = useState("visitation");
+    const [selectedRowKeys, setSelectedRowKeys] = useState([]);
+    const [selectedRows, setSelectedRows] = useState([]);
 
     useEffect(() => {
         document.title = title;
 
         return () => {};
     }, []);
+
+    const handleSelectChange = (newSelectedRowKeys, newSelectedRows) => {
+        console.log("Selected Row Keys: ", newSelectedRowKeys);
+        console.log("Selected Rows: ", newSelectedRows);
+        setSelectedRowKeys(newSelectedRowKeys);
+        setSelectedRows(newSelectedRows);
+    };
 
     return (
         <Layout id="page_faculty_calendar">
@@ -34,14 +44,7 @@ export default function FacultyCalendarPage(props) {
                         style={{ display: "flex", alignItems: "center" }}
                     >
                         <Flex vertical gap={10} className="calendar-buttons">
-                            <Button
-                                style={{
-                                    background: "#2c3d8f",
-                                    color: "white",
-                                }}
-                            >
-                                Set
-                            </Button>
+                            <SetSchedule />
                             <Button
                                 style={{
                                     background: "#9095A1",
@@ -78,9 +81,15 @@ export default function FacultyCalendarPage(props) {
                             <TableSortRadio setSelectedSort={setSelectedSort} />
                         </Flex>
                         {selectedSort === "visitation" ? (
-                            <VisitationTable />
+                            <VisitationTable
+                                selectedRowKeys={selectedRowKeys}
+                                onSelectChange={handleSelectChange}
+                            />
                         ) : (
-                            <OthersTable />
+                            <OthersTable
+                                selectedRowKeys={selectedRowKeys}
+                                onSelectChange={handleSelectChange}
+                            />
                         )}
                     </Col>
                 </Row>

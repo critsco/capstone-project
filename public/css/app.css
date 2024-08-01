@@ -5,6 +5,10 @@ Layout {
 }
 
 body {
+  background: white;
+}
+
+body {
   font-family: "Poppins", sans-serif;
 }
 
@@ -12774,6 +12778,7 @@ p {
 }
 #page_faculty_calendar .ant-layout-content .ant-row .ant-col .ant-flex.calendar-buttons .ant-btn {
   color: white;
+  height: 38px;
 }
 #page_faculty_calendar .ant-layout-content .ant-row .ant-col .ant-flex.calendar-buttons .ant-btn:hover {
   border: 0;
@@ -12781,7 +12786,7 @@ p {
 #page_faculty_calendar .ant-layout-content .schedule-row .ant-col .ant-flex .ant-radio-group {
   background: #2c3d8f;
   border-radius: 4px;
-  height: 34px;
+  height: 38px;
   padding-inline: 1px;
   display: flex;
   align-items: center;
@@ -12789,12 +12794,15 @@ p {
 }
 #page_faculty_calendar .ant-layout-content .schedule-row .ant-col .ant-flex .ant-radio-group .ant-radio-button-wrapper {
   width: 95px;
+  height: 36px;
   border-radius: 4px;
   background: #2c3d8f;
   color: white;
   border: 0;
   border-radius: 4px;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 #page_faculty_calendar .ant-layout-content .schedule-row .ant-col .ant-flex .ant-radio-group .ant-radio-button-wrapper-checked {
   width: 95px;
@@ -12808,6 +12816,58 @@ p {
 }
 #page_faculty_calendar .ant-layout-content .schedule-row .ant-col #faculty_schedule_table {
   margin-top: 20px;
+}
+
+.setschedule-popover {
+  background: white;
+}
+.setschedule-popover .ant-layout-content .ant-row .ant-col .ant-flex .ant-radio-group {
+  background: #2c3d8f;
+  border-radius: 4px;
+  height: 34px;
+  width: 190px;
+  padding-inline: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.setschedule-popover .ant-layout-content .ant-row .ant-col .ant-flex .ant-radio-group .ant-radio-button-wrapper {
+  width: 95px;
+  border-radius: 4px;
+  background: #2c3d8f;
+  color: white;
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.setschedule-popover .ant-layout-content .ant-row .ant-col .ant-flex .ant-radio-group .ant-radio-button-wrapper-checked {
+  width: 95px;
+  background: white;
+  color: #2c3d8f;
+  border: 0;
+  border-radius: 3px;
+}
+.setschedule-popover .ant-layout-content .ant-row .ant-col .ant-flex .ant-radio-group :where(.css-dev-only-do-not-override-f7vrd6).ant-radio-button-wrapper:not(:first-child)::before {
+  width: 0;
+}
+.setschedule-popover .ant-layout-content .ant-row .ant-col .ant-flex.set-popover-buttons .ant-btn {
+  width: 72px;
+}
+.setschedule-popover .ant-layout-content .ant-row .ant-col .ant-flex.set-popover-buttons .ant-btn.set-btn {
+  background: #2c3d8f;
+  color: white;
+}
+.setschedule-popover .ant-layout-content .ant-row .ant-col .ant-input {
+  border: 0;
+  border-radius: 4px;
+  background: #f3f4f6;
+}
+.setschedule-popover .ant-layout-content .ant-row .ant-col .ant-input ::-moz-placeholder {
+  color: #bdc1ca;
+}
+.setschedule-popover .ant-layout-content .ant-row .ant-col .ant-input ::placeholder {
+  color: #bdc1ca;
 }
 
 #page_faculty_profile .ant-layout-content {
@@ -12831,8 +12891,65 @@ p {
   background: white;
   color: #9095a1;
   border-radius: 4px;
-  border: 1px solid #9095a1;
+  border: 1px solid #e3e3e3;
 }
+#page_faculty_profile .ant-layout-content .ant-row .ant-col .card {
+  border-radius: 8px;
+  box-shadow: 0 6px 8px rgba(23, 26, 31, 0.12);
+}
+#page_faculty_profile .ant-layout-content .ant-row .ant-col .card .card-header {
+  padding: 12px 20px 12px 50px;
+  border-bottom: 1.5px solid #e3e3e3;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  background: #f8f9fa;
+}
+#page_faculty_profile .ant-layout-content .ant-row .ant-col .card .card-header .ant-btn {
+  background: #2c3d8f;
+  color: white;
+  border-radius: 4px;
+}
+#page_faculty_profile .ant-layout-content .ant-row .ant-col .card .card-body {
+  background: #f8f9fa;
+  padding: 20px 32px 20px 32px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+#page_faculty_profile .ant-layout-content .ant-row .ant-col .card .card-body .add-card {
+  border: 2px dashed #bdc1ca;
+  border-radius: 8px;
+  color: #323743;
+  padding: 20px;
+  height: 124px;
+  width: 100%;
+}
+#page_faculty_profile .ant-layout-content .ant-row .ant-col .card .card-body .class-card {
+  border-radius: 8px;
+  padding: 20px;
+  background: #2c3d8f;
+  color: white;
+  height: 124px;
+}
+#page_faculty_profile .ant-layout-content .ant-row .ant-col .card .card-body .class-card .ant-btn {
+  height: 28px;
+  border-radius: 4px;
+}
+#page_faculty_profile .ant-layout-content .ant-row .ant-col .card .card-body .class-card .ant-btn.open-btn {
+  width: 125px;
+}
+#page_faculty_profile .ant-layout-content .ant-row .ant-col .card .card-body .class-card .ant-btn.delete-btn {
+  width: 24px;
+  background: #c12126;
+  color: white;
+  border: 0;
+  display: flex;
+  justify-content: center;
+}
+#page_faculty_profile .ant-layout-content .ant-row .ant-col .card .card-body .class-card .class-title {
+  font-weight: bold;
+  font-size: 22px;
+}
+
 .footer {
   width: 100%;
   background: #f3f4f6;

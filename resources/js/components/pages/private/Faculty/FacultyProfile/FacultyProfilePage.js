@@ -4,8 +4,10 @@ import Footer from "../../../../ui/Footer";
 import Navbar from "../../../../ui/Navbar";
 import { Avatar, Button, Card, Col, Flex, Layout, Row } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/pro-light-svg-icons";
+import { faPenToSquare, faUser } from "@fortawesome/pro-light-svg-icons";
 import { faCircleInfo } from "@fortawesome/pro-regular-svg-icons";
+import ProfileGenInfoCard from "./components/ProfileGenInfoCard";
+import ProfileInternClassCard from "./components/ProfileInternClassCard";
 
 export default function FacultyProfilePage(props) {
     const { title } = props;
@@ -33,7 +35,7 @@ export default function FacultyProfilePage(props) {
                             <div
                                 style={{ fontWeight: "bold", fontSize: "24px" }}
                             >
-                                Rejeenald Miras Flores
+                                Rejeenald Miras Flores (200841)
                             </div>
                             <Flex gap={8} align="center">
                                 <Button className="image">Choose Image</Button>
@@ -48,7 +50,7 @@ export default function FacultyProfilePage(props) {
                                 >
                                     <FontAwesomeIcon
                                         icon={faCircleInfo}
-                                        size="12"
+                                        size="sm"
                                     />
                                     Your image should be in PNG or JPG format
                                     and must not exceed 10 MB.
@@ -59,7 +61,12 @@ export default function FacultyProfilePage(props) {
                 </Row>
                 <Row>
                     <Col xs={24} sm={24} md={24} lg={24}>
-                        <div className="general-info"></div>
+                        <ProfileGenInfoCard />
+                    </Col>
+                </Row>
+                <Row style={{ marginTop: "-8px" }}>
+                    <Col xs={24} sm={24} md={24} lg={24}>
+                        <ProfileInternClassCard />
                     </Col>
                 </Row>
             </Layout.Content>

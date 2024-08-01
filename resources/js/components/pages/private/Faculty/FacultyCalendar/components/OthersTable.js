@@ -2,7 +2,7 @@ import React from "react";
 
 import { Table } from "antd";
 
-export default function OthersTable() {
+export default function OthersTable({ selectedRowKeys, onSelectChange }) {
     const data = [
         {
             key: "1",
@@ -90,6 +90,11 @@ export default function OthersTable() {
         },
     ];
 
+    const rowSelection = {
+        selectedRowKeys,
+        onChange: onSelectChange,
+    };
+
     return (
         <div id="faculty_schedule_table">
             <Table
@@ -97,7 +102,7 @@ export default function OthersTable() {
                 columns={columns}
                 pagination={false}
                 bordered={true}
-                rowSelection={{}}
+                rowSelection={rowSelection}
             />
         </div>
     );

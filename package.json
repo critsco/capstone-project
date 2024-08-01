@@ -38,7 +38,10 @@
         "antd": "^5.19.0",
         "antd-img-crop": "^4.22.0",
         "dayjs": "^1.11.11",
+        "react-date-picker": "^11.0.0",
+        "react-mobile-datepicker": "^4.0.2",
         "react-query": "^3.39.3",
-        "react-router-dom": "^6.23.1"
+        "react-router-dom": "^6.23.1",
+        "react-time-picker": "^7.0.0"
     }
 }

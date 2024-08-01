@@ -2,7 +2,7 @@ import React from "react";
 
 import { Table } from "antd";
 
-export default function VisitationTable() {
+export default function VisitationTable({ selectedRowKeys, onSelectChange }) {
     const data = [
         {
             key: "1",
@@ -101,6 +101,11 @@ export default function VisitationTable() {
         },
     ];
 
+    const rowSelection = {
+        selectedRowKeys,
+        onChange: onSelectChange,
+    };
+
     return (
         <div id="faculty_schedule_table">
             <Table
@@ -108,7 +113,7 @@ export default function VisitationTable() {
                 columns={columns}
                 pagination={false}
                 bordered={true}
-                rowSelection={{}}
+                rowSelection={rowSelection}
             />
         </div>
     );
