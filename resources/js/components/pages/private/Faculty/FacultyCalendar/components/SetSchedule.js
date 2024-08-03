@@ -32,7 +32,7 @@ export default function SetSchedule() {
     };
 
     const content = (
-        <Layout className="setschedule-popover">
+        <Layout className="schedule-popover">
             <Layout.Content>
                 <Flex vertical gap={12}>
                     <Row>
