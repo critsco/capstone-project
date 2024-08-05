@@ -12818,61 +12818,6 @@ p {
   margin-top: 20px;
 }
 
-.schedule-popover {
-  background: white;
-}
-.schedule-popover .ant-layout-content .ant-form .ant-flex .ant-row .ant-col .ant-flex .ant-radio-group {
-  background: #2c3d8f;
-  border-radius: 4px;
-  height: 34px;
-  width: 190px;
-  padding-inline: 1px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.schedule-popover .ant-layout-content .ant-form .ant-flex .ant-row .ant-col .ant-flex .ant-radio-group .ant-radio-button-wrapper {
-  width: 95px;
-  border-radius: 4px;
-  background: #2c3d8f;
-  color: white;
-  border: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.schedule-popover .ant-layout-content .ant-form .ant-flex .ant-row .ant-col .ant-flex .ant-radio-group .ant-radio-button-wrapper-checked {
-  width: 95px;
-  background: white;
-  color: #2c3d8f;
-  border: 0;
-  border-radius: 3px;
-}
-.schedule-popover .ant-layout-content .ant-form .ant-flex .ant-row .ant-col .ant-flex .ant-radio-group :where(.css-dev-only-do-not-override-f7vrd6).ant-radio-button-wrapper:not(:first-child)::before {
-  width: 0;
-}
-.schedule-popover .ant-layout-content .ant-form .ant-flex .ant-row .ant-col .ant-flex.popover-buttons .ant-btn {
-  width: 72px;
-}
-.schedule-popover .ant-layout-content .ant-form .ant-flex .ant-row .ant-col .ant-flex.popover-buttons .ant-btn.save-btn {
-  background: #2c3d8f;
-  color: white;
-}
-.schedule-popover .ant-layout-content .ant-form .ant-flex .ant-row .ant-col .ant-form-item {
-  margin-bottom: 0;
-}
-.schedule-popover .ant-layout-content .ant-form .ant-flex .ant-row .ant-col .ant-form-item .ant-form-item-row .ant-form-item-control .ant-form-item-control-input .ant-form-item-control-input-content .ant-input {
-  border: 0;
-  border-radius: 4px;
-  background: #f3f4f6;
-}
-.schedule-popover .ant-layout-content .ant-form .ant-flex .ant-row .ant-col .ant-form-item .ant-form-item-row .ant-form-item-control .ant-form-item-control-input .ant-form-item-control-input-content .ant-input ::-moz-placeholder {
-  color: #bdc1ca;
-}
-.schedule-popover .ant-layout-content .ant-form .ant-flex .ant-row .ant-col .ant-form-item .ant-form-item-row .ant-form-item-control .ant-form-item-control-input .ant-form-item-control-input-content .ant-input ::placeholder {
-  color: #bdc1ca;
-}
-
 #page_faculty_profile .ant-layout-content {
   padding-block: 50px;
   padding-inline: 300px;

@@ -1,8 +1,11 @@
 import React from "react";
 
-import { Table } from "antd";
+import { Flex, Popconfirm, Table } from "antd";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPenToSquare } from "@fortawesome/pro-regular-svg-icons";
+import { faTrashXmark } from "@fortawesome/pro-regular-svg-icons";
 
-export default function VisitationTable({ selectedRowKeys, onSelectChange }) {
+export default function VisitationTable() {
     const data = [
         {
             key: "1",
@@ -58,16 +61,43 @@ export default function VisitationTable({ selectedRowKeys, onSelectChange }) {
 
     const columns = [
         {
+            title: "Actions",
+            dataIndex: "actions",
+            key: "actions",
+            align: "center",
+            width: "140px",
+            render: (_, record) => (
+                <Flex gap={8} justify="center">
+                    <FontAwesomeIcon
+                        icon={faPenToSquare}
+                        style={{ cursor: "pointer" }}
+                    />
+                    <Popconfirm
+                        title="Do wish to delete this record?"
+                        onConfirm={() => handleDelete(record.key)}
+                    >
+                        <FontAwesomeIcon
+                            icon={faTrashXmark}
+                            color="#c12126"
+                            style={{ cursor: "pointer" }}
+                        />
+                    </Popconfirm>
+                </Flex>
+            ),
+        },
+        {
             title: "Intern Name",
             dataIndex: "name",
             key: "name",
             align: "center",
+            width: "235px",
         },
         {
             title: "Student ID",
             dataIndex: "student_id",
             key: "student_id",
             align: "center",
+            width: "150px",
         },
         {
             title: "Practicum Instructor",
@@ -92,19 +122,16 @@ export default function VisitationTable({ selectedRowKeys, onSelectChange }) {
             dataIndex: "date",
             key: "date",
             align: "center",
+            width: "150px",
         },
         {
             title: "Time",
             dataIndex: "time",
             key: "time",
             align: "center",
+            width: "150px",
         },
     ];
-
-    const rowSelection = {
-        selectedRowKeys,
-        onChange: onSelectChange,
-    };
 
     return (
         <div id="faculty_schedule_table">
@@ -113,7 +140,6 @@ export default function VisitationTable({ selectedRowKeys, onSelectChange }) {
                 columns={columns}
                 pagination={false}
                 bordered={true}
-                rowSelection={rowSelection}
             />
         </div>
     );

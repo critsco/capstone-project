@@ -24,11 +24,6 @@ export default function EditSchedule({
     const [open, setOpen] = useState(false);
     const [form] = Form.useForm();
     const [purpose, setPurpose] = useState("visitation");
-    const [internName, setInternName] = useState("");
-    const [document, setDocument] = useState("");
-    const [note, setNote] = useState("");
-    const [date, setDate] = useState(null);
-    const [time, setTime] = useState(null);
 
     useEffect(() => {
         if (selectedRows.length === 1) {
@@ -52,7 +47,7 @@ export default function EditSchedule({
     const content = (
         <Layout className="schedule-popover">
             <Layout.Content>
-                <Form form={form}>
+                <Form form={form} layout="vertical">
                     <Flex vertical gap={12}>
                         <Row>
                             <Col xs={24} sm={24} md={14} lg={14}>
@@ -65,23 +60,20 @@ export default function EditSchedule({
                                     >
                                         Purpose
                                     </div>
-                                    <SchedulePurposeRadio
-                                        setPurpose={(purpose) =>
-                                            form.setFieldsValue({ purpose })
-                                        }
-                                    />
+                                    <Form.Item name="purpose" noStyle>
+                                        <SchedulePurposeRadio
+                                            setPurpose={(purpose) =>
+                                                form.setFieldsValue({ purpose })
+                                            }
+                                        />
+                                    </Form.Item>
                                 </Flex>
                             </Col>
                         </Row>
                         <Row>
                             <Col xs={24} sm={24} md={24} lg={24}>
                                 <Form.Item name="internName">
-                                    <Input
-                                        placeholder="Intern Name"
-                                        value={internName}
-                                        required
-                                        // onChange={(e) => setInternName(e.target.value)}
-                                    />
+                                    <Input placeholder="Intern Name" />
                                 </Form.Item>
                             </Col>
                         </Row>
@@ -91,24 +83,12 @@ export default function EditSchedule({
                             <Row gutter={6}>
                                 <Col xs={24} sm={24} md={12} lg={12}>
                                     <Form.Item name="document">
-                                        <Input
-                                            placeholder="Document"
-                                            value={document}
-                                            required
-                                            // onChange={(e) =>
-                                            //     setDocument(e.target.value)
-                                            // }
-                                        />
+                                        <Input placeholder="Document" />
                                     </Form.Item>
                                 </Col>
                                 <Col xs={24} sm={24} md={12} lg={12}>
                                     <Form.Item name="note">
-                                        <Input
-                                            placeholder="Note"
-                                            value={note}
-                                            required
-                                            // onChange={(e) => setNote(e.target.value)}
-                                        />
+                                        <Input placeholder="Note" />
                                     </Form.Item>
                                 </Col>
                             </Row>
@@ -121,8 +101,6 @@ export default function EditSchedule({
                                     </div>
                                     <Form.Item name="date">
                                         <DatePicker
-                                            value={date}
-                                            onChange={(date) => setDate(date)}
                                             style={{
                                                 width: "100%",
                                                 fontSize: "16px",
@@ -141,8 +119,6 @@ export default function EditSchedule({
                                     </div>
                                     <Form.Item name="time">
                                         <TimePicker
-                                            value={time}
-                                            onChange={(time) => setTime(time)}
                                             use12Hours
                                             format="h:mm A"
                                             style={{
