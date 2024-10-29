@@ -1,0 +1,29 @@
+@import "./_variables";
+
+@import "./ui/mixin/mixin";
+@import "./ui/colors/colors";
+
+@import "./ui/alert/alert";
+@import "./ui/button/button";
+@import "./ui/card/card";
+@import "./ui/checkbox/checkbox";
+@import "./ui/collapse/collapse";
+@import "./ui/dropdown/dropdown";
+@import "./ui/error-404/error-404";
+@import "./ui/footer/footer";
+@import "./ui/helper/helper";
+@import "./ui/input/input";
+@import "./ui/radio/radio";
+@import "./ui/table/table";
+@import "./ui/modal/modal";
+@import "./ui/navbar/navbar";
+@import "./ui/notification/notification";
+@import "./ui/popover/popover";
+@import "./ui/private-layout/private-layout";
+@import "./ui/public-layout/public-layout";
+@import "./ui/quill/quill";
+
+@import "./pages/public/page_student_login/page_student_login.scss";
+@import "./pages/public/page_faculty_login/page_faculty_login.scss";
+
+@import "./pages/private/faculty/page_faculty_dashboard/page_faculty_dashboard.scss";

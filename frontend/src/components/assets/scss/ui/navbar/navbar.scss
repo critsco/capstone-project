@@ -1,0 +1,44 @@
+.navbar {
+	background: #f3f4f6;
+	padding: 0;
+	height: 62px;
+
+	.ant-flex {
+		padding-inline: 6%;
+		box-shadow: 0 4px 9px rgba(23, 26, 31, 0.12);
+
+		.header-title {
+			font-size: 18px !important;
+		}
+		.ant-flex.nav-buttons {
+			box-shadow: none;
+			height: 60px;
+
+			.ant-btn {
+				height: 100%;
+				width: 125px;
+				border-bottom: 4px solid #f3f4f6;
+				text-decoration: none;
+				background: #f3f4f6;
+				border-radius: 0 !important;
+			}
+			.ant-btn:hover {
+				background: #d9d9d9;
+				border-bottom: 4px solid #d9d9d9;
+			}
+			.ant-btn.selected {
+				font-weight: bold;
+				color: #2c3d8f;
+				border-bottom: 4px solid #2c3d8f;
+			}
+		}
+		.ant-btn.logout-btn {
+			height: 60px;
+			border-radius: 0 !important;
+
+			.ant-flex {
+				box-shadow: none;
+			}
+		}
+	}
+}

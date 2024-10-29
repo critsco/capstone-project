@@ -1,0 +1,70 @@
+{
+	"name": "frontend",
+	"version": "0.1.0",
+	"private": true,
+	"dependencies": {
+		"@ant-design/compatible": "^5.1.2",
+		"@ant-design/icons": "^5.3.7",
+		"@ant-design/pro-layout": "^7.19.0",
+		"@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+		"@babel/preset-react": "^7.13.13",
+		"@fortawesome/fontawesome-pro": "^6.5.2",
+		"@fortawesome/fontawesome-svg-core": "^6.5.2",
+		"@fortawesome/free-brands-svg-icons": "^6.5.2",
+		"@fortawesome/pro-duotone-svg-icons": "^6.5.2",
+		"@fortawesome/pro-light-svg-icons": "^6.5.2",
+		"@fortawesome/pro-regular-svg-icons": "^6.5.2",
+		"@fortawesome/pro-solid-svg-icons": "^6.5.2",
+		"@fortawesome/react-fontawesome": "^0.2.2",
+		"@testing-library/jest-dom": "^5.17.0",
+		"@testing-library/react": "^13.4.0",
+		"@testing-library/user-event": "^13.5.0",
+		"antd": "^5.17.0",
+		"antd-img-crop": "^4.21.0",
+		"antd-password-input-strength": "^2.0.1",
+		"axios": "^1.7.7",
+		"crypto-js": "^4.2.0",
+		"dayjs": "^1.11.11",
+		"highcharts": "^11.4.8",
+		"highcharts-react-official": "^3.2.1",
+		"jwt-decode": "^4.0.0",
+		"ldrs": "^1.0.2",
+		"react": "^18.3.1",
+		"react-clear-cache": "^1.4.14",
+		"react-dom": "^18.3.1",
+		"react-fontawesome": "^1.7.1",
+		"react-image-file-resizer": "^0.4.8",
+		"react-query": "^3.39.3",
+		"react-router-dom": "^6.23.0",
+		"react-scripts": "5.0.1",
+		"react-webcam": "^7.2.0",
+		"sass": "^1.77.0",
+		"spinners-react": "^1.0.7",
+		"sweetalert2": "^11.14.4",
+		"web-vitals": "^2.1.4"
+	},
+	"scripts": {
+		"start": "react-scripts start",
+		"build": "react-scripts build",
+		"test": "react-scripts test",
+		"eject": "react-scripts eject"
+	},
+	"eslintConfig": {
+		"extends": [
+			"react-app",
+			"react-app/jest"
+		]
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	}
+}
