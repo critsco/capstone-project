@@ -69,7 +69,10 @@ export default function OthersTable() {
                         icon={faPenToSquare}
                         style={{ cursor: "pointer" }}
                     />
-                    <Popconfirm>
+                    <Popconfirm
+                        title="Do wish to delete this record?"
+                        onConfirm={() => handleDelete(record.key)}
+                    >
                         <FontAwesomeIcon
                             icon={faTrashXmark}
                             color="#c12126"

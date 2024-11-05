@@ -69,3 +69,19 @@
         }
     }
 }
+
+.ant-popover {
+    .ant-popover-content {
+        .ant-popover-inner {
+            .ant-popover-inner-content {
+                .ant-popconfirm-inner-content {
+                    .ant-popconfirm-buttons {
+                        .ant-btn-primary {
+                            background: #2c3d8f;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
