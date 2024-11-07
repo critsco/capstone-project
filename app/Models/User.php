@@ -18,9 +18,15 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
         'email',
+        'email_verified_at',
         'password',
+        'user_role_id',
+        'remember_token',
+        'created_by',
+        'updated_by',
+        'deactivated_by',
+        'deactivated_at',
     ];
 
     /**
@@ -42,13 +48,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function faculty()
+    public function profiles()
     {
-        return $this->hasOne(Faculty::class);
+        return $this->hasOne(Profile::class, "user_id");
     }
 
-    public function student()
+    public function user_role()
     {
-        return $this->hasOne(Student::class);
+        return $this->belongsTo(UserRole::class, "user_role_id");
     }
 }

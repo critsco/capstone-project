@@ -1,0 +1,218 @@
+#PageFacultyLogin {
+    * {
+        font-family: "Poppins" !important;
+    }
+    .ant-layout-content {
+        .ant-row {
+            .ant-col {
+                .ant-card.card-features {
+                    min-height: 96vh;
+                    border: 0;
+                    border-radius: 0;
+                    background-color: #2c3d8f;
+                    color: white;
+                    text-align: center;
+                    padding-inline: 25px;
+                    align-content: center;
+
+                    .title {
+                        text-align: center;
+                        font-weight: bold;
+                        font-size: 30px;
+                        margin-bottom: 30px;
+                    }
+
+                    .ant-row {
+                        display: flex;
+                        align-items: start;
+                        justify-content: space-between;
+
+                        .ant-card {
+                            border: 0;
+                            border-radius: 0;
+                            background-color: #2c3d8f;
+                            color: white;
+                            text-align: center;
+
+                            .feature-title {
+                                font-size: 20px;
+                                font-weight: bold;
+                            }
+                            .feature-desc {
+                                text-align: justify;
+                                font-size: 16px;
+                                max-width: 300px;
+                                color: #bdc1ca;
+                            }
+                        }
+                    }
+                }
+                .ant-card.card-login {
+                    min-height: 97vh;
+                    border: 0;
+                    border-radius: 0;
+                    padding-inline: 50px;
+                    padding-block: 0;
+                    margin-top: -10px;
+
+                    .ant-row.header-buttons {
+                        .ant-btn {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: center;
+                            padding: 0;
+                            border-radius: 0 !important;
+                            font-size: 16px;
+                            text-decoration: none;
+                            height: 100%;
+
+                            .selected-header {
+                                padding-top: 4px;
+                                color: #2c3d8f;
+                                font-weight: bolder;
+                                align-content: center;
+                                height: 30px;
+                                transition: transform 0.5s ease-in-out;
+                            }
+                            .selected-line {
+                                background: #2c3d8f;
+                                width: 150px;
+                                height: 5px;
+                            }
+                            .header-title {
+                                padding-top: 4px;
+                                align-content: center;
+                                height: 30px;
+                                transition: transform 0.5s ease-in-out;
+                            }
+                            .line {
+                                background: none;
+                                width: 150px;
+                                height: 5px;
+                                margin-top: 8px;
+                            }
+                        }
+
+                        .ant-btn:hover .header-title,
+                        .ant-btn:hover .selected-header {
+                            transform: scale(1.05);
+                        }
+                    }
+                    .ant-row.card-login {
+                        margin-bottom: -30px;
+
+                        .ant-card {
+                            width: 100%;
+                            height: 80vh;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            border: 0;
+
+                            .ant-card-body {
+                                width: 70%;
+
+                                img {
+                                    display: block;
+                                    margin-inline: auto;
+                                }
+                                h1 {
+                                    font-size: 39px;
+                                    font-weight: bold;
+                                    margin-top: 20px;
+                                }
+
+                                .ant-form {
+                                    * {
+                                        font-size: 16px;
+                                    }
+
+                                    .ant-form-item {
+                                        .ant-form-item-row {
+                                            .ant-form-item-control {
+                                                .ant-form-item-control-input {
+                                                    .ant-form-item-control-input-content {
+                                                        .ant-input {
+                                                            padding: 8px 12px;
+                                                            font-size: 16px;
+                                                            border: 1px solid
+                                                                #dee1e6 !important;
+
+                                                            background: #f3f4f6;
+                                                        }
+                                                        .ant-input::placeholder {
+                                                            color: #bdc1ca !important;
+                                                        }
+                                                    }
+
+                                                    .ant-input-password {
+                                                        padding: 4px 12px !important;
+                                                        background: #f3f4f6;
+                                                        border: 1px solid
+                                                            #dee1e6;
+
+                                                        .ant-input {
+                                                            padding: 4px 0 !important;
+                                                            border: 0 !important;
+                                                            font-size: 16px;
+                                                            background: #f3f4f6;
+                                                        }
+                                                        .ant-input::placeholder {
+                                                            color: #bdc1ca !important;
+                                                        }
+                                                    }
+                                                }
+                                            }
+
+                                            .ant-form-item-label {
+                                                font-weight: bold;
+
+                                                .ant-form-item-required::before {
+                                                    display: none;
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    .ant-btn {
+                                        margin-top: 14px;
+                                        height: 42px;
+                                        width: 100%;
+                                        border-radius: 8px !important;
+                                        background: #2c3d8f;
+                                        color: white;
+                                        transition: 0.5s ease-in-out;
+                                    }
+
+                                    .ant-btn:hover {
+                                        background: #2237a2;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .ant-flex {
+                    margin-top: 10px;
+                    font-size: 16px;
+
+                    .ant-btn {
+                        border: 0;
+                        padding: 0;
+                        outline: 0;
+                        text-decoration-line: underline;
+                        color: #2c3d8f;
+                        font-weight: bold;
+                        transition: transform 0.5s ease-in-out;
+                    }
+
+                    .ant-btn:hover span {
+                        color: #2237a2;
+                        transform: scale(1.05);
+                    }
+                }
+            }
+        }
+    }
+}

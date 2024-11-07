@@ -1,21 +1,40 @@
 import { Route, Routes } from "react-router-dom";
 
-import StudentLoginPage from "../pages/public/Student/StudentLogin/StudentLoginPage";
-import FacultyDashboardPage from "../pages/private/Faculty/FacultyDashboard/FacultyDashboardPage";
-import FacultyLoginPage from "../pages/public/Faculty/FacultyLogin/FacultyLoginPage";
-import FacultyInternStatusPage from "../pages/private/Faculty/FacultyInternStatus/FacultyInternStatusPage";
-import FacultyDocumentsPage from "../pages/private/Faculty/FacultyDocuments/FacultyDocumentsPage";
-import FacultyCalendarPage from "../pages/private/Faculty/FacultyCalendar/FacultyCalendarPage";
-import FacultyProfilePage from "../pages/private/Faculty/FacultyProfile/FacultyProfilePage";
+import PublicRoute from "./PublicRoute";
+import PrivateRoute from "./PrivateRoute";
+
+import Page404 from "../views/errors/Page404";
+
+import PageFacultyLogin from "../views/public/Faculty/PageFacultyLogin";
+import PageStudentLogin from "../views/public/Student/PageStudentLogin";
 
 export default function RouteList() {
     return (
         <Routes>
-            // Faculty Faculty
+            {/* Public Routes */}
             <Route
                 path="/faculty"
-                element={<FacultyLoginPage title="AutoForm - Faculty Login" />}
+                element={
+                    <PublicRoute
+                        title="AutoForm - Faculty Login"
+                        pageId="PageFacultyLogin"
+                    >
+                        <PageFacultyLogin />
+                    </PublicRoute>
+                }
             />
+            <Route
+                path="/"
+                element={
+                    <PublicRoute
+                        title="AutoForm - Student Login"
+                        pageId="PageStudentLogin"
+                    >
+                        <PageStudentLogin />
+                    </PublicRoute>
+                }
+            />
+            {/* //Private Routes | Faculty
             <Route
                 path="/faculty/dashboard"
                 element={
@@ -45,12 +64,10 @@ export default function RouteList() {
                 element={
                     <FacultyProfilePage title="AutoForm - Faculty Profile" />
                 }
-            />
-            // Student Portal
-            <Route
-                path="/"
-                element={<StudentLoginPage title="AutoForm - Student Login" />}
-            />
+            /> */}
+
+            {/* Page404 Error */}
+            <Route path="*" element={<Page404 pageId="Page404" />} />
         </Routes>
     );
 }

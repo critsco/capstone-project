@@ -28,7 +28,7 @@
         :root,
         html,
         body {
-            font-family: "PoppinsMedium";
+            font-family: "Poppins" !important;
         }
     </style>
 </head>
