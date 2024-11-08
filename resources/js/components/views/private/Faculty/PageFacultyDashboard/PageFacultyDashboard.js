@@ -1,21 +1,11 @@
-import React, { useEffect } from "react";
-
+import React from "react";
 import { Col, Layout, Row } from "antd";
-import Footer from "../../../../ui/Footer";
-import Navbar from "../../../../ui/Navbar";
+
 import FacultyScheduleTable from "./components/FacultyDashboardScheduleTable";
 import FacultyCalendar from "./components/FacultyDashboardCalendar";
 import FacultyInternTable from "./components/FacultyDashboardInternTable";
 
-export default function FacultyDashboardPage(props) {
-    const { title } = props;
-
-    useEffect(() => {
-        document.title = title;
-
-        return () => {};
-    }, []);
-
+export default function FacultyDashboardPage() {
     return (
         <Layout id="page_faculty_dashboard">
             <Navbar />

@@ -1,14 +1,59 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { Button, Card, Flex, Form, Input, Row } from "antd";
+import { Link, useNavigate } from "react-router-dom";
+import { Button, Card, Flex, Form, Input, notification, Row } from "antd";
 
+import { POST } from "../../../../../providers/useAxiosQuery";
+import { encrypt } from "../../../../../providers/companyInfo";
+import notificationErrors from "../../../../../providers/notificationErrors";
 import SignupModal from "./components/SignupModal";
 
 export default function CardLogin() {
     const [toggleModalForm, setToggleModalForm] = useState({
         open: false,
     });
-    const [loginForm] = Form.useForm();
+    const [form] = Form.useForm();
+    const navigate = useNavigate();
+
+    const [errorMessageLogin, setErrorMessageLogin] = useState({
+        type: "",
+        message: "",
+    });
+
+    const { mutate: mutateStudentLogin, isLoading: isLoadingStudentLogin } =
+        POST(`api/login`, "login_list");
+
+    const onFinish = (values) => {
+        console.log("onFinish", values);
+
+        let data = {
+            ...values,
+            user_role_id: "2",
+        };
+
+        mutateStudentLogin(data, {
+            onSuccess: (res) => {
+                console.log("res", res);
+
+                if (res.success) {
+                    localStorage.userdata = encrypt(JSON.stringify(res.data));
+                    localStorage.token = res.token;
+
+                    window.location.reload();
+                } else {
+                    setErrorMessageLogin({
+                        type: "error",
+                        message: res.message,
+                    });
+                }
+            },
+            onError: (err) => {
+                setErrorMessageLogin({
+                    type: "error",
+                    message: <>Unrecognized email or password.</>,
+                });
+            },
+        });
+    };
 
     return (
         <>
@@ -30,10 +75,11 @@ export default function CardLogin() {
                         <img width="160" alt="logo" src="/images/Logo.png" />
                         <h1>Welcome to AutoForm!</h1>
                         <Form
-                            form={loginForm}
+                            form={form}
                             layout="vertical"
                             className="login-form"
                             autoComplete="off"
+                            onFinish={onFinish}
                         >
                             <Form.Item
                                 label="Email"
@@ -65,8 +111,9 @@ export default function CardLogin() {
 
                             <Button
                                 onClick={() => {
-                                    loginForm.submit();
+                                    form.submit();
                                 }}
+                                loading={isLoadingStudentLogin}
                             >
                                 Sign In
                             </Button>

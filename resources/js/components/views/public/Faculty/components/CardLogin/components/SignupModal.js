@@ -18,7 +18,7 @@ import notificationErrors from "../../../../../../providers/notificationErrors";
 
 export default function SignupModal(props) {
     const { toggleModalForm, setToggleModalForm } = props;
-    const [registerForm] = Form.useForm();
+    const [form] = Form.useForm();
 
     const { data: dataDepartment } = GET(
         `api/pub_department_list`,
@@ -90,7 +90,7 @@ export default function SignupModal(props) {
                     <Button
                         key={2}
                         className="submit-btn"
-                        onClick={() => registerForm.submit()}
+                        onClick={() => form.submit()}
                         loading={isLoadingFacultyRegister}
                     >
                         Submit
@@ -106,7 +106,7 @@ export default function SignupModal(props) {
                 <div>Practicum Instructor Information</div>
             </Flex>
             <Form
-                form={registerForm}
+                form={form}
                 layout="vertical"
                 autoComplete="off"
                 onFinish={onFinish}

@@ -1,32 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import { Col, Flex, Layout, Row } from "antd";
 
-import Footer from "../../../../ui/Footer";
-import Navbar from "../../../../ui/Navbar";
-import {
-    Button,
-    Col,
-    Flex,
-    Form,
-    Input,
-    Layout,
-    Modal,
-    Row,
-    Table,
-} from "antd";
 import FacultyCalendar from "./components/FacultyCalendar";
 import TableSortRadio from "./components/TableSortRadio";
 import VisitationTable from "./components/VisitationTable";
 import OthersTable from "./components/OthersTable";
 
-export default function FacultyCalendarPage(props) {
-    const { title } = props;
+export default function FacultyCalendarPage() {
     const [selectedSort, setSelectedSort] = useState("visitation");
-
-    useEffect(() => {
-        document.title = title;
-
-        return () => {};
-    }, []);
 
     return (
         <Layout id="page_faculty_calendar">

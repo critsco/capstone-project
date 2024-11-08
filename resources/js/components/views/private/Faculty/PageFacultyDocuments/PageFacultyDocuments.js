@@ -1,21 +1,11 @@
-import React, { useEffect } from "react";
-
-import Footer from "../../../../ui/Footer";
-import Navbar from "../../../../ui/Navbar";
+import React from "react";
 import { Col, Layout, Row } from "antd";
+
 import DocumentSearchBar from "./components/DocumentSearchBar";
 import DocumentSidebar from "./components/DocumentSidebar";
 import DocumentCard from "./components/DocumentCard";
 
-export default function FacultyDocumentsPage(props) {
-    const { title } = props;
-
-    useEffect(() => {
-        document.title = title;
-
-        return () => {};
-    }, []);
-
+export default function FacultyDocumentsPage() {
     return (
         <Layout id="page_faculty_documents">
             <Navbar />

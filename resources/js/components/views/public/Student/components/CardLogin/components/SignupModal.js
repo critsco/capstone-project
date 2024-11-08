@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import {
     Button,
     Col,
@@ -19,12 +19,11 @@ import notificationErrors from "../../../../../../providers/notificationErrors";
 
 export default function SignupModal(props) {
     const { toggleModalForm, setToggleModalForm } = props;
-    const [registerForm] = Form.useForm();
+    const [form] = Form.useForm();
 
     const [selectedRegion, setSelectedRegion] = useState(null);
     const [selectedProvince, setSelectedProvince] = useState(null);
     const [selectedMunicipality, setSelectedMunicipality] = useState(null);
-    const [selectedBaranagay, setSelectedBaranagay] = useState(null);
 
     const { data: dataDepartment } = GET(
         `api/pub_department_list`,
@@ -40,8 +39,6 @@ export default function SignupModal(props) {
         `api/pub_region_dropdown`,
         "region_dropdown"
     );
-
-    console.log("dataAddress", dataAddress);
 
     const regions = dataAddress?.data.map((region) => ({
         value: region.id,
@@ -67,7 +64,16 @@ export default function SignupModal(props) {
               })) || []
         : [];
 
-    console.log("municipalities", municipalities);
+    const barangays = selectedMunicipality
+        ? dataAddress?.data
+              .flatMap((region) => region.ref_provinces)
+              .flatMap((province) => province.ref_municipalities)
+              .find((municipality) => municipality.id === selectedMunicipality)
+              ?.ref_barangays.map((barangay) => ({
+                  value: barangay.id,
+                  label: barangay.barangay,
+              })) || []
+        : [];
 
     const {
         mutate: mutateStudentRegister,
@@ -113,7 +119,9 @@ export default function SignupModal(props) {
 
     const handleRegionChange = (regionId) => {
         setSelectedRegion(regionId);
-        registerForm.setFieldsValue({
+        setSelectedProvince(null);
+        setSelectedMunicipality(null);
+        form.setFieldsValue({
             province_id: null,
             municipality_id: null,
             barangay_id: null,
@@ -122,7 +130,8 @@ export default function SignupModal(props) {
 
     const handleProvinceChange = (provinceId) => {
         setSelectedProvince(provinceId);
-        registerForm.setFieldsValue({
+        setSelectedMunicipality(null);
+        form.setFieldsValue({
             municipality_id: null,
             barangay_id: null,
         });
@@ -130,7 +139,7 @@ export default function SignupModal(props) {
 
     const handleMunicipalityChange = (municipalityId) => {
         setSelectedMunicipality(municipalityId);
-        registerForm.setFieldsValue({
+        form.setFieldsValue({
             barangay_id: null,
         });
     };
@@ -163,7 +172,7 @@ export default function SignupModal(props) {
                     <Button
                         key={2}
                         className="submit-btn"
-                        onClick={() => registerForm.submit()}
+                        onClick={() => form.submit()}
                         loading={isLoadingStudentRegister}
                     >
                         Submit
@@ -179,7 +188,7 @@ export default function SignupModal(props) {
                 <div>Student Information</div>
             </Flex>
             <Form
-                form={registerForm}
+                form={form}
                 layout="vertical"
                 autoComplete="off"
                 onFinish={onFinish}
@@ -334,11 +343,8 @@ export default function SignupModal(props) {
                             <Select
                                 required={true}
                                 placeholder="City/Municipality"
-                                options={[
-                                    { value: "male", label: "Male" },
-                                    { value: "female", label: "Female" },
-                                ]}
-                                disabled={!selectedBaranagay}
+                                options={barangays}
+                                disabled={!selectedMunicipality}
                             />
                         </Form.Item>
                     </Col>
@@ -360,9 +366,31 @@ export default function SignupModal(props) {
                             colon={false}
                             rules={[
                                 {
+                                    required: true,
+                                    message: "Please enter your password",
+                                },
+                                {
                                     min: 8,
                                     message:
                                         "Password must be at least 8 characters",
+                                },
+                                {
+                                    validator: (_, value) => {
+                                        // Regular expression to validate password
+                                        const passwordValidation =
+                                            /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+                                        if (
+                                            !value ||
+                                            passwordValidation.test(value)
+                                        ) {
+                                            return Promise.resolve();
+                                        }
+                                        return Promise.reject(
+                                            new Error(
+                                                "Password must contain at least one letter, one number, and one special character!"
+                                            )
+                                        );
+                                    },
                                 },
                             ]}
                         >

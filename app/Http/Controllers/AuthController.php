@@ -33,15 +33,6 @@ class AuthController extends Controller
             'gender' => 'required|string|max:10',
         ];
 
-        // Check if the user role requires additional fields
-        if ($request->user_role_id == 2) { // Assuming '2' is the ID for the student role
-            $rules = array_merge($rules, [
-                'year_level_id' => 'required|exists:ref_year_level,id',
-                'birthdate' => 'required|integer|min:1920|max:' . date('YYYY-MM-DD'),
-                'address_id' => 'required|exists:ref_addresses, id',
-            ]);
-        }
-
         // Validate the request data based on dynamic rules
         $validator = Validator::make($request->all(), $rules);
 
@@ -63,9 +54,19 @@ class AuthController extends Controller
             'municipality_id' => $request->municipality_id,
             'barangay_id' => $request->barangay_id,
             'street_address' => $request->street_address,
+            'created_by' => auth()->id(),
         ];
 
         $address = ProfileAddress::create($addressData);
+
+        // Check if the user role requires additional fields
+        if ($request->user_role_id == 2) { // Assuming '2' is the ID for the student role
+            $rules = array_merge($rules, [
+                'year_level_id' => 'required|exists:ref_year_levels,id',
+                'birthdate' => 'required|string|min:1920|max:' . date('YYYY-MM-DD'),
+                'address_id' => 'required|exists:ref_addresses, id',
+            ]);
+        }
 
         // Create the profile associated with the user
         $profileData = [
@@ -78,6 +79,7 @@ class AuthController extends Controller
             'department_id' => $request->department_id,
             'phone' => $request->phone_no,
             'gender' => $request->gender,
+            'created_by' => auth()->id(),
         ];
 
         if ($user->user_role_id == 2) { // If the user is a student, add student-specific profile data
@@ -95,18 +97,48 @@ class AuthController extends Controller
             "success" => true,
             "message" => "Account created successfully"
         ];
-        
+
         return response()->json($ret, 201);
+    }
+
+    public function login(Request $request)
+    {
+        $credentialsEmail = [
+            'email' => $request->email,
+            'password' => $request->password
+        ];
+
+        if (auth()->attempt($credentialsEmail)) {
+            $user = auth()->user();
+            $token = $user->createToken('API Token')->accessToken;
+
+            return response()->json([
+                "success" => true,
+                "message" => "Authentication successful",
+                "data" => $user,
+                "token" => $token
+            ], 200);
+        } else {
+            return response()->json([
+                "success" => false,
+                "message" => "Unrecognized email or password",
+            ], 401);
+        }
     }
 
     public function check_auth_status()
     {
-        $ret = [
+        if (auth()->check()) {
+            return response()->json([
+                "success" => true,
+                "message" => "Authentication status ok",
+                "user_role_id" => auth()->user()->user_role_id,
+            ], 200);
+        }
+
+        return response()->json([
             "success" => false,
-            "message" => "Authentication status ok",
-        ];
-
-
-        return response()->json($ret, 200);
+            "message" => "Unauthorized",
+        ], 401);
     }
 }

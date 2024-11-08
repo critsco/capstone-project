@@ -1,22 +1,11 @@
-import React, { useEffect } from "react";
-
-import Footer from "../../../../ui/Footer";
-import Navbar from "../../../../ui/Navbar";
+import React from "react";
 import { Col, Layout, Row } from "antd";
 
 import FacultyInternStatusSearchBar from "./components/FacultyInternStatusSearchBar";
 import InternStatusTable from "./components/InternStatusTable";
 import StatusExportButton from "./components/StatusExportButton";
 
-export default function FacultyInternStatusPage(props) {
-    const { title } = props;
-
-    useEffect(() => {
-        document.title = title;
-
-        return () => {};
-    }, []);
-
+export default function FacultyInternStatusPage() {
     return (
         <Layout id="page_faculty_internstatus">
             <Navbar />

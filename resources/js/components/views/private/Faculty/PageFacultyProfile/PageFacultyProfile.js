@@ -1,23 +1,13 @@
-import React, { useEffect } from "react";
-
-import Footer from "../../../../ui/Footer";
-import Navbar from "../../../../ui/Navbar";
-import { Avatar, Button, Card, Col, Flex, Layout, Row } from "antd";
+import React from "react";
+import { Avatar, Button, Col, Flex, Layout, Row } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPenToSquare, faUser } from "@fortawesome/pro-light-svg-icons";
+import { faUser } from "@fortawesome/pro-light-svg-icons";
 import { faCircleInfo } from "@fortawesome/pro-regular-svg-icons";
+
 import ProfileGenInfoCard from "./components/ProfileGenInfoCard";
 import ProfileInternClassCard from "./components/ProfileInternClassCard";
 
-export default function FacultyProfilePage(props) {
-    const { title } = props;
-
-    useEffect(() => {
-        document.title = title;
-
-        return () => {};
-    }, []);
-
+export default function FacultyProfilePage() {
     return (
         <Layout id="page_faculty_profile">
             <Navbar />

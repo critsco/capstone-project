@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('register', [App\Http\Controllers\AuthController::class, 'register']);
+Route::post('login', [App\Http\Controllers\AuthController::class, 'login']);
 
 Route::get('pub_region_dropdown', [App\Http\Controllers\RefRegionController::class, 'pub_region_dropdown']);
 Route::get('pub_department_list', [App\Http\Controllers\RefDepartmentController::class, 'pub_department_list']);
@@ -21,7 +22,7 @@ Route::get('pub_year_level_list', [App\Http\Controllers\RefYearLevelController::
 
 
 Route::middleware('auth:api')->group(function () {
-    Route::get('check_auth_status', [App\Http\Controllers\AuthController::class,'check_auth_status']);
+    Route::get('check_auth_status', [App\Http\Controllers\AuthController::class, 'check_auth_status']);
 
     // UserController
     Route::get("user_archived", [App\Http\Controllers\UserController::class, "user_archived"]);

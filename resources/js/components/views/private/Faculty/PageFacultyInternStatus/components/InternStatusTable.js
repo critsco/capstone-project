@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 import { Flex, Select, Table } from "antd";
-import FacultyStatusTableNotes from "../../../../../ui/FacultyStatusTableNotes";
 
 const statusOptions = [
     { value: "tograde", label: "To Grade" },

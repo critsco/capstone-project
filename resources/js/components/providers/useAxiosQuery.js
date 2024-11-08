@@ -1,20 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import axios from "axios";
 
-const clearLocalStorage = () => {
-    localStorage.token = "";
-    localStorage.userdata = "";
-    return false;
-};
-const token = () => {
-    if (localStorage.getItem("token") === null) {
-        clearLocalStorage();
-        return false;
-    }
-    return "Bearer " + localStorage.getItem("token");
-};
-
-const apiUrl = (url) => `http://localhost:8000/${url}`;
+import { apiUrl, token } from "./companyInfo";
 
 export function POST(
     url,
