@@ -17,7 +17,7 @@ export default function Page404(props) {
                             type="primary"
                             onClick={() => navigate("/dashboard")}
                         >
-                            Back Home
+                            Go Back
                         </Button>
                     }
                 />

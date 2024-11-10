@@ -17,7 +17,8 @@ Route::post('register', [App\Http\Controllers\AuthController::class, 'register']
 Route::post('login', [App\Http\Controllers\AuthController::class, 'login']);
 
 Route::get('pub_region_dropdown', [App\Http\Controllers\RefRegionController::class, 'pub_region_dropdown']);
-Route::get('pub_department_list', [App\Http\Controllers\RefDepartmentController::class, 'pub_department_list']);
+Route::get('pub_department_dropdown', [App\Http\Controllers\RefDepartmentController::class, 'pub_department_dropdown']);
+Route::get('pub_course_list', [App\Http\Controllers\RefCourseController::class, 'pub_course_list']);
 Route::get('pub_year_level_list', [App\Http\Controllers\RefYearLevelController::class, 'pub_year_level_list']);
 
 
@@ -29,13 +30,19 @@ Route::middleware('auth:api')->group(function () {
     Route::apiResource("users", App\Http\Controllers\UserController::class);
     // END UserController
 
-    // SETTINGS
-    Route::apiResource('ref_region', App\Http\Controllers\RefRegionController::class);
-    Route::apiResource('ref_province', App\Http\Controllers\RefProvinceController::class);
-    Route::apiResource('ref_municipality', App\Http\Controllers\RefMunicipalityController::class);
-    Route::apiResource('ref_barangay', App\Http\Controllers\RefBarangayController::class);
+    // ProfileController
+    Route::apiResource("profile", App\Http\Controllers\ProfileController::class);
+    Route::get("profile/{id}", [App\Http\Controllers\ProfileController::class, "show"]);
+    // END ProfileController
 
-    Route::apiResource('ref_department', App\Http\Controllers\RefDepartmentController::class);
-    Route::apiResource('ref_year_level', App\Http\Controllers\RefYearLevelController::class);
+    // SETTINGS
+    Route::apiResource('ref_regions', App\Http\Controllers\RefRegionController::class);
+    Route::apiResource('ref_provinces', App\Http\Controllers\RefProvinceController::class);
+    Route::apiResource('ref_municipalities', App\Http\Controllers\RefMunicipalityController::class);
+    Route::apiResource('ref_barangays', App\Http\Controllers\RefBarangayController::class);
+
+    Route::apiResource('ref_departments', App\Http\Controllers\RefDepartmentController::class);
+    Route::apiResource('ref_courses', App\Http\Controllers\RefCourseController::class);
+    Route::apiResource('ref_year_levels', App\Http\Controllers\RefYearLevelController::class);
     // END SETTINGS
 });

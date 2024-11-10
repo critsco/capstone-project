@@ -16,4 +16,9 @@ class RefDepartment extends Model
     {
         return $this->hasMany(Profile::class, "department_id");
     }
+
+    public function ref_courses()
+    {
+        return $this->hasMany(RefCourse::class, "department_id");
+    }
 }

@@ -5,6 +5,7 @@ import { lineSpinner } from "ldrs";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGifts, faRefresh } from "@fortawesome/pro-regular-svg-icons";
 
+import { apiUrl } from "../../providers/companyInfo";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 
@@ -17,7 +18,7 @@ export default function Private(props) {
         const section = document.querySelector(".private-layout");
         section.scrollIntoView({ behavior: "smooth", block: "start" });
 
-        document.title = (moduleName ?? title) + " | " + "AutoForm";
+        document.title = moduleName ?? title;
     }, [title, moduleName]);
 
     useEffect(() => {
@@ -81,15 +82,6 @@ export default function Private(props) {
                             </div>
                         </div>
                     )}
-
-                    <div className="globalLoading hide">
-                        <l-line-spinner
-                            size="50"
-                            stroke="5"
-                            speed="1"
-                            color={bgColor}
-                        />
-                    </div>
 
                     <Layout
                         className={`private-layout ${className ?? ""}`}

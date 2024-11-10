@@ -9,22 +9,18 @@ body {
 @import "./_variables.scss";
 
 // Public Pages
-@import "./pages/public/page_faculty_login/page_faculty_login.scss";
-@import "./pages/public/page_student_login/page_student_login.scss";
+@import "./pages/public/page_login/page_login.scss";
 
-// Private Pages | Faculty
-@import "./pages/private/faculty/page_faculty_dashboard/page_faculty_dashboard.scss";
-@import "./pages/private/faculty/page_faculty_internstatus/page_faculty_internstatus.scss";
-@import "./pages/private/faculty/page_faculty_documents/page_faculty_documents.scss";
-@import "./pages/private/faculty/page_faculty_calendar/page_faculty_calendar.scss";
-@import "./pages/private/faculty/page_faculty_profile/page_faculty_profile.scss";
-
-// Private Pages | Student
+// Private Pages
+@import "./pages/private/page_dashboard/page_dashboard.scss";
+@import "./pages/private/page_profile/page_profile.scss";
 
 // UI
 @import "./ui/calendar/calendar.scss";
 @import "./ui/footer/footer.scss";
 @import "./ui/modal/modal.scss";
 @import "./ui/navbar/navbar.scss";
+@import "./ui/page403/page403.scss";
+@import "./ui/page404/page404.scss";
 @import "./ui/private-layout/private-layout.scss";
 @import "./ui/public-layout/public-layout.scss";

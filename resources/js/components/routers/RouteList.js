@@ -1,102 +1,104 @@
 import { Route, Routes } from "react-router-dom";
 
+import { userData } from "../providers/companyInfo";
+
 import PublicRoute from "./PublicRoute";
 import PrivateRoute from "./PrivateRoute";
 
+import Page403 from "../views/errors/Page403";
 import Page404 from "../views/errors/Page404";
 
-import PageFacultyLogin from "../views/public/Faculty/PageFacultyLogin";
-import PageStudentLogin from "../views/public/Student/PageStudentLogin";
+import PageLogin from "../views/public/PageLogin/PageLogin";
 
-import PageFacultyDashboard from "../views/private/Faculty/PageFacultyDashboard/PageFacultyDashboard";
-import PageFacultyInternStatus from "../views/private/Faculty/PageFacultyInternStatus/PageFacultyInternStatus";
-import PageFacultyDocuments from "../views/private/Faculty/PageFacultyDocuments/PageFacultyDocuments";
-import PageFacultyCalendar from "../views/private/Faculty/PageFacultyCalendar/PageFacultyCalendar";
-import PageFacultyProfile from "../views/private/Faculty/PageFacultyProfile/PageFacultyProfile";
+import PageCalendar from "../views/private/PageCalendar/PageCalendar";
+import PageDashboard from "../views/private/PageDashboard/PageDashboard";
+import PageDocuments from "../views/private/PageDocuments/PageDocuments";
+import PageInternStatus from "../views/private/PageInternStatus/PageInternStatus";
+import PageProfile from "../views/private/PageProfile/PageProfile";
 
 export default function RouteList() {
+    const userdata = userData();
+
+    const userRoleId = userdata?.user_role_id || null;
+
     return (
         <Routes>
             {/* Public Routes */}
             <Route
-                path="/faculty"
-                element={
-                    <PublicRoute
-                        title="AutoForm - Faculty Login"
-                        pageId="PageFacultyLogin"
-                    >
-                        <PageFacultyLogin />
-                    </PublicRoute>
-                }
-            />
-            <Route
                 path="/"
                 element={
-                    <PublicRoute
-                        title="AutoForm - Student Login"
-                        pageId="PageStudentLogin"
-                    >
-                        <PageStudentLogin />
+                    <PublicRoute title="AutoForm | Login" pageId="PageLogin">
+                        <PageLogin />
                     </PublicRoute>
                 }
             />
 
-            {/* Private Routes | Faculty */}
+            {/* Private Routes */}
             <Route
-                path="/faculty/dashboard"
+                path="/profile"
                 element={
                     <PrivateRoute
-                        title="AutoForm - Faculty Dashboard"
-                        pageId="PageFacultyDashboard"
-                    >
-                        <PageFacultyDashboard />
-                    </PrivateRoute>
+                        title="AutoForm | Profile"
+                        pageId="PageProfile"
+                        component={PageProfile}
+                    />
                 }
             />
             <Route
-                path="/faculty/internstatus"
+                path="/dashboard"
                 element={
                     <PrivateRoute
-                        title="AutoForm - Faculty Intern Status"
-                        pageId="PageFacultyInternStatus"
-                    >
-                        <PageFacultyInternStatus />
-                    </PrivateRoute>
+                        title="AutoForm | Dashboard"
+                        pageId="PageDashboard"
+                        component={PageDashboard}
+                    />
                 }
             />
             <Route
-                path="/faculty/documents"
+                path="/documents"
                 element={
                     <PrivateRoute
-                        title="AutoForm - Faculty Documents"
-                        pageId="PageFacultyDocuments"
-                    >
-                        <PageFacultyDocuments />
-                    </PrivateRoute>
+                        title="AutoForm | Documents"
+                        pageId="PageDocuments"
+                        component={PageDocuments}
+                    />
                 }
             />
-            <Route
-                path="/faculty/calendar"
-                element={
-                    <PrivateRoute
-                        title="AutoForm - Faculty Calendar"
-                        pageId="PageFacultyCalendar"
-                    >
-                        <PageFacultyCalendar />
-                    </PrivateRoute>
-                }
-            />
-            <Route
-                path="/faculty/profile"
-                element={
-                    <PrivateRoute
-                        title="AutoForm - Faculty Profile"
-                        pageId="PageFacultyProfile"
-                    >
-                        <PageFacultyProfile />
-                    </PrivateRoute>
-                }
-            />
+            {userRoleId === 1 ? (
+                <>
+                    <Route
+                        path="/intern-status"
+                        element={
+                            <PrivateRoute
+                                title="AutoForm | Intern Status"
+                                pageId="PageInternStatus"
+                                component={PageInternStatus}
+                            />
+                        }
+                    />
+                    <Route
+                        path="/calendar"
+                        element={
+                            <PrivateRoute
+                                title="AutoForm | Calendar"
+                                pageId="PageCalendar"
+                                component={PageCalendar}
+                            />
+                        }
+                    />
+                </>
+            ) : (
+                <>
+                    <Route
+                        path="/intern-status"
+                        element={<Page403 pageId="Page403" />}
+                    />
+                    <Route
+                        path="/calendar"
+                        element={<Page403 pageId="Page403" />}
+                    />
+                </>
+            )}
 
             {/* Page404 Error */}
             <Route path="*" element={<Page404 pageId="Page404" />} />

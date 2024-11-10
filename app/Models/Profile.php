@@ -32,8 +32,18 @@ class Profile extends Model
         return $this->belongsTo(RefDepartment::class, "department_id");
     }
 
+    public function ref_course()
+    {
+        return $this->belongsTo(RefCourse::class, "course_id");
+    }
+
     public function ref_year_level()
     {
         return $this->belongsTo(RefYearLevel::class, "year_level_id");
+    }
+
+    public function company()
+    {
+        return $this->belongsTo(Company::class, "company_id");
     }
 }

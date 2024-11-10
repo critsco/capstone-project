@@ -39,11 +39,23 @@ export const token = () => {
 };
 
 export const userData = () => {
-    if (localStorage.getItem("userdata") === null) {
+    const encryptedData = localStorage.getItem("userdata");
+
+    // Check if "userdata" exists in localStorage
+    if (!encryptedData) {
         clearLocalStorage();
-        return false;
+        return null; // Return null if no userdata is found
     }
-    return JSON.parse(decrypt(localStorage.getItem("userdata")));
+
+    try {
+        // Decrypt and parse userdata
+        const decryptedData = decrypt(encryptedData);
+        return JSON.parse(decryptedData);
+    } catch (error) {
+        console.error("Error retrieving or parsing userdata:", error);
+        clearLocalStorage(); // Clear localStorage if data is invalid
+        return null; // Return null to indicate no valid data is available
+    }
 };
 
 export const role = () => {

@@ -24,11 +24,13 @@ class CreateProfilesTable extends Migration
             $table->string('suffix', 50)->nullable();
             $table->integer('year_level_id')->nullable();
             $table->integer('department_id')->nullable();
+            $table->integer('course_id')->nullable();
             $table->string('phone')->nullable();
             $table->date('birthdate')->nullable();
             $table->string('gender')->nullable();
             $table->integer('address_id')->nullable();
             $table->integer('parent_id')->nullable();
+            $table->integer('company_id')->nullable();
 
             $table->bigInteger('created_by')->nullable();
             $table->bigInteger('updated_by')->nullable();

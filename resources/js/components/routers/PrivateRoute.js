@@ -3,10 +3,9 @@ import { Navigate } from "react-router-dom";
 
 import PrivateLayout from "../layouts/private/Private";
 
-let isLoggedIn = localStorage.getItem("token");
-
 const PrivateRoute = (props) => {
     const { component: Component } = props;
+    const isLoggedIn = localStorage.getItem("token");
 
     if (isLoggedIn) {
         return (

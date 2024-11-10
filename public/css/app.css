@@ -3,11 +3,11 @@ body {
   margin: 0;
 }
 
-#PageFacultyLogin * {
+#PageLogin * {
   font-family: "Poppins" !important;
 }
-#PageFacultyLogin .ant-layout-content .ant-row .ant-col .ant-card.card-features {
-  min-height: 96vh;
+#PageLogin .ant-layout-content .ant-row .ant-col .ant-card.card-features {
+  height: calc(100vh - 52px);
   border: 0;
   border-radius: 0;
   background-color: #2c3d8f;
@@ -16,43 +16,43 @@ body {
   padding-inline: 25px;
   align-content: center;
 }
-#PageFacultyLogin .ant-layout-content .ant-row .ant-col .ant-card.card-features .title {
+#PageLogin .ant-layout-content .ant-row .ant-col .ant-card.card-features .title {
   text-align: center;
   font-weight: bold;
   font-size: 30px;
   margin-bottom: 30px;
 }
-#PageFacultyLogin .ant-layout-content .ant-row .ant-col .ant-card.card-features .ant-row {
+#PageLogin .ant-layout-content .ant-row .ant-col .ant-card.card-features .ant-row {
   display: flex;
   align-items: start;
   justify-content: space-between;
 }
-#PageFacultyLogin .ant-layout-content .ant-row .ant-col .ant-card.card-features .ant-row .ant-card {
+#PageLogin .ant-layout-content .ant-row .ant-col .ant-card.card-features .ant-row .ant-card {
   border: 0;
   border-radius: 0;
   background-color: #2c3d8f;
   color: white;
   text-align: center;
 }
-#PageFacultyLogin .ant-layout-content .ant-row .ant-col .ant-card.card-features .ant-row .ant-card .feature-title {
+#PageLogin .ant-layout-content .ant-row .ant-col .ant-card.card-features .ant-row .ant-card .feature-title {
   font-size: 20px;
   font-weight: bold;
 }
-#PageFacultyLogin .ant-layout-content .ant-row .ant-col .ant-card.card-features .ant-row .ant-card .feature-desc {
+#PageLogin .ant-layout-content .ant-row .ant-col .ant-card.card-features .ant-row .ant-card .feature-desc {
   text-align: justify;
   font-size: 16px;
   max-width: 300px;
   color: #bdc1ca;
 }
-#PageFacultyLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login {
-  min-height: 97vh;
+#PageLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login {
+  height: 100%;
   border: 0;
   border-radius: 0;
   padding-inline: 50px;
   padding-block: 0;
   margin-top: -10px;
 }
-#PageFacultyLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.header-buttons .ant-btn {
+#PageLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.header-buttons .ant-btn {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -63,39 +63,40 @@ body {
   text-decoration: none;
   height: 100%;
 }
-#PageFacultyLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.header-buttons .ant-btn .selected-header {
+#PageLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.header-buttons .ant-btn .selected-header {
   padding-top: 4px;
   color: #2c3d8f;
   font-weight: bolder;
   align-content: center;
   height: 30px;
+  margin-top: 5px;
   transition: transform 0.5s ease-in-out;
 }
-#PageFacultyLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.header-buttons .ant-btn .selected-line {
+#PageLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.header-buttons .ant-btn .selected-line {
   background: #2c3d8f;
   width: 150px;
   height: 5px;
 }
-#PageFacultyLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.header-buttons .ant-btn .header-title {
+#PageLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.header-buttons .ant-btn .header-title {
   padding-top: 4px;
   align-content: center;
   height: 30px;
+  margin-top: 5px;
   transition: transform 0.5s ease-in-out;
 }
-#PageFacultyLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.header-buttons .ant-btn .line {
+#PageLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.header-buttons .ant-btn .line {
   background: none;
   width: 150px;
   height: 5px;
-  margin-top: 8px;
 }
-#PageFacultyLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.header-buttons .ant-btn:hover .header-title,
-#PageFacultyLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.header-buttons .ant-btn:hover .selected-header {
+#PageLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.header-buttons .ant-btn:hover .header-title,
+#PageLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.header-buttons .ant-btn:hover .selected-header {
   transform: scale(1.05);
 }
-#PageFacultyLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.card-login {
+#PageLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.card-login {
   margin-bottom: -30px;
 }
-#PageFacultyLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.card-login .ant-card {
+#PageLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.card-login .ant-card {
   width: 100%;
   height: 80vh;
   display: flex;
@@ -103,57 +104,57 @@ body {
   justify-content: center;
   border: 0;
 }
-#PageFacultyLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.card-login .ant-card .ant-card-body {
+#PageLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.card-login .ant-card .ant-card-body {
   width: 70%;
 }
-#PageFacultyLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.card-login .ant-card .ant-card-body img {
+#PageLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.card-login .ant-card .ant-card-body img {
   display: block;
   margin-inline: auto;
 }
-#PageFacultyLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.card-login .ant-card .ant-card-body h1 {
+#PageLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.card-login .ant-card .ant-card-body h1 {
   font-size: 39px;
   font-weight: bold;
   margin-top: 20px;
 }
-#PageFacultyLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.card-login .ant-card .ant-card-body .ant-form * {
+#PageLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.card-login .ant-card .ant-card-body .ant-form * {
   font-size: 16px;
 }
-#PageFacultyLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.card-login .ant-card .ant-card-body .ant-form .ant-form-item .ant-form-item-row .ant-form-item-control .ant-form-item-control-input .ant-form-item-control-input-content .ant-input {
+#PageLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.card-login .ant-card .ant-card-body .ant-form .ant-form-item .ant-form-item-row .ant-form-item-control .ant-form-item-control-input .ant-form-item-control-input-content .ant-input {
   padding: 8px 12px;
   font-size: 16px;
   border: 1px solid #dee1e6 !important;
   background: #f3f4f6;
 }
-#PageFacultyLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.card-login .ant-card .ant-card-body .ant-form .ant-form-item .ant-form-item-row .ant-form-item-control .ant-form-item-control-input .ant-form-item-control-input-content .ant-input::-moz-placeholder {
+#PageLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.card-login .ant-card .ant-card-body .ant-form .ant-form-item .ant-form-item-row .ant-form-item-control .ant-form-item-control-input .ant-form-item-control-input-content .ant-input::-moz-placeholder {
   color: #bdc1ca !important;
 }
-#PageFacultyLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.card-login .ant-card .ant-card-body .ant-form .ant-form-item .ant-form-item-row .ant-form-item-control .ant-form-item-control-input .ant-form-item-control-input-content .ant-input::placeholder {
+#PageLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.card-login .ant-card .ant-card-body .ant-form .ant-form-item .ant-form-item-row .ant-form-item-control .ant-form-item-control-input .ant-form-item-control-input-content .ant-input::placeholder {
   color: #bdc1ca !important;
 }
-#PageFacultyLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.card-login .ant-card .ant-card-body .ant-form .ant-form-item .ant-form-item-row .ant-form-item-control .ant-form-item-control-input .ant-input-password {
+#PageLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.card-login .ant-card .ant-card-body .ant-form .ant-form-item .ant-form-item-row .ant-form-item-control .ant-form-item-control-input .ant-input-password {
   padding: 4px 12px !important;
   background: #f3f4f6;
   border: 1px solid #dee1e6;
 }
-#PageFacultyLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.card-login .ant-card .ant-card-body .ant-form .ant-form-item .ant-form-item-row .ant-form-item-control .ant-form-item-control-input .ant-input-password .ant-input {
+#PageLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.card-login .ant-card .ant-card-body .ant-form .ant-form-item .ant-form-item-row .ant-form-item-control .ant-form-item-control-input .ant-input-password .ant-input {
   padding: 4px 0 !important;
   border: 0 !important;
   font-size: 16px;
   background: #f3f4f6;
 }
-#PageFacultyLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.card-login .ant-card .ant-card-body .ant-form .ant-form-item .ant-form-item-row .ant-form-item-control .ant-form-item-control-input .ant-input-password .ant-input::-moz-placeholder {
+#PageLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.card-login .ant-card .ant-card-body .ant-form .ant-form-item .ant-form-item-row .ant-form-item-control .ant-form-item-control-input .ant-input-password .ant-input::-moz-placeholder {
   color: #bdc1ca !important;
 }
-#PageFacultyLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.card-login .ant-card .ant-card-body .ant-form .ant-form-item .ant-form-item-row .ant-form-item-control .ant-form-item-control-input .ant-input-password .ant-input::placeholder {
+#PageLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.card-login .ant-card .ant-card-body .ant-form .ant-form-item .ant-form-item-row .ant-form-item-control .ant-form-item-control-input .ant-input-password .ant-input::placeholder {
   color: #bdc1ca !important;
 }
-#PageFacultyLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.card-login .ant-card .ant-card-body .ant-form .ant-form-item .ant-form-item-row .ant-form-item-label {
+#PageLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.card-login .ant-card .ant-card-body .ant-form .ant-form-item .ant-form-item-row .ant-form-item-label {
   font-weight: bold;
 }
-#PageFacultyLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.card-login .ant-card .ant-card-body .ant-form .ant-form-item .ant-form-item-row .ant-form-item-label .ant-form-item-required::before {
+#PageLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.card-login .ant-card .ant-card-body .ant-form .ant-form-item .ant-form-item-row .ant-form-item-label .ant-form-item-required::before {
   display: none;
 }
-#PageFacultyLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.card-login .ant-card .ant-card-body .ant-form .ant-btn {
+#PageLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.card-login .ant-card .ant-card-body .ant-form .ant-btn {
   margin-top: 14px;
   height: 42px;
   width: 100%;
@@ -162,14 +163,14 @@ body {
   color: white;
   transition: 0.5s ease-in-out;
 }
-#PageFacultyLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.card-login .ant-card .ant-card-body .ant-form .ant-btn:hover {
+#PageLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.card-login .ant-card .ant-card-body .ant-form .ant-btn:hover {
   background: #2237a2;
 }
-#PageFacultyLogin .ant-layout-content .ant-row .ant-col .ant-flex {
+#PageLogin .ant-layout-content .ant-row .ant-col .ant-flex {
   margin-top: 10px;
   font-size: 16px;
 }
-#PageFacultyLogin .ant-layout-content .ant-row .ant-col .ant-flex .ant-btn {
+#PageLogin .ant-layout-content .ant-row .ant-col .ant-flex .ant-btn {
   border: 0;
   padding: 0;
   outline: 0;
@@ -178,725 +179,209 @@ body {
   font-weight: bold;
   transition: transform 0.5s ease-in-out;
 }
-#PageFacultyLogin .ant-layout-content .ant-row .ant-col .ant-flex .ant-btn:hover span {
+#PageLogin .ant-layout-content .ant-row .ant-col .ant-flex .ant-btn:hover span {
   color: #2237a2;
   transform: scale(1.05);
 }
 
-#PageStudentLogin .ant-layout-content .ant-row .ant-col .ant-card.card-features {
-  min-height: 96vh;
-  border: 0;
-  border-radius: 0;
-  background-color: #2c3d8f;
-  color: white;
-  text-align: center;
-  padding-inline: 25px;
-  align-content: center;
-}
-#PageStudentLogin .ant-layout-content .ant-row .ant-col .ant-card.card-features .title {
-  text-align: center;
-  font-weight: bold;
-  font-size: 30px;
-  margin-bottom: 30px;
-}
-#PageStudentLogin .ant-layout-content .ant-row .ant-col .ant-card.card-features .ant-row {
-  display: flex;
-  align-items: start;
-  justify-content: space-between;
-}
-#PageStudentLogin .ant-layout-content .ant-row .ant-col .ant-card.card-features .ant-row .ant-card {
-  border: 0;
-  border-radius: 0;
-  background-color: #2c3d8f;
-  color: white;
-  text-align: center;
-}
-#PageStudentLogin .ant-layout-content .ant-row .ant-col .ant-card.card-features .ant-row .ant-card .feature-title {
-  font-size: 20px;
-  font-weight: bold;
-}
-#PageStudentLogin .ant-layout-content .ant-row .ant-col .ant-card.card-features .ant-row .ant-card .feature-desc {
-  text-align: justify;
+#PageDashboard * {
   font-size: 16px;
-  max-width: 300px;
-  color: #bdc1ca;
 }
-#PageStudentLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login {
-  min-height: 97vh;
-  border: 0;
-  border-radius: 0;
-  padding-inline: 50px;
-  padding-block: 0;
-  margin-top: -10px;
-}
-#PageStudentLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.header-buttons .ant-btn {
+#PageDashboard .ant-result {
+  position: relative;
+  overflow: hidden;
+  min-height: 80vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0;
-  border-radius: 0 !important;
-  font-size: 16px;
-  text-decoration: none;
-  height: 100%;
 }
-#PageStudentLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.header-buttons .ant-btn .selected-header {
-  padding-top: 4px;
-  color: #2c3d8f;
+#PageDashboard .ant-result .ant-result-title {
+  font-size: 24px;
+}
+#PageDashboard .ant-result .ant-result-extra .ant-btn {
+  height: 40px;
+  background: #2c3d8f;
+  color: white;
+}
+#PageDashboard .ant-layout-content {
+  background: #f3f4f6;
+  padding-block: 30px;
+  padding-inline: 5%;
+  gap: 10px;
+  height: 90vh;
+  flex: 1;
+}
+#PageDashboard .ant-layout-content .ant-row .ant-col .dashboard-title {
   font-weight: bolder;
-  align-content: center;
-  height: 30px;
-  transition: transform 0.5s ease-in-out;
+  font-size: 18px;
+  padding-bottom: 16px;
 }
-#PageStudentLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.header-buttons .ant-btn .selected-line {
-  background: #2c3d8f;
-  width: 150px;
-  height: 5px;
+#PageDashboard .ant-layout-content .ant-row .ant-col .faculty-calendar {
+  border-radius: 8px;
+  box-shadow: 2px 4px 8px rgba(23, 26, 31, 0.12);
 }
-#PageStudentLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.header-buttons .ant-btn .header-title {
-  padding-top: 4px;
-  align-content: center;
-  height: 30px;
-  transition: transform 0.5s ease-in-out;
+#PageDashboard .ant-layout-content .ant-row .ant-col .faculty-calendar .ant-picker-calendar {
+  height: 345px;
 }
-#PageStudentLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.header-buttons .ant-btn .line {
-  background: none;
-  width: 150px;
-  height: 5px;
-  margin-top: 8px;
+#PageDashboard .ant-layout-content .ant-row .ant-col .faculty-calendar .ant-picker-calendar .ant-flex {
+  padding: 8px;
+  flex-direction: row-reverse;
 }
-#PageStudentLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.header-buttons .ant-btn:hover .header-title,
-#PageStudentLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.header-buttons .ant-btn:hover .selected-header {
-  transform: scale(1.05);
-}
-#PageStudentLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.card-login {
-  margin-bottom: -30px;
-}
-#PageStudentLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.card-login .ant-card {
-  width: 100%;
-  height: 80vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 0;
-}
-#PageStudentLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.card-login .ant-card .ant-card-body {
-  width: 70%;
-}
-#PageStudentLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.card-login .ant-card .ant-card-body img {
-  display: block;
-  margin-inline: auto;
-}
-#PageStudentLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.card-login .ant-card .ant-card-body h1 {
-  font-size: 39px;
-  font-weight: bold;
-  margin-top: 20px;
-}
-#PageStudentLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.card-login .ant-card .ant-card-body .ant-form * {
-  font-size: 16px;
-}
-#PageStudentLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.card-login .ant-card .ant-card-body .ant-form .ant-form-item .ant-form-item-row .ant-form-item-control .ant-form-item-control-input .ant-form-item-control-input-content .ant-input {
-  padding: 8px 12px;
-  font-size: 16px;
-  border: 1px solid #dee1e6 !important;
-  background: #f3f4f6;
-}
-#PageStudentLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.card-login .ant-card .ant-card-body .ant-form .ant-form-item .ant-form-item-row .ant-form-item-control .ant-form-item-control-input .ant-form-item-control-input-content .ant-input::-moz-placeholder {
-  color: #bdc1ca !important;
-}
-#PageStudentLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.card-login .ant-card .ant-card-body .ant-form .ant-form-item .ant-form-item-row .ant-form-item-control .ant-form-item-control-input .ant-form-item-control-input-content .ant-input::placeholder {
-  color: #bdc1ca !important;
-}
-#PageStudentLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.card-login .ant-card .ant-card-body .ant-form .ant-form-item .ant-form-item-row .ant-form-item-control .ant-form-item-control-input .ant-input-password {
-  padding: 4px 12px !important;
-  background: #f3f4f6;
-  border: 1px solid #dee1e6;
-}
-#PageStudentLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.card-login .ant-card .ant-card-body .ant-form .ant-form-item .ant-form-item-row .ant-form-item-control .ant-form-item-control-input .ant-input-password .ant-input {
-  padding: 4px 0 !important;
-  border: 0 !important;
-  font-size: 16px;
-  background: #f3f4f6;
-}
-#PageStudentLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.card-login .ant-card .ant-card-body .ant-form .ant-form-item .ant-form-item-row .ant-form-item-control .ant-form-item-control-input .ant-input-password .ant-input::-moz-placeholder {
-  color: #bdc1ca !important;
-}
-#PageStudentLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.card-login .ant-card .ant-card-body .ant-form .ant-form-item .ant-form-item-row .ant-form-item-control .ant-form-item-control-input .ant-input-password .ant-input::placeholder {
-  color: #bdc1ca !important;
-}
-#PageStudentLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.card-login .ant-card .ant-card-body .ant-form .ant-form-item .ant-form-item-row .ant-form-item-label {
-  font-weight: bold;
-}
-#PageStudentLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.card-login .ant-card .ant-card-body .ant-form .ant-form-item .ant-form-item-row .ant-form-item-label .ant-form-item-required::before {
-  display: none;
-}
-#PageStudentLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.card-login .ant-card .ant-card-body .ant-form .ant-btn {
-  margin-top: 14px;
-  height: 42px;
-  width: 100%;
-  border-radius: 8px !important;
-  background: #2c3d8f;
-  color: white;
-  transition: 0.5s ease-in-out;
-}
-#PageStudentLogin .ant-layout-content .ant-row .ant-col .ant-card.card-login .ant-row.card-login .ant-card .ant-card-body .ant-form .ant-btn:hover {
-  background: #2237a2;
-}
-#PageStudentLogin .ant-layout-content .ant-row .ant-col .ant-flex {
-  margin-top: 10px;
-  font-size: 16px;
-}
-#PageStudentLogin .ant-layout-content .ant-row .ant-col .ant-flex .ant-btn {
-  border: 0;
-  padding: 0;
-  outline: 0;
-  text-decoration-line: underline;
-  color: #2c3d8f;
-  font-weight: bold;
-  transition: transform 0.5s ease-in-out;
-}
-#PageStudentLogin .ant-layout-content .ant-row .ant-col .ant-flex .ant-btn:hover span {
-  color: #2237a2;
-  transform: scale(1.05);
-}
-
-#page_faculty_dashboard .ant-layout-content {
-  padding-block: 30px;
+#PageDashboard .ant-layout-content .ant-row .ant-col .faculty-calendar .ant-picker-calendar .ant-picker-panel {
   padding-inline: 5%;
-  gap: 10px;
-  height: 90vh;
 }
-
-#faculty_dashboard_intern_table .ant-table-container .ant-table-content {
-  font-size: 13px;
-}
-#faculty_dashboard_intern_table .ant-table-container .ant-table-content .ant-table-thead {
-  font-size: 14px;
-}
-#faculty_dashboard_intern_table .ant-table-container .ant-table-content .ant-table-selection-col {
-  width: 44px;
-}
-#faculty_dashboard_intern_table .ant-table-cell {
-  padding: 12px;
-}
-#faculty_dashboard_intern_table .ant-table-cell .ant-select {
-  width: 110px;
-}
-#faculty_dashboard_intern_table .ant-table-cell .ant-select .ant-select-selection-item {
-  font-size: 13px;
-  font-weight: normal;
-}
-#faculty_dashboard_intern_table .ant-table-cell .ant-select.status {
-  width: 95px;
-}
-#faculty_dashboard_intern_table .ant-table-cell .ant-select.status.applied .ant-select-selector {
-  background: #eef8ae !important; /* For .applied */
-}
-#faculty_dashboard_intern_table .ant-table-cell .ant-select.status.accepted .ant-select-selector {
-  background: #93bade !important;
-}
-#faculty_dashboard_intern_table .ant-table-cell .ant-select.status.started .ant-select-selector {
-  background: #99de93 !important;
-}
-#faculty_dashboard_intern_table .ant-table-cell .ant-select.moa .ant-select-selector .ant-select-selection-item {
-  font-size: 13px;
-  font-weight: lighter;
-}
-#faculty_dashboard_intern_table .ant-table-cell .ant-select.moa.inprogress {
-  width: 110px;
-}
-#faculty_dashboard_intern_table .ant-table-cell .ant-select.moa.inprogress .ant-select-selector {
-  background: #eef8ae !important;
-}
-#faculty_dashboard_intern_table .ant-table-cell .ant-select.moa.completed {
-  width: 110px;
-}
-#faculty_dashboard_intern_table .ant-table-cell .ant-select.moa.completed .ant-select-selector {
-  background: #99de93 !important;
-}
-#faculty_dashboard_intern_table .ant-table-cell .ant-select.letterparent.inprogress {
-  width: 110px;
-}
-#faculty_dashboard_intern_table .ant-table-cell .ant-select.letterparent.inprogress .ant-select-selector {
-  background: #eef8ae !important;
-}
-#faculty_dashboard_intern_table .ant-table-cell .ant-select.letterparent.completed {
-  width: 110px;
-}
-#faculty_dashboard_intern_table .ant-table-cell .ant-select.letterparent.completed .ant-select-selector {
-  background: #99de93 !important;
-}
-#faculty_dashboard_intern_table .ant-table-cell .ant-select.waiverparent.inprogress {
-  width: 110px;
-}
-#faculty_dashboard_intern_table .ant-table-cell .ant-select.waiverparent.inprogress .ant-select-selector {
-  background: #eef8ae !important;
-}
-#faculty_dashboard_intern_table .ant-table-cell .ant-select.waiverparent.completed {
-  width: 110px;
-}
-#faculty_dashboard_intern_table .ant-table-cell .ant-select.waiverparent.completed .ant-select-selector {
-  background: #99de93 !important;
-}
-#faculty_dashboard_intern_table .ant-table-cell .ant-select.waiverschool.inprogress {
-  width: 110px;
-}
-#faculty_dashboard_intern_table .ant-table-cell .ant-select.waiverschool.inprogress .ant-select-selector {
-  background: #eef8ae !important;
-}
-#faculty_dashboard_intern_table .ant-table-cell .ant-select.waiverschool.completed {
-  width: 110px;
-}
-#faculty_dashboard_intern_table .ant-table-cell .ant-select.waiverschool.completed .ant-select-selector {
-  background: #99de93 !important;
-}
-#faculty_dashboard_intern_table .ant-table-cell .ant-select.endorsementletter.inprogress {
-  width: 110px;
-}
-#faculty_dashboard_intern_table .ant-table-cell .ant-select.endorsementletter.inprogress .ant-select-selector {
-  background: #eef8ae !important;
-}
-#faculty_dashboard_intern_table .ant-table-cell .ant-select.endorsementletter.completed {
-  width: 110px;
-}
-#faculty_dashboard_intern_table .ant-table-cell .ant-select.endorsementletter.completed .ant-select-selector {
-  background: #99de93 !important;
-}
-#faculty_dashboard_intern_table .ant-table-cell .ant-select.dtr.inprogress {
-  width: 110px;
-}
-#faculty_dashboard_intern_table .ant-table-cell .ant-select.dtr.inprogress .ant-select-selector {
-  background: #eef8ae !important;
-}
-#faculty_dashboard_intern_table .ant-table-cell .ant-select.dtr.completed {
-  width: 110px;
-}
-#faculty_dashboard_intern_table .ant-table-cell .ant-select.dtr.completed .ant-select-selector {
-  background: #99de93 !important;
-}
-#faculty_dashboard_intern_table .ant-table-cell .ant-select.evaluation.inprogress {
-  width: 110px;
-}
-#faculty_dashboard_intern_table .ant-table-cell .ant-select.evaluation.inprogress .ant-select-selector {
-  background: #eef8ae !important;
-}
-#faculty_dashboard_intern_table .ant-table-cell .ant-select.evaluation.completed {
-  width: 110px;
-}
-#faculty_dashboard_intern_table .ant-table-cell .ant-select.evaluation.completed .ant-select-selector {
-  background: #99de93 !important;
-}
-#faculty_dashboard_intern_table .ant-table-cell .ant-select.terminalreport.inprogress {
-  width: 110px;
-}
-#faculty_dashboard_intern_table .ant-table-cell .ant-select.terminalreport.inprogress .ant-select-selector {
-  background: #eef8ae !important;
-}
-#faculty_dashboard_intern_table .ant-table-cell .ant-select.terminalreport.completed {
-  width: 110px;
-}
-#faculty_dashboard_intern_table .ant-table-cell .ant-select.terminalreport.completed .ant-select-selector {
-  background: #99de93 !important;
-}
-
-#faculty-dashboard-schedule-table {
-  font-size: 13px;
-}
-#faculty-dashboard-schedule-table .ant-table-container {
-  height: 320px;
-}
-
-.table-notes {
-  cursor: pointer;
-}
-
-#page_faculty_internstatus .ant-layout-content {
-  padding-block: 30px;
-  padding-inline: 5%;
-  gap: 10px;
-  height: 90vh;
-}
-
-#status_searchBar {
-  display: flex;
-  margin-inline: auto;
-}
-#status_searchBar .ant-input-group-wrapper .ant-input-wrapper {
-  display: flex;
-  justify-content: center;
-  height: 35px;
-}
-#status_searchBar .ant-input-group-wrapper .ant-input-wrapper .ant-input-affix-wrapper {
-  width: 35%;
-  border-top-left-radius: 25px;
-  border-bottom-left-radius: 25px;
-}
-#status_searchBar .ant-input-group-wrapper .ant-input-wrapper .ant-input-affix-wrapper .ant-input {
-  font-family: "Poppins";
-  font-size: 14px;
-  padding-left: 4px;
-}
-#status_searchBar .ant-input-group-wrapper .ant-input-wrapper .ant-btn {
-  background: #2c3d8f;
-  color: white;
-  border-top-right-radius: 25px;
-  border-bottom-right-radius: 25px;
-  height: 100%;
-  box-shadow: none;
-}
-
-#faculty_internstatus_table .ant-spin-container .ant-pagination .ant-pagination-item-active {
-  background: #2c3d8f;
-  color: white;
-  border-color: #2c3d8f;
-}
-#faculty_internstatus_table .ant-spin-container .ant-table .ant-table-container {
-  font-size: 13px;
-  margin-top: 30px;
-}
-#faculty_internstatus_table .ant-spin-container .ant-table .ant-table-container .ant-table-thead {
-  font-size: 14px;
-}
-#faculty_internstatus_table .ant-spin-container .ant-table .ant-table-container .ant-table-row.ant-table-row-selected .ant-table-cell {
-  background: rgba(233, 233, 233, 0.4);
-}
-#faculty_internstatus_table .ant-spin-container .ant-table .ant-table-cell {
-  padding: 12px;
-}
-#faculty_internstatus_table .ant-spin-container .ant-table .ant-table-cell .ant-select {
-  width: 110px;
-}
-#faculty_internstatus_table .ant-spin-container .ant-table .ant-table-cell .ant-select .ant-select-selection-item {
-  font-size: 13px;
-  font-weight: normal;
-}
-#faculty_internstatus_table .ant-spin-container .ant-table .ant-table-cell .ant-select.status {
-  width: 100%;
-}
-#faculty_internstatus_table .ant-spin-container .ant-table .ant-table-cell .ant-select.status.applied .ant-select-selector {
-  background: #eef8ae !important; /* For .applied */
-}
-#faculty_internstatus_table .ant-spin-container .ant-table .ant-table-cell .ant-select.status.accepted .ant-select-selector {
-  background: #93bade !important;
-}
-#faculty_internstatus_table .ant-spin-container .ant-table .ant-table-cell .ant-select.status.started .ant-select-selector {
-  background: #99de93 !important;
-}
-#faculty_internstatus_table .ant-spin-container .ant-table .ant-table-cell .ant-select.moa .ant-select-selector .ant-select-selection-item {
-  font-size: 13px;
-  font-weight: lighter;
-}
-#faculty_internstatus_table .ant-spin-container .ant-table .ant-table-cell .ant-select.moa.inprogress {
-  width: 110px;
-}
-#faculty_internstatus_table .ant-spin-container .ant-table .ant-table-cell .ant-select.moa.inprogress .ant-select-selector {
-  background: #eef8ae !important;
-}
-#faculty_internstatus_table .ant-spin-container .ant-table .ant-table-cell .ant-select.moa.completed {
-  width: 110px;
-}
-#faculty_internstatus_table .ant-spin-container .ant-table .ant-table-cell .ant-select.moa.completed .ant-select-selector {
-  background: #99de93 !important;
-}
-#faculty_internstatus_table .ant-spin-container .ant-table .ant-table-cell .ant-select.letterparent.inprogress {
-  width: 110px;
-}
-#faculty_internstatus_table .ant-spin-container .ant-table .ant-table-cell .ant-select.letterparent.inprogress .ant-select-selector {
-  background: #eef8ae !important;
-}
-#faculty_internstatus_table .ant-spin-container .ant-table .ant-table-cell .ant-select.letterparent.completed {
-  width: 110px;
-}
-#faculty_internstatus_table .ant-spin-container .ant-table .ant-table-cell .ant-select.letterparent.completed .ant-select-selector {
-  background: #99de93 !important;
-}
-#faculty_internstatus_table .ant-spin-container .ant-table .ant-table-cell .ant-select.waiverparent.inprogress {
-  width: 110px;
-}
-#faculty_internstatus_table .ant-spin-container .ant-table .ant-table-cell .ant-select.waiverparent.inprogress .ant-select-selector {
-  background: #eef8ae !important;
-}
-#faculty_internstatus_table .ant-spin-container .ant-table .ant-table-cell .ant-select.waiverparent.completed {
-  width: 110px;
-}
-#faculty_internstatus_table .ant-spin-container .ant-table .ant-table-cell .ant-select.waiverparent.completed .ant-select-selector {
-  background: #99de93 !important;
-}
-#faculty_internstatus_table .ant-spin-container .ant-table .ant-table-cell .ant-select.waiverschool.inprogress {
-  width: 110px;
-}
-#faculty_internstatus_table .ant-spin-container .ant-table .ant-table-cell .ant-select.waiverschool.inprogress .ant-select-selector {
-  background: #eef8ae !important;
-}
-#faculty_internstatus_table .ant-spin-container .ant-table .ant-table-cell .ant-select.waiverschool.completed {
-  width: 110px;
-}
-#faculty_internstatus_table .ant-spin-container .ant-table .ant-table-cell .ant-select.waiverschool.completed .ant-select-selector {
-  background: #99de93 !important;
-}
-#faculty_internstatus_table .ant-spin-container .ant-table .ant-table-cell .ant-select.endorsementletter.inprogress {
-  width: 110px;
-}
-#faculty_internstatus_table .ant-spin-container .ant-table .ant-table-cell .ant-select.endorsementletter.inprogress .ant-select-selector {
-  background: #eef8ae !important;
-}
-#faculty_internstatus_table .ant-spin-container .ant-table .ant-table-cell .ant-select.endorsementletter.completed {
-  width: 110px;
-}
-#faculty_internstatus_table .ant-spin-container .ant-table .ant-table-cell .ant-select.endorsementletter.completed .ant-select-selector {
-  background: #99de93 !important;
-}
-#faculty_internstatus_table .ant-spin-container .ant-table .ant-table-cell .ant-select.dtr.inprogress {
-  width: 110px;
-}
-#faculty_internstatus_table .ant-spin-container .ant-table .ant-table-cell .ant-select.dtr.inprogress .ant-select-selector {
-  background: #eef8ae !important;
-}
-#faculty_internstatus_table .ant-spin-container .ant-table .ant-table-cell .ant-select.dtr.completed {
-  width: 110px;
-}
-#faculty_internstatus_table .ant-spin-container .ant-table .ant-table-cell .ant-select.dtr.completed .ant-select-selector {
-  background: #99de93 !important;
-}
-#faculty_internstatus_table .ant-spin-container .ant-table .ant-table-cell .ant-select.evaluation.inprogress {
-  width: 110px;
-}
-#faculty_internstatus_table .ant-spin-container .ant-table .ant-table-cell .ant-select.evaluation.inprogress .ant-select-selector {
-  background: #eef8ae !important;
-}
-#faculty_internstatus_table .ant-spin-container .ant-table .ant-table-cell .ant-select.evaluation.completed {
-  width: 110px;
-}
-#faculty_internstatus_table .ant-spin-container .ant-table .ant-table-cell .ant-select.evaluation.completed .ant-select-selector {
-  background: #99de93 !important;
-}
-#faculty_internstatus_table .ant-spin-container .ant-table .ant-table-cell .ant-select.terminalreport.inprogress {
-  width: 110px;
-}
-#faculty_internstatus_table .ant-spin-container .ant-table .ant-table-cell .ant-select.terminalreport.inprogress .ant-select-selector {
-  background: #eef8ae !important;
-}
-#faculty_internstatus_table .ant-spin-container .ant-table .ant-table-cell .ant-select.terminalreport.completed {
-  width: 110px;
-}
-#faculty_internstatus_table .ant-spin-container .ant-table .ant-table-cell .ant-select.terminalreport.completed .ant-select-selector {
-  background: #99de93 !important;
-}
-
-#status_export_button .ant-btn {
-  background: #2c3d8f;
-  color: white;
-  font-weight: lighter;
-  border: none;
-}
-
-#page_faculty_documents .ant-layout-content {
-  padding-block: 30px;
-  padding-inline: 5%;
-  gap: 10px;
-  height: 90vh;
-}
-
-#document_searchBar {
-  display: flex;
-  margin-inline: auto;
-}
-#document_searchBar .ant-input-group-wrapper {
-  width: 600px;
-}
-#document_searchBar .ant-input-group-wrapper .ant-input-wrapper {
-  height: 35px;
-}
-#document_searchBar .ant-input-group-wrapper .ant-input-wrapper .ant-input-affix-wrapper {
-  height: 96.5%;
-  border-top-left-radius: 25px;
-  border-bottom-left-radius: 25px;
-}
-#document_searchBar .ant-input-group-wrapper .ant-input-wrapper .ant-input-affix-wrapper .ant-input {
-  font-family: "Poppins";
-  font-size: 14px;
-  padding-left: 4px;
-}
-#document_searchBar .ant-input-group-wrapper .ant-input-wrapper .ant-input-group-addon {
-  background: none;
-}
-#document_searchBar .ant-input-group-wrapper .ant-input-wrapper .ant-btn {
-  background: #2c3d8f;
-  color: white;
-  border-top-right-radius: 25px;
-  border-bottom-right-radius: 25px;
-  height: 100%;
-  box-shadow: none;
-}
-
-#document_sidebar {
-  background: #f8f9fa;
-  height: 72vh;
-}
-#document_sidebar .title {
+#PageDashboard .ant-layout-content .ant-row .ant-col .faculty-calendar .ant-picker-calendar .ant-picker-panel .ant-picker-date-panel .ant-picker-body .ant-picker-content th {
   font-weight: bold;
-  margin-inline: 24px;
-  padding-block: 22px;
-  border-bottom: 1px solid #dee1e6;
-}
-#document_sidebar .documents {
-  margin-block: 22px;
-}
-#document_sidebar .documents #document_radio {
-  width: 100%;
-}
-#document_sidebar .documents #document_radio .ant-space {
-  width: 100%;
-  row-gap: 0px;
-}
-#document_sidebar .documents #document_radio .ant-space .ant-space-item .ant-radio-button-wrapper {
-  width: 100%;
-  border: 0;
-  border-radius: 0;
-  background: #f8f9fa;
-  display: flex;
-  height: 50px;
-  align-items: center;
-  padding-inline: 26px;
-}
-#document_sidebar .documents #document_radio .ant-space .ant-space-item .ant-radio-button-wrapper .ant-radio-button:hover {
+  font-size: 16px;
+  padding-bottom: 8px;
   color: #2c3d8f;
 }
-#document_sidebar .documents #document_radio .ant-space .ant-space-item .ant-radio-button-wrapper .ant-radio-button.ant-radio-button-checked {
-  background: #d9d9d9;
-}
-#document_sidebar .documents #document_radio .ant-space .ant-space-item .ant-radio-button-wrapper-checked {
-  border: 0;
-  color: black;
-}
-#document_sidebar .documents #document_radio .ant-space .ant-space-item .ant-radio-button-wrapper:hover {
-  color: black;
-  background: rgba(217, 217, 217, 0.3058823529);
-}
-#document_sidebar .document_export_button {
-  margin-inline: 22px;
-  padding-top: 22px;
-  border-top: 1px solid #dee1e6;
-}
-#document_sidebar .document_export_button .ant-btn {
+#PageDashboard .ant-layout-content .ant-row .ant-col .faculty-calendar .ant-picker-calendar .ant-picker-panel .ant-picker-date-panel .ant-picker-body .ant-picker-content .ant-picker-cell-selected .ant-picker-calendar-date {
   background: #2c3d8f;
   color: white;
-  font-weight: normal;
-  border: none;
+  border: 0;
+}
+#PageDashboard .ant-layout-content .ant-row .ant-col .faculty-calendar .ant-picker-calendar .ant-picker-panel .ant-picker-date-panel .ant-picker-body .ant-picker-content .ant-picker-cell-inner::before {
+  border: 1px solid #a5a9bf;
 }
 
-#document_card {
+#PageProfile * {
+  font-size: 16px;
+}
+#PageProfile .splash-centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100px !important;
+}
+#PageProfile .splash-loader {
+  /* position: absolute;
+      top: calc(51% - 32px);
+      left: calc(50% - 32px); */
+  margin-top: 10px !important;
+  margin-left: 63px !important;
+  margin: auto;
+  width: 64px;
+  height: 64px !important;
+  border-radius: 50%;
+  perspective: 800px;
+}
+#PageProfile .splash-inner {
+  position: absolute;
+  box-sizing: border-box;
   width: 100%;
   height: 100%;
-  background: #f1f1f1;
-  display: flex;
+  border-radius: 50%;
+}
+#PageProfile .splash-inner.one {
+  left: 0;
   top: 0;
-  padding: 25px 100px 25px 100px;
-  justify-content: center;
+  animation: rotate-one 1s linear infinite;
+  border-bottom: 3px solid #2c3d8f;
 }
-
-#page_faculty_calendar .ant-layout-content {
-  padding-block: 30px;
-  padding-inline: 5%;
-  gap: 10px;
-  height: 90vh;
+#PageProfile .splash-inner.two {
+  right: 0;
+  top: 0;
+  animation: rotate-two 1s linear infinite;
+  border-right: 3px solid #2c3d8f;
 }
-#page_faculty_calendar .ant-layout-content .ant-row .ant-col .ant-flex.calendar-buttons {
-  width: 120px;
-  margin-inline: auto;
+#PageProfile .splash-inner.three {
+  right: 0;
+  bottom: 0;
+  animation: rotate-three 1s linear infinite;
+  border-top: 3px solid #2c3d8f;
 }
-#page_faculty_calendar .ant-layout-content .ant-row .ant-col .ant-flex.calendar-buttons .ant-btn {
-  color: white;
-  height: 38px;
+@keyframes rotate-one {
+  0% {
+    transform: rotateX(35deg) rotateY(-45deg) rotateZ(0);
+  }
+  100% {
+    transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
+  }
 }
-#page_faculty_calendar .ant-layout-content .ant-row .ant-col .ant-flex.calendar-buttons .ant-btn:hover {
-  border: 0;
+@keyframes rotate-two {
+  0% {
+    transform: rotateX(50deg) rotateY(10deg) rotateZ(0);
+  }
+  100% {
+    transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
+  }
 }
-#page_faculty_calendar .ant-layout-content .schedule-row .ant-col .ant-flex .ant-radio-group {
-  background: #2c3d8f;
-  border-radius: 4px;
-  height: 38px;
-  padding-inline: 1px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+@keyframes rotate-three {
+  0% {
+    transform: rotateX(35deg) rotateY(55deg) rotateZ(0);
+  }
+  100% {
+    transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
+  }
 }
-#page_faculty_calendar .ant-layout-content .schedule-row .ant-col .ant-flex .ant-radio-group .ant-radio-button-wrapper {
-  width: 95px;
-  height: 36px;
-  border-radius: 4px;
-  background: #2c3d8f;
-  color: white;
-  border: 0;
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-#page_faculty_calendar .ant-layout-content .schedule-row .ant-col .ant-flex .ant-radio-group .ant-radio-button-wrapper-checked {
-  width: 95px;
-  background: white;
-  color: #2c3d8f;
-  border: 0;
-  border-radius: 3px;
-}
-#page_faculty_calendar .ant-layout-content .schedule-row .ant-col .ant-flex .ant-radio-group :where(.css-dev-only-do-not-override-f7vrd6).ant-radio-button-wrapper:not(:first-child)::before {
-  width: 0;
-}
-#page_faculty_calendar .ant-layout-content .schedule-row .ant-col #faculty_schedule_table {
-  margin-top: 20px;
-}
-
-.ant-popover .ant-popover-content .ant-popover-inner .ant-popover-inner-content .ant-popconfirm-inner-content .ant-popconfirm-buttons .ant-btn-primary {
-  background: #2c3d8f;
-}
-
-#page_faculty_profile .ant-layout-content {
-  padding-block: 50px;
+#PageProfile .ant-layout-content {
+  padding-block: 24px;
   padding-inline: 300px;
   display: flex;
   flex-direction: column;
   gap: 24px;
-  height: 90vh;
+  height: 100%;
 }
-#page_faculty_profile .ant-layout-content .ant-row .ant-col .ant-flex .ant-btn {
+#PageProfile .ant-layout-content .ant-row .ant-col .ant-flex .profile-name {
+  font-weight: bold;
+  font-size: 28px;
+}
+#PageProfile .ant-layout-content .ant-row .ant-col .ant-flex .ant-flex .ant-btn {
   height: 40px;
   font-size: 12px;
 }
-#page_faculty_profile .ant-layout-content .ant-row .ant-col .ant-flex .ant-btn.image {
+#PageProfile .ant-layout-content .ant-row .ant-col .ant-flex .ant-flex .ant-btn.image {
   background: #2c3d8f;
   color: white;
   border-radius: 4px;
 }
-#page_faculty_profile .ant-layout-content .ant-row .ant-col .ant-flex .ant-btn.remove {
+#PageProfile .ant-layout-content .ant-row .ant-col .ant-flex .ant-flex .ant-btn.remove {
   background: white;
   color: #9095a1;
   border-radius: 4px;
   border: 1px solid #e3e3e3;
 }
-#page_faculty_profile .ant-layout-content .ant-row .ant-col .card {
+#PageProfile .ant-layout-content .ant-row .ant-col .ant-flex .ant-flex .ant-flex {
+  color: #9095a1;
+  font-size: 14px;
+}
+#PageProfile .ant-layout-content .ant-row .ant-col .card {
   border-radius: 8px;
   box-shadow: 0 6px 8px rgba(23, 26, 31, 0.12);
 }
-#page_faculty_profile .ant-layout-content .ant-row .ant-col .card .card-header {
+#PageProfile .ant-layout-content .ant-row .ant-col .card .card-header {
   padding: 12px 20px 12px 50px;
   border-bottom: 1.5px solid #e3e3e3;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   background: #f8f9fa;
 }
-#page_faculty_profile .ant-layout-content .ant-row .ant-col .card .card-header .ant-btn {
+#PageProfile .ant-layout-content .ant-row .ant-col .card .card-header .card-header-title {
+  color: #2c3d8f;
+  font-weight: bold;
+  font-size: 24px;
+}
+#PageProfile .ant-layout-content .ant-row .ant-col .card .card-header .ant-btn {
   background: #2c3d8f;
   color: white;
+  height: 40px;
   border-radius: 4px;
 }
-#page_faculty_profile .ant-layout-content .ant-row .ant-col .card .card-body {
+#PageProfile .ant-layout-content .ant-row .ant-col .card .card-body {
   background: #f8f9fa;
   padding: 20px 32px 20px 32px;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
 }
-#page_faculty_profile .ant-layout-content .ant-row .ant-col .card .card-body .add-card {
+#PageProfile .ant-layout-content .ant-row .ant-col .card .card-body .card-body-title {
+  color: #091247;
+  font-weight: 550;
+  font-size: 18px;
+}
+#PageProfile .ant-layout-content .ant-row .ant-col .card .card-body .add-card {
   border: 2px dashed #bdc1ca;
   border-radius: 8px;
   color: #323743;
@@ -904,21 +389,21 @@ body {
   height: 124px;
   width: 100%;
 }
-#page_faculty_profile .ant-layout-content .ant-row .ant-col .card .card-body .class-card {
+#PageProfile .ant-layout-content .ant-row .ant-col .card .card-body .class-card {
   border-radius: 8px;
   padding: 20px;
   background: #2c3d8f;
   color: white;
   height: 124px;
 }
-#page_faculty_profile .ant-layout-content .ant-row .ant-col .card .card-body .class-card .ant-btn {
+#PageProfile .ant-layout-content .ant-row .ant-col .card .card-body .class-card .ant-btn {
   height: 28px;
   border-radius: 4px;
 }
-#page_faculty_profile .ant-layout-content .ant-row .ant-col .card .card-body .class-card .ant-btn.open-btn {
+#PageProfile .ant-layout-content .ant-row .ant-col .card .card-body .class-card .ant-btn.open-btn {
   width: 125px;
 }
-#page_faculty_profile .ant-layout-content .ant-row .ant-col .card .card-body .class-card .ant-btn.delete-btn {
+#PageProfile .ant-layout-content .ant-row .ant-col .card .card-body .class-card .ant-btn.delete-btn {
   width: 24px;
   background: #c12126;
   color: white;
@@ -926,9 +411,19 @@ body {
   display: flex;
   justify-content: center;
 }
-#page_faculty_profile .ant-layout-content .ant-row .ant-col .card .card-body .class-card .class-title {
+#PageProfile .ant-layout-content .ant-row .ant-col .card .card-body .class-card .class-title {
   font-weight: bold;
   font-size: 22px;
+}
+#PageProfile .ant-layout-content .ant-row .ant-col .card .card-body .ant-flex.info-headers {
+  color: #9095a1;
+  font-weight: 300;
+}
+#PageProfile .ant-layout-content .ant-row .ant-col .card .ant-divider-horizontal {
+  min-width: 0;
+  width: 95%;
+  margin: auto;
+  background: #e3e3e3;
 }
 
 .faculty-calendar {
@@ -960,6 +455,7 @@ body {
 }
 
 .ant-layout-footer {
+  margin-top: auto;
   width: 100%;
   background: #f3f4f6;
   padding-block: 14px;
@@ -994,9 +490,6 @@ body {
 .ant-modal-root .ant-modal-wrap.signup-form * {
   font-family: "Poppins";
   font-size: 16px;
-}
-.ant-modal-root .ant-modal-wrap.signup-form .ant-modal {
-  top: -75px;
 }
 .ant-modal-root .ant-modal-wrap.signup-form .ant-modal .ant-modal-content {
   border-radius: 16px;
@@ -1164,7 +657,7 @@ body {
   height: 62px;
 }
 .navbar .ant-flex {
-  padding-inline: 6%;
+  padding-inline: 50px;
   box-shadow: 0 4px 9px rgba(23, 26, 31, 0.12);
 }
 .navbar .ant-flex .header-title {
@@ -1177,6 +670,7 @@ body {
 .navbar .ant-flex .ant-flex.nav-buttons .ant-btn {
   height: 100%;
   width: 125px;
+  font-size: 16px;
   border-bottom: 4px solid #f3f4f6;
   text-decoration: none;
   background: #f3f4f6;
@@ -1191,12 +685,56 @@ body {
   color: #2c3d8f;
   border-bottom: 4px solid #2c3d8f;
 }
-.navbar .ant-flex .ant-btn.logout-btn {
-  height: 60px;
-  border-radius: 0 !important;
-}
-.navbar .ant-flex .ant-btn.logout-btn .ant-flex {
+.navbar .ant-flex .ant-flex.right-side {
+  padding: 0;
   box-shadow: none;
+}
+.navbar .ant-flex .ant-flex.right-side .ant-btn.bell-btn {
+  width: 10px;
+}
+.navbar .ant-flex .ant-flex.right-side .ant-btn.bell-btn .fa-bell {
+  transition: transform 0.5s ease-in-out;
+}
+.navbar .ant-flex .ant-flex.right-side .ant-btn.bell-btn:hover {
+  background: none;
+}
+.navbar .ant-flex .ant-flex.right-side .ant-btn.bell-btn:hover .fa-bell {
+  transform: scale(1.1);
+}
+.navbar .ant-flex .ant-flex.right-side .ant-btn.logout-btn {
+  height: 60px;
+  width: 100px;
+  border-radius: 0 !important;
+  text-decoration: none;
+}
+.navbar .ant-flex .ant-flex.right-side .ant-btn.logout-btn .ant-flex {
+  padding: 0;
+  box-shadow: none;
+}
+.navbar .ant-flex .ant-flex.right-side .ant-btn.logout-btn:hover {
+  background: #d9d9d9;
+}
+
+#Page403 {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+}
+#Page403 > .ant-layout-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#Page404 {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+}
+#Page404 > .ant-layout-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .private-layout {
@@ -1274,6 +812,9 @@ body {
 }
 .public-layout * {
   font-family: "Poppins";
+}
+.public-layout > .ant-layout-content {
+  flex: 1;
 }
 
 .notification-notice {

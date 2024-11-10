@@ -4,7 +4,7 @@
     height: 62px;
 
     .ant-flex {
-        padding-inline: 6%;
+        padding-inline: 50px;
         box-shadow: 0 4px 9px rgba(23, 26, 31, 0.12);
 
         .header-title {
@@ -17,6 +17,7 @@
             .ant-btn {
                 height: 100%;
                 width: 125px;
+                font-size: 16px;
                 border-bottom: 4px solid #f3f4f6;
                 text-decoration: none;
                 background: #f3f4f6;
@@ -32,12 +33,37 @@
                 border-bottom: 4px solid #2c3d8f;
             }
         }
-        .ant-btn.logout-btn {
-            height: 60px;
-            border-radius: 0 !important;
+        .ant-flex.right-side {
+            padding: 0;
+            box-shadow: none;
 
-            .ant-flex {
-                box-shadow: none;
+            .ant-btn.bell-btn {
+                width: 10px;
+
+                .fa-bell {
+                    transition: transform 0.5s ease-in-out;
+                }
+            }
+            .ant-btn.bell-btn:hover {
+                background: none;
+
+                .fa-bell {
+                    transform: scale(1.1);
+                }
+            }
+            .ant-btn.logout-btn {
+                height: 60px;
+                width: 100px;
+                border-radius: 0 !important;
+                text-decoration: none;
+
+                .ant-flex {
+                    padding: 0;
+                    box-shadow: none;
+                }
+            }
+            .ant-btn.logout-btn:hover {
+                background: #d9d9d9;
             }
         }
     }

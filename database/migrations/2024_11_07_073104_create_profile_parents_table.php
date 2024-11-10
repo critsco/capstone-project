@@ -20,6 +20,8 @@ class CreateProfileParentsTable extends Migration
             $table->string('middle_name')->nullable();
             $table->string('last_name')->nullable();
             $table->string('suffix')->nullable();
+            $table->string('relationship')->nullable();
+            $table->string('phone')->nullable();
 
             $table->bigInteger('created_by')->nullable();
             $table->bigInteger('updated_by')->nullable();

@@ -115,36 +115,15 @@ class RefDepartmentController extends Controller
         //
     }
 
-    public function pub_department_list(Request $request)
+    public function pub_department_dropdown()
     {
-        $data = RefDepartment::where(function ($query) use ($request) {
-            if ($request->search) {
-                $query->orWhere('department', 'LIKE', "%$request->search%");
-            }
-        });
-
-        if ($request->isTrash) {
-            $data->onlyTrashed();
-        }
-
-        if ($request->sort_field && $request->sort_order) {
-            if (
-                $request->sort_field != '' && $request->sort_field != 'undefined' && $request->sort_field != 'null'  &&
-                $request->sort_order != ''  && $request->sort_order != 'undefined' && $request->sort_order != 'null'
-            ) {
-                $data = $data->orderBy(isset($request->sort_field) ? $request->sort_field : 'id', isset($request->sort_order)  ? $request->sort_order : 'asc');
-            }
-        } else {
-            $data = $data->orderBy('id', 'asc');
-        }
-
-        if ($request->page_size) {
-            $data = $data->limit($request->page_size)
-                ->paginate($request->page_size, ['*'], 'page', $request->page)
-                ->toArray();
-        } else {
-            $data = $data->get();
-        }
+        $data = RefDepartment::select('id', 'department')
+            ->with(['ref_courses' => function ($query) {
+                $query->select('id', 'department_id', 'course')
+                    ->orderBy('course', 'asc');
+            }])
+            ->orderBy('department', 'asc')
+            ->get();
 
         return response()->json([
             'success'   => true,

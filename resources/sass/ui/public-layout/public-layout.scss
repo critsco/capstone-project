@@ -5,8 +5,9 @@
         font-family: "Poppins";
     }
 
-    // > .ant-layout-content {
-    // }
+    > .ant-layout-content {
+        flex: 1;
+    }
 }
 
 .notification-notice {

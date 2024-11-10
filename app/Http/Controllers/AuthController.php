@@ -62,6 +62,7 @@ class AuthController extends Controller
         // Check if the user role requires additional fields
         if ($request->user_role_id == 2) { // Assuming '2' is the ID for the student role
             $rules = array_merge($rules, [
+                'course_id' => 'required|exists:ref_courses,id',
                 'year_level_id' => 'required|exists:ref_year_levels,id',
                 'birthdate' => 'required|string|min:1920|max:' . date('YYYY-MM-DD'),
                 'address_id' => 'required|exists:ref_addresses, id',
@@ -77,13 +78,14 @@ class AuthController extends Controller
             'suffix' => $request->suffix,
             'school_id' => $request->school_id,
             'department_id' => $request->department_id,
-            'phone' => $request->phone_no,
+            'phone' => $request->phone,
             'gender' => $request->gender,
             'created_by' => auth()->id(),
         ];
 
         if ($user->user_role_id == 2) { // If the user is a student, add student-specific profile data
             $profileData['year_level_id'] = $request->year_level_id;
+            $profileData['course_id'] = $request->course_id;
             $profileData['birthdate'] = $request->birthdate;
             $profileData['address_id'] = $address->id;
         }

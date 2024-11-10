@@ -36,4 +36,9 @@ class ProfileAddress extends Model
     {
         return $this->hasOne(Profile::class, "address_id");
     }
+
+    public function companies()
+    {
+        return $this->hasMany(Company::class,"address_id");
+    }
 }
