@@ -1,13 +1,41 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Avatar, Button, Col, Flex, Layout, Row } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/pro-light-svg-icons";
 import { faCircleInfo } from "@fortawesome/pro-regular-svg-icons";
 
+import { GET } from "../../../../../../providers/useAxiosQuery";
+import { userData } from "../../../../../../providers/companyInfo";
 import ProfileGenInfoCard from "./components/ProfileGenInfoCard/ProfileGenInfoCard";
 import ProfileInternClassCard from "./components/ProfileInternClassCard/ProfileInternClassCard";
 
 export default function PageFacultyProfile() {
+    const userdata = userData();
+    const [loading, setLoading] = useState(true);
+
+    const { data: dataProfile } = GET(
+        `api/profile/${userdata.id}`,
+        "profile_list"
+    );
+
+    useEffect(() => {
+        if (dataProfile) {
+            setLoading(false);
+        }
+    }, [dataProfile]);
+
+    if (loading) {
+        return (
+            <div className="splash-centered">
+                <div className="splash-loader">
+                    <div className="splash-inner one"></div>
+                    <div className="splash-inner two"></div>
+                    <div className="splash-inner three"></div>
+                </div>
+            </div>
+        );
+    }
+
     return (
         <Layout.Content>
             <Row>
@@ -47,7 +75,9 @@ export default function PageFacultyProfile() {
             </Row>
             <Row>
                 <Col xs={24} sm={24} md={24} lg={24}>
-                    <ProfileGenInfoCard />
+                    <ProfileGenInfoCard
+                        dataProfile={dataProfile && dataProfile.data}
+                    />
                 </Col>
             </Row>
             <Row style={{ marginTop: "-8px" }}>

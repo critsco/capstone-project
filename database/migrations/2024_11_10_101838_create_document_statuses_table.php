@@ -23,7 +23,7 @@ class CreateDocumentStatusesTable extends Migration
             $table->string('wfp_status')->nullable();
             $table->string('wfp_note')->nullable();
             $table->string('wfs_status')->nullable();
-            $table->string('wfp_note')->nullable();
+            $table->string('wfs_note')->nullable();
             $table->string('endorsement_status')->nullable();
             $table->string('endorsement_note')->nullable();
             $table->string('dtr_status')->nullable();

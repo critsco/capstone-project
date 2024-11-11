@@ -46,4 +46,9 @@ class Profile extends Model
     {
         return $this->belongsTo(Company::class, "company_id");
     }
+
+    public function ojt_details()
+    {
+        return $this->hasMany(Profile::class, "profile_id");
+    }
 }

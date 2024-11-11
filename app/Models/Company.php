@@ -21,4 +21,9 @@ class Company extends Model
     {
         return $this->belongsTo(ProfileAddress::class, "address_id");
     }
+
+    public function ojt_details()
+    {
+        return $this->hasMany(OJTDetails::class, "company_id");
+    }
 }

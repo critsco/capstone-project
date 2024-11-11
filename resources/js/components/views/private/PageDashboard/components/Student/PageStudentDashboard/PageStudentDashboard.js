@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Result } from "antd";
 
 import { GET } from "../../../../../../providers/useAxiosQuery";
@@ -11,16 +11,36 @@ import { faExclamationCircle } from "@fortawesome/pro-regular-svg-icons";
 export default function PageStudentDashboard() {
     const userdata = userData();
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(true);
+
     const { data: dataProfile } = GET(
         `api/profile/${userdata.id}`,
         "profile_list"
     );
 
+    useEffect(() => {
+        if (dataProfile) {
+            setLoading(false);
+        }
+    }, [dataProfile]);
+
     console.log("dataProfile: ", dataProfile);
+
+    if (loading) {
+        return (
+            <div className="splash-centered">
+                <div className="splash-loader">
+                    <div className="splash-inner one"></div>
+                    <div className="splash-inner two"></div>
+                    <div className="splash-inner three"></div>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <>
-            {dataProfile?.parent_id ? (
+            {dataProfile?.data.parent_id ? (
                 <DashboardContent />
             ) : (
                 <Result

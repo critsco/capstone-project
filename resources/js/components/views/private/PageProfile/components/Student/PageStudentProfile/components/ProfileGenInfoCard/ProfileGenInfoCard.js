@@ -1,11 +1,20 @@
-import React, { useEffect, useState } from "react";
-
+import React, { useState } from "react";
+import { Alert, Button, Col, Divider, Flex, Row, Spin } from "antd";
 import { faPenToSquare } from "@fortawesome/pro-light-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Alert, Button, Col, Divider, Flex, Row, Spin } from "antd";
+
+import EditModalForm from "./components/EditModalForm";
+import NextModalForm from "./components/NextModalForm";
 
 export default function ProfileGenInfoCard(props) {
     const { dataProfile } = props;
+
+    const [toggleModalForm, setToggleModalForm] = useState({
+        editOpen: false,
+        nextOpen: false,
+        data: null,
+    });
+    const [formData, setFormData] = useState(null);
 
     return (
         <div className="card">
@@ -15,7 +24,15 @@ export default function ProfileGenInfoCard(props) {
                 justify="space-between"
             >
                 <div className="card-header-title">General Information</div>
-                <Button>
+                <Button
+                    onClick={() =>
+                        setToggleModalForm({
+                            editOpen: true,
+                            nextOpen: false,
+                            data: dataProfile,
+                        })
+                    }
+                >
                     <FontAwesomeIcon icon={faPenToSquare} />
                     Edit
                 </Button>
@@ -47,7 +64,7 @@ export default function ProfileGenInfoCard(props) {
                         <Flex vertical>
                             <div>{dataProfile?.fullname}</div>
                             <div>{dataProfile?.school_id}</div>
-                            <div>{dataProfile?.user.email}</div>
+                            <div>{dataProfile?.email}</div>
                             <div>{dataProfile?.ref_year_level.year_level}</div>
                             <div>{dataProfile?.ref_department.department}</div>
                             <div>{dataProfile?.ref_course.course}</div>
@@ -86,8 +103,15 @@ export default function ProfileGenInfoCard(props) {
                             <Col xs={9} sm={9} md={9} lg={9}>
                                 <Flex vertical>
                                     <div>{dataProfile?.parent_fullname}</div>
-                                    <div>{dataProfile?.school_id}</div>
-                                    <div>{dataProfile?.user.email}</div>
+                                    <div>
+                                        {
+                                            dataProfile?.profile_parent
+                                                .relationship
+                                        }
+                                    </div>
+                                    <div>
+                                        {dataProfile?.profile_parent.phone}
+                                    </div>
                                 </Flex>
                             </Col>
                             <Col xs={4} sm={4} md={4} lg={4}>
@@ -101,9 +125,9 @@ export default function ProfileGenInfoCard(props) {
                             </Col>
                             <Col xs={8} sm={8} md={8} lg={8}>
                                 <Flex vertical>
-                                    <div>{dataProfile?.parent_fullname}</div>
+                                    {/* <div>{dataProfile?.parent_fullname}</div>
                                     <div>{dataProfile?.school_id}</div>
-                                    <div>{dataProfile?.user.email}</div>
+                                    <div>{dataProfile?.user.email}</div> */}
                                 </Flex>
                             </Col>
                         </Row>
@@ -116,6 +140,19 @@ export default function ProfileGenInfoCard(props) {
                     showIcon
                 />
             )}
+
+            <EditModalForm
+                toggleModalForm={toggleModalForm}
+                setToggleModalForm={setToggleModalForm}
+                formData={formData}
+                setFormData={setFormData}
+            />
+            <NextModalForm
+                toggleModalForm={toggleModalForm}
+                setToggleModalForm={setToggleModalForm}
+                formData={formData}
+                dataProfile={dataProfile}
+            />
         </div>
     );
 }

@@ -1,10 +1,18 @@
-import React from "react";
-
+import React, { useState } from "react";
 import { faPenToSquare } from "@fortawesome/pro-light-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Col, Flex, Row } from "antd";
 
-export default function ProfileGenInfoCard() {
+import EditModalForm from "./components/EditModalForm";
+
+export default function ProfileGenInfoCard(props) {
+    const { dataProfile } = props;
+
+    const [toggleModalForm, setToggleModalForm] = useState({
+        open: false,
+        data: null,
+    });
+
     return (
         <div className="card">
             <Flex
@@ -12,16 +20,15 @@ export default function ProfileGenInfoCard() {
                 align="center"
                 justify="space-between"
             >
-                <div
-                    style={{
-                        color: "#2c3d8f",
-                        fontWeight: "bold",
-                        fontSize: "18px",
-                    }}
+                <div className="card-header-title">General Information</div>
+                <Button
+                    onClick={() =>
+                        setToggleModalForm({
+                            open: true,
+                            data: dataProfile,
+                        })
+                    }
                 >
-                    General Information
-                </div>
-                <Button>
                     <FontAwesomeIcon icon={faPenToSquare} />
                     Edit
                 </Button>
@@ -29,45 +36,38 @@ export default function ProfileGenInfoCard() {
             <Flex vertical className="card-body" gap="14px">
                 <Row>
                     <Col xs={24} sm={24} md={24} lg={24}>
-                        <div
-                            style={{
-                                fontWeight: "bold",
-                                fontSize: "14px",
-                            }}
-                        >
+                        <div className="card-body-title">
                             Personnal Information
                         </div>
                     </Col>
                 </Row>
                 <Row>
                     <Col xs={3} sm={3} md={3} lg={3}>
-                        <Flex
-                            vertical
-                            style={{
-                                color: "#9095A1",
-                                fontWeight: "200",
-                            }}
-                        >
+                        <Flex vertical className="info-headers">
                             <div>Name</div>
                             <div>Faculty ID</div>
                             <div>Email</div>
                             <div>Department</div>
-                            <div>Contant Info</div>
+                            <div>Contant No.</div>
                             <div>Gender</div>
                         </Flex>
                     </Col>
                     <Col xs={21} sm={21} md={21} lg={21}>
                         <Flex vertical>
-                            <div>Rejeenald Miras Flores</div>
-                            <div>200841</div>
-                            <div>rmflores@urios.edu.ph</div>
-                            <div>Computer Studies Program</div>
-                            <div>0925645351</div>
-                            <div>Male</div>
+                            <div>{dataProfile?.fullname}</div>
+                            <div>{dataProfile?.school_id}</div>
+                            <div>{dataProfile?.email}</div>
+                            <div>{dataProfile?.ref_department.department}</div>
+                            <div>{dataProfile?.phone}</div>
+                            <div>{dataProfile?.gender}</div>
                         </Flex>
                     </Col>
                 </Row>
             </Flex>
+            <EditModalForm
+                toggleModalForm={toggleModalForm}
+                setToggleModalForm={setToggleModalForm}
+            />
         </div>
     );
 }

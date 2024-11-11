@@ -33,6 +33,7 @@ Route::middleware('auth:api')->group(function () {
     // ProfileController
     Route::apiResource("profile", App\Http\Controllers\ProfileController::class);
     Route::get("profile/{id}", [App\Http\Controllers\ProfileController::class, "show"]);
+    Route::post("update_student_profile", [App\Http\Controllers\ProfileController::class, "update_student_profile"]);
     // END ProfileController
 
     // SETTINGS

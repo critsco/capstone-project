@@ -53,7 +53,7 @@ class AuthController extends Controller
             'province_id' => $request->province_id,
             'municipality_id' => $request->municipality_id,
             'barangay_id' => $request->barangay_id,
-            'street_address' => $request->street_address,
+            'street_address' => strtoupper($request->street_address),
             'created_by' => auth()->id(),
         ];
 
@@ -72,10 +72,10 @@ class AuthController extends Controller
         // Create the profile associated with the user
         $profileData = [
             'user_id' => $user->id,
-            'first_name' => $request->first_name,
-            'middle_name' => $request->middle_name,
-            'last_name' => $request->last_name,
-            'suffix' => $request->suffix,
+            'first_name' => ucfirst(strtolower($request->first_name)),
+            'middle_name' => ucfirst(strtolower($request->middle_name)),
+            'last_name' => ucfirst(strtolower($request->last_name)),
+            'suffix' => strtoupper($request->suffix),
             'school_id' => $request->school_id,
             'department_id' => $request->department_id,
             'phone' => $request->phone,

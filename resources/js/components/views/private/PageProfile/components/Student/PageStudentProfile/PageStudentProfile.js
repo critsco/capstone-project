@@ -17,8 +17,6 @@ export default function PageStudentProfile() {
         "profile_list"
     );
 
-    console.log("dataProfile: ", dataProfile);
-
     useEffect(() => {
         if (dataProfile) {
             setLoading(false);

@@ -1,8 +1,4 @@
 #PageDashboard {
-    * {
-        font-size: 16px;
-    }
-
     .ant-result {
         position: relative;
         overflow: hidden;
@@ -38,6 +34,23 @@
                     font-weight: bolder;
                     font-size: 18px;
                     padding-bottom: 16px;
+                }
+                #tbl_wrapper {
+                    .ant-col {
+                        .ant-table-wrapper {
+                            .ant-table {
+                                .ant-table-container {
+                                    .ant-table-content {
+                                        .ant-table-thead {
+                                            .ant-table-cell {
+                                                text-align: center;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
                 .faculty-calendar {
                     border-radius: 8px;
