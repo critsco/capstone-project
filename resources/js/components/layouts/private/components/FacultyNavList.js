@@ -30,6 +30,16 @@ export default function FacultyNavList() {
                         Intern Status
                     </Button>
                 </Link>
+                <Link to="/companies">
+                    <Button
+                        type="text"
+                        className={`${
+                            location.pathname === "/companies" ? "selected" : ""
+                        }`}
+                    >
+                        Companies
+                    </Button>
+                </Link>
                 <Link to="/documents">
                     <Button
                         type="text"

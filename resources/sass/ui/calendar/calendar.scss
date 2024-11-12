@@ -39,3 +39,53 @@
         }
     }
 }
+
+.ant-picker-calendar.student-calendar-wrapper {
+    border-radius: 8px;
+    box-shadow: 2px 4px 8px rgba(23, 26, 31, 0.12);
+
+    .ant-flex {
+        flex-direction: row-reverse;
+        padding-inline: 8px;
+        padding-block: 12px;
+
+        .ant-flex {
+            flex-direction: row;
+            padding: 0;
+        }
+    }
+    .ant-picker-panel {
+        padding-inline: 1rem;
+
+        .ant-picker-date-panel {
+            .ant-picker-body {
+                .ant-picker-content {
+                    thead {
+                        th {
+                            font-weight: bold;
+                            font-size: 16px;
+                            padding-bottom: 8px;
+                            color: #2c3d8f;
+                        }
+                    }
+                    tbody {
+                        height: 244px;
+
+                        tr {
+                            .ant-picker-cell-selected {
+                                .ant-picker-calendar-date {
+                                    background: #2c3d8f;
+                                    color: white;
+                                    border: 0;
+                                }
+                            }
+                            .ant-picker-cell-inner::before {
+                                border: 1px solid #a5a9bf;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

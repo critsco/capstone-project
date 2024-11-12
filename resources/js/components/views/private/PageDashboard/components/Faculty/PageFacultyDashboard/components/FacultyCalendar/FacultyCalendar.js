@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Calendar, Select } from "antd";
+import { Button, Calendar, Flex, Select } from "antd";
 import dayjs from "dayjs";
 
 export default function FacultyCalendar() {
@@ -43,13 +43,7 @@ export default function FacultyCalendar() {
 
                     return (
                         <div style={{ padding: 8 }}>
-                            <div
-                                style={{
-                                    display: "flex",
-                                    flexDirection: "row-reverse",
-                                    gap: "6px",
-                                }}
-                            >
+                            <Flex dir="reverse" gap={6}>
                                 <div>
                                     <Button
                                         type="text"
@@ -89,7 +83,7 @@ export default function FacultyCalendar() {
                                         {monthOptions}
                                     </Select>
                                 </div>
-                            </div>
+                            </Flex>
                         </div>
                     );
                 }}

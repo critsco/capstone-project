@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import EditModalForm from "./components/EditModalForm";
 import NextModalForm from "./components/NextModalForm";
+import { faPlus } from "@fortawesome/pro-regular-svg-icons";
 
 export default function ProfileGenInfoCard(props) {
     const { dataProfile } = props;
@@ -114,22 +115,42 @@ export default function ProfileGenInfoCard(props) {
                                     </div>
                                 </Flex>
                             </Col>
-                            <Col xs={4} sm={4} md={4} lg={4}>
-                                <Flex vertical className="info-headers">
-                                    <div>Company Name</div>
-                                    <div>Office</div>
-                                    <div>Office Head</div>
-                                    <div>Email</div>
-                                    <div>Address</div>
-                                </Flex>
-                            </Col>
-                            <Col xs={8} sm={8} md={8} lg={8}>
-                                <Flex vertical>
-                                    {/* <div>{dataProfile?.parent_fullname}</div>
+
+                            {dataProfile?.company_id ? (
+                                <>
+                                    <Col xs={4} sm={4} md={4} lg={4}>
+                                        <Flex vertical className="info-headers">
+                                            <div>Company Name</div>
+                                            <div>Office</div>
+                                            <div>Office Head</div>
+                                            <div>Email</div>
+                                            <div>Address</div>
+                                        </Flex>
+                                    </Col>
+                                    <Col xs={8} sm={8} md={8} lg={8}>
+                                        <Flex vertical>
+                                            {/* <div>{dataProfile?.parent_fullname}</div>
                                     <div>{dataProfile?.school_id}</div>
                                     <div>{dataProfile?.user.email}</div> */}
-                                </Flex>
-                            </Col>
+                                        </Flex>
+                                    </Col>
+                                </>
+                            ) : (
+                                <Col xs={12} sm={12} md={12} lg={12}>
+                                    <Flex
+                                        className="company-btn"
+                                        align="center"
+                                        vertical
+                                    >
+                                        <div style={{ fontWeight: "bold" }}>
+                                            Select a Company
+                                        </div>
+                                        <Button>
+                                            <FontAwesomeIcon icon={faPlus} />
+                                        </Button>
+                                    </Flex>
+                                </Col>
+                            )}
                         </Row>
                     </Flex>
                 </>

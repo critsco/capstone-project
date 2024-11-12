@@ -39,29 +39,28 @@ export default function PageFacultyProfile() {
     return (
         <Layout.Content>
             <Row>
-                <Col sm={3} md={3} lg={3}>
+                <Col sm={4} md={4} lg={4}>
                     <Avatar
                         style={{ background: "#2c3d8f" }}
-                        size={128}
-                        icon={<FontAwesomeIcon icon={faUser} />}
+                        size={164}
+                        icon={
+                            <FontAwesomeIcon
+                                icon={faUser}
+                                style={{ fontSize: "64px" }}
+                            />
+                        }
                     />
                 </Col>
-                <Col sm={21} md={21} lg={21}>
-                    <Flex vertical gap={20}>
-                        <div style={{ fontWeight: "bold", fontSize: "24px" }}>
-                            Rejeenald Miras Flores (200841)
+                <Col sm={20} md={20} lg={20}>
+                    <Flex vertical gap={16}>
+                        <div className="profile-name">
+                            {dataProfile.data.fullname} (
+                            {dataProfile.data.school_id})
                         </div>
                         <Flex gap={8} align="center">
                             <Button className="image">Choose Image</Button>
                             <Button className="remove">Remove</Button>
-                            <Flex
-                                align="center"
-                                gap={4}
-                                style={{
-                                    color: "#9095A1",
-                                    fontSize: "14px",
-                                }}
-                            >
+                            <Flex align="center" gap={4}>
                                 <FontAwesomeIcon
                                     icon={faCircleInfo}
                                     size="sm"

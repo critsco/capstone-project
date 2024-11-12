@@ -24,8 +24,6 @@ export default function PageStudentDashboard() {
         }
     }, [dataProfile]);
 
-    console.log("dataProfile: ", dataProfile);
-
     if (loading) {
         return (
             <div className="splash-centered">

@@ -7,14 +7,14 @@ export default function StatusTable() {
             title: "Document",
             dataIndex: "document",
             key: "document",
-            width: 150,
+            width: 250,
         },
         {
             title: "Status",
             dataIndex: "status",
             key: "status",
             align: "center",
-            width: 100,
+            width: 150,
         },
         {
             title: "Date Started",
@@ -35,7 +35,6 @@ export default function StatusTable() {
             dataIndex: "note",
             key: "note",
             align: "center",
-            width: 150,
         },
     ];
 
@@ -98,6 +97,7 @@ export default function StatusTable() {
                     columns={columns}
                     bordered
                     pagination={false}
+                    size="small"
                 />
             </Col>
         </Row>

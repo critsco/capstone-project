@@ -7,6 +7,7 @@ import {
     Form,
     Input,
     Modal,
+    Popconfirm,
     Row,
     Select,
 } from "antd";
@@ -104,13 +105,17 @@ export default function EditModalForm(props) {
                     >
                         Cancel
                     </Button>
-                    <Button
+                    <Popconfirm
                         key={2}
-                        className="submit-btn"
-                        onClick={() => form.submit()}
+                        rootClassName="edit-confirm-btn"
+                        title="Confirmation"
+                        description="Are you sure you want to submit?"
+                        onConfirm={() => form.submit()}
+                        okText="Yes"
+                        cancelText="No"
                     >
-                        Next
-                    </Button>
+                        <Button className="submit-btn">Submit</Button>
+                    </Popconfirm>
                 </Flex>
             }
         >

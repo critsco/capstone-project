@@ -204,7 +204,7 @@ body {
 #PageDashboard .ant-layout-content {
   background: #f3f4f6;
   padding-block: 30px;
-  padding-inline: 5%;
+  padding-inline: 15rem;
   gap: 10px;
   height: 90vh;
   flex: 1;
@@ -216,39 +216,31 @@ body {
 }
 #PageDashboard .ant-layout-content .ant-row .ant-col #tbl_wrapper .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-thead .ant-table-cell {
   text-align: center;
+  color: #565d6d;
 }
-#PageDashboard .ant-layout-content .ant-row .ant-col .faculty-calendar {
-  border-radius: 8px;
-  box-shadow: 2px 4px 8px rgba(23, 26, 31, 0.12);
+#PageDashboard .ant-layout-content .ant-row .ant-col #tbl_wrapper .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-row .ant-table-cell {
+  font-size: 0.875rem;
 }
-#PageDashboard .ant-layout-content .ant-row .ant-col .faculty-calendar .ant-picker-calendar {
-  height: 345px;
+#PageDashboard .ant-layout-content .ant-row .ant-col .ant-flex {
+  margin-bottom: 16px;
 }
-#PageDashboard .ant-layout-content .ant-row .ant-col .faculty-calendar .ant-picker-calendar .ant-flex {
-  padding: 8px;
-  flex-direction: row-reverse;
+#PageDashboard .ant-layout-content .ant-row .ant-col .ant-flex .dashboard-title {
+  font-weight: bolder;
+  font-size: 18px;
+  padding: 0;
 }
-#PageDashboard .ant-layout-content .ant-row .ant-col .faculty-calendar .ant-picker-calendar .ant-picker-panel {
-  padding-inline: 5%;
+#PageDashboard .ant-layout-content .ant-row .ant-col .ant-flex .ant-segmented .ant-segmented-group {
+  background: #dedfe3;
+  border-radius: 4px;
+  padding: 2px;
 }
-#PageDashboard .ant-layout-content .ant-row .ant-col .faculty-calendar .ant-picker-calendar .ant-picker-panel .ant-picker-date-panel .ant-picker-body .ant-picker-content th {
-  font-weight: bold;
-  font-size: 16px;
-  padding-bottom: 8px;
-  color: #2c3d8f;
-}
-#PageDashboard .ant-layout-content .ant-row .ant-col .faculty-calendar .ant-picker-calendar .ant-picker-panel .ant-picker-date-panel .ant-picker-body .ant-picker-content .ant-picker-cell-selected .ant-picker-calendar-date {
-  background: #2c3d8f;
-  color: white;
-  border: 0;
-}
-#PageDashboard .ant-layout-content .ant-row .ant-col .faculty-calendar .ant-picker-calendar .ant-picker-panel .ant-picker-date-panel .ant-picker-body .ant-picker-content .ant-picker-cell-inner::before {
-  border: 1px solid #a5a9bf;
+#PageDashboard .ant-layout-content .ant-row .ant-col .ant-flex .ant-segmented .ant-segmented-group .ant-segmented-item-selected {
+  background: #ffffff;
 }
 
 #PageProfile .ant-layout-content {
   padding-block: 24px;
-  padding-inline: 300px;
+  padding-inline: 22rem;
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -298,6 +290,11 @@ body {
   color: white;
   height: 40px;
   border-radius: 4px;
+  border: 1px solid #2c3d8f;
+}
+#PageProfile .ant-layout-content .ant-row .ant-col .card .card-header .ant-btn:hover {
+  background: white;
+  color: #2c3d8f;
 }
 #PageProfile .ant-layout-content .ant-row .ant-col .card .card-body {
   background: #f8f9fa;
@@ -348,6 +345,16 @@ body {
   color: #9095a1;
   font-weight: 300;
 }
+#PageProfile .ant-layout-content .ant-row .ant-col .card .card-body .ant-flex.company-btn .ant-btn {
+  color: white;
+  background: #2c3d8f;
+  border: 1px solid #2c3d8f;
+  border-radius: 4px;
+}
+#PageProfile .ant-layout-content .ant-row .ant-col .card .card-body .ant-flex.company-btn .ant-btn:hover {
+  background: white;
+  color: #2c3d8f;
+}
 #PageProfile .ant-layout-content .ant-row .ant-col .card .ant-divider-horizontal {
   min-width: 0;
   width: 95%;
@@ -360,6 +367,9 @@ body {
   padding-inline: 18rem;
   gap: 10px;
   height: 90vh;
+}
+#PageDocuments .ant-layout-content .ant-row {
+  box-shadow: 2px 4px 8px rgba(23, 26, 31, 0.12);
 }
 #PageDocuments .ant-layout-content .ant-row .ant-col .ant-flex.document-sidebar {
   background: #f8f9fa;
@@ -422,8 +432,10 @@ body {
   border: 0;
   padding-top: 0;
   padding-bottom: 40px;
-  font-size: small;
   margin: 0;
+}
+#PageDocuments .ant-layout-content .ant-row .ant-col .ant-flex.document-sidebar .ant-flex .ant-flex span {
+  font-size: small;
 }
 #PageDocuments .ant-layout-content .ant-row .ant-col .document-card {
   width: 100%;
@@ -433,6 +445,11 @@ body {
   top: 0;
   padding: 25px 100px 25px 100px;
   justify-content: center;
+}
+
+#PageCompanies .ant-layout-content {
+  padding-block: 24px;
+  padding-inline: 15rem;
 }
 
 .faculty-calendar {
@@ -460,6 +477,40 @@ body {
   border: 0;
 }
 .faculty-calendar .ant-picker-calendar .ant-picker-panel .ant-picker-date-panel .ant-picker-body .ant-picker-content .ant-picker-cell-inner::before {
+  border: 1px solid #a5a9bf;
+}
+
+.ant-picker-calendar.student-calendar-wrapper {
+  border-radius: 8px;
+  box-shadow: 2px 4px 8px rgba(23, 26, 31, 0.12);
+}
+.ant-picker-calendar.student-calendar-wrapper .ant-flex {
+  flex-direction: row-reverse;
+  padding-inline: 8px;
+  padding-block: 12px;
+}
+.ant-picker-calendar.student-calendar-wrapper .ant-flex .ant-flex {
+  flex-direction: row;
+  padding: 0;
+}
+.ant-picker-calendar.student-calendar-wrapper .ant-picker-panel {
+  padding-inline: 1rem;
+}
+.ant-picker-calendar.student-calendar-wrapper .ant-picker-panel .ant-picker-date-panel .ant-picker-body .ant-picker-content thead th {
+  font-weight: bold;
+  font-size: 16px;
+  padding-bottom: 8px;
+  color: #2c3d8f;
+}
+.ant-picker-calendar.student-calendar-wrapper .ant-picker-panel .ant-picker-date-panel .ant-picker-body .ant-picker-content tbody {
+  height: 244px;
+}
+.ant-picker-calendar.student-calendar-wrapper .ant-picker-panel .ant-picker-date-panel .ant-picker-body .ant-picker-content tbody tr .ant-picker-cell-selected .ant-picker-calendar-date {
+  background: #2c3d8f;
+  color: white;
+  border: 0;
+}
+.ant-picker-calendar.student-calendar-wrapper .ant-picker-panel .ant-picker-date-panel .ant-picker-body .ant-picker-content tbody tr .ant-picker-cell-inner::before {
   border: 1px solid #a5a9bf;
 }
 
@@ -744,6 +795,32 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.ant-popover.edit-confirm-btn .ant-popover-content .ant-popover-inner .ant-popover-inner-content .ant-popconfirm-inner-content .ant-popconfirm-buttons .ant-btn {
+  border-radius: 8px;
+  padding-block: 16px;
+  padding-inline: 8px;
+}
+.ant-popover.edit-confirm-btn .ant-popover-content .ant-popover-inner .ant-popover-inner-content .ant-popconfirm-inner-content .ant-popconfirm-buttons .ant-btn-default {
+  border: 1px solid #9095a1;
+  background: #9095a1;
+  color: white;
+  font-weight: normal;
+}
+.ant-popover.edit-confirm-btn .ant-popover-content .ant-popover-inner .ant-popover-inner-content .ant-popconfirm-inner-content .ant-popconfirm-buttons .ant-btn-default:hover {
+  background: white;
+  color: #9095a1;
+}
+.ant-popover.edit-confirm-btn .ant-popover-content .ant-popover-inner .ant-popover-inner-content .ant-popconfirm-inner-content .ant-popconfirm-buttons .ant-btn-primary {
+  border: 1px solid #2c3d8f;
+  background: #2c3d8f;
+  color: white;
+  font-weight: normal;
+}
+.ant-popover.edit-confirm-btn .ant-popover-content .ant-popover-inner .ant-popover-inner-content .ant-popconfirm-inner-content .ant-popconfirm-buttons .ant-btn-primary:hover {
+  background: white;
+  color: #2c3d8f;
 }
 
 .private-layout {

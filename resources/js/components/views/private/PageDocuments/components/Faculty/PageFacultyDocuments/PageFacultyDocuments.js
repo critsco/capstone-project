@@ -16,15 +16,15 @@ export default function PageFacultyDocuments() {
                     lg={24}
                     style={{ display: "flex", justifyContent: "center" }}
                 >
-                    <DocumentSearchBar />
+                    {/* <DocumentSearchBar /> */}
                 </Col>
             </Row>
             <Row style={{ marginTop: "30px" }}>
                 <Col xs={24} sm={24} md={5} lg={5}>
-                    <DocumentSidebar />
+                    {/* <DocumentSidebar /> */}
                 </Col>
                 <Col xs={24} sm={24} md={19} lg={19}>
-                    <DocumentCard />
+                    {/* <DocumentCard /> */}
                 </Col>
             </Row>
         </Layout.Content>

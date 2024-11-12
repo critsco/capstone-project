@@ -6,6 +6,8 @@
         height: 90vh;
 
         .ant-row {
+            box-shadow: 2px 4px 8px rgba(23, 26, 31, 0.12);
+
             .ant-col {
                 .ant-flex.document-sidebar {
                     background: #f8f9fa;
@@ -74,8 +76,11 @@
                             border: 0;
                             padding-top: 0;
                             padding-bottom: 40px;
-                            font-size: small;
                             margin: 0;
+
+                            span {
+                                font-size: small;
+                            }
                         }
                     }
                 }

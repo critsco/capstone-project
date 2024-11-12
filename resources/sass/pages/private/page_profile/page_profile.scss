@@ -1,7 +1,7 @@
 #PageProfile {
     .ant-layout-content {
         padding-block: 24px;
-        padding-inline: 300px;
+        padding-inline: 22rem;
         display: flex;
         flex-direction: column;
         gap: 24px;
@@ -57,6 +57,11 @@
                             color: white;
                             height: 40px;
                             border-radius: 4px;
+                            border: 1px solid #2c3d8f;
+                        }
+                        .ant-btn:hover {
+                            background: white;
+                            color: #2c3d8f;
                         }
                     }
                     .card-body {
@@ -108,6 +113,18 @@
                         .ant-flex.info-headers {
                             color: #9095a1;
                             font-weight: 300;
+                        }
+                        .ant-flex.company-btn {
+                            .ant-btn {
+                                color: white;
+                                background: #2c3d8f;
+                                border: 1px solid #2c3d8f;
+                                border-radius: 4px;
+                            }
+                            .ant-btn:hover {
+                                background: white;
+                                color: #2c3d8f;
+                            }
                         }
                     }
                     .ant-divider-horizontal {

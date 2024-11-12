@@ -7,6 +7,7 @@ import {
     Input,
     Modal,
     notification,
+    Popconfirm,
     Row,
     Select,
 } from "antd";
@@ -91,7 +92,6 @@ export default function NextModalForm(props) {
             loading={loading}
             onCancel={() =>
                 setToggleModalForm({
-                    editOpen: false,
                     nextOpen: false,
                     data: null,
                 })
@@ -111,14 +111,17 @@ export default function NextModalForm(props) {
                     >
                         Back
                     </Button>
-                    <Button
+                    <Popconfirm
                         key={2}
-                        className="submit-btn"
-                        onClick={() => form.submit()}
-                        loading={isLoadingUpdateProfile}
+                        rootClassName="edit-confirm-btn"
+                        title="Confirmation"
+                        description="Are you sure you want to submit?"
+                        onConfirm={() => form.submit()}
+                        okText="Yes"
+                        cancelText="No"
                     >
-                        Submit
-                    </Button>
+                        <Button className="submit-btn">Submit</Button>
+                    </Popconfirm>
                 </Flex>
             }
         >
