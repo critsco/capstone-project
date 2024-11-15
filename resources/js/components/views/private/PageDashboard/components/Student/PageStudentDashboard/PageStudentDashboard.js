@@ -11,20 +11,13 @@ import { faExclamationCircle } from "@fortawesome/pro-regular-svg-icons";
 export default function PageStudentDashboard() {
     const userdata = userData();
     const navigate = useNavigate();
-    const [loading, setLoading] = useState(true);
 
-    const { data: dataProfile } = GET(
+    const { data: dataProfile, isLoading: isLoadingDataProfile } = GET(
         `api/profile/${userdata.id}`,
         "profile_list"
     );
 
-    useEffect(() => {
-        if (dataProfile) {
-            setLoading(false);
-        }
-    }, [dataProfile]);
-
-    if (loading) {
+    if (isLoadingDataProfile) {
         return (
             <div className="splash-centered">
                 <div className="splash-loader">

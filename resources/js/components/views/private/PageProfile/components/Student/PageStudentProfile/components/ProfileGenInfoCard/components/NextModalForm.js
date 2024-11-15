@@ -18,13 +18,15 @@ import { POST } from "../../../../../../../../../providers/useAxiosQuery";
 import notificationErrors from "../../../../../../../../../providers/notificationErrors";
 
 export default function NextModalForm(props) {
-    const { toggleModalForm, setToggleModalForm, formData, dataProfile } =
-        props;
+    const {
+        toggleModalForm,
+        setToggleModalForm,
+        formData,
+        setFormData,
+        dataProfile,
+    } = props;
     const [form] = Form.useForm();
     const [loading, setLoading] = useState(true);
-
-    console.log("formData", formData);
-    console.log("dataProfile", dataProfile.profile_parent);
 
     const { mutate: mutateUpdateProfile, isLoading: isLoadingUpdateProfile } =
         POST(`api/update_student_profile`, "update_student_profile_list");
@@ -34,12 +36,12 @@ export default function NextModalForm(props) {
             setLoading(true);
 
             form.setFieldsValue({
-                p_first_name: dataProfile.profile_parent.first_name,
-                p_middle_name: dataProfile.profile_parent.middle_name,
-                p_last_name: dataProfile.profile_parent.last_name,
-                p_suffix: dataProfile.profile_parent.suffix,
-                relationship: dataProfile.profile_parent.relationship,
-                p_phone: dataProfile.profile_parent.phone,
+                p_first_name: dataProfile.profile_parent?.first_name,
+                p_middle_name: dataProfile.profile_parent?.middle_name,
+                p_last_name: dataProfile.profile_parent?.last_name,
+                p_suffix: dataProfile.profile_parent?.suffix,
+                relationship: dataProfile.profile_parent?.relationship,
+                p_phone: dataProfile.profile_parent?.phone,
             });
 
             setTimeout(() => {
@@ -82,9 +84,36 @@ export default function NextModalForm(props) {
         });
     };
 
+    const onNext = () => {
+        form.validateFields()
+            .then((values) => {
+                // Save form data to formData state
+                setFormData((prevFormData) => ({
+                    ...prevFormData,
+                    ...values,
+                }));
+
+                // Open the NextModalForm
+                setToggleModalForm({
+                    nextOpen: false,
+                    companyOpen: true,
+                });
+            })
+            .catch((info) => {
+                notification.error({
+                    message: "Validation Failed",
+                    description: "Please complete the required fields.",
+                });
+            });
+    };
+
     return (
         <Modal
-            title="Edit Information"
+            title={
+                dataProfile?.parent_id
+                    ? "Edit Parent Information"
+                    : "Add Parent Information"
+            }
             wrapClassName="signup-form"
             open={toggleModalForm.nextOpen}
             width={850}
@@ -111,17 +140,28 @@ export default function NextModalForm(props) {
                     >
                         Back
                     </Button>
-                    <Popconfirm
-                        key={2}
-                        rootClassName="edit-confirm-btn"
-                        title="Confirmation"
-                        description="Are you sure you want to submit?"
-                        onConfirm={() => form.submit()}
-                        okText="Yes"
-                        cancelText="No"
-                    >
-                        <Button className="submit-btn">Submit</Button>
-                    </Popconfirm>
+                    {dataProfile?.company_id ? (
+                        <Button key={2} className="submit-btn" onClick={onNext}>
+                            Next
+                        </Button>
+                    ) : (
+                        <Popconfirm
+                            key={2}
+                            rootClassName="edit-confirm-btn"
+                            title="Confirmation"
+                            description="Are you sure you want to submit?"
+                            onConfirm={() => form.submit()}
+                            okText="Yes"
+                            cancelText="No"
+                        >
+                            <Button
+                                className="submit-btn"
+                                loading={isLoadingUpdateProfile}
+                            >
+                                Submit
+                            </Button>
+                        </Popconfirm>
+                    )}
                 </Flex>
             }
         >
@@ -140,31 +180,69 @@ export default function NextModalForm(props) {
                 </Flex>
                 <Row gutter={[8, 0]}>
                     <Col xs={24} sm={12} md={7}>
-                        <Form.Item label="First Name" name="p_first_name">
-                            <Input required={true} placeholder="First name" />
+                        <Form.Item
+                            label="First Name"
+                            name="p_first_name"
+                            rules={[
+                                {
+                                    required: true,
+                                    message:
+                                        "Please input parent/guardian's first name!",
+                                },
+                            ]}
+                        >
+                            <Input placeholder="First name" />
                         </Form.Item>
                     </Col>
                     <Col xs={24} sm={12} md={7}>
-                        <Form.Item label="Middle Name" name="p_middle_name">
-                            <Input required={true} placeholder="Middle name" />
+                        <Form.Item
+                            label="Middle Name"
+                            name="p_middle_name"
+                            rules={[
+                                {
+                                    required: true,
+                                    message:
+                                        "Please input parent/guardian's middle name!",
+                                },
+                            ]}
+                        >
+                            <Input placeholder="Middle name" />
                         </Form.Item>
                     </Col>
                     <Col xs={24} sm={12} md={7}>
-                        <Form.Item label="Last Name" name="p_last_name">
-                            <Input required={true} placeholder="Last name" />
+                        <Form.Item
+                            label="Last Name"
+                            name="p_last_name"
+                            rules={[
+                                {
+                                    required: true,
+                                    message:
+                                        "Please input parent/guardian's last name!",
+                                },
+                            ]}
+                        >
+                            <Input placeholder="Last name" />
                         </Form.Item>
                     </Col>
                     <Col xs={24} sm={12} md={3}>
                         <Form.Item label="Suffix" name="p_suffix">
-                            <Input required={true} placeholder="Suffix" />
+                            <Input placeholder="Suffix" />
                         </Form.Item>
                     </Col>
                 </Row>
                 <Row gutter={[8, 0]}>
                     <Col xs={24} sm={12} md={8}>
-                        <Form.Item label="Relationship" name="relationship">
+                        <Form.Item
+                            label="Relationship"
+                            name="relationship"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please select your relationship!",
+                                },
+                            ]}
+                        >
                             <Select
-                                required={true}
                                 placeholder="Relationship"
                                 options={[
                                     { value: "Parent", label: "Parent" },
@@ -179,9 +257,18 @@ export default function NextModalForm(props) {
                         </Form.Item>
                     </Col>
                     <Col xs={24} sm={12} md={8}>
-                        <Form.Item label="Phone" name="p_phone">
+                        <Form.Item
+                            label="Phone"
+                            name="p_phone"
+                            rules={[
+                                {
+                                    required: true,
+                                    message:
+                                        "Please input parent/guardian's phone number!",
+                                },
+                            ]}
+                        >
                             <Input
-                                required={true}
                                 placeholder="+63"
                                 addonBefore={
                                     <FontAwesomeIcon

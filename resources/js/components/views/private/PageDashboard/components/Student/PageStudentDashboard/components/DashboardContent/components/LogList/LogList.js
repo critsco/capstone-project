@@ -29,7 +29,6 @@ export default function LogList(props) {
         <List
             grid={{
                 gutter: 16,
-                column: 4,
             }}
             dataSource={data}
             renderItem={(item) => (
@@ -37,8 +36,6 @@ export default function LogList(props) {
                     <Card title={item.title}>Log Content</Card>
                 </List.Item>
             )}
-        >
-            <List.Item>Upload</List.Item>
-        </List>
+        />
     );
 }

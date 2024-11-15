@@ -244,4 +244,144 @@
             }
         }
     }
+    .ant-modal-wrap.company-form {
+        * {
+            font-family: "Poppins";
+            font-size: 16px;
+        }
+
+        .ant-modal {
+            .ant-modal-content {
+                border-radius: 16px;
+                padding-inline: 30px;
+
+                .ant-modal-close {
+                    color: black;
+                    margin-right: 10px;
+                }
+                .ant-modal-header {
+                    background: none;
+                    border-bottom: 1.5px solid #dee1e6;
+
+                    .ant-modal-title {
+                        color: black;
+                        font-weight: bold;
+                        font-size: 24px;
+                        margin-left: -20px;
+                    }
+                }
+                .ant-modal-body {
+                    margin-top: -10px;
+
+                    .ant-form {
+                        .ant-row {
+                            margin-top: 6px;
+                            margin-bottom: -14px;
+
+                            .ant-col {
+                                .ant-form-item {
+                                    .ant-form-item-row {
+                                        .ant-form-item-control {
+                                            .ant-form-item-control-input {
+                                                .ant-form-item-control-input-content {
+                                                    .ant-input-group-wrapper {
+                                                        .ant-input-wrapper {
+                                                            .ant-input-group-addon {
+                                                                background: #f3f4f6;
+                                                            }
+                                                        }
+                                                    }
+                                                    .ant-input {
+                                                        padding: 8px 12px;
+                                                        font-size: 16px;
+                                                        border: 1px solid
+                                                            #dee1e6 !important;
+                                                        background: #f3f4f6;
+                                                    }
+                                                    .ant-input::placeholder {
+                                                        color: #bdc1ca !important;
+                                                    }
+
+                                                    .ant-select {
+                                                        height: 43px !important;
+
+                                                        .ant-select-selector {
+                                                            font-size: 16px;
+
+                                                            border: 1px solid
+                                                                #dee1e6 !important;
+                                                            background: #f3f4f6;
+
+                                                            .ant-select-selection-placeholder {
+                                                                color: #bdc1ca !important;
+                                                            }
+                                                        }
+                                                    }
+                                                    .ant-picker {
+                                                        height: 43px;
+                                                        border: 1px solid
+                                                            #dee1e6 !important;
+                                                        background: #f3f4f6;
+
+                                                        .ant-picker-input {
+                                                            input#birthdate {
+                                                                font-size: 16px;
+                                                            }
+                                                            input#birthdate::placeholder {
+                                                                color: #bdc1ca !important;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        .ant-form-item-label {
+                                            font-weight: bold;
+                                            font-size: 20px;
+
+                                            .ant-form-item-required::before {
+                                                display: none;
+                                            }
+                                        }
+                                    }
+                                }
+                                .info-headers {
+                                    color: #9095a1;
+                                    font-weight: 300;
+                                }
+                            }
+                        }
+                    }
+                }
+                .ant-modal-footer {
+                    border-top: 1.5px solid #dee1e6;
+
+                    .ant-btn {
+                        border-radius: 8px !important;
+                        padding-block: 20px;
+                    }
+                    .ant-btn.cancel-btn {
+                        border: 1px solid #9095a1;
+                        background: #9095a1;
+                        color: white;
+                        font-weight: normal;
+                    }
+                    .ant-btn.cancel-btn:hover {
+                        background: white;
+                        color: #9095a1;
+                    }
+                    .ant-btn.submit-btn {
+                        border: 1px solid #2c3d8f;
+                        background: #2c3d8f;
+                        color: white;
+                        font-weight: normal;
+                    }
+                    .ant-btn.submit-btn:hover {
+                        background: white;
+                        color: #2c3d8f;
+                    }
+                }
+            }
+        }
+    }
 }

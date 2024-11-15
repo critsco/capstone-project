@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Company;
 use App\Models\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -250,6 +251,15 @@ class ProfileController extends Controller
                 $findProfile->save();
             }
 
+            if ($request->company_name) {
+                $findCompany = Company::where('company_name', $request->company_name)
+                ->where('office', $request->office)
+                ->first();
+
+                $findProfile->company_id = $findCompany->id;
+                $findProfile->save();
+            }
+
             $ret = [
                 "success" => true,
                 "message" => "Profile successfully updated",
@@ -257,5 +267,43 @@ class ProfileController extends Controller
         }
 
         return response()->json($ret, 200);
+    }
+
+    public function update_profile_company(Request $request)
+    {
+        // Retrieve the company that matches both the `company_name` and `office`
+        $company = Company::where('company_name', $request->company_name)
+            ->where('office', $request->office)
+            ->first();
+
+        // If no matching company is found, return an error response
+        if (!$company) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Company with the specified name and office not found.'
+            ], 404);
+        }
+
+        // Retrieve the student profile and update the company_id field
+        $studentProfile = Profile::find($request->student_profile_id);
+
+        // If no student profile is found, return an error response
+        if (!$studentProfile) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Profile not found.'
+            ], 404);
+        }
+
+        // Update the student profile's company_id with the retrieved company's id
+        $studentProfile->company_id = $company->id;
+        $studentProfile->save();
+
+        // Return a success response
+        return response()->json([
+            'success' => true,
+            'message' => 'Profile updated with company successfully.',
+            'company_id' => $company->id
+        ], 200);
     }
 }

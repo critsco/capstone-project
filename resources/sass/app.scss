@@ -18,6 +18,7 @@ body {
 @import "./pages/private/page_companies/page_companies.scss";
 
 // UI
+@import "./ui/button/button.scss";
 @import "./ui/calendar/calendar.scss";
 @import "./ui/footer/footer.scss";
 @import "./ui/modal/modal.scss";
@@ -27,3 +28,4 @@ body {
 @import "./ui/popconfirm/popconfirm.scss";
 @import "./ui/private-layout/private-layout.scss";
 @import "./ui/public-layout/public-layout.scss";
+@import "./ui/table/table.scss";

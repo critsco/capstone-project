@@ -31,10 +31,15 @@ Route::middleware('auth:api')->group(function () {
     // END UserController
 
     // ProfileController
-    Route::apiResource("profile", App\Http\Controllers\ProfileController::class);
+    Route::apiResource("profiles", App\Http\Controllers\ProfileController::class);
     Route::get("profile/{id}", [App\Http\Controllers\ProfileController::class, "show"]);
     Route::post("update_student_profile", [App\Http\Controllers\ProfileController::class, "update_student_profile"]);
+    Route::post("update_profile_company", [App\Http\Controllers\ProfileController::class, "update_profile_company"]);
     // END ProfileController
+
+    // CompanyController
+    Route::apiResource("companies", App\Http\Controllers\CompanyController::class);
+    // END CompanyController
 
     // SETTINGS
     Route::apiResource('ref_regions', App\Http\Controllers\RefRegionController::class);

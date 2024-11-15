@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import EditModalForm from "./components/EditModalForm";
 import NextModalForm from "./components/NextModalForm";
 import { faPlus } from "@fortawesome/pro-regular-svg-icons";
+import CompanyModalForm from "./components/CompanyModalForm";
 
 export default function ProfileGenInfoCard(props) {
     const { dataProfile } = props;
@@ -13,9 +14,13 @@ export default function ProfileGenInfoCard(props) {
     const [toggleModalForm, setToggleModalForm] = useState({
         editOpen: false,
         nextOpen: false,
+        companyOpen: false,
         data: null,
     });
+
     const [formData, setFormData] = useState(null);
+
+    console.log("dataProfile: ", dataProfile);
 
     return (
         <div className="card">
@@ -124,14 +129,28 @@ export default function ProfileGenInfoCard(props) {
                                             <div>Office</div>
                                             <div>Office Head</div>
                                             <div>Email</div>
-                                            <div>Address</div>
                                         </Flex>
                                     </Col>
                                     <Col xs={8} sm={8} md={8} lg={8}>
                                         <Flex vertical>
-                                            {/* <div>{dataProfile?.parent_fullname}</div>
-                                    <div>{dataProfile?.school_id}</div>
-                                    <div>{dataProfile?.user.email}</div> */}
+                                            <div>
+                                                {
+                                                    dataProfile?.company
+                                                        .company_name
+                                                }
+                                            </div>
+                                            <div>
+                                                {dataProfile?.company.office}
+                                            </div>
+                                            <div>
+                                                {
+                                                    dataProfile?.company
+                                                        .office_head
+                                                }
+                                            </div>
+                                            <div>
+                                                {dataProfile?.company.email}
+                                            </div>
                                         </Flex>
                                     </Col>
                                 </>
@@ -142,10 +161,16 @@ export default function ProfileGenInfoCard(props) {
                                         align="center"
                                         vertical
                                     >
-                                        <div style={{ fontWeight: "bold" }}>
+                                        <div style={{ fontWeight: "600" }}>
                                             Select a Company
                                         </div>
-                                        <Button>
+                                        <Button
+                                            onClick={() =>
+                                                setToggleModalForm({
+                                                    companyOpen: true,
+                                                })
+                                            }
+                                        >
                                             <FontAwesomeIcon icon={faPlus} />
                                         </Button>
                                     </Flex>
@@ -165,10 +190,16 @@ export default function ProfileGenInfoCard(props) {
             <EditModalForm
                 toggleModalForm={toggleModalForm}
                 setToggleModalForm={setToggleModalForm}
-                formData={formData}
                 setFormData={setFormData}
             />
             <NextModalForm
+                toggleModalForm={toggleModalForm}
+                setToggleModalForm={setToggleModalForm}
+                formData={formData}
+                setFormData={setFormData}
+                dataProfile={dataProfile}
+            />
+            <CompanyModalForm
                 toggleModalForm={toggleModalForm}
                 setToggleModalForm={setToggleModalForm}
                 formData={formData}

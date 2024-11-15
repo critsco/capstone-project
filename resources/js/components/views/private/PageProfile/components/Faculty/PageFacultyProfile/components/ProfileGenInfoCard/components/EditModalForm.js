@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import {
     Button,
     Col,
-    DatePicker,
     Flex,
     Form,
     Input,
@@ -13,7 +12,6 @@ import {
 } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleInfo, faPhone } from "@fortawesome/pro-regular-svg-icons";
-import dayjs from "dayjs";
 
 import { GET } from "../../../../../../../../../providers/useAxiosQuery";
 
@@ -79,7 +77,7 @@ export default function EditModalForm(props) {
 
     return (
         <Modal
-            title="Edit Information"
+            title="Edit Personal Information"
             wrapClassName="signup-form"
             open={toggleModalForm.open}
             width={850}
@@ -129,44 +127,95 @@ export default function EditModalForm(props) {
                 </Flex>
                 <Row gutter={[8, 0]}>
                     <Col xs={24} sm={12} md={7}>
-                        <Form.Item label="First Name" name="first_name">
-                            <Input required={true} placeholder="First name" />
+                        <Form.Item
+                            label="First Name"
+                            name="first_name"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please input your first name!",
+                                },
+                            ]}
+                        >
+                            <Input placeholder="First name" />
                         </Form.Item>
                     </Col>
                     <Col xs={24} sm={12} md={7}>
-                        <Form.Item label="Middle Name" name="middle_name">
-                            <Input required={true} placeholder="Middle name" />
+                        <Form.Item
+                            label="Middle Name"
+                            name="middle_name"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please input your middle name!",
+                                },
+                            ]}
+                        >
+                            <Input placeholder="Middle name" />
                         </Form.Item>
                     </Col>
                     <Col xs={24} sm={12} md={7}>
-                        <Form.Item label="Last Name" name="last_name">
-                            <Input required={true} placeholder="Last name" />
+                        <Form.Item
+                            label="Last Name"
+                            name="last_name"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please input your last name!",
+                                },
+                            ]}
+                        >
+                            <Input placeholder="Last name" />
                         </Form.Item>
                     </Col>
                     <Col xs={24} sm={12} md={3}>
                         <Form.Item label="Suffix" name="suffix">
-                            <Input required={true} placeholder="Suffix" />
+                            <Input placeholder="Suffix" />
                         </Form.Item>
                     </Col>
                 </Row>
                 <Row gutter={[8, 0]}>
                     <Col xs={24} sm={12} md={7}>
-                        <Form.Item label="Faculty ID" name="school_id">
-                            <Input required={true} placeholder="Faculty ID" />
+                        <Form.Item
+                            label="Faculty ID"
+                            name="school_id"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please input your Faculty ID!",
+                                },
+                            ]}
+                        >
+                            <Input placeholder="Faculty ID" />
                         </Form.Item>
                     </Col>
                     <Col xs={24} sm={12} md={8}>
-                        <Form.Item label="University Email" name="email">
-                            <Input
-                                required={true}
-                                placeholder="@urios.edu.ph"
-                            />
+                        <Form.Item
+                            label="University Email"
+                            name="email"
+                            rules={[
+                                {
+                                    required: true,
+                                    type: "email",
+                                    message: "Please input a valid email!",
+                                },
+                            ]}
+                        >
+                            <Input placeholder="@urios.edu.ph" />
                         </Form.Item>
                     </Col>
                     <Col xs={24} sm={12} md={9}>
-                        <Form.Item label="Department" name="department_id">
+                        <Form.Item
+                            label="Department"
+                            name="department_id"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please select a department!",
+                                },
+                            ]}
+                        >
                             <Select
-                                required={true}
                                 placeholder="Department"
                                 options={
                                     dataDepartment && dataDepartment.data
@@ -182,9 +231,17 @@ export default function EditModalForm(props) {
                 </Row>
                 <Row gutter={[8, 0]}>
                     <Col xs={24} sm={12} md={7}>
-                        <Form.Item label="Phone" name="phone">
+                        <Form.Item
+                            label="Phone"
+                            name="phone"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please input your phone number!",
+                                },
+                            ]}
+                        >
                             <Input
-                                required={true}
                                 placeholder="+63"
                                 addonBefore={
                                     <FontAwesomeIcon
@@ -196,9 +253,17 @@ export default function EditModalForm(props) {
                         </Form.Item>
                     </Col>
                     <Col xs={24} sm={12} md={7}>
-                        <Form.Item label="Gender" name="gender">
+                        <Form.Item
+                            label="Gender"
+                            name="gender"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please select a gender!",
+                                },
+                            ]}
+                        >
                             <Select
-                                required={true}
                                 placeholder="Gender"
                                 options={[
                                     { value: "Male", label: "Male" },

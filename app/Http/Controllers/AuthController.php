@@ -72,9 +72,9 @@ class AuthController extends Controller
         // Create the profile associated with the user
         $profileData = [
             'user_id' => $user->id,
-            'first_name' => ucfirst(strtolower($request->first_name)),
-            'middle_name' => ucfirst(strtolower($request->middle_name)),
-            'last_name' => ucfirst(strtolower($request->last_name)),
+            'first_name' => ucwords(strtolower($request->first_name)),
+            'middle_name' => ucwords(strtolower($request->middle_name)),
+            'last_name' => ucwords(strtolower($request->last_name)),
             'suffix' => strtoupper($request->suffix),
             'school_id' => $request->school_id,
             'department_id' => $request->department_id,
@@ -105,13 +105,25 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
+        \Log::info('Login Request Data:', $request->all());
+
         $credentialsEmail = [
             'email' => $request->email,
-            'password' => $request->password
+            'password' => $request->password,
         ];
 
         if (auth()->attempt($credentialsEmail)) {
             $user = auth()->user();
+
+            // Check if the user_role_id matches
+            if ($user->user_role_id !== $request->user_role_id) {
+                auth()->logout(); // Log the user out if the role does not match
+                return response()->json([
+                    "success" => false,
+                    "message" => "Unauthorized login.",
+                ], 403);
+            }
+
             $token = $user->createToken('API Token')->accessToken;
 
             return response()->json([

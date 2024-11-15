@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { Col, Flex, Layout, Row, Segmented } from "antd";
+import { Button, Col, Flex, Layout, Row, Segmented, Upload } from "antd";
 
 import StatusTable from "./components/StatusTable/StatusTable";
 import StudentCalendar from "./components/StudentCalendar/StudentCalendar";
 import LogList from "./components/LogList/LogList";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/pro-regular-svg-icons";
 
 export default function DashboardContent() {
     const [sort, setSort] = useState([]);
@@ -15,7 +17,13 @@ export default function DashboardContent() {
                     <div className="dashboard-title">My Documents Status</div>
                     <StatusTable />
                 </Col>
-                <Col xs={24} sm={24} md={7} lg={7}>
+                <Col
+                    xs={24}
+                    sm={24}
+                    md={7}
+                    lg={7}
+                    style={{ marginTop: "43px" }}
+                >
                     <StudentCalendar />
                 </Col>
             </Row>
@@ -30,7 +38,13 @@ export default function DashboardContent() {
                             }}
                         />
                     </Flex>
-                    <LogList sort={sort} />
+                    <Flex flex={1} gap={16}>
+                        <Upload listType="picture-card">
+                            <FontAwesomeIcon icon={faPlus} />
+                            Add Log
+                        </Upload>
+                        <LogList sort={sort} />
+                    </Flex>
                 </Col>
             </Row>
         </Layout.Content>

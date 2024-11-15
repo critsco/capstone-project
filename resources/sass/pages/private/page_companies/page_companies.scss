@@ -2,5 +2,55 @@
     .ant-layout-content {
         padding-block: 24px;
         padding-inline: 15rem;
+
+        .ant-row {
+            .ant-col {
+                .ant-flex {
+                    .dashboard-title {
+                        font-weight: bolder;
+                        font-size: 18px;
+                    }
+                    .ant-btn {
+                        background: #2c3d8f;
+                        color: white;
+                        border: 1px solid #2c3d8f;
+                    }
+                    .ant-btn:hover {
+                        background: white;
+                        color: #2c3d8f;
+                    }
+                }
+                #tbl-wrapper {
+                    margin-top: 20px;
+
+                    .ant-col {
+                        .ant-row {
+                            .ant-col {
+                                .ant-table-wrapper {
+                                    .ant-spin-container {
+                                        .ant-table-content {
+                                            .ant-table-tbody {
+                                                .ant-table-row {
+                                                    .ant-table-cell {
+                                                        .action-buttons {
+                                                            .ant-btn {
+                                                                border: 0;
+                                                            }
+                                                            .ant-btn:hover {
+                                                                color: #2c3d8f;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }

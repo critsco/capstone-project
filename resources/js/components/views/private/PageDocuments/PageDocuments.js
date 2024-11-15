@@ -12,7 +12,7 @@ export default function PageDocuments() {
             {userdata.user_role_id === 1 ? (
                 <PageFacultyDocuments />
             ) : (
-                <PageStudentDocuments />
+                <PageStudentDocuments userdata={userdata} />
             )}
         </>
     );

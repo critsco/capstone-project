@@ -218,44 +218,95 @@ export default function SignupModal(props) {
             >
                 <Row gutter={[8, 0]}>
                     <Col xs={24} sm={12} md={7}>
-                        <Form.Item label="First Name" name="first_name">
-                            <Input required={true} placeholder="First name" />
+                        <Form.Item
+                            label="First Name"
+                            name="first_name"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please input your first name!",
+                                },
+                            ]}
+                        >
+                            <Input placeholder="First name" />
                         </Form.Item>
                     </Col>
                     <Col xs={24} sm={12} md={7}>
-                        <Form.Item label="Middle Name" name="middle_name">
-                            <Input required={true} placeholder="Middle name" />
+                        <Form.Item
+                            label="Middle Name"
+                            name="middle_name"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please input your middle name!",
+                                },
+                            ]}
+                        >
+                            <Input placeholder="Middle name" />
                         </Form.Item>
                     </Col>
                     <Col xs={24} sm={12} md={7}>
-                        <Form.Item label="Last Name" name="last_name">
-                            <Input required={true} placeholder="Last name" />
+                        <Form.Item
+                            label="Last Name"
+                            name="last_name"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please input your last name!",
+                                },
+                            ]}
+                        >
+                            <Input placeholder="Last name" />
                         </Form.Item>
                     </Col>
                     <Col xs={24} sm={12} md={3}>
                         <Form.Item label="Suffix" name="suffix">
-                            <Input required={true} placeholder="Suffix" />
+                            <Input placeholder="Suffix" />
                         </Form.Item>
                     </Col>
                 </Row>
                 <Row gutter={[8, 0]}>
                     <Col xs={24} sm={12} md={9}>
-                        <Form.Item label="Student ID" name="school_id">
-                            <Input required={true} placeholder="Student ID" />
+                        <Form.Item
+                            label="Student ID"
+                            name="school_id"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please input your Student ID!",
+                                },
+                            ]}
+                        >
+                            <Input placeholder="Student ID" />
                         </Form.Item>
                     </Col>
                     <Col xs={24} sm={12} md={9}>
-                        <Form.Item label="University Email" name="email">
-                            <Input
-                                required={true}
-                                placeholder="@urios.edu.ph"
-                            />
+                        <Form.Item
+                            label="University Email"
+                            name="email"
+                            rules={[
+                                {
+                                    required: true,
+                                    type: "email",
+                                    message: "Please input a valid email!",
+                                },
+                            ]}
+                        >
+                            <Input placeholder="@urios.edu.ph" />
                         </Form.Item>
                     </Col>
                     <Col xs={24} sm={12} md={6}>
-                        <Form.Item label="Year Level" name="year_level_id">
+                        <Form.Item
+                            label="Year Level"
+                            name="year_level_id"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please select a year level!",
+                                },
+                            ]}
+                        >
                             <Select
-                                required={true}
                                 placeholder="Year level"
                                 options={
                                     dataYearLevel && dataYearLevel.data
@@ -271,9 +322,17 @@ export default function SignupModal(props) {
                 </Row>
                 <Row gutter={[8, 0]}>
                     <Col xs={24} sm={12} md={12}>
-                        <Form.Item label="Department" name="department_id">
+                        <Form.Item
+                            label="Department"
+                            name="department_id"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please select a department!",
+                                },
+                            ]}
+                        >
                             <Select
-                                required={true}
                                 placeholder="Department"
                                 options={departments}
                                 onChange={handleDepartmentChange}
@@ -281,9 +340,17 @@ export default function SignupModal(props) {
                         </Form.Item>
                     </Col>
                     <Col xs={24} sm={12} md={12}>
-                        <Form.Item label="Course" name="course_id">
+                        <Form.Item
+                            label="Course"
+                            name="course_id"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please select a course!",
+                                },
+                            ]}
+                        >
                             <Select
-                                required={true}
                                 placeholder="Course"
                                 options={courses}
                                 disabled={!selectedDepartment}
@@ -293,9 +360,17 @@ export default function SignupModal(props) {
                 </Row>
                 <Row gutter={[8, 0]}>
                     <Col xs={24} sm={12} md={8}>
-                        <Form.Item label="Phone" name="phone">
+                        <Form.Item
+                            label="Phone"
+                            name="phone"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please input a phone number!",
+                                },
+                            ]}
+                        >
                             <Input
-                                required={true}
                                 placeholder="+63"
                                 addonBefore={
                                     <FontAwesomeIcon
@@ -307,18 +382,35 @@ export default function SignupModal(props) {
                         </Form.Item>
                     </Col>
                     <Col xs={24} sm={12} md={8}>
-                        <Form.Item label="Birthdate" name="birthdate">
+                        <Form.Item
+                            label="Birthdate"
+                            name="birthdate"
+                            rules={[
+                                {
+                                    required: true,
+                                    type: "data",
+                                    message: "Please enter your birthdate!",
+                                },
+                            ]}
+                        >
                             <DatePicker
-                                required={true}
                                 placeholder="Birthdate"
                                 style={{ width: "100%" }}
                             />
                         </Form.Item>
                     </Col>
                     <Col xs={24} sm={12} md={8}>
-                        <Form.Item label="Gender" name="gender">
+                        <Form.Item
+                            label="Gender"
+                            name="gender"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please select a gender!",
+                                },
+                            ]}
+                        >
                             <Select
-                                required={true}
                                 placeholder="Gender"
                                 options={[
                                     { value: "Male", label: "Male" },
@@ -331,9 +423,17 @@ export default function SignupModal(props) {
                 </Row>
                 <Row gutter={[8, 0]}>
                     <Col xs={24} sm={12} md={8}>
-                        <Form.Item label="Region" name="region_id">
+                        <Form.Item
+                            label="Region"
+                            name="region_id"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please select a region!",
+                                },
+                            ]}
+                        >
                             <Select
-                                required={true}
                                 placeholder="Region"
                                 options={regions}
                                 onChange={handleRegionChange}
@@ -341,9 +441,17 @@ export default function SignupModal(props) {
                         </Form.Item>
                     </Col>
                     <Col xs={24} sm={12} md={8}>
-                        <Form.Item label="Province" name="province_id">
+                        <Form.Item
+                            label="Province"
+                            name="province_id"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please select a province!",
+                                },
+                            ]}
+                        >
                             <Select
-                                required={true}
                                 placeholder="Province"
                                 options={provinces}
                                 onChange={handleProvinceChange}
@@ -355,9 +463,15 @@ export default function SignupModal(props) {
                         <Form.Item
                             label="City/Municipality"
                             name="municipality_id"
+                            rules={[
+                                {
+                                    required: true,
+                                    message:
+                                        "Please select a city/municipality!",
+                                },
+                            ]}
                         >
                             <Select
-                                required={true}
                                 placeholder="City/Municipality"
                                 options={municipalities}
                                 onChange={handleMunicipalityChange}
@@ -368,9 +482,17 @@ export default function SignupModal(props) {
                 </Row>
                 <Row gutter={[8, 0]}>
                     <Col xs={24} sm={24} md={8}>
-                        <Form.Item label="Barangay" name="barangay_id">
+                        <Form.Item
+                            label="Barangay"
+                            name="barangay_id"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please select a barangay!",
+                                },
+                            ]}
+                        >
                             <Select
-                                required={true}
                                 placeholder="City/Municipality"
                                 options={barangays}
                                 disabled={!selectedMunicipality}
@@ -378,11 +500,18 @@ export default function SignupModal(props) {
                         </Form.Item>
                     </Col>
                     <Col xs={24} sm={24} md={16}>
-                        <Form.Item label="Street Address" name="street_address">
-                            <Input
-                                required={true}
-                                placeholder="Street address"
-                            />
+                        <Form.Item
+                            label="Street Address"
+                            name="street_address"
+                            rules={[
+                                {
+                                    required: true,
+                                    message:
+                                        "Please input your street address!",
+                                },
+                            ]}
+                        >
+                            <Input placeholder="Street address" />
                         </Form.Item>
                     </Col>
                 </Row>
@@ -423,10 +552,7 @@ export default function SignupModal(props) {
                                 },
                             ]}
                         >
-                            <Input.Password
-                                required={true}
-                                placeholder="Please enter your password"
-                            />
+                            <Input.Password placeholder="Please enter your password" />
                         </Form.Item>
                         <Form.Item
                             name="password_confirmation"
@@ -456,10 +582,7 @@ export default function SignupModal(props) {
                                 }),
                             ]}
                         >
-                            <Input.Password
-                                required={true}
-                                placeholder="Please re-enter your password"
-                            />
+                            <Input.Password placeholder="Please re-enter your password" />
                         </Form.Item>
                     </Col>
                     <Col xs={24} sm={12} md={12}>
