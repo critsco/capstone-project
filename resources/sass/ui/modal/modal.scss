@@ -384,4 +384,45 @@
             }
         }
     }
+    .ant-modal-wrap.company-info-view {
+        .ant-modal {
+            .ant-modal-content {
+                border-radius: 16px;
+                padding-inline: 30px;
+
+                .ant-modal-close {
+                    color: black;
+                    margin-right: 10px;
+                }
+                .ant-modal-header {
+                    border-bottom: 1.5px solid #dee1e6;
+
+                    .ant-modal-title {
+                        color: black;
+                        font-weight: bold;
+                        font-size: 24px;
+                        margin-left: -20px;
+                    }
+                }
+                .ant-modal-body {
+                    .table-title {
+                        font-weight: 700;
+                        margin-bottom: 10px;
+                    }
+                }
+                .ant-modal-footer {
+                    .ant-btn {
+                        border: 1px solid #9095a1;
+                        background: #9095a1;
+                        color: white;
+                        font-weight: normal;
+                    }
+                    .ant-btn:hover {
+                        background: white;
+                        color: #9095a1;
+                    }
+                }
+            }
+        }
+    }
 }

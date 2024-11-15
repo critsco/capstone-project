@@ -31,8 +31,8 @@ export default function AddModalForm(props) {
     );
 
     const { mutate: mutateCompany, isLoading: isLoadingCompany } = POST(
-        `api/company`,
-        "company_list"
+        `api/companies`,
+        "companies_list"
     );
 
     const onFinish = (values) => {

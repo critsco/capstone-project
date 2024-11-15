@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Company;
+use App\Models\Profile;
 use App\Models\ProfileAddress;
-use DB;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class CompanyController extends Controller
@@ -22,11 +23,11 @@ class CompanyController extends Controller
             'companies.*',
             DB::raw("$address address"),
         ])
-        ->leftJoin('profile_addresses', 'companies.address_id', '=', 'profile_addresses.id')
-        ->leftJoin('ref_barangays', 'profile_addresses.barangay_id', '=', 'ref_barangays.id')
-        ->leftJoin('ref_municipalities', 'profile_addresses.municipality_id', '=', 'ref_municipalities.id')
-        ->leftJoin('ref_provinces', 'profile_addresses.province_id', '=', 'ref_provinces.id')
-        ->leftJoin('ref_regions', 'profile_addresses.region_id', '=', 'ref_regions.id');
+            ->leftJoin('profile_addresses', 'companies.address_id', '=', 'profile_addresses.id')
+            ->leftJoin('ref_barangays', 'profile_addresses.barangay_id', '=', 'ref_barangays.id')
+            ->leftJoin('ref_municipalities', 'profile_addresses.municipality_id', '=', 'ref_municipalities.id')
+            ->leftJoin('ref_provinces', 'profile_addresses.province_id', '=', 'ref_provinces.id')
+            ->leftJoin('ref_regions', 'profile_addresses.region_id', '=', 'ref_regions.id');
 
         $data->where(function ($query) use ($request) {
             if ($request->search) {
@@ -130,9 +131,28 @@ class CompanyController extends Controller
      * @param  \App\Models\Company  $company
      * @return \Illuminate\Http\Response
      */
-    public function show(Company $company)
+    public function show($id)
     {
-        //
+        $fullname = "TRIM(CONCAT_WS(' ', profiles.first_name, IF(profiles.middle_name='', NULL, profiles.middle_name), profiles.last_name, IF(profiles.suffix='', NULL, profiles.suffix)))";
+        // $year_level = "SELECT year_level FROM ref_year_levels"
+
+        // Fetch profiles where the company_id matches the given ID
+        $profiles = Profile::select([
+            '*',  // Select all profile fields
+            DB::raw("$fullname as fullname") // Add the concatenated fullname field
+        ])
+            ->where('company_id', $id)
+            ->with([
+                'ref_year_level',  // Example of additional relationships
+                'ref_department',
+            ])
+            ->get();
+
+        // Return the result in a JSON response
+        return response()->json([
+            'success' => true,
+            'data' => $profiles,
+        ], 200);
     }
 
     /**

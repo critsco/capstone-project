@@ -39,6 +39,7 @@ Route::middleware('auth:api')->group(function () {
 
     // CompanyController
     Route::apiResource("companies", App\Http\Controllers\CompanyController::class);
+    Route::get("company/{id}", [App\Http\Controllers\CompanyController::class, "show"]);
     // END CompanyController
 
     // SETTINGS

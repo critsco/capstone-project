@@ -6,6 +6,7 @@ import {
     Form,
     Input,
     Modal,
+    notification,
     Popconfirm,
     Row,
     Select,
@@ -13,7 +14,8 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleInfo, faPhone } from "@fortawesome/pro-regular-svg-icons";
 
-import { GET } from "../../../../../../../../../providers/useAxiosQuery";
+import { GET, POST } from "../../../../../../../../../providers/useAxiosQuery";
+import notificationErrors from "../../../../../../../../../providers/notificationErrors";
 
 export default function EditModalForm(props) {
     const { toggleModalForm, setToggleModalForm } = props;
@@ -24,6 +26,9 @@ export default function EditModalForm(props) {
         `api/pub_department_dropdown`,
         "department_dropdown"
     );
+
+    const { mutate: mutateUpdateProfile, isLoading: isLoadingUpdateProfile } =
+        POST(`api/update_student_profile`, "update_student_profile_list");
 
     useEffect(() => {
         if (toggleModalForm.open) {
@@ -51,7 +56,7 @@ export default function EditModalForm(props) {
             id: toggleModalForm.data.id,
         };
 
-        mutateFacultyRegister(data, {
+        mutateUpdateProfile(data, {
             onSuccess: (res) => {
                 if (res.success) {
                     setToggleModalForm({
@@ -62,6 +67,7 @@ export default function EditModalForm(props) {
                         message: "Update Profile",
                         description: res.message,
                     });
+                    window.location.reload();
                 } else {
                     notification.error({
                         message: "Update Profile",
@@ -112,12 +118,22 @@ export default function EditModalForm(props) {
                         okText="Yes"
                         cancelText="No"
                     >
-                        <Button className="submit-btn">Submit</Button>
+                        <Button
+                            className="submit-btn"
+                            loading={isLoadingUpdateProfile}
+                        >
+                            Submit
+                        </Button>
                     </Popconfirm>
                 </Flex>
             }
         >
-            <Form form={form} layout="vertical" autoComplete="off">
+            <Form
+                form={form}
+                layout="vertical"
+                autoComplete="off"
+                onFinish={onFinish}
+            >
                 <Flex gap={6} align="center">
                     <FontAwesomeIcon
                         icon={faCircleInfo}

@@ -860,6 +860,37 @@ body {
   background: white;
   color: #2c3d8f;
 }
+.ant-modal-root .ant-modal-wrap.company-info-view .ant-modal .ant-modal-content {
+  border-radius: 16px;
+  padding-inline: 30px;
+}
+.ant-modal-root .ant-modal-wrap.company-info-view .ant-modal .ant-modal-content .ant-modal-close {
+  color: black;
+  margin-right: 10px;
+}
+.ant-modal-root .ant-modal-wrap.company-info-view .ant-modal .ant-modal-content .ant-modal-header {
+  border-bottom: 1.5px solid #dee1e6;
+}
+.ant-modal-root .ant-modal-wrap.company-info-view .ant-modal .ant-modal-content .ant-modal-header .ant-modal-title {
+  color: black;
+  font-weight: bold;
+  font-size: 24px;
+  margin-left: -20px;
+}
+.ant-modal-root .ant-modal-wrap.company-info-view .ant-modal .ant-modal-content .ant-modal-body .table-title {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.ant-modal-root .ant-modal-wrap.company-info-view .ant-modal .ant-modal-content .ant-modal-footer .ant-btn {
+  border: 1px solid #9095a1;
+  background: #9095a1;
+  color: white;
+  font-weight: normal;
+}
+.ant-modal-root .ant-modal-wrap.company-info-view .ant-modal .ant-modal-content .ant-modal-footer .ant-btn:hover {
+  background: white;
+  color: #9095a1;
+}
 
 .navbar {
   background: #f3f4f6;

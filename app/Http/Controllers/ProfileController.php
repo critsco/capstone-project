@@ -173,22 +173,9 @@ class ProfileController extends Controller
             'last_name' => 'required',
             'suffix' => 'nullable',
             'school_id' => 'required',
-            'year_level_id' => 'required',
             'department_id' => 'required',
-            'course_id' => 'required',
             'phone' => 'required',
-            'birthdate' => 'required',
             'gender' => 'required',
-            'region_id' => 'required',
-            'province_id' => 'required',
-            'municipality_id' => 'required',
-            'barangay_id' => 'required',
-            'street_address' => 'required',
-            'p_first_name' => 'required',
-            'p_middle_name' => 'required',
-            'p_last_name' => 'required',
-            'relationship' => 'required',
-            'p_phone' => 'required',
         ];
 
         $validator = Validator::make($request->all(), $rules);
@@ -253,8 +240,8 @@ class ProfileController extends Controller
 
             if ($request->company_name) {
                 $findCompany = Company::where('company_name', $request->company_name)
-                ->where('office', $request->office)
-                ->first();
+                    ->where('office', $request->office)
+                    ->first();
 
                 $findProfile->company_id = $findCompany->id;
                 $findProfile->save();
