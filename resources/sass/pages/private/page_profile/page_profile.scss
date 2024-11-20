@@ -83,6 +83,54 @@
                                     font-size: 18px;
                                 }
                                 .ant-flex {
+                                    .ant-list {
+                                        .ant-row {
+                                            .ant-col {
+                                                .ant-list-item {
+                                                    .ant-card.class-card {
+                                                        border-radius: 8px;
+                                                        padding: 20px;
+                                                        background: #2c3d8f;
+                                                        color: white;
+                                                        height: 125px;
+                                                        width: 175px;
+
+                                                        .ant-card-body {
+                                                            padding: 0;
+
+                                                            .class-title {
+                                                                font-weight: bold;
+                                                                font-size: 28px;
+                                                            }
+                                                            .ant-btn.view-btn {
+                                                                width: 130px;
+                                                                padding: 10px;
+                                                                border: 1px
+                                                                    solid
+                                                                    #ffffffbb;
+                                                            }
+                                                            .ant-btn.view-btn:hover {
+                                                                background: #ffffffbb;
+                                                                color: white;
+                                                            }
+                                                            .ant-btn.delete-btn {
+                                                                width: 40px;
+                                                                padding: 10px;
+                                                                background: #c12126;
+                                                                color: white;
+                                                                border: 0;
+                                                                display: flex;
+                                                                justify-content: center;
+                                                            }
+                                                            .ant-btn.delete-btn:hover {
+                                                                background: #c12126bb;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
                                     .ant-btn.change-company-btn {
                                         color: white;
                                         background: #2c3d8f;
@@ -100,41 +148,6 @@
                                     padding: 20px;
                                     height: 125px;
                                     width: 175px;
-                                }
-                                .class-card {
-                                    display: flex;
-                                    flex-direction: column;
-                                    justify-content: space-between;
-                                    border-radius: 8px;
-                                    padding: 20px;
-                                    background: #2c3d8f;
-                                    color: white;
-                                    height: 125px;
-                                    width: 175px;
-
-                                    .ant-btn.view-btn {
-                                        width: 125px;
-                                        border: 1px solid #9095a1;
-                                    }
-                                    .ant-btn.view-btn:hover {
-                                        background: #9095a1;
-                                        color: white;
-                                    }
-                                    .ant-btn.delete-btn {
-                                        width: 24px;
-                                        background: #c12126;
-                                        color: white;
-                                        border: 0;
-                                        display: flex;
-                                        justify-content: center;
-                                    }
-                                    .ant-btn.delete-btn:hover {
-                                        background: #c12126bb;
-                                    }
-                                    .class-title {
-                                        font-weight: bold;
-                                        font-size: 22px;
-                                    }
                                 }
                             }
                         }

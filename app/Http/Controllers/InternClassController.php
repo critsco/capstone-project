@@ -104,8 +104,24 @@ class InternClassController extends Controller
      * @param  \App\Models\InternClass  $internClass
      * @return \Illuminate\Http\Response
      */
-    public function destroy(InternClass $internClass)
+    public function destroy($id)
     {
-        //
+        $ret = [
+            "success" => false,
+            "message" => "Data not archived"
+        ];
+
+        $findData = InternClass::find($id);
+
+        if ($findData) {
+            if ($findData->delete()) {
+                $ret = [
+                    "success" => true,
+                    "message" => "Data archived successfully"
+                ];
+            }
+        }
+
+        return response()->json($ret, 200);
     }
 }

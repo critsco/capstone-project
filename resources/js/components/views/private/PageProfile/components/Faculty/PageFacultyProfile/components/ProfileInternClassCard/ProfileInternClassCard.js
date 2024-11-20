@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-
 import { Button, Col, Flex, Row } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/pro-solid-svg-icons";
-import { faTrashXmark } from "@fortawesome/pro-regular-svg-icons";
+
 import AddClassModalForm from "./components/AddClassModalForm/AddClassModalForm";
 import ClassList from "./components/ClassList/ClassList";
 

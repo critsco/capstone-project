@@ -537,4 +537,97 @@
             }
         }
     }
+    .ant-modal-wrap.view-class {
+        .ant-modal {
+            .ant-modal-content {
+                border-radius: 16px;
+                padding-inline: 30px;
+
+                .ant-modal-close {
+                    color: black;
+                    margin-right: 10px;
+                }
+                .ant-modal-header {
+                    background: none;
+                    padding: 14px 20px 0px 20px;
+
+                    .ant-modal-title {
+                        .ant-flex {
+                            color: black;
+                            font-weight: bold;
+                            font-size: 24px;
+                            margin-left: -20px;
+                        }
+                    }
+                }
+                .ant-modal-body {
+                    padding: 0;
+                    padding-bottom: 20px;
+
+                    .ant-form {
+                        .ant-row {
+                            margin-top: 6px;
+                            margin-bottom: -14px;
+
+                            .ant-col {
+                                .ant-form-item {
+                                    margin-top: 5px;
+                                    width: 100%;
+
+                                    .ant-form-item-row {
+                                        .ant-form-item-control {
+                                            .ant-form-item-control-input {
+                                                .ant-form-item-control-input-content {
+                                                    .ant-input-group-wrapper {
+                                                        .ant-input-wrapper {
+                                                            .ant-input-group-addon {
+                                                                background: #f3f4f6;
+                                                            }
+                                                        }
+                                                    }
+                                                    .ant-input {
+                                                        padding: 8px 12px;
+                                                        font-size: 16px;
+                                                        border: 1px solid
+                                                            #dee1e6 !important;
+                                                        background: white;
+                                                    }
+                                                    .ant-input::placeholder {
+                                                        color: #bdc1ca !important;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        .ant-form-item-label {
+                                            font-weight: bold;
+                                            font-size: 20px;
+
+                                            .ant-form-item-required::before {
+                                                display: none;
+                                            }
+                                        }
+                                    }
+                                }
+                                .ant-flex {
+                                    .info-header {
+                                        margin-top: 10px;
+                                        font-weight: 700;
+                                    }
+                                    .ant-btn {
+                                        background: #2c3d8f;
+                                        color: white;
+                                        border: 1px solid #2c3d8f;
+                                    }
+                                    .ant-btn:hover {
+                                        background: white;
+                                        color: #2c3d8f;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

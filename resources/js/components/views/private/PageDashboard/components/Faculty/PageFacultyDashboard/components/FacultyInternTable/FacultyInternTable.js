@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { Col, Flex, Row, Select, Table } from "antd";
-import TableDropdown from "./components/TableDropdown/TableDropdown";
+
+import TableNotes from "./components/TableNotes/TableNotes";
 
 const statusOptions = [
     { value: "tograde", label: "To Grade" },
@@ -14,46 +15,6 @@ const options = [
 ];
 
 export default function FacultyInternTable() {
-    const [selectedStatusValue, setSelectedStatusValue] = useState();
-    const [selectedMoaValue, setSelectedMoaValue] = useState();
-    const [selectedLetterParentValue, setSelectedLetterParentValue] =
-        useState();
-    const [selectedWaiverParentValue, setSelectedWaiverParentValue] =
-        useState();
-    const [selectedWaiverSchoolValue, setSelectedWaiverSchoolValue] =
-        useState();
-    const [selectedEndorsementValue, setSelectedEndorsementValue] = useState();
-    const [selectedDTRValue, setSelectedDTRValue] = useState();
-    const [selectedEvaluationValue, setSelectedEvaluationValue] = useState();
-    const [selectedTerminalReportValue, setSelectedTerminalReportValue] =
-        useState();
-    const handleStatusChange = (value) => {
-        setSelectedStatusValue(value);
-    };
-    const handleMoaChange = (value) => {
-        setSelectedMoaValue(value);
-    };
-    const handleLetterParentChange = (value) => {
-        setSelectedLetterParentValue(value);
-    };
-    const handleWaiverParentChange = (value) => {
-        setSelectedWaiverParentValue(value);
-    };
-    const handleWaiverSchoolChange = (value) => {
-        setSelectedWaiverSchoolValue(value);
-    };
-    const handleEndorsementChange = (value) => {
-        setSelectedEndorsementValue(value);
-    };
-    const handleDTRChange = (value) => {
-        setSelectedDTRValue(value);
-    };
-    const handleEvaluationChange = (value) => {
-        setSelectedEvaluationValue(value);
-    };
-    const handleTerminalReportChange = (value) => {
-        setSelectedTerminalReportValue(value);
-    };
     const data = [
         {
             key: "1",
@@ -111,288 +72,242 @@ export default function FacultyInternTable() {
             letterparentnote: "yes",
         },
     ];
-    const columns = [
-        {
-            title: "Intern Name",
-            dataIndex: "name",
-            key: "name",
-            align: "center",
-            width: "175px",
-            sorter: (a, b) => a.name.localeCompare(b.name),
-            fixed: "left",
-        },
-        {
-            title: "Status",
-            key: "status",
-            align: "center",
-            width: "118px",
-            render: (_, record) => (
-                <Select
-                    value={record.status}
-                    onChange={handleStatusChange}
-                    allowClear
-                    className={`status ${
-                        record.status === "Applied" ? "applied" : ""
-                    } ${record.status === "Accepted" ? "accepted" : ""} ${
-                        record.status === "Started" ? "started" : ""
-                    }`}
-                    options={statusOptions}
-                />
-            ),
-            sorter: (a, b) => a.status.localeCompare(b.status),
-            filters: [
-                {
-                    text: "Started",
-                    value: "Started",
-                },
-                {
-                    text: "Accepted",
-                    value: "Accepted",
-                },
-                {
-                    text: "Applied",
-                    value: "Applied",
-                },
-                {
-                    text: "No Progress",
-                    value: "No Progress",
-                },
-            ],
-            onFilter: (value, record) => record.status.indexOf(value) === 0,
-        },
-        {
-            title: "Date Started",
-            dataIndex: "datestarted",
-            key: "datestarted",
-            align: "center",
-            width: "100px",
-        },
-        {
-            title: "Establishment",
-            dataIndex: "establishment",
-            key: "establishment",
-            align: "center",
-            width: "130px",
-        },
-        {
-            title: "Memorandum of Agreement",
-            dataIndex: "moa",
-            key: "moa",
-            align: "center",
-            width: "150px",
-            render: (_, record) => (
-                <Flex gap={4} align="center">
-                    <Select
-                        value={record.moa}
-                        onChange={handleMoaChange}
-                        allowClear
-                        className={`moa ${
-                            record.moa === "In Progress" ? "inprogress" : ""
-                        } ${record.moa === "Completed" ? "completed" : ""}`}
-                        options={options}
-                    />
-                    <TableDropdown record={record} note={record.moanote} />
-                </Flex>
-            ),
-        },
-        {
-            title: "Letter to Parent",
-            dataIndex: "letterparent",
-            key: "letterparent",
-            align: "center",
-            width: "150px",
-            render: (_, record) => (
-                <Flex gap={4} align="center">
-                    <Select
-                        value={record.letterparent}
-                        onChange={handleLetterParentChange}
-                        allowClear
-                        className={`letterparent ${
-                            record.letterparent === "In Progress"
-                                ? "inprogress"
-                                : ""
-                        } ${
-                            record.letterparent === "Completed"
-                                ? "completed"
-                                : ""
-                        }`}
-                        options={options}
-                    />
-                    <TableDropdown
-                        record={record}
-                        note={record.letterparentnote}
-                    />
-                </Flex>
-            ),
-        },
-        {
-            title: "Waiver from Parent",
-            dataIndex: "waiverparent",
-            key: "waiverparent",
-            align: "center",
-            width: "150px",
-            render: (_, record) => (
-                <Flex gap={4} align="center">
-                    <Select
-                        value={record.waiverparent}
-                        onChange={handleWaiverParentChange}
-                        allowClear
-                        className={`waiverparent ${
-                            record.waiverparent === "In Progress"
-                                ? "inprogress"
-                                : ""
-                        } ${
-                            record.waiverparent === "Completed"
-                                ? "completed"
-                                : ""
-                        }`}
-                        options={options}
-                    />
-                    <TableDropdown />
-                </Flex>
-            ),
-        },
-        {
-            title: "Waiver from School",
-            dataIndex: "waiverschool",
-            key: "waiverschool",
-            align: "center",
-            width: "150px",
-            render: (_, record) => (
-                <Flex gap={4} align="center">
-                    <Select
-                        value={record.waiverschool}
-                        onChange={handleWaiverSchoolChange}
-                        allowClear
-                        className={`waiverschool ${
-                            record.waiverschool === "In Progress"
-                                ? "inprogress"
-                                : ""
-                        } ${
-                            record.waiverschool === "Completed"
-                                ? "completed"
-                                : ""
-                        }`}
-                        options={options}
-                    />
-                    <TableDropdown />
-                </Flex>
-            ),
-        },
-        {
-            title: "Endorsement Letter",
-            dataIndex: "endorsementletter",
-            key: "endorsementletter",
-            align: "center",
-            width: "150px",
-            render: (_, record) => (
-                <Flex gap={4} align="center">
-                    <Select
-                        value={record.endorsementletter}
-                        onChange={handleEndorsementChange}
-                        allowClear
-                        className={`endorsementletter ${
-                            record.endorsementletter === "In Progress"
-                                ? "inprogress"
-                                : ""
-                        } ${
-                            record.endorsementletter === "Completed"
-                                ? "completed"
-                                : ""
-                        }`}
-                        options={options}
-                    />
-                    <TableDropdown />
-                </Flex>
-            ),
-        },
-        {
-            title: "Daily Time Record",
-            dataIndex: "dtr",
-            key: "dtr",
-            align: "center",
-            width: "150px",
-            render: (_, record) => (
-                <Flex gap={4} align="center">
-                    <Select
-                        value={record.dtr}
-                        onChange={handleDTRChange}
-                        allowClear
-                        className={`dtr ${
-                            record.dtr === "In Progress" ? "inprogress" : ""
-                        } ${record.dtr === "Completed" ? "completed" : ""}`}
-                        options={options}
-                    />
-                    <TableDropdown />
-                </Flex>
-            ),
-        },
-        {
-            title: "Evaluation Form",
-            dataIndex: "evaluation",
-            key: "evaluation",
-            align: "center",
-            width: "150px",
-            render: (_, record) => (
-                <Flex gap={4} align="center">
-                    <Select
-                        value={record.evaluation}
-                        onChange={handleEvaluationChange}
-                        allowClear
-                        className={`evaluation ${
-                            record.evaluation === "In Progress"
-                                ? "inprogress"
-                                : ""
-                        } ${
-                            record.evaluation === "Completed" ? "completed" : ""
-                        }`}
-                        options={options}
-                    />
-                    <TableDropdown />
-                </Flex>
-            ),
-        },
-        {
-            title: "Terminal Report",
-            dataIndex: "terminalreport",
-            key: "terminalreport",
-            align: "center",
-            width: "150px",
-            render: (_, record) => (
-                <Flex gap={4} align="center">
-                    <Select
-                        value={record.terminalreport}
-                        onChange={handleTerminalReportChange}
-                        allowClear
-                        className={`terminalreport ${
-                            record.terminalreport === "In Progress"
-                                ? "inprogress"
-                                : ""
-                        } ${
-                            record.terminalreport === "Completed"
-                                ? "completed"
-                                : ""
-                        }`}
-                        options={options}
-                    />
-                    <TableDropdown />
-                </Flex>
-            ),
-        },
-    ];
 
     return (
         <Row id="faculty-intern-status-table">
             <Col xs={24} sm={24} md={24} lg={24}>
                 <Table
                     dataSource={data}
-                    columns={columns}
+                    rowKey={(record) => record.id}
                     pagination={false}
                     bordered={true}
-                    scroll={{
-                        x: 1800,
-                    }}
-                />
+                >
+                    <Table.Column
+                        title="Intern Name"
+                        key="fullname"
+                        dataIndex="fullname"
+                        align="center"
+                        width={175}
+                        sorter={true}
+                        fixed="left"
+                    />
+                    <Table.Column
+                        title="Status"
+                        key="status"
+                        dataIndex="status"
+                        align="center"
+                        width={120}
+                        sorter={true}
+                        render={(record) => (
+                            <Select
+                                options={statusOptions}
+                                allowClear
+                                className={`status ${
+                                    record.status === "Applied" ? "applied" : ""
+                                } ${
+                                    record.status === "Accepted"
+                                        ? "accepted"
+                                        : ""
+                                } ${
+                                    record.status === "Started" ? "started" : ""
+                                } ${
+                                    record.status === "To Grade"
+                                        ? "tograde"
+                                        : ""
+                                }`}
+                            />
+                        )}
+                    />
+                    <Table.Column
+                        title="Date Started"
+                        key="data_started"
+                        dataIndex="data_started"
+                        align="center"
+                        width={100}
+                    />
+                    <Table.Column
+                        title="Establishment"
+                        key="establishment"
+                        dataIndex="establishment"
+                        align="center"
+                        width={130}
+                    />
+                    <Table.Column
+                        title="Memorandum of Agreement"
+                        key="moa"
+                        dataIndex="moa"
+                        align="center"
+                        width={150}
+                        render={(record) => (
+                            <Flex gap={4} align="center">
+                                <Select
+                                    options={options}
+                                    allowClear
+                                    className={`moa ${
+                                        record.moa === "In Progress"
+                                            ? "inprogress"
+                                            : ""
+                                    } ${
+                                        record.moa === "Completed"
+                                            ? "completed"
+                                            : ""
+                                    }`}
+                                />
+                                <TableNotes />
+                            </Flex>
+                        )}
+                    />
+                    <Table.Column
+                        title="Letter to Parent"
+                        key="ltp"
+                        dataIndex="ltp"
+                        align="center"
+                        width={150}
+                        render={(record) => (
+                            <Flex gap={4} align="center">
+                                <Select
+                                    options={options}
+                                    allowClear
+                                    className={`ltp ${
+                                        record.ltp === "In Progress"
+                                            ? "inprogress"
+                                            : ""
+                                    } ${
+                                        record.ltp === "Completed"
+                                            ? "completed"
+                                            : ""
+                                    }`}
+                                />
+                                <TableNotes />
+                            </Flex>
+                        )}
+                    />
+                    <Table.Column
+                        title="Waiver from Parent"
+                        key="wfp"
+                        dataIndex="wfp"
+                        align="center"
+                        width={150}
+                        render={(record) => (
+                            <Flex gap={4} align="center">
+                                <Select
+                                    options={options}
+                                    allowClear
+                                    className={`wfp ${
+                                        record.wfp === "In Progress"
+                                            ? "inprogress"
+                                            : ""
+                                    } ${
+                                        record.wfp === "Completed"
+                                            ? "completed"
+                                            : ""
+                                    }`}
+                                />
+                                <TableNotes />
+                            </Flex>
+                        )}
+                    />
+                    <Table.Column
+                        title="Endorsement Letter"
+                        key="endorsement"
+                        dataIndex="endorsement"
+                        align="center"
+                        width={150}
+                        render={(record) => (
+                            <Flex gap={4} align="center">
+                                <Select
+                                    options={options}
+                                    allowClear
+                                    className={`endorsement ${
+                                        record.endorsement === "In Progress"
+                                            ? "inprogress"
+                                            : ""
+                                    } ${
+                                        record.endorsement === "Completed"
+                                            ? "completed"
+                                            : ""
+                                    }`}
+                                />
+                                <TableNotes />
+                            </Flex>
+                        )}
+                    />
+                    <Table.Column
+                        title="Daily Time Record"
+                        key="dtr"
+                        dataIndex="dtr"
+                        align="center"
+                        width={150}
+                        render={(record) => (
+                            <Flex gap={4} align="center">
+                                <Select
+                                    options={options}
+                                    allowClear
+                                    className={`dtr ${
+                                        record.dtr === "In Progress"
+                                            ? "inprogress"
+                                            : ""
+                                    } ${
+                                        record.dtr === "Completed"
+                                            ? "completed"
+                                            : ""
+                                    }`}
+                                />
+                                <TableNotes />
+                            </Flex>
+                        )}
+                    />
+                    <Table.Column
+                        title="Evaluation Form"
+                        key="eval_form"
+                        dataIndex="eval_form"
+                        align="center"
+                        width={150}
+                        render={(record) => (
+                            <Flex gap={4} align="center">
+                                <Select
+                                    options={options}
+                                    allowClear
+                                    className={`eval_form ${
+                                        record.eval_form === "In Progress"
+                                            ? "inprogress"
+                                            : ""
+                                    } ${
+                                        record.eval_form === "Completed"
+                                            ? "completed"
+                                            : ""
+                                    }`}
+                                />
+                                <TableNotes />
+                            </Flex>
+                        )}
+                    />
+                    <Table.Column
+                        title="Terminal Report"
+                        key="term_rep"
+                        dataIndex="term_rep"
+                        align="center"
+                        width={150}
+                        render={(record) => (
+                            <Flex gap={4} align="center">
+                                <Select
+                                    options={options}
+                                    allowClear
+                                    className={`term_rep ${
+                                        record.term_rep === "In Progress"
+                                            ? "inprogress"
+                                            : ""
+                                    } ${
+                                        record.term_rep === "Completed"
+                                            ? "completed"
+                                            : ""
+                                    }`}
+                                />
+                                <TableNotes />
+                            </Flex>
+                        )}
+                    />
+                </Table>
             </Col>
         </Row>
     );
