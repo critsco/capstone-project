@@ -12,10 +12,11 @@ body {
 @import "./pages/public/page_login/page_login.scss";
 
 // Private Pages
-@import "./pages/private/page_dashboard/page_dashboard.scss";
-@import "./pages/private/page_profile/page_profile.scss";
-@import "./pages/private/page_documents/page_documents.scss";
 @import "./pages/private/page_companies/page_companies.scss";
+@import "./pages/private/page_company_archive/page_company_archive.scss";
+@import "./pages/private/page_dashboard/page_dashboard.scss";
+@import "./pages/private/page_documents/page_documents.scss";
+@import "./pages/private/page_profile/page_profile.scss";
 
 // UI
 @import "./ui/button/button.scss";

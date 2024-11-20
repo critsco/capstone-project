@@ -84,29 +84,6 @@ export default function NextModalForm(props) {
         });
     };
 
-    const onNext = () => {
-        form.validateFields()
-            .then((values) => {
-                // Save form data to formData state
-                setFormData((prevFormData) => ({
-                    ...prevFormData,
-                    ...values,
-                }));
-
-                // Open the NextModalForm
-                setToggleModalForm({
-                    nextOpen: false,
-                    companyOpen: true,
-                });
-            })
-            .catch((info) => {
-                notification.error({
-                    message: "Validation Failed",
-                    description: "Please complete the required fields.",
-                });
-            });
-    };
-
     return (
         <Modal
             title={
@@ -140,28 +117,23 @@ export default function NextModalForm(props) {
                     >
                         Back
                     </Button>
-                    {dataProfile?.company_id ? (
-                        <Button key={2} className="submit-btn" onClick={onNext}>
-                            Next
-                        </Button>
-                    ) : (
-                        <Popconfirm
-                            key={2}
-                            rootClassName="edit-confirm-btn"
-                            title="Confirmation"
-                            description="Are you sure you want to submit?"
-                            onConfirm={() => form.submit()}
-                            okText="Yes"
-                            cancelText="No"
+
+                    <Popconfirm
+                        key={2}
+                        rootClassName="edit-confirm-btn"
+                        title="Confirmation"
+                        description="Are you sure you want to submit?"
+                        onConfirm={() => form.submit()}
+                        okText="Yes"
+                        cancelText="No"
+                    >
+                        <Button
+                            className="submit-btn"
+                            loading={isLoadingUpdateProfile}
                         >
-                            <Button
-                                className="submit-btn"
-                                loading={isLoadingUpdateProfile}
-                            >
-                                Submit
-                            </Button>
-                        </Popconfirm>
-                    )}
+                            Submit
+                        </Button>
+                    </Popconfirm>
                 </Flex>
             }
         >

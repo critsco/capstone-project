@@ -34,7 +34,10 @@ export default function FacultyNavList() {
                     <Button
                         type="text"
                         className={`${
-                            location.pathname === "/companies" ? "selected" : ""
+                            location.pathname === "/companies" ||
+                            location.pathname === "/companies/archive"
+                                ? "selected"
+                                : ""
                         }`}
                     >
                         Companies

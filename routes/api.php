@@ -40,7 +40,13 @@ Route::middleware('auth:api')->group(function () {
     // CompanyController
     Route::apiResource("companies", App\Http\Controllers\CompanyController::class);
     Route::get("company/{id}", [App\Http\Controllers\CompanyController::class, "show"]);
+    Route::get("unique_companies", [App\Http\Controllers\CompanyController::class, "unique_companies"]);
     // END CompanyController
+
+    // InternClassController
+    Route::apiResource("intern_classes", App\Http\Controllers\InternClassController::class);
+    Route::get("get_classes/{instructor_id}", [App\Http\Controllers\InternClassController::class, "show"]);
+    // END InternClassController
 
     // SETTINGS
     Route::apiResource('ref_regions', App\Http\Controllers\RefRegionController::class);

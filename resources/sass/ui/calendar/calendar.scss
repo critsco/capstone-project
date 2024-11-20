@@ -1,55 +1,22 @@
-.ant-picker-calendar.faculty-calendar {
-    border-radius: 8px;
-    box-shadow: 2px 4px 8px rgba(23, 26, 31, 0.12);
-
-    .ant-picker-calendar {
-        .ant-picker-calendar-header {
-            padding-inline: 5%;
-
-            .ant-radio-group {
-                display: none;
-            }
-        }
-        .ant-picker-panel {
-            padding-inline: 5%;
-
-            .ant-picker-date-panel {
-                .ant-picker-body {
-                    .ant-picker-content {
-                        th {
-                            font-weight: bold;
-                            font-size: 16px;
-                            padding-bottom: 8px;
-                            color: #2c3d8f;
-                        }
-
-                        .ant-picker-cell-selected {
-                            .ant-picker-calendar-date {
-                                background: #2c3d8f;
-                                color: white;
-                                border: 0;
-                            }
-                        }
-                        .ant-picker-cell-inner::before {
-                            border: 1px solid #a5a9bf;
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-
-.ant-picker-calendar.student-calendar-wrapper {
+.ant-picker-calendar.faculty-dashboard-calendar {
     border-radius: 8px;
     box-shadow: 2px 4px 8px rgba(23, 26, 31, 0.12);
 
     .ant-flex {
-        flex-direction: row-reverse;
         padding-inline: 8px;
         padding-block: 12px;
-        margin-bottom: 0 !important;
+        margin: 0 !important;
 
+        .ant-btn {
+            background: white;
+            color: #2c3d8f;
+            font-weight: bold;
+            border: 1px solid rgba(23, 26, 31, 0.12);
+        }
+        .ant-btn:hover {
+            background: #2c3d8f;
+            color: white;
+        }
         .ant-flex {
             flex-direction: row;
             padding: 0;
@@ -57,6 +24,7 @@
             .ant-select {
                 display: flex;
                 align-items: center;
+                width: 100px;
 
                 .ant-select-selector {
                     padding-block: 20px;
@@ -70,6 +38,47 @@
             border-radius: 8px;
         }
     }
+
+    .ant-picker-panel {
+        padding-inline: 1rem;
+
+        .ant-picker-date-panel {
+            .ant-picker-body {
+                .ant-picker-content {
+                    thead {
+                        th {
+                            font-weight: bold;
+                            font-size: 16px;
+                            padding-block: 12px;
+                            color: #2c3d8f;
+                        }
+                    }
+                    tbody {
+                        height: 244px;
+
+                        tr {
+                            .ant-picker-cell-selected {
+                                .ant-picker-calendar-date {
+                                    background: #2c3d8f;
+                                    color: white;
+                                    border: 0;
+                                }
+                            }
+                            .ant-picker-cell-inner::before {
+                                border: 1px solid #a5a9bf;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.ant-picker-calendar.student-dashboard-calendar {
+    border-radius: 8px;
+    box-shadow: 2px 4px 8px rgba(23, 26, 31, 0.12);
+
     .ant-picker-panel {
         padding-inline: 1rem;
 

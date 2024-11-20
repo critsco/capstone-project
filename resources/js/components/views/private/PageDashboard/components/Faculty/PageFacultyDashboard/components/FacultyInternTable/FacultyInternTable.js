@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Flex, Select, Table } from "antd";
+import { Col, Flex, Row, Select, Table } from "antd";
 import TableDropdown from "./components/TableDropdown/TableDropdown";
 
 const statusOptions = [
@@ -382,15 +382,18 @@ export default function FacultyInternTable() {
     ];
 
     return (
-        <Table
-            id="faculty_dashboard_intern_table"
-            dataSource={data}
-            columns={columns}
-            pagination={false}
-            bordered={true}
-            scroll={{
-                x: 1800,
-            }}
-        />
+        <Row id="faculty-intern-status-table">
+            <Col xs={24} sm={24} md={24} lg={24}>
+                <Table
+                    dataSource={data}
+                    columns={columns}
+                    pagination={false}
+                    bordered={true}
+                    scroll={{
+                        x: 1800,
+                    }}
+                />
+            </Col>
+        </Row>
     );
 }

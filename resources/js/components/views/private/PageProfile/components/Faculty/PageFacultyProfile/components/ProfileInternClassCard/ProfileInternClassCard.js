@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Button, Col, Flex, Row } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/pro-solid-svg-icons";
 import { faTrashXmark } from "@fortawesome/pro-regular-svg-icons";
+import AddClassModalForm from "./components/AddClassModalForm/AddClassModalForm";
+import ClassList from "./components/ClassList/ClassList";
 
-export default function ProfileInternClassCard() {
+export default function ProfileInternClassCard(props) {
+    const { dataProfile } = props;
+
+    const [toggleAddModalForm, setToggleAddModalForm] = useState({
+        open: false,
+        data: null,
+    });
+
     return (
         <div className="card">
             <Flex
@@ -13,50 +22,41 @@ export default function ProfileInternClassCard() {
                 align="center"
                 justify="space-between"
             >
-                <div
-                    style={{
-                        color: "#2c3d8f",
-                        fontWeight: "bold",
-                        fontSize: "18px",
-                    }}
-                >
-                    Interns
-                </div>
+                <div className="card-header-title">Intern Classes</div>
             </Flex>
-            <Flex vertical className="card-body" gap="14px">
+            <Flex vertical className="card-body" gap={14}>
                 <Row gutter={[20, 20]}>
-                    <Col xs={24} sm={24} md={4} lg={4}>
-                        <Button className="add-card">
-                            <Flex
-                                gap={4}
-                                align="center"
-                                justify="center"
-                                style={{ fontSize: "14px" }}
+                    <Col xs={24} sm={24} md={24} lg={24}>
+                        <Flex gap={8}>
+                            <Button
+                                className="add-card"
+                                onClick={() =>
+                                    setToggleAddModalForm({
+                                        open: true,
+                                        data: dataProfile,
+                                    })
+                                }
                             >
-                                <FontAwesomeIcon icon={faPlus} /> Add Class
-                            </Flex>
-                        </Button>
-                    </Col>
-                    <Col xs={24} sm={24} md={4} lg={4}>
-                        <Flex
-                            className="class-card"
-                            vertical
-                            justify="space-between"
-                        >
-                            <div className="class-title">BSIT24</div>
-                            <Flex gap={6}>
-                                <Button className="open-btn">Open Class</Button>
-                                <Button className="delete-btn">
-                                    <FontAwesomeIcon
-                                        icon={faTrashXmark}
-                                        size="lg"
-                                    />
-                                </Button>
-                            </Flex>
+                                <Flex
+                                    gap={4}
+                                    align="center"
+                                    justify="center"
+                                    style={{ fontSize: "14px" }}
+                                >
+                                    <FontAwesomeIcon icon={faPlus} /> Add Class
+                                </Flex>
+                            </Button>
+
+                            <ClassList dataProfile={dataProfile} />
                         </Flex>
                     </Col>
                 </Row>
             </Flex>
+
+            <AddClassModalForm
+                toggleAddModalForm={toggleAddModalForm}
+                setToggleAddModalForm={setToggleAddModalForm}
+            />
         </div>
     );
 }

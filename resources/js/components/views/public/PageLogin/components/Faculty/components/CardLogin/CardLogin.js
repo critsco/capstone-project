@@ -28,9 +28,6 @@ export default function CardLogin(props) {
 
         mutateFacultyLogin(data, {
             onSuccess: (res) => {
-                console.log("res", res);
-                console.log("res.data: ", res.data);
-
                 if (res.success) {
                     localStorage.userdata = encrypt(JSON.stringify(res.data));
                     localStorage.token = res.token;
@@ -44,10 +41,31 @@ export default function CardLogin(props) {
                 }
             },
             onError: (err) => {
-                setErrorMessageLogin({
-                    type: "error",
-                    message: <>Unrecognized email or password.</>,
-                });
+                const errorMessage =
+                    err?.response?.data?.message ||
+                    "An error occurred during login.";
+                const errorStatus = err?.response?.status;
+
+                if (errorStatus === 403) {
+                    // Display "inactive" message for 403 errors
+                    setErrorMessageLogin({
+                        type: "error",
+                        message:
+                            "Account is inactive. Please wait for a faculty to activate your account.",
+                    });
+                } else if (errorStatus === 401) {
+                    // Display "incorrect credentials" message for 401 errors
+                    setErrorMessageLogin({
+                        type: "error",
+                        message: "Unrecognized email or password.",
+                    });
+                } else {
+                    // Display general error message
+                    setErrorMessageLogin({
+                        type: "error",
+                        message: errorMessage,
+                    });
+                }
             },
         });
     };

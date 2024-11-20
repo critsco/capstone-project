@@ -31,6 +31,7 @@ class CreateProfilesTable extends Migration
             $table->integer('address_id')->nullable();
             $table->integer('parent_id')->nullable();
             $table->integer('company_id')->nullable();
+            $table->integer('intern_class_id')->nullable();
 
             $table->bigInteger('created_by')->nullable();
             $table->bigInteger('updated_by')->nullable();

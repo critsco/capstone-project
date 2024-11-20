@@ -1,9 +1,18 @@
 import { useNavigate } from "react-router-dom";
 import { Layout, Result, Button } from "antd";
+import { useEffect } from "react";
 
 export default function Page403(props) {
     const { pageId } = props;
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+
+        if (!token) {
+            navigate("/");
+        }
+    });
 
     return (
         <Layout id={pageId ?? ""}>

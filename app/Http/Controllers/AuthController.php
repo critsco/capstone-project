@@ -20,13 +20,18 @@ class AuthController extends Controller
 
         // Basic validation rules for all users
         $rules = [
-            'email' => 'required|email|unique:users,email',
+            'email' => [
+                'required',
+                'email',
+                'regex:/^[a-zA-Z0-9._%+-]+@urios\.edu\.ph$/', // Ensure email ends with @urios.edu.ph
+                'unique:users,email',
+            ],
             'password' => 'required|string|min:8|confirmed',
             'user_role_id' => 'required|exists:user_roles,id',
             'first_name' => 'required|string|max:100',
             'middle_name' => 'required|string|max:100',
             'last_name' => 'required|string|max:100',
-            'suffix' => 'string|max:20',
+            'suffix' => 'nullable|string|max:20',
             'school_id' => 'required|string|max:20|unique:profiles,school_id',
             'department_id' => 'required|exists:ref_departments,id',
             'phone' => 'required|string|max:50',
@@ -45,7 +50,8 @@ class AuthController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'user_role_id' => $request->user_role_id,
-            'created_by' => auth()->id(),
+            'status' => 'Inactive',
+            // 'created_by' => auth()->id(),
         ]);
 
         $addressData = [
@@ -54,7 +60,7 @@ class AuthController extends Controller
             'municipality_id' => $request->municipality_id,
             'barangay_id' => $request->barangay_id,
             'street_address' => strtoupper($request->street_address),
-            'created_by' => auth()->id(),
+            // 'created_by' => auth()->id(),
         ];
 
         $address = ProfileAddress::create($addressData);
@@ -64,7 +70,7 @@ class AuthController extends Controller
             $rules = array_merge($rules, [
                 'course_id' => 'required|exists:ref_courses,id',
                 'year_level_id' => 'required|exists:ref_year_levels,id',
-                'birthdate' => 'required|string|min:1920|max:' . date('YYYY-MM-DD'),
+                'birthdate' => 'required|string|min:1920|max:' . date('Y-m-d'),
                 'address_id' => 'required|exists:ref_addresses, id',
             ]);
         }
@@ -72,15 +78,15 @@ class AuthController extends Controller
         // Create the profile associated with the user
         $profileData = [
             'user_id' => $user->id,
-            'first_name' => ucwords(strtolower($request->first_name)),
-            'middle_name' => ucwords(strtolower($request->middle_name)),
-            'last_name' => ucwords(strtolower($request->last_name)),
+            'first_name' => $request->first_name,
+            'middle_name' => $request->middle_name,
+            'last_name' => $request->last_name,
             'suffix' => strtoupper($request->suffix),
             'school_id' => $request->school_id,
             'department_id' => $request->department_id,
             'phone' => $request->phone,
             'gender' => $request->gender,
-            'created_by' => auth()->id(),
+            // 'created_by' => auth()->id(),
         ];
 
         if ($user->user_role_id == 2) { // If the user is a student, add student-specific profile data
@@ -105,8 +111,6 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        \Log::info('Login Request Data:', $request->all());
-
         $credentialsEmail = [
             'email' => $request->email,
             'password' => $request->password,
@@ -115,13 +119,21 @@ class AuthController extends Controller
         if (auth()->attempt($credentialsEmail)) {
             $user = auth()->user();
 
+            if ($user->status === "Inactive") {
+                auth()->logout(); // Log the user out if the account is inactive
+                return response()->json([
+                    "success" => false,
+                    "message" => "Account is inactive. Please wait for a faculty to activate your account.",
+                ], 403);
+            }
+
             // Check if the user_role_id matches
             if ($user->user_role_id !== $request->user_role_id) {
                 auth()->logout(); // Log the user out if the role does not match
                 return response()->json([
                     "success" => false,
                     "message" => "Unauthorized login.",
-                ], 403);
+                ], 401);
             }
 
             $token = $user->createToken('API Token')->accessToken;

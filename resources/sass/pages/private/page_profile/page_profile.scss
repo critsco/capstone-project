@@ -75,58 +75,81 @@
                         border-bottom-left-radius: 8px;
                         border-bottom-right-radius: 8px;
 
-                        .card-body-title {
-                            color: #091247;
-                            font-weight: 550;
-                            font-size: 18px;
-                        }
-                        .add-card {
-                            border: 2px dashed #bdc1ca;
-                            border-radius: 8px;
-                            color: #323743;
-                            padding: 20px;
-                            height: 124px;
-                            width: 100%;
-                        }
-                        .class-card {
-                            border-radius: 8px;
-                            padding: 20px;
-                            background: #2c3d8f;
-                            color: white;
-                            height: 124px;
+                        .ant-row {
+                            .ant-col {
+                                .card-body-title {
+                                    color: #091247;
+                                    font-weight: 550;
+                                    font-size: 18px;
+                                }
+                                .ant-flex {
+                                    .ant-btn.change-company-btn {
+                                        color: white;
+                                        background: #2c3d8f;
+                                        border: 1px solid #2c3d8f;
+                                    }
+                                    .ant-btn.change-company-btn:hover {
+                                        background: white;
+                                        color: #2c3d8f;
+                                    }
+                                }
+                                .add-card {
+                                    border: 2px dashed #bdc1ca;
+                                    border-radius: 8px;
+                                    color: #323743;
+                                    padding: 20px;
+                                    height: 125px;
+                                    width: 175px;
+                                }
+                                .class-card {
+                                    display: flex;
+                                    flex-direction: column;
+                                    justify-content: space-between;
+                                    border-radius: 8px;
+                                    padding: 20px;
+                                    background: #2c3d8f;
+                                    color: white;
+                                    height: 125px;
+                                    width: 175px;
 
-                            .ant-btn {
-                                height: 28px;
-                                border-radius: 4px;
-                            }
-                            .ant-btn.open-btn {
-                                width: 125px;
-                            }
-                            .ant-btn.delete-btn {
-                                width: 24px;
-                                background: #c12126;
-                                color: white;
-                                border: 0;
-                                display: flex;
-                                justify-content: center;
-                            }
-                            .class-title {
-                                font-weight: bold;
-                                font-size: 22px;
+                                    .ant-btn.view-btn {
+                                        width: 125px;
+                                        border: 1px solid #9095a1;
+                                    }
+                                    .ant-btn.view-btn:hover {
+                                        background: #9095a1;
+                                        color: white;
+                                    }
+                                    .ant-btn.delete-btn {
+                                        width: 24px;
+                                        background: #c12126;
+                                        color: white;
+                                        border: 0;
+                                        display: flex;
+                                        justify-content: center;
+                                    }
+                                    .ant-btn.delete-btn:hover {
+                                        background: #c12126bb;
+                                    }
+                                    .class-title {
+                                        font-weight: bold;
+                                        font-size: 22px;
+                                    }
+                                }
                             }
                         }
+
                         .ant-flex.info-headers {
                             color: #9095a1;
                             font-weight: 300;
                         }
-                        .ant-flex.company-btn {
-                            .ant-btn {
+                        .ant-flex {
+                            .ant-btn.choose-company-btn {
                                 color: white;
                                 background: #2c3d8f;
                                 border: 1px solid #2c3d8f;
-                                border-radius: 4px;
                             }
-                            .ant-btn:hover {
+                            .ant-btn.choose-company-btn:hover {
                                 background: white;
                                 color: #2c3d8f;
                             }

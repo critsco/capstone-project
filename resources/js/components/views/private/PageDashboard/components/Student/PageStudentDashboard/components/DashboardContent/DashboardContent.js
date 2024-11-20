@@ -3,7 +3,7 @@ import { Button, Col, Flex, Layout, Row, Segmented, Upload } from "antd";
 
 import StatusTable from "./components/StatusTable/StatusTable";
 import StudentCalendar from "./components/StudentCalendar/StudentCalendar";
-import LogList from "./components/LogList/LogList";
+import ReportList from "./components/ReportList/ReportList";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/pro-regular-svg-icons";
 
@@ -29,22 +29,23 @@ export default function DashboardContent() {
             </Row>
             <Row style={{ marginTop: "20px" }}>
                 <Col xs={24} sm={24} md={24} lg={24}>
-                    <Flex gap={10} align="center">
-                        <div className="dashboard-title">Daily Logs</div>
-                        <Segmented
-                            options={["Latest", "Oldest"]}
-                            onChange={(value) => {
-                                setSort(value);
-                            }}
-                        />
-                    </Flex>
-                    <Flex flex={1} gap={16}>
-                        <Upload listType="picture-card">
+                    <Flex justify="space-between">
+                        <Flex gap={10} align="center">
+                            <div className="dashboard-title">Daily Reports</div>
+                            <Segmented
+                                options={["Latest", "Oldest"]}
+                                onChange={(value) => {
+                                    setSort(value);
+                                }}
+                            />
+                        </Flex>
+                        <Button className="add-report-btn">
                             <FontAwesomeIcon icon={faPlus} />
-                            Add Log
-                        </Upload>
-                        <LogList sort={sort} />
+                            Add Report
+                        </Button>
                     </Flex>
+
+                    <ReportList sort={sort} />
                 </Col>
             </Row>
         </Layout.Content>

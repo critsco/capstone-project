@@ -183,8 +183,17 @@ export default function SignupModal(props) {
                             rules={[
                                 {
                                     required: true,
+                                    message: "Please input your email!",
+                                },
+                                {
                                     type: "email",
                                     message: "Please input a valid email!",
+                                },
+                                {
+                                    pattern:
+                                        /^[a-zA-Z0-9._%+-]+@urios\.edu\.ph$/,
+                                    message:
+                                        "Email must be a @urios.edu.ph address!",
                                 },
                             ]}
                         >

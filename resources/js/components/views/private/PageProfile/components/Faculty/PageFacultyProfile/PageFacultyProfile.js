@@ -81,7 +81,9 @@ export default function PageFacultyProfile() {
             </Row>
             <Row style={{ marginTop: "-8px" }}>
                 <Col xs={24} sm={24} md={24} lg={24}>
-                    <ProfileInternClassCard />
+                    <ProfileInternClassCard
+                        dataProfile={dataProfile && dataProfile.data}
+                    />
                 </Col>
             </Row>
         </Layout.Content>

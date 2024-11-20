@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import EditModalForm from "./components/EditModalForm";
 import NextModalForm from "./components/NextModalForm";
-import { faPlus } from "@fortawesome/pro-regular-svg-icons";
+import { faArrowsRotate, faPlus } from "@fortawesome/pro-regular-svg-icons";
 import CompanyModalForm from "./components/CompanyModalForm";
 
 export default function ProfileGenInfoCard(props) {
@@ -14,7 +14,11 @@ export default function ProfileGenInfoCard(props) {
     const [toggleModalForm, setToggleModalForm] = useState({
         editOpen: false,
         nextOpen: false,
-        companyOpen: false,
+        data: null,
+    });
+
+    const [toggleCompanyModalForm, setToggleCompanyModalForm] = useState({
+        open: false,
         data: null,
     });
 
@@ -34,7 +38,6 @@ export default function ProfileGenInfoCard(props) {
                     onClick={() =>
                         setToggleModalForm({
                             editOpen: true,
-                            nextOpen: false,
                             data: dataProfile,
                         })
                     }
@@ -86,16 +89,35 @@ export default function ProfileGenInfoCard(props) {
                 <>
                     <Divider />
                     <Flex vertical className="card-body" gap="14px">
-                        <Row>
+                        <Row style={{ display: "flex", alignItems: "center" }}>
                             <Col xs={12} sm={12} md={12} lg={12}>
                                 <div className="card-body-title">
                                     Parent/Guardian Information
                                 </div>
                             </Col>
                             <Col xs={12} sm={12} md={12} lg={12}>
-                                <div className="card-body-title">
-                                    Company Information
-                                </div>
+                                <Flex justify="space-between" align="center">
+                                    <div className="card-body-title">
+                                        Company Information
+                                    </div>
+                                    {dataProfile?.company_id ? (
+                                        <Button
+                                            className="change-company-btn"
+                                            onClick={() =>
+                                                setToggleCompanyModalForm({
+                                                    open: true,
+                                                    data: dataProfile,
+                                                })
+                                            }
+                                        >
+                                            <FontAwesomeIcon
+                                                icon={faArrowsRotate}
+                                            />
+                                        </Button>
+                                    ) : (
+                                        <></>
+                                    )}
+                                </Flex>
                             </Col>
                         </Row>
                         <Row>
@@ -156,18 +178,15 @@ export default function ProfileGenInfoCard(props) {
                                 </>
                             ) : (
                                 <Col xs={12} sm={12} md={12} lg={12}>
-                                    <Flex
-                                        className="company-btn"
-                                        align="center"
-                                        vertical
-                                    >
+                                    <Flex align="center" vertical>
                                         <div style={{ fontWeight: "600" }}>
                                             Select a Company
                                         </div>
                                         <Button
+                                            className="choose-company-btn"
                                             onClick={() =>
                                                 setToggleModalForm({
-                                                    companyOpen: true,
+                                                    open: true,
                                                 })
                                             }
                                         >
@@ -200,10 +219,8 @@ export default function ProfileGenInfoCard(props) {
                 dataProfile={dataProfile}
             />
             <CompanyModalForm
-                toggleModalForm={toggleModalForm}
-                setToggleModalForm={setToggleModalForm}
-                formData={formData}
-                dataProfile={dataProfile}
+                toggleCompanyModalForm={toggleCompanyModalForm}
+                setToggleCompanyModalForm={setToggleCompanyModalForm}
             />
         </div>
     );

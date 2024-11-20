@@ -51,4 +51,14 @@ class Profile extends Model
     {
         return $this->hasMany(Profile::class, "profile_id");
     }
+
+    public function intern_class()
+    {
+        return $this->belongsTo(InternClass::class, "intern_class_id");
+    }
+
+    public function intern_classes()
+    {
+        return $this->hasMany(InternClass::class, "instructor_id");
+    }
 }

@@ -1,7 +1,7 @@
 #PageCompanies {
     .ant-layout-content {
         padding-block: 24px;
-        padding-inline: 15rem;
+        padding-inline: 10rem;
 
         .ant-row {
             .ant-col {
@@ -10,14 +10,23 @@
                         font-weight: bolder;
                         font-size: 18px;
                     }
-                    .ant-btn {
+                    .ant-btn.add-btn {
                         background: #2c3d8f;
                         color: white;
                         border: 1px solid #2c3d8f;
                     }
-                    .ant-btn:hover {
+                    .ant-btn.add-btn:hover {
                         background: white;
                         color: #2c3d8f;
+                    }
+                    .ant-btn.archive-btn {
+                        background: #9095a1;
+                        color: white;
+                        border: 1px solid #9095a1;
+                    }
+                    .ant-btn.archive-btn:hover {
+                        background: white;
+                        color: #9095a1;
                     }
                 }
                 #tbl-wrapper {
@@ -33,11 +42,32 @@
                                                 .ant-table-row {
                                                     .ant-table-cell {
                                                         .action-buttons {
+                                                            justify-content: center;
+
                                                             .ant-btn {
-                                                                border: 0;
+                                                                border-radius: 4px;
+                                                                padding-inline: 8px;
+                                                                border: none;
+                                                                background: none;
+                                                                box-shadow: none;
                                                             }
-                                                            .ant-btn:hover {
-                                                                color: #2c3d8f;
+                                                            .ant-btn.preview-btn {
+                                                                color: #9095a1;
+                                                            }
+                                                            .ant-btn.preview-btn:hover {
+                                                                color: #9095a1bb;
+                                                            }
+                                                            .ant-btn.edit-btn {
+                                                                color: #114eaf;
+                                                            }
+                                                            .ant-btn.edit-btn:hover {
+                                                                color: #114eafbb;
+                                                            }
+                                                            .ant-btn.archive-btn {
+                                                                color: #d4a003;
+                                                            }
+                                                            .ant-btn.archive-btn:hover {
+                                                                color: #d4a003bb;
                                                             }
                                                         }
                                                     }

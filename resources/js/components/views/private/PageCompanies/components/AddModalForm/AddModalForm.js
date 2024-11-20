@@ -12,9 +12,9 @@ import {
     Select,
 } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleInfo } from "@fortawesome/pro-regular-svg-icons";
 
 import { GET, POST } from "../../../../../providers/useAxiosQuery";
-import { faCircleInfo } from "@fortawesome/pro-regular-svg-icons";
 import notificationErrors from "../../../../../providers/notificationErrors";
 
 export default function AddModalForm(props) {

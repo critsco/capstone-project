@@ -16,6 +16,7 @@ import PageDocuments from "../views/private/PageDocuments/PageDocuments";
 import PageInternStatus from "../views/private/PageInternStatus/PageInternStatus";
 import PageProfile from "../views/private/PageProfile/PageProfile";
 import PageCompanies from "../views/private/PageCompanies/PageCompanies";
+import PageCompanyArchive from "../views/private/PageCompanies/pages/PageCompanyArchive/PageCompanyArchive";
 
 export default function RouteList() {
     const userdata = userData();
@@ -97,6 +98,16 @@ export default function RouteList() {
                             />
                         }
                     />
+                    <Route
+                        path="/companies/archive"
+                        element={
+                            <PrivateRoute
+                                title="AutoForm | Company Archive"
+                                pageId="PageCompanyArchive"
+                                component={PageCompanyArchive}
+                            />
+                        }
+                    />
                 </>
             ) : (
                 <>
@@ -110,6 +121,10 @@ export default function RouteList() {
                     />
                     <Route
                         path="/companies"
+                        element={<Page403 pageId="Page403" />}
+                    />
+                    <Route
+                        path="/companies/archive"
                         element={<Page403 pageId="Page403" />}
                     />
                 </>

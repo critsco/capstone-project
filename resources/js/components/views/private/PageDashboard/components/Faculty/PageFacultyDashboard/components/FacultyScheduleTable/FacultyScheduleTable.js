@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Table } from "antd";
+import { Col, Row, Table } from "antd";
 
 export default function FacultyScheduleTable() {
     const data = [
@@ -69,13 +69,17 @@ export default function FacultyScheduleTable() {
     ];
 
     return (
-        <Table
-            id="faculty-dashboard-schedule-table"
-            dataSource={data}
-            columns={columns}
-            pagination={false}
-            bordered={true}
-            // style={{ height: "315px" }}
-        />
+        <>
+            <Row id="tbl-wrapper">
+                <Col xs={24} sm={24} md={24} lg={24}>
+                    <Table
+                        dataSource={data}
+                        columns={columns}
+                        pagination={false}
+                        bordered={true}
+                    />
+                </Col>
+            </Row>
+        </>
     );
 }

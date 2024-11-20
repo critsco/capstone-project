@@ -15,12 +15,10 @@ export default function PageFacultyDashboard() {
                 </Col>
                 <Col xs={24} sm={24} md={10} lg={10}>
                     <div className="dashboard-title">Upcoming Schedules</div>
-                    <div className="faculty-dashboard-schedule">
-                        <FacultyScheduleTable />
-                    </div>
+                    <FacultyScheduleTable />
                 </Col>
             </Row>
-            <Row gutter={[0, 20]} style={{ marginTop: "20px" }}>
+            <Row style={{ marginTop: "20px" }}>
                 <Col xs={24} sm={24} md={24} lg={24}>
                     <div className="dashboard-title">Intern Status</div>
                     <FacultyInternTable />

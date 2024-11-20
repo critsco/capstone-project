@@ -10,20 +10,13 @@ import ProfileGenInfoCard from "./components/ProfileGenInfoCard/ProfileGenInfoCa
 
 export default function PageStudentProfile() {
     const userdata = userData();
-    const [loading, setLoading] = useState(true);
 
-    const { data: dataProfile } = GET(
+    const { data: dataProfile, isLoading: isLoadingProfile } = GET(
         `api/profile/${userdata.id}`,
         "profile_list"
     );
 
-    useEffect(() => {
-        if (dataProfile) {
-            setLoading(false);
-        }
-    }, [dataProfile]);
-
-    if (loading) {
+    if (isLoadingProfile) {
         return (
             <div className="splash-centered">
                 <div className="splash-loader">
@@ -52,10 +45,14 @@ export default function PageStudentProfile() {
                 </Col>
                 <Col sm={20} md={20} lg={20}>
                     <Flex vertical gap={16}>
-                        <div className="profile-name">
-                            {dataProfile?.data.fullname} (
-                            {dataProfile?.data.school_id})
-                        </div>
+                        <Flex>
+                            <div className="profile-name">
+                                {dataProfile?.data.fullname} (
+                                {dataProfile?.data.school_id})
+                            </div>
+                            {}
+                        </Flex>
+
                         <Flex gap={8} align="center">
                             <Button className="image">Choose Image</Button>
                             <Button className="remove">Remove</Button>

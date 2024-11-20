@@ -22,7 +22,7 @@
     .ant-layout-content {
         background: #f3f4f6;
         padding-block: 30px;
-        padding-inline: 15rem;
+        padding-inline: 10rem;
         gap: 10px;
         height: 90vh;
         flex: 1;
@@ -77,6 +77,15 @@
                                 background: #ffffff;
                             }
                         }
+                    }
+                    .ant-btn {
+                        background: #2c3d8f;
+                        color: white;
+                        border: 1px solid #2c3d8f;
+                    }
+                    .ant-btn:hover {
+                        background: white;
+                        color: #2c3d8f;
                     }
                 }
             }

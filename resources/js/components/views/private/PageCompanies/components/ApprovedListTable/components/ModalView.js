@@ -1,33 +1,35 @@
 import React, { useEffect } from "react";
-import { Button, Flex, Modal, Table } from "antd";
+import { Button, Empty, Flex, Modal, Table } from "antd";
 
 import { GET } from "../../../../../../providers/useAxiosQuery";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFolderOpen } from "@fortawesome/pro-regular-svg-icons";
 
 export default function ModalView(props) {
-    const { toggleModalForm, setToggleModalForm } = props;
+    const { toggleModalView, setToggleModalView } = props;
 
     const {
         data: dataSource,
         refetch: refetchSource,
         isLoading: isLoadingDataSource,
         isFetching: isFetchingDataSource,
-    } = GET(`api/company/${toggleModalForm.data?.id}`, "company_profile_list");
+    } = GET(`api/company/${toggleModalView.data?.id}`, "company_profile_list");
 
-    console.log("dataSource: ", dataSource?.data);
+    // console.log("dataSource: ", dataSource?.data);
 
     useEffect(() => {
         refetchSource();
 
         return () => {};
-    }, [toggleModalForm.data?.id]);
+    }, [toggleModalView.data?.id]);
 
     return (
         <Modal
             title="Company Information"
             wrapClassName="company-info-view"
-            open={toggleModalForm.open}
+            open={toggleModalView.open}
             onCancel={() => {
-                setToggleModalForm({
+                setToggleModalView({
                     open: false,
                     data: null,
                 });
@@ -39,7 +41,7 @@ export default function ModalView(props) {
                     <Button
                         key={1}
                         onClick={() => {
-                            setToggleModalForm({
+                            setToggleModalView({
                                 open: false,
                                 data: null,
                             });
@@ -52,10 +54,30 @@ export default function ModalView(props) {
         >
             <div className="table-title">Assigned Students</div>
             <Table
-                dataSource={dataSource && dataSource.data}
+                dataSource={
+                    dataSource?.data
+                        ? dataSource.data.map((item) => ({
+                              ...item,
+                              key: item.id, // Use the unique `id` field as the key
+                          }))
+                        : []
+                }
                 loading={isFetchingDataSource}
                 pagination={false}
                 bordered={true}
+                locale={{
+                    emptyText: (
+                        <Empty
+                            image={
+                                <FontAwesomeIcon
+                                    icon={faFolderOpen}
+                                    style={{ color: "#e7e7e7" }}
+                                />
+                            }
+                            description="No students were assigned"
+                        />
+                    ),
+                }}
             >
                 <Table.Column
                     title="Student Name"
@@ -65,12 +87,12 @@ export default function ModalView(props) {
                 <Table.Column
                     title="Year Level"
                     key="year_level"
-                    dataIndex="ref_year_level.year_level"
+                    dataIndex={["ref_year_level", "year_level"]}
                 />
                 <Table.Column
                     title="Department"
                     key="department"
-                    dataIndex="ref_department.department"
+                    dataIndex={["ref_department", "department"]}
                 />
             </Table>
         </Modal>

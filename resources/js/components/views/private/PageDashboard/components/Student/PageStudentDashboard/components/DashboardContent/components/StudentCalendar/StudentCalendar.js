@@ -11,7 +11,7 @@ export default function StudentCalendar() {
     return (
         <Calendar
             value={value}
-            rootClassName="student-calendar-wrapper"
+            rootClassName="student-dashboard-calendar"
             fullscreen={false}
             onPanelChange={setValue}
             onChange={setValue}

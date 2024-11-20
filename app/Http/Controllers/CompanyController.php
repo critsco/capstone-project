@@ -27,7 +27,10 @@ class CompanyController extends Controller
             ->leftJoin('ref_barangays', 'profile_addresses.barangay_id', '=', 'ref_barangays.id')
             ->leftJoin('ref_municipalities', 'profile_addresses.municipality_id', '=', 'ref_municipalities.id')
             ->leftJoin('ref_provinces', 'profile_addresses.province_id', '=', 'ref_provinces.id')
-            ->leftJoin('ref_regions', 'profile_addresses.region_id', '=', 'ref_regions.id');
+            ->leftJoin('ref_regions', 'profile_addresses.region_id', '=', 'ref_regions.id')
+            ->with([
+                'profile_address',
+            ]);
 
         $data->where(function ($query) use ($request) {
             if ($request->search) {
@@ -36,6 +39,15 @@ class CompanyController extends Controller
                 $query->orWhere('office_head', 'LIKE', "%$request->search%");
             }
         });
+
+        if ($request->isTrash) {
+            $data->onlyTrashed();
+        }
+
+        if ($request->company_name) {
+            $companyNames = is_array($request->company_name) ? $request->company_name : explode(',', $request->company_name);
+            $data->whereIn('company_name', $companyNames);
+        }
 
         if ($request->sort_field && $request->sort_order) {
             if (
@@ -88,9 +100,9 @@ class CompanyController extends Controller
 
         // Prepare the company data, including the address_id
         $companyData = [
-            "company_name" => ucwords(strtolower($request->company_name)),
-            "office" => ucwords(strtolower($request->office)),
-            "office_head" => ucwords(strtolower($request->office_head)),
+            "company_name" => $request->company_name,
+            "office" => $request->office,
+            "office_head" => $request->office_head,
             "email" => $request->email,
             "address_id" => $address->id,
         ];
@@ -100,22 +112,21 @@ class CompanyController extends Controller
             ? ["updated_by" => auth()->user()->id]
             : ["created_by" => auth()->user()->id];
 
-        // // Check if the record exists, including soft-deleted records
-        // $existingCompany = Company::withTrashed()->find($request->id);
-
-        // // Restore the company if it was soft-deleted
-        // if ($existingCompany) {
-        //     $existingCompany->restore();
-        // }
+        // Check if the record exists, including soft-deleted records
+        $findArchivedData = Company::withTrashed()->find($request->id);
+        
+        if ($findArchivedData) {
+            Company::where('id', $request->id)->restore();
+        }
 
         // Create or update the company record
-        $company = Company::updateOrCreate(
+        $companyDetail = Company::updateOrCreate(
             ["id" => $request->id ?? null],
             $companyData
         );
 
         // Return success if the company record was created or updated
-        if ($company) {
+        if ($companyDetail) {
             $ret = [
                 "success" => true,
                 "message" => "Data " . ($request->id ? "updated" : "created") . " successfully"
@@ -184,8 +195,34 @@ class CompanyController extends Controller
      * @param  \App\Models\Company  $company
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Company $company)
+    public function destroy($id)
     {
-        //
+        $ref = [
+            "success" => false,
+            "message" => "Data not archived"
+        ];
+
+        $findData = Company::find($id);
+
+        if ($findData) {
+            if ($findData->delete()) {
+                $ret = [
+                    "success" => true,
+                    "message" => "Data archived successfully"
+                ];
+            }
+        }
+
+        return response()->json($ref, 200);
+    }
+
+    public function unique_companies()
+    {
+        $companies = Company::select("company_name")->distinct()->get();
+
+        return response()->json([
+            "success" => true,
+            "data" => $companies,
+        ], 200);
     }
 }

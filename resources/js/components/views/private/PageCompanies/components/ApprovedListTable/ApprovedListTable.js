@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Col, Row, Table, Button } from "antd";
+import { Col, Row, Table, Button, Empty, Flex, Popconfirm } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye } from "@fortawesome/pro-regular-svg-icons";
+import {
+    faBoxArchive,
+    faEye,
+    faFolderOpen,
+    faPencil,
+} from "@fortawesome/pro-regular-svg-icons";
 
-import { GET } from "../../../../../providers/useAxiosQuery";
+import { DELETE, GET } from "../../../../../providers/useAxiosQuery";
 import {
     TableGlobalSearch,
     TablePageSize,
@@ -11,8 +16,13 @@ import {
     TableShowingEntries,
 } from "../../../../../providers/CustomTableFilter";
 import ModalView from "./components/ModalView";
+import ModalForm from "./components/ModalForm";
 
 export default function ApprovedListTable() {
+    const [toggleModalView, setToggleModalView] = useState({
+        open: false,
+        data: null,
+    });
     const [toggleModalForm, setToggleModalForm] = useState({
         open: false,
         data: null,
@@ -26,6 +36,8 @@ export default function ApprovedListTable() {
         sort_order: "asc",
     });
 
+    const [companyFilterOptions, setCompanyFilterOptions] = useState([]);
+
     const {
         data: dataSource,
         refetch: refetchSource,
@@ -36,6 +48,25 @@ export default function ApprovedListTable() {
         "companies_list"
     );
 
+    const { data: uniqueCompanies } = GET(
+        `api/unique_companies`,
+        "unique_companies_list"
+    );
+
+    const { mutate: mutateDeleteCompany, isLoading: isLoadingDeleteCompany } =
+        DELETE(`api/companies`, "companies_list");
+
+    useEffect(() => {
+        // Generate unique company names for the filter options
+        if (uniqueCompanies?.data) {
+            const companyNames = uniqueCompanies.data.map((company) => ({
+                text: company.company_name,
+                value: company.company_name,
+            }));
+            setCompanyFilterOptions(companyNames);
+        }
+    }, [uniqueCompanies]);
+
     const onChangeTable = (pagination, filters, sorter) => {
         setTableFilter((prevState) => ({
             ...prevState,
@@ -43,7 +74,30 @@ export default function ApprovedListTable() {
             sort_order: sorter.order ? sorter.order.replace("end", "") : null,
             page: 1,
             page_size: "10",
+            company_name: filters.company_name || "",
         }));
+    };
+
+    const handleArchive = (record) => {
+        mutateDeleteCompany(record, {
+            onSuccess: (res) => {
+                // console.log("res", res);
+                if (res.success) {
+                    notification.success({
+                        message: "Scholarship",
+                        description: res.message,
+                    });
+                } else {
+                    notification.error({
+                        message: "Scholarship",
+                        description: res.message,
+                    });
+                }
+            },
+            onError: (err) => {
+                notificationErrors(err);
+            },
+        });
     };
 
     useEffect(() => {
@@ -81,19 +135,32 @@ export default function ApprovedListTable() {
                                 pagination={false}
                                 bordered={true}
                                 onChange={onChangeTable}
+                                locale={{
+                                    emptyText: (
+                                        <Empty
+                                            image={
+                                                <FontAwesomeIcon
+                                                    icon={faFolderOpen}
+                                                    style={{ color: "#e7e7e7" }}
+                                                />
+                                            }
+                                            description="No approved companies found"
+                                        />
+                                    ),
+                                }}
                             >
                                 <Table.Column
-                                    title="Preview"
-                                    key="preview"
+                                    title="Actions"
+                                    key="actions"
                                     align="center"
                                     width={50}
                                     render={(record) => {
                                         return (
-                                            <div className="action-buttons">
+                                            <Flex className="action-buttons">
                                                 <Button
-                                                    className="preview"
+                                                    className="preview-btn"
                                                     onClick={() => {
-                                                        setToggleModalForm({
+                                                        setToggleModalView({
                                                             open: true,
                                                             data: record,
                                                         });
@@ -103,7 +170,49 @@ export default function ApprovedListTable() {
                                                         icon={faEye}
                                                     />
                                                 </Button>
-                                            </div>
+                                                <Button
+                                                    type="link"
+                                                    className="edit-btn"
+                                                    onClick={() =>
+                                                        setToggleModalForm({
+                                                            open: true,
+                                                            data: record,
+                                                        })
+                                                    }
+                                                >
+                                                    <FontAwesomeIcon
+                                                        icon={faPencil}
+                                                    />
+                                                </Button>
+                                                <Popconfirm
+                                                    title="Are you sure to archive this data?"
+                                                    onConfirm={() => {
+                                                        handleArchive(record);
+                                                    }}
+                                                    onCancel={() => {
+                                                        notification.error({
+                                                            message:
+                                                                "Scholarship",
+                                                            description:
+                                                                "Data not archived",
+                                                        });
+                                                    }}
+                                                    okText="Yes"
+                                                    cancelText="No"
+                                                >
+                                                    <Button
+                                                        type="link"
+                                                        className="archive-btn"
+                                                        loading={
+                                                            isLoadingDeleteCompany
+                                                        }
+                                                    >
+                                                        <FontAwesomeIcon
+                                                            icon={faBoxArchive}
+                                                        />
+                                                    </Button>
+                                                </Popconfirm>
+                                            </Flex>
                                         );
                                     }}
                                 />
@@ -113,6 +222,10 @@ export default function ApprovedListTable() {
                                     dataIndex="company_name"
                                     sorter={true}
                                     align="center"
+                                    filters={companyFilterOptions}
+                                    onFilter={(value, record) =>
+                                        record.company_name === value
+                                    }
                                 />
                                 <Table.Column
                                     title="Office"
@@ -163,6 +276,10 @@ export default function ApprovedListTable() {
             </Row>
 
             <ModalView
+                toggleModalView={toggleModalView}
+                setToggleModalView={setToggleModalView}
+            />
+            <ModalForm
                 toggleModalForm={toggleModalForm}
                 setToggleModalForm={setToggleModalForm}
             />

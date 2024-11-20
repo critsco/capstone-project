@@ -15,8 +15,7 @@ import { GET, POST } from "../../../../../../../../../providers/useAxiosQuery";
 import notificationErrors from "../../../../../../../../../providers/notificationErrors";
 
 export default function CompanyModalForm(props) {
-    const { toggleModalForm, setToggleModalForm, formData, dataProfile } =
-        props;
+    const { toggleCompanyModalForm, setToggleCompanyModalForm } = props;
     const [form] = Form.useForm();
     const [selectedCompanyDetails, setSelectedCompanyDetails] = useState({});
     const [selectedCompany, setSelectedCompany] = useState(null);
@@ -26,23 +25,29 @@ export default function CompanyModalForm(props) {
         "companies_list"
     );
 
+    console.log("toggleCompanyModalForm: ", toggleCompanyModalForm);
+
     const { mutate: mutateProfileCompany, isLoading: isLoadingProfileCompany } =
         POST(`api/update_profile_company`, "profile_company_list");
-    const { mutate: mutateUpdateProfile, isLoading: isLoadingUpdateProfile } =
-        POST(`api/update_student_profile`, "update_student_profile_list");
 
     useEffect(() => {
-        if (toggleModalForm.companyOpen && dataProfile.company_id) {
+        if (
+            toggleCompanyModalForm?.open &&
+            toggleCompanyModalForm?.data.company_id
+        ) {
             form.setFieldsValue({
-                company_name: dataProfile.company?.company_name,
-                office: dataProfile.company?.office,
+                company_name: toggleCompanyModalForm.data.company?.company_name,
+                office: toggleCompanyModalForm.data.company?.office,
             });
-            setSelectedCompany(dataProfile.company?.company_name);
+            setSelectedCompany(
+                toggleCompanyModalForm.data.company?.company_name
+            );
 
             const selectedData = dataCompany?.data.find(
                 (item) =>
-                    item.company_name === dataProfile.company?.company_name &&
-                    item.office === dataProfile.company?.office
+                    item.company_name ===
+                        toggleCompanyModalForm.data.company?.company_name &&
+                    item.office === toggleCompanyModalForm.data.company?.office
             );
             setSelectedCompanyDetails({
                 office_head: selectedData.office_head,
@@ -50,12 +55,12 @@ export default function CompanyModalForm(props) {
                 address: selectedData.address,
             });
         }
-    }, [toggleModalForm.companyOpen]);
+    }, [toggleCompanyModalForm.open]);
 
     const onCompanyFinish = (values) => {
         let data = {
             ...values,
-            student_profile_id: dataProfile?.id,
+            student_profile_id: toggleCompanyModalForm?.data.id,
         };
 
         console.log("onFinish: ", data);
@@ -63,52 +68,19 @@ export default function CompanyModalForm(props) {
         mutateProfileCompany(data, {
             onSuccess: (res) => {
                 if (res.success) {
-                    setToggleModalForm({
-                        companyOpen: false,
-                    });
-                    form.resetFields();
-                    notification.success({
-                        message: "Update Company",
-                        description: res.message,
-                    });
-                    window.location.reload();
-                } else {
-                    notification.error({
-                        message: "Update Company",
-                        description: res.message,
-                    });
-                }
-            },
-            onError: (err) => {
-                notificationErrors(err);
-            },
-        });
-    };
-
-    const onProfileFinish = (values) => {
-        let data = {
-            ...formData,
-            ...values,
-        };
-
-        console.log("onFinish", data);
-
-        mutateUpdateProfile(data, {
-            onSuccess: (res) => {
-                if (res.success) {
-                    setToggleModalForm({
-                        companyOpen: false,
+                    setToggleCompanyModalForm({
+                        open: false,
                         data: null,
                     });
                     form.resetFields();
                     notification.success({
-                        message: "Update Profile",
+                        message: "Update Company",
                         description: res.message,
                     });
                     window.location.reload();
                 } else {
                     notification.error({
-                        message: "Update Profile",
+                        message: "Update Company",
                         description: res.message,
                     });
                 }
@@ -156,85 +128,51 @@ export default function CompanyModalForm(props) {
     return (
         <Modal
             title={
-                dataProfile?.company_id ? "Change Company" : "Choose a Company"
+                toggleCompanyModalForm?.data?.company_id
+                    ? "Change Company"
+                    : "Choose a Company"
             }
             wrapClassName="company-form"
-            open={toggleModalForm.companyOpen}
+            open={toggleCompanyModalForm.open}
             width={750}
             centered
             loading={isLoadingDataCompany}
             onCancel={() =>
-                setToggleModalForm({
-                    companyOpen: false,
+                setToggleCompanyModalForm({
+                    open: false,
                     data: null,
                 })
             }
             footer={
                 <Flex gap={4} justify="end">
-                    {dataProfile?.company_id ? (
-                        <>
-                            <Button
-                                key={1}
-                                className="cancel-btn"
-                                onClick={() =>
-                                    setToggleModalForm({
-                                        nextOpen: true,
-                                        companyOpen: false,
-                                        data: dataProfile,
-                                    })
-                                }
-                            >
-                                Back
-                            </Button>
-                            <Popconfirm
-                                key={2}
-                                rootClassName="edit-confirm-btn"
-                                title="Confirmation"
-                                description="Are you sure you want to submit?"
-                                onConfirm={() => form.submit()}
-                                okText="Yes"
-                                cancelText="No"
-                            >
-                                <Button
-                                    className="submit-btn"
-                                    loading={isLoadingUpdateProfile}
-                                >
-                                    Submit
-                                </Button>
-                            </Popconfirm>
-                        </>
-                    ) : (
-                        <>
-                            <Button
-                                key={1}
-                                className="cancel-btn"
-                                onClick={() =>
-                                    setToggleModalForm({
-                                        companyOpen: false,
-                                        data: null,
-                                    })
-                                }
-                            >
-                                Cancel
-                            </Button>
-                            <Popconfirm
-                                key={2}
-                                rootClassName="edit-confirm-btn"
-                                title="Confirmation"
-                                description="Are you sure you want to choose this company?"
-                                onConfirm={() => form.submit()}
-                                okText="Yes"
-                                cancelText="No"
-                            >
-                                <Button
-                                    className="submit-btn"
-                                    loading={isLoadingProfileCompany}
-                                >
-                                    Submit
-                                </Button>
-                            </Popconfirm>
-                        </>
-                    )}
+                    <Button
+                        key={1}
+                        className="cancel-btn"
+                        onClick={() =>
+                            setToggleCompanyModalForm({
+                                open: false,
+                                data: null,
+                            })
+                        }
+                    >
+                        Cancel
+                    </Button>
+                    <Popconfirm
+                        key={2}
+                        rootClassName="edit-confirm-btn"
+                        title="Confirmation"
+                        description="Are you sure you want to choose this company?"
+                        onConfirm={() => form.submit()}
+                        okText="Yes"
+                        cancelText="No"
+                    >
+                        <Button
+                            className="submit-btn"
+                            loading={isLoadingProfileCompany}
+                        >
+                            Submit
+                        </Button>
+                    </Popconfirm>
                 </Flex>
             }
         >
@@ -242,9 +180,7 @@ export default function CompanyModalForm(props) {
                 form={form}
                 layout="vertical"
                 autoComplete="off"
-                onFinish={
-                    dataProfile?.company_id ? onProfileFinish : onCompanyFinish
-                }
+                onFinish={onCompanyFinish}
             >
                 <Row gutter={[8, 0]}>
                     <Col xs={24} sm={24} md={12} lg={12}>
