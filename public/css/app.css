@@ -337,11 +337,10 @@ body {
   padding-inline: 18rem;
   gap: 10px;
 }
-#PageDocuments .ant-layout-content .ant-row {
-  box-shadow: 2px 4px 8px rgba(23, 26, 31, 0.12);
-}
 #PageDocuments .ant-layout-content .ant-row .ant-col .ant-flex.document-sidebar {
   background: #f8f9fa;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
 }
 #PageDocuments .ant-layout-content .ant-row .ant-col .ant-flex.document-sidebar .title {
   font-weight: bold;
@@ -394,7 +393,11 @@ body {
   background: #2c3d8f;
   border-radius: 4px;
   color: white;
-  border: none;
+  border: 1px solid #2c3d8f;
+}
+#PageDocuments .ant-layout-content .ant-row .ant-col .ant-flex.document-sidebar .ant-flex .ant-btn:hover {
+  background: white;
+  color: #2c3d8f;
 }
 #PageDocuments .ant-layout-content .ant-row .ant-col .ant-flex.document-sidebar .ant-flex .ant-flex {
   border: 0;
@@ -405,14 +408,39 @@ body {
 #PageDocuments .ant-layout-content .ant-row .ant-col .ant-flex.document-sidebar .ant-flex .ant-flex span {
   font-size: small;
 }
+#PageDocuments .ant-layout-content .ant-row .ant-col .ant-flex.document-searchbar {
+  box-shadow: none;
+}
+#PageDocuments .ant-layout-content .ant-row .ant-col .ant-flex.document-searchbar .ant-input-group-wrapper {
+  width: 550px;
+}
+#PageDocuments .ant-layout-content .ant-row .ant-col .ant-flex.document-searchbar .ant-input-group-wrapper .ant-input-wrapper .ant-input {
+  height: 40px;
+}
+#PageDocuments .ant-layout-content .ant-row .ant-col .ant-flex.document-searchbar .ant-input-group-wrapper .ant-input-wrapper .ant-input:hover {
+  border-color: #2c3d8f;
+}
+#PageDocuments .ant-layout-content .ant-row .ant-col .ant-flex.document-searchbar .ant-input-group-wrapper .ant-input-wrapper .ant-input:focus {
+  border-color: #2c3d8f;
+  box-shadow: 0 0 2px #2c488f;
+}
+#PageDocuments .ant-layout-content .ant-row .ant-col .ant-flex.document-searchbar .ant-input-group-wrapper .ant-input-wrapper .ant-input-group-addon .ant-btn {
+  height: 40px;
+  background: #2c3d8f;
+  color: white;
+  border: 1px solid #2c3d8f;
+}
+#PageDocuments .ant-layout-content .ant-row .ant-col .ant-flex.document-searchbar .ant-input-group-wrapper .ant-input-wrapper .ant-input-group-addon .ant-btn:hover {
+  background: white;
+  color: #2c3d8f;
+}
 #PageDocuments .ant-layout-content .ant-row .ant-col .document-card {
   width: 100%;
   height: 100%;
   background: #f1f1f1;
-  display: flex;
-  top: 0;
   padding: 25px 100px 25px 100px;
-  justify-content: center;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
 #PageProfile .ant-layout-content {

@@ -78,7 +78,7 @@ export default function FacultyInternTable() {
             <Col xs={24} sm={24} md={24} lg={24}>
                 <Table
                     dataSource={data}
-                    rowKey={(record) => record.id}
+                    rowKey={(record) => record?.id}
                     pagination={false}
                     bordered={true}
                 >
@@ -103,15 +103,19 @@ export default function FacultyInternTable() {
                                 options={statusOptions}
                                 allowClear
                                 className={`status ${
-                                    record.status === "Applied" ? "applied" : ""
+                                    record?.status === "Applied"
+                                        ? "applied"
+                                        : ""
                                 } ${
-                                    record.status === "Accepted"
+                                    record?.status === "Accepted"
                                         ? "accepted"
                                         : ""
                                 } ${
-                                    record.status === "Started" ? "started" : ""
+                                    record?.status === "Started"
+                                        ? "started"
+                                        : ""
                                 } ${
-                                    record.status === "To Grade"
+                                    record?.status === "To Grade"
                                         ? "tograde"
                                         : ""
                                 }`}
@@ -144,11 +148,11 @@ export default function FacultyInternTable() {
                                     options={options}
                                     allowClear
                                     className={`moa ${
-                                        record.moa === "In Progress"
+                                        record?.moa === "In Progress"
                                             ? "inprogress"
                                             : ""
                                     } ${
-                                        record.moa === "Completed"
+                                        record?.moa === "Completed"
                                             ? "completed"
                                             : ""
                                     }`}
@@ -169,11 +173,11 @@ export default function FacultyInternTable() {
                                     options={options}
                                     allowClear
                                     className={`ltp ${
-                                        record.ltp === "In Progress"
+                                        record?.ltp === "In Progress"
                                             ? "inprogress"
                                             : ""
                                     } ${
-                                        record.ltp === "Completed"
+                                        record?.ltp === "Completed"
                                             ? "completed"
                                             : ""
                                     }`}
@@ -194,11 +198,11 @@ export default function FacultyInternTable() {
                                     options={options}
                                     allowClear
                                     className={`wfp ${
-                                        record.wfp === "In Progress"
+                                        record?.wfp === "In Progress"
                                             ? "inprogress"
                                             : ""
                                     } ${
-                                        record.wfp === "Completed"
+                                        record?.wfp === "Completed"
                                             ? "completed"
                                             : ""
                                     }`}
@@ -219,11 +223,11 @@ export default function FacultyInternTable() {
                                     options={options}
                                     allowClear
                                     className={`endorsement ${
-                                        record.endorsement === "In Progress"
+                                        record?.endorsement === "In Progress"
                                             ? "inprogress"
                                             : ""
                                     } ${
-                                        record.endorsement === "Completed"
+                                        record?.endorsement === "Completed"
                                             ? "completed"
                                             : ""
                                     }`}
@@ -244,11 +248,11 @@ export default function FacultyInternTable() {
                                     options={options}
                                     allowClear
                                     className={`dtr ${
-                                        record.dtr === "In Progress"
+                                        record?.dtr === "In Progress"
                                             ? "inprogress"
                                             : ""
                                     } ${
-                                        record.dtr === "Completed"
+                                        record?.dtr === "Completed"
                                             ? "completed"
                                             : ""
                                     }`}
@@ -269,11 +273,11 @@ export default function FacultyInternTable() {
                                     options={options}
                                     allowClear
                                     className={`eval_form ${
-                                        record.eval_form === "In Progress"
+                                        record?.eval_form === "In Progress"
                                             ? "inprogress"
                                             : ""
                                     } ${
-                                        record.eval_form === "Completed"
+                                        record?.eval_form === "Completed"
                                             ? "completed"
                                             : ""
                                     }`}
@@ -294,11 +298,11 @@ export default function FacultyInternTable() {
                                     options={options}
                                     allowClear
                                     className={`term_rep ${
-                                        record.term_rep === "In Progress"
+                                        record?.term_rep === "In Progress"
                                             ? "inprogress"
                                             : ""
                                     } ${
-                                        record.term_rep === "Completed"
+                                        record?.term_rep === "Completed"
                                             ? "completed"
                                             : ""
                                     }`}

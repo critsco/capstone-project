@@ -1,26 +1,22 @@
 import React from "react";
-
-import { Input } from "antd";
+import { Flex, Input } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/pro-light-svg-icons";
+import { faMagnifyingGlass } from "@fortawesome/pro-regular-svg-icons";
 
 export default function DocumentSearchBar() {
     return (
-        <div id="document_searchBar">
+        <Flex justify="center" className="document-searchbar">
             <Input.Search
                 placeholder="Search"
-                allowClear
                 enterButton={
                     <FontAwesomeIcon
                         icon={faMagnifyingGlass}
                         style={{
-                            paddingRight: "12px",
-                            paddingLeft: "12px",
-                            paddingBlock: "25%",
+                            paddingInline: "8px",
                         }}
                     />
                 }
             />
-        </div>
+        </Flex>
     );
 }
