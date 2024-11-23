@@ -331,6 +331,18 @@ body {
   background: white;
   color: #2c3d8f;
 }
+#PageDashboard .ant-layout-content#faculty-dashboard {
+  padding-inline: 4rem;
+}
+#PageDashboard .ant-layout-content#faculty-dashboard .ant-row .ant-col #faculty-intern-status-table .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-thead .ant-table-cell {
+  font-size: 14px;
+}
+#PageDashboard .ant-layout-content#faculty-dashboard .ant-row .ant-col #faculty-intern-status-table .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-thead .ant-table-cell .ant-table-column-title {
+  font-size: 14px;
+}
+#PageDashboard .ant-layout-content#faculty-dashboard .ant-row .ant-col #faculty-intern-status-table .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell {
+  font-size: 14px;
+}
 
 #PageDocuments .ant-layout-content {
   padding-block: 30px;

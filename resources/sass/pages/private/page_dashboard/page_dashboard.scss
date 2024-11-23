@@ -91,4 +91,38 @@
             }
         }
     }
+    .ant-layout-content#faculty-dashboard {
+        padding-inline: 4rem;
+
+        .ant-row {
+            .ant-col {
+                #faculty-intern-status-table {
+                    .ant-col {
+                        .ant-table-wrapper {
+                            .ant-table {
+                                .ant-table-container {
+                                    .ant-table-content {
+                                        .ant-table-thead {
+                                            .ant-table-cell {
+                                                font-size: 14px;
+
+                                                .ant-table-column-title {
+                                                    font-size: 14px;
+                                                }
+                                            }
+                                        }
+                                        .ant-table-tbody {
+                                            .ant-table-cell {
+                                                font-size: 14px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

@@ -7,8 +7,8 @@ import FacultyInternTable from "./components/FacultyInternTable/FacultyInternTab
 
 export default function PageFacultyDashboard() {
     return (
-        <Layout.Content>
-            <Row gutter={[30, 0]}>
+        <Layout.Content id="faculty-dashboard">
+            <Row gutter={[30, 0]} style={{ paddingInline: "6rem" }}>
                 <Col xs={24} sm={24} md={14} lg={14}>
                     <div className="dashboard-title">Calendar</div>
                     <FacultyCalendar />
@@ -20,7 +20,12 @@ export default function PageFacultyDashboard() {
             </Row>
             <Row style={{ marginTop: "20px" }}>
                 <Col xs={24} sm={24} md={24} lg={24}>
-                    <div className="dashboard-title">Intern Status</div>
+                    <div
+                        className="dashboard-title"
+                        style={{ paddingInline: "6rem" }}
+                    >
+                        Intern Status
+                    </div>
                     <FacultyInternTable />
                 </Col>
             </Row>

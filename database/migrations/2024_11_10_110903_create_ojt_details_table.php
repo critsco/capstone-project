@@ -18,9 +18,24 @@ class CreateOjtDetailsTable extends Migration
 
             $table->integer('profile_id')->nullable();
             $table->integer('company_id')->nullable();
-            $table->integer('document_status_id')->nullable();
             $table->string('status')->nullable();
             $table->string('date_started')->nullable();
+            $table->string('moa_status')->nullable();
+            $table->string('moa_note')->nullable();
+            $table->string('ltp_status')->nullable();
+            $table->string('ltp_note')->nullable();
+            $table->string('wfp_status')->nullable();
+            $table->string('wfp_note')->nullable();
+            $table->string('wfs_status')->nullable();
+            $table->string('wfs_note')->nullable();
+            $table->string('endorsement_status')->nullable();
+            $table->string('endorsement_note')->nullable();
+            $table->string('dtr_status')->nullable();
+            $table->string('dtr_note')->nullable();
+            $table->string('eval_form_status')->nullable();
+            $table->string('eval_form_note')->nullable();
+            $table->string('term_rep_status')->nullable();
+            $table->string('term_rep_note')->nullable();
 
             $table->bigInteger('created_by')->nullable();
             $table->bigInteger('updated_by')->nullable();
