@@ -1,26 +1,22 @@
-import React, { useState } from "react";
-
+import React from "react";
 import { Button, Flex } from "antd";
-import DocumentRadio from "./components/DocumentRadio";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleInfo } from "@fortawesome/pro-regular-svg-icons";
 
-export default function DocumentSidebar() {
+import DocumentRadio from "./components/DocumentRadio";
+
+export default function DocumentSidebar(props) {
+    const { setSelectedDocument } = props;
+
     return (
-        <Flex vertical id="document_sidebar">
+        <Flex vertical className="document-sidebar">
             <div className="title">Printable Documents</div>
             <div className="documents">
-                <DocumentRadio />
+                <DocumentRadio setSelectedDocument={setSelectedDocument} />
             </div>
-            <Flex
-                vertical="vertical"
-                justify="center"
-                align="center"
-                className="document_export_button"
-                gap={10}
-            >
+            <Flex vertical="vertical" justify="center" align="center" gap={10}>
                 <Button style={{}}>Export</Button>
-                <Flex align="center" gap={4}>
+                <Flex align="start" gap={4}>
                     <FontAwesomeIcon
                         icon={faCircleInfo}
                         style={{ fontSize: "16px" }}

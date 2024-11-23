@@ -1,9 +1,10 @@
 import React from "react";
+import { Flex } from "antd";
 
 export default function DocumentCard() {
     return (
-        <div id="document_card">
+        <Flex justify="center" className="document-card">
             <div></div>
-        </div>
+        </Flex>
     );
 }
