@@ -25,10 +25,11 @@ export default function PageFacultyDocuments() {
                 <Col xs={24} sm={24} md={6} lg={6}>
                     <DocumentSidebar
                         setSelectedDocument={setSelectedDocument}
+                        selectedDocument={selectedDocument}
                     />
                 </Col>
                 <Col xs={24} sm={24} md={18} lg={18}>
-                    <DocumentCard />
+                    <DocumentCard selectedDocument={selectedDocument} />
                 </Col>
             </Row>
         </Layout.Content>

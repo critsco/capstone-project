@@ -185,8 +185,9 @@ export default function ProfileGenInfoCard(props) {
                                         <Button
                                             className="choose-company-btn"
                                             onClick={() =>
-                                                setToggleModalForm({
+                                                setToggleCompanyModalForm({
                                                     open: true,
+                                                    data: dataProfile,
                                                 })
                                             }
                                         >

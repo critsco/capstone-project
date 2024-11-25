@@ -1,10 +1,25 @@
 import React from "react";
 import { Flex } from "antd";
 
-export default function DocumentCard() {
+export default function DocumentCard(props) {
+    const { selectedDocument } = props;
+
+    console.log("selectedDocument", selectedDocument);
+
     return (
         <Flex justify="center" className="document-card">
-            <div></div>
+            {selectedDocument ? (
+                <iframe
+                    src={`api/documents/${selectedDocument}`}
+                    style={{
+                        width: "100%",
+                        height: "100%",
+                        overflow: "scroll",
+                    }}
+                ></iframe>
+            ) : (
+                <Flex align="center">Please select a document to preview.</Flex>
+            )}
         </Flex>
     );
 }

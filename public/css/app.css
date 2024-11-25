@@ -346,13 +346,14 @@ body {
 
 #PageDocuments .ant-layout-content {
   padding-block: 30px;
-  padding-inline: 18rem;
+  padding-inline: 12rem;
   gap: 10px;
 }
 #PageDocuments .ant-layout-content .ant-row .ant-col .ant-flex.document-sidebar {
   background: #f8f9fa;
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
+  height: 100%;
 }
 #PageDocuments .ant-layout-content .ant-row .ant-col .ant-flex.document-sidebar .title {
   font-weight: bold;
@@ -400,6 +401,8 @@ body {
   margin-inline: 22px;
   padding-top: 22px;
   border-top: 1px solid #dee1e6;
+  position: relative;
+  bottom: 0;
 }
 #PageDocuments .ant-layout-content .ant-row .ant-col .ant-flex.document-sidebar .ant-flex .ant-btn {
   background: #2c3d8f;
@@ -450,7 +453,6 @@ body {
   width: 100%;
   height: 100%;
   background: #f1f1f1;
-  padding: 25px 100px 25px 100px;
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
 }

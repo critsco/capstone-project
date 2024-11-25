@@ -6,7 +6,17 @@ import { faCircleInfo } from "@fortawesome/pro-regular-svg-icons";
 import DocumentRadio from "./components/DocumentRadio";
 
 export default function DocumentSidebar(props) {
-    const { setSelectedDocument } = props;
+    const { selectedDocument, setSelectedDocument } = props;
+
+    const handleExport = () => {
+        if (!selectedDocument) {
+            alert("Please select a document to export.");
+            return;
+        }
+
+        // Redirect to the download endpoint
+        window.open(`/documents/${selectedDocument}`, "_blank");
+    };
 
     return (
         <Flex vertical className="document-sidebar">
@@ -15,7 +25,7 @@ export default function DocumentSidebar(props) {
                 <DocumentRadio setSelectedDocument={setSelectedDocument} />
             </div>
             <Flex vertical="vertical" justify="center" align="center" gap={10}>
-                <Button style={{}}>Export</Button>
+                <Button onClick={handleExport}>Export</Button>
                 <Flex align="start" gap={4}>
                     <FontAwesomeIcon
                         icon={faCircleInfo}

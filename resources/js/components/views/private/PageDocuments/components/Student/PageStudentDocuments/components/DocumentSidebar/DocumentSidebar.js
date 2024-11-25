@@ -6,13 +6,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleInfo } from "@fortawesome/pro-regular-svg-icons";
 
 export default function DocumentSidebar(props) {
-    const { userdata } = props;
+    const { userdata, selectedDocument, setSelectedDocument } = props;
 
     return (
         <Flex vertical className="document-sidebar">
             <div className="title">Printable Documents</div>
             <div className="documents">
-                <DocumentRadio userdata={userdata} />
+                <DocumentRadio
+                    userdata={userdata}
+                    setSelectedDocument={setSelectedDocument}
+                />
             </div>
             <Flex vertical="vertical" justify="center" align="center" gap={10}>
                 <Button style={{}}>Export</Button>

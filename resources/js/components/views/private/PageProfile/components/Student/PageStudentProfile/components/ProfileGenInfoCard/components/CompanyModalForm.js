@@ -33,7 +33,7 @@ export default function CompanyModalForm(props) {
     useEffect(() => {
         if (
             toggleCompanyModalForm?.open &&
-            toggleCompanyModalForm?.data.company_id
+            toggleCompanyModalForm?.data?.company_id
         ) {
             form.setFieldsValue({
                 company_name: toggleCompanyModalForm.data.company?.company_name,
@@ -50,9 +50,9 @@ export default function CompanyModalForm(props) {
                     item.office === toggleCompanyModalForm.data.company?.office
             );
             setSelectedCompanyDetails({
-                office_head: selectedData.office_head,
-                email: selectedData.email,
-                address: selectedData.address,
+                office_head: selectedData?.office_head,
+                email: selectedData?.email,
+                address: selectedData?.address,
             });
         }
     }, [toggleCompanyModalForm.open]);

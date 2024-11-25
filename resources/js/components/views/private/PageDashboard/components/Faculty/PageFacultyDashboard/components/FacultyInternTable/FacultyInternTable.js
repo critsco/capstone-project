@@ -19,11 +19,7 @@ export default function FacultyInternTable() {
         <Row id="faculty-intern-status-table">
             <Col xs={24} sm={24} md={24} lg={24}>
                 <Table
-<<<<<<< HEAD
                     // dataSource={data}
-=======
-                    dataSource={data}
->>>>>>> 06eb9872da34b0041202c0135b5982e458761b2d
                     rowKey={(record) => record?.id}
                     pagination={false}
                     bordered={true}
