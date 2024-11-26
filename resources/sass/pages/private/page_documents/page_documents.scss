@@ -61,7 +61,8 @@
                     }
                     .ant-flex {
                         margin-inline: 22px;
-                        padding-top: 22px;
+                        margin-top: 22px;
+                        margin-bottom: 40px;
                         border-top: 1px solid #dee1e6;
                         position: relative;
                         bottom: 0;
@@ -75,17 +76,6 @@
                         .ant-btn:hover {
                             background: white;
                             color: #2c3d8f;
-                        }
-
-                        .ant-flex {
-                            border: 0;
-                            padding-top: 0;
-                            padding-bottom: 40px;
-                            margin: 0;
-
-                            span {
-                                font-size: small;
-                            }
                         }
                     }
                 }

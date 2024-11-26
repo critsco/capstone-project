@@ -44,9 +44,11 @@ Route::middleware('auth:api')->group(function () {
     Route::get("unique_companies", [App\Http\Controllers\CompanyController::class, "unique_companies"]);
     // END CompanyController
 
-    // DocumentController
-    
-    // END DocumentController
+    // NotificationController
+    Route::apiResource("notifications", App\Http\Controllers\NotificationController::class);
+    Route::post("accept_invite_notification", [App\Http\Controllers\NotificationController::class, "accept_invite"]);
+    Route::post("send_invite_notification", [App\Http\Controllers\NotificationController::class, "send_invite"]);
+    // END NotificationController
 
     // InternClassController
     Route::apiResource("intern_classes", App\Http\Controllers\InternClassController::class);
