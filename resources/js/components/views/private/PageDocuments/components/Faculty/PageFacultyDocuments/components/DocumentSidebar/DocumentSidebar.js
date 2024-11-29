@@ -2,11 +2,18 @@ import React, { useState } from "react";
 import { Button, Flex } from "antd";
 
 import DocumentRadio from "./components/DocumentRadio";
-import ModalForm from "./components/ModalForm";
+import TemplateModalForm from "./components/TemplateModalForm";
+import VariableModalForm from "./components/VariableModalForm";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPenToSquare, faPlus } from "@fortawesome/pro-regular-svg-icons";
 
 export default function DocumentSidebar(props) {
     const { selectedDocument, setSelectedDocument } = props;
-    const [toggleModalForm, setToggleModalForm] = useState({
+    const [toggleTemplateModalForm, setToggleTemplateModalForm] = useState({
+        open: false,
+        data: null,
+    });
+    const [toggleVariableModalForm, setToggleVariableModalForm] = useState({
         open: false,
         data: null,
     });
@@ -18,23 +25,39 @@ export default function DocumentSidebar(props) {
                 <div className="documents">
                     <DocumentRadio setSelectedDocument={setSelectedDocument} />
                 </div>
-                <Flex vertical justify="center" align="center" gap={6}>
+                <Flex justify="center" align="center" gap={6}>
                     <Button
                         onClick={() =>
-                            setToggleModalForm({
+                            setToggleTemplateModalForm({
                                 open: true,
                                 data: null,
                             })
                         }
                     >
-                        Create Template
+                        <FontAwesomeIcon icon={faPenToSquare} />
+                        Template
+                    </Button>
+                    <Button
+                        onClick={() =>
+                            setToggleVariableModalForm({
+                                open: true,
+                                data: null,
+                            })
+                        }
+                    >
+                        <FontAwesomeIcon icon={faPlus} />
+                        Variables
                     </Button>
                 </Flex>
             </Flex>
 
-            <ModalForm
-                toggleModalForm={toggleModalForm}
-                setToggleModalForm={setToggleModalForm}
+            <TemplateModalForm
+                toggleTemplateModalForm={toggleTemplateModalForm}
+                setToggleTemplateModalForm={setToggleTemplateModalForm}
+            />
+            <VariableModalForm
+                toggleVariableModalForm={toggleVariableModalForm}
+                setToggleVariableModalForm={setToggleVariableModalForm}
             />
         </>
     );

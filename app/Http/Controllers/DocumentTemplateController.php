@@ -12,9 +12,33 @@ class DocumentTemplateController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $data = DocumentTemplate::query();
+
+        if ($request->sort_field && $request->sort_order) {
+            if (
+                $request->sort_field != '' && $request->sort_field != 'undefined' && $request->sort_field != 'null'  &&
+                $request->sort_order != ''  && $request->sort_order != 'undefined' && $request->sort_order != 'null'
+            ) {
+                $data = $data->orderBy(isset($request->sort_field) ? $request->sort_field : 'id', isset($request->sort_order)  ? $request->sort_order : 'desc');
+            }
+        } else {
+            $data = $data->orderBy('id', 'desc');
+        }
+
+        if ($request->page_size) {
+            $data = $data->limit($request->page_size)
+                ->paginate($request->page_size, ['*'], 'page', $request->page)
+                ->toArray();
+        } else {
+            $data = $data->get();
+        }
+
+        return response()->json([
+            'success'   => true,
+            'data'      => $data,
+        ], 200);
     }
 
     /**
@@ -25,7 +49,29 @@ class DocumentTemplateController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $ret = [
+            "success" => false,
+            "message" => "Document template was not " . ($request->id ? "updated" : "created")
+        ];
+
+        $data = $request->validate([
+            "title" => "required",
+            "content" => "required",
+        ]);
+
+        $document_template = DocumentTemplate::updateOrCreate(
+            ["id" => $request->id],
+            $data,
+        );
+
+        if ($document_template) {
+            $ret = [
+                "success" => true,
+                "message" => "Document template " . ($request->id ? "updated" : "created") . " successfully.",
+            ];
+        }
+
+        return response()->json($ret, 200);
     }
 
     /**
