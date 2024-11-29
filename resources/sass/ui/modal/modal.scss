@@ -676,12 +676,44 @@
                                                     .ant-input {
                                                         padding: 8px 12px;
                                                         font-size: 16px;
-                                                        border: 1px solid
-                                                            #dee1e6 !important;
-                                                        background: #f3f4f6;
                                                     }
                                                     .ant-input::placeholder {
                                                         color: #bdc1ca !important;
+                                                    }
+                                                    .quill {
+                                                        border: 1px solid
+                                                            #58585a;
+
+                                                        .ql-toolbar.ql-snow {
+                                                            border: 0px;
+                                                            border-bottom: 1px
+                                                                solid #58585a;
+                                                            padding: 5px;
+
+                                                            .ql-picker.ql-size {
+                                                                .ql-picker-item::before,
+                                                                .ql-picker-label::before {
+                                                                    content: attr(
+                                                                        data-value
+                                                                    );
+                                                                }
+                                                            }
+                                                        }
+                                                        .ql-container {
+                                                            border: 0px;
+                                                            height: 250px;
+
+                                                            .ql-editor {
+                                                                padding: 12px
+                                                                    10px;
+
+                                                                &.ql-blank {
+                                                                    &::before {
+                                                                        left: 10px;
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
                                                     }
                                                 }
                                             }
@@ -701,6 +733,27 @@
                                         color: #9095a1;
                                         font-weight: 300;
                                         font-size: 14px;
+                                    }
+                                }
+                                .ant-flex.variable-list {
+                                    width: 190px;
+                                    height: 250px;
+                                    text-align: center;
+                                    margin-top: 8px;
+                                    overflow-y: auto;
+
+                                    .ant-list {
+                                        width: 100%;
+                                        .ant-list-items {
+                                            .ant-list-item {
+                                                .list-item {
+                                                    font-size: 14px;
+                                                    border: 1px solid black;
+                                                    width: calc(100% - 5px);
+                                                    cursor: pointer;
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                             }

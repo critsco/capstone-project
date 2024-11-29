@@ -51,7 +51,7 @@ class DocumentTemplateController extends Controller
     {
         $ret = [
             "success" => false,
-            "message" => "Document template was not " . ($request->id ? "updated" : "created")
+            "message" => "Document taemplate was not " . ($request->id ? "updated" : "created")
         ];
 
         $data = $request->validate([

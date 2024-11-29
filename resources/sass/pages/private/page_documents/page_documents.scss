@@ -20,6 +20,7 @@
                     }
                     .documents {
                         margin-block: 22px;
+                        overflow-y: auto;
 
                         .ant-radio-group {
                             width: 100%;
@@ -88,6 +89,7 @@
                         .ant-input-wrapper {
                             .ant-input {
                                 height: 40px;
+                                border: 1px solid #dee1e6;
                             }
                             .ant-input:hover {
                                 border-color: #2c3d8f;

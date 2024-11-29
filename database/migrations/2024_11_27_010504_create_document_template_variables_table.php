@@ -16,7 +16,6 @@ class CreateDocumentTemplateVariablesTable extends Migration
         Schema::create('document_template_variables', function (Blueprint $table) {
             $table->id();
 
-            $table->string('reference')->nullable();
             $table->string('variable_name')->nullable();
             $table->string('field_name')->nullable();
 

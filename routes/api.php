@@ -49,7 +49,11 @@ Route::middleware('auth:api')->group(function () {
     // END DocumentTemplateController
 
     // DocumentTemplateVariablesController
-    Route::get("show_all_fields", [App\Http\Controllers\DocumentTemplateVariablesController::class, "show_all_fields"]);
+    Route::apiResource("document_variables", App\Http\Controllers\DocumentTemplateVariableController::class);
+    Route::get("show_student_fields", [App\Http\Controllers\DocumentTemplateVariableController::class, "show_student_fields"]);
+    Route::get("show_faculty_fields", [App\Http\Controllers\DocumentTemplateVariableController::class, "show_faculty_fields"]);
+    Route::get("show_company_fields", [App\Http\Controllers\DocumentTemplateVariableController::class, "show_company_fields"]);
+    Route::get("show_parent_fields", [App\Http\Controllers\DocumentTemplateVariableController::class, "show_parent_fields"]);
     // END DocumentTemplateVariablesController
 
     // NotificationController

@@ -14,7 +14,7 @@ const fontSizes = [
     "24px",
 ];
 
-// const variables = ["Name", "Email", "Date", "Address"]; // List of variables
+const variables = ["Name", "Email", "Date", "Address"]; // List of variables
 
 const FontSize = Quill.import("attributors/style/size");
 FontSize.whitelist = fontSizes;
@@ -35,6 +35,7 @@ export default function FloatQuill(props) {
         onKeyDown,
         onKeyUp,
         disabled,
+        ref,
     } = props;
 
     // const insertVariable = (value, quill) => {
@@ -75,7 +76,7 @@ export default function FloatQuill(props) {
                     { indent: "+1" },
                 ],
                 ["link", "image", "video"],
-                // [{ variable: variables }],
+                [{ variable: variables }],
                 ["clean"],
             ],
             // handlers: {
@@ -91,51 +92,51 @@ export default function FloatQuill(props) {
     };
 
     return (
-        <div className={`float-wrapper ${className ?? ""}`}>
-            <ReactQuill
-                id={id ?? ""}
-                theme="snow"
-                modules={modulesToolBar}
-                formats={formats}
-                placeholder={placeholder ?? "Text Editor"}
-                readOnly={disabled ?? false}
-                value={value ?? ""}
-                onChange={(content, delta, source, editor) => {
-                    if (onChange) {
-                        onChange(content, delta, source, editor);
-                    }
-                }}
-                onChangeSelection={(range, source, editor) => {
-                    if (onChangeSelection) {
-                        onChangeSelection(range, source, editor);
-                    }
-                }}
-                onFocus={(range, source, editor) => {
-                    if (onFocus) {
-                        onFocus(range, source, editor);
-                    }
-                }}
-                onBlur={(previousRange, source, editor) => {
-                    if (onBlur) {
-                        onBlur(previousRange, source, editor);
-                    }
-                }}
-                onKeyPress={(event) => {
-                    if (onKeyPress) {
-                        onKeyPress(event);
-                    }
-                }}
-                onKeyDown={(event) => {
-                    if (onKeyDown) {
-                        onKeyDown(event);
-                    }
-                }}
-                onKeyUp={(event) => {
-                    if (onKeyUp) {
-                        onKeyUp(event);
-                    }
-                }}
-            />
-        </div>
+        <ReactQuill
+            id={id ?? ""}
+            ref={ref}
+            className="float-wrapper"
+            theme="snow"
+            modules={modulesToolBar}
+            formats={formats}
+            placeholder={placeholder ?? "Text Editor"}
+            readOnly={disabled ?? false}
+            value={value ?? ""}
+            onChange={(content, delta, source, editor) => {
+                if (onChange) {
+                    onChange(content, delta, source, editor);
+                }
+            }}
+            onChangeSelection={(range, source, editor) => {
+                if (onChangeSelection) {
+                    onChangeSelection(range, source, editor);
+                }
+            }}
+            onFocus={(range, source, editor) => {
+                if (onFocus) {
+                    onFocus(range, source, editor);
+                }
+            }}
+            onBlur={(previousRange, source, editor) => {
+                if (onBlur) {
+                    onBlur(previousRange, source, editor);
+                }
+            }}
+            onKeyPress={(event) => {
+                if (onKeyPress) {
+                    onKeyPress(event);
+                }
+            }}
+            onKeyDown={(event) => {
+                if (onKeyDown) {
+                    onKeyDown(event);
+                }
+            }}
+            onKeyUp={(event) => {
+                if (onKeyUp) {
+                    onKeyUp(event);
+                }
+            }}
+        />
     );
 }

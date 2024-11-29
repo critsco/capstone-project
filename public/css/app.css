@@ -363,6 +363,7 @@ body {
 }
 #PageDocuments .ant-layout-content .ant-row .ant-col .ant-flex.document-sidebar .documents {
   margin-block: 22px;
+  overflow-y: auto;
 }
 #PageDocuments .ant-layout-content .ant-row .ant-col .ant-flex.document-sidebar .documents .ant-radio-group {
   width: 100%;
@@ -423,6 +424,7 @@ body {
 }
 #PageDocuments .ant-layout-content .ant-row .ant-col .ant-flex.document-searchbar .ant-input-group-wrapper .ant-input-wrapper .ant-input {
   height: 40px;
+  border: 1px solid #dee1e6;
 }
 #PageDocuments .ant-layout-content .ant-row .ant-col .ant-flex.document-searchbar .ant-input-group-wrapper .ant-input-wrapper .ant-input:hover {
   border-color: #2c3d8f;
@@ -705,6 +707,17 @@ body {
     margin: 15px;
   }
 }
+.ant-input-outlined,
+.ant-input-outlined:focus,
+.ant-input-outlined:focus-within {
+  box-shadow: none;
+  border: 0;
+}
+
+.ant-input {
+  box-shadow: none;
+}
+
 .ant-input,
 .ant-input-number-input,
 .ant-picker {
@@ -838,6 +851,9 @@ body {
   padding-top: 0px !important;
   margin-top: 12px;
 }
+.float-wrapper .quill {
+  border: 1px solid #58585a;
+}
 .float-wrapper .quill .ql-toolbar.ql-snow {
   border: 0px;
   border-bottom: 1px solid #58585a;
@@ -847,14 +863,8 @@ body {
 .float-wrapper .quill .ql-toolbar.ql-snow .ql-picker.ql-size .ql-picker-label::before {
   content: attr(data-value);
 }
-.float-wrapper .quill .ql-toolbar.ql-snow .ql-picker.ql-variable {
-  width: 110px;
-}
-.float-wrapper .quill .ql-toolbar.ql-snow .ql-picker.ql-variable .ql-picker-label::before {
-  content: "Variables "; /* Displayed as the dropdown's placeholder */
-  color: black; /* Light gray for placeholder text */
-}
-.float-wrapper .quill .ql-toolbar.ql-snow .ql-picker.ql-variable .ql-picker-item::before {
+.float-wrapper .quill .ql-toolbar.ql-snow .ql-picker.ql-font .ql-picker-item::before,
+.float-wrapper .quill .ql-toolbar.ql-snow .ql-picker.ql-font .ql-picker-label::before {
   content: attr(data-value);
 }
 .float-wrapper .quill .ql-container {
@@ -866,6 +876,21 @@ body {
 }
 .float-wrapper .quill .ql-container .ql-editor.ql-blank::before {
   left: 10px;
+}
+.float-wrapper .quill .ql-container .ql-editor .ql-font-Arial {
+  font-family: Arial, sans-serif;
+}
+.float-wrapper .quill .ql-container .ql-editor .ql-font-Georgia {
+  font-family: Georgia, serif;
+}
+.float-wrapper .quill .ql-container .ql-editor .ql-font-Courier {
+  font-family: "Courier New", monospace;
+}
+.float-wrapper .quill .ql-container .ql-editor .ql-font-Verdana {
+  font-family: Verdana, sans-serif;
+}
+.float-wrapper .quill .ql-container .ql-editor .ql-font-Times {
+  font-family: "Times New Roman", Times, serif;
 }
 
 .ant-modal-root .ant-modal-wrap .ant-modal {
@@ -1373,14 +1398,34 @@ body {
 .ant-modal-root .ant-modal-wrap.template-form .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-row .ant-col .ant-form-item .ant-form-item-row .ant-form-item-control .ant-form-item-control-input .ant-form-item-control-input-content .ant-input {
   padding: 8px 12px;
   font-size: 16px;
-  border: 1px solid #dee1e6 !important;
-  background: #f3f4f6;
 }
 .ant-modal-root .ant-modal-wrap.template-form .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-row .ant-col .ant-form-item .ant-form-item-row .ant-form-item-control .ant-form-item-control-input .ant-form-item-control-input-content .ant-input::-moz-placeholder {
   color: #bdc1ca !important;
 }
 .ant-modal-root .ant-modal-wrap.template-form .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-row .ant-col .ant-form-item .ant-form-item-row .ant-form-item-control .ant-form-item-control-input .ant-form-item-control-input-content .ant-input::placeholder {
   color: #bdc1ca !important;
+}
+.ant-modal-root .ant-modal-wrap.template-form .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-row .ant-col .ant-form-item .ant-form-item-row .ant-form-item-control .ant-form-item-control-input .ant-form-item-control-input-content .quill {
+  border: 1px solid #58585a;
+}
+.ant-modal-root .ant-modal-wrap.template-form .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-row .ant-col .ant-form-item .ant-form-item-row .ant-form-item-control .ant-form-item-control-input .ant-form-item-control-input-content .quill .ql-toolbar.ql-snow {
+  border: 0px;
+  border-bottom: 1px solid #58585a;
+  padding: 5px;
+}
+.ant-modal-root .ant-modal-wrap.template-form .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-row .ant-col .ant-form-item .ant-form-item-row .ant-form-item-control .ant-form-item-control-input .ant-form-item-control-input-content .quill .ql-toolbar.ql-snow .ql-picker.ql-size .ql-picker-item::before,
+.ant-modal-root .ant-modal-wrap.template-form .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-row .ant-col .ant-form-item .ant-form-item-row .ant-form-item-control .ant-form-item-control-input .ant-form-item-control-input-content .quill .ql-toolbar.ql-snow .ql-picker.ql-size .ql-picker-label::before {
+  content: attr(data-value);
+}
+.ant-modal-root .ant-modal-wrap.template-form .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-row .ant-col .ant-form-item .ant-form-item-row .ant-form-item-control .ant-form-item-control-input .ant-form-item-control-input-content .quill .ql-container {
+  border: 0px;
+  height: 250px;
+}
+.ant-modal-root .ant-modal-wrap.template-form .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-row .ant-col .ant-form-item .ant-form-item-row .ant-form-item-control .ant-form-item-control-input .ant-form-item-control-input-content .quill .ql-container .ql-editor {
+  padding: 12px 10px;
+}
+.ant-modal-root .ant-modal-wrap.template-form .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-row .ant-col .ant-form-item .ant-form-item-row .ant-form-item-control .ant-form-item-control-input .ant-form-item-control-input-content .quill .ql-container .ql-editor.ql-blank::before {
+  left: 10px;
 }
 .ant-modal-root .ant-modal-wrap.template-form .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-row .ant-col .ant-form-item .ant-form-item-row .ant-form-item-label {
   font-weight: bold;
@@ -1393,6 +1438,22 @@ body {
   color: #9095a1;
   font-weight: 300;
   font-size: 14px;
+}
+.ant-modal-root .ant-modal-wrap.template-form .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-row .ant-col .ant-flex.variable-list {
+  width: 190px;
+  height: 250px;
+  text-align: center;
+  margin-top: 8px;
+  overflow-y: auto;
+}
+.ant-modal-root .ant-modal-wrap.template-form .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-row .ant-col .ant-flex.variable-list .ant-list {
+  width: 100%;
+}
+.ant-modal-root .ant-modal-wrap.template-form .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-row .ant-col .ant-flex.variable-list .ant-list .ant-list-items .ant-list-item .list-item {
+  font-size: 14px;
+  border: 1px solid black;
+  width: calc(100% - 5px);
+  cursor: pointer;
 }
 .ant-modal-root .ant-modal-wrap.template-form .ant-modal .ant-modal-content .ant-modal-footer {
   border-top: 1.5px solid #dee1e6;

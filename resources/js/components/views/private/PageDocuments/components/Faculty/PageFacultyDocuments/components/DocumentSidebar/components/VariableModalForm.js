@@ -1,27 +1,66 @@
-import React from "react";
-import { Button, Col, Flex, Form, Modal, Popconfirm, Row } from "antd";
+import React, { useState } from "react";
+import {
+    Button,
+    Col,
+    Flex,
+    Form,
+    Modal,
+    notification,
+    Popconfirm,
+    Row,
+} from "antd";
 
+import { POST } from "../../../../../../../../../providers/useAxiosQuery";
+import notificationErrors from "../../../../../../../../../providers/notificationErrors";
 import FloatInput from "../../../../../../../../../providers/FloatInput";
 import FloatSelect from "../../../../../../../../../providers/FloatSelect";
-import { GET } from "../../../../../../../../../providers/useAxiosQuery";
+import fieldNameList from "./components/fieldNameList";
 
 export default function VariableModalForm(props) {
     const { toggleVariableModalForm, setToggleVariableModalForm } = props;
     const [form] = Form.useForm();
 
-    const { data: dataAllFields } = GET(
-        `api/show_all_fields`,
-        "all_fields_list"
-    );
+    const {
+        mutate: mutateDocumentVariable,
+        isLoading: isLoadingDocumentVariable,
+    } = POST(`api/document_variables`, "document_variables_list");
 
-    console.log("allFields: ", dataAllFields);
+    const onFinish = (values) => {
+        let data = {
+            ...values,
+            id: toggleVariableModalForm.data?.id || "",
+        };
+
+        mutateDocumentVariable(data, {
+            onSuccess: (res) => {
+                if (res.success) {
+                    notification.success({
+                        message: "Document Variable",
+                        description: res.message,
+                    });
+                    setToggleVariableModalForm({
+                        open: false,
+                        data: null,
+                    });
+                } else {
+                    notification.error({
+                        message: "Document Variable",
+                        description: res.message,
+                    });
+                }
+            },
+            onError: (err) => {
+                notificationErrors(err);
+            },
+        });
+    };
 
     return (
         <Modal
             title="Document Variable Form"
             wrapClassName="template-form"
             open={toggleVariableModalForm.open}
-            width={850}
+            width={550}
             centered
             onCancel={() =>
                 setToggleVariableModalForm({
@@ -52,37 +91,24 @@ export default function VariableModalForm(props) {
                         okText="Yes"
                         cancelText="No"
                     >
-                        <Button className="submit-btn">Submit</Button>
+                        <Button
+                            className="submit-btn"
+                            loading={isLoadingDocumentVariable}
+                        >
+                            Submit
+                        </Button>
                     </Popconfirm>
                 </Flex>
             }
         >
-            <Form form={form} layout="vertical" autoComplete="off">
+            <Form
+                form={form}
+                layout="vertical"
+                autoComplete="off"
+                onFinish={onFinish}
+            >
                 <Row gutter={[8, 0]}>
-                    <Col xs={8} sm={8} md={8} lg={8}>
-                        <Form.Item
-                            name="reference"
-                            rules={[
-                                {
-                                    required: true,
-                                    message:
-                                        "Please select where the variable is referencing.",
-                                },
-                            ]}
-                        >
-                            <FloatSelect
-                                label="Reference"
-                                placeholder="Reference"
-                                options={[
-                                    { label: "Faculty", value: "faculty" },
-                                    { label: "Student", value: "student" },
-                                    { label: "Company", value: "company" },
-                                    { label: "Parent", value: "parent" },
-                                ]}
-                            />
-                        </Form.Item>
-                    </Col>
-                    <Col xs={8} sm={8} md={8} lg={8}>
+                    <Col xs={12} sm={12} md={12} lg={12}>
                         <Form.Item
                             name="field_name"
                             rules={[
@@ -93,13 +119,13 @@ export default function VariableModalForm(props) {
                             ]}
                         >
                             <FloatSelect
-                                label="Field"
-                                placeholder="Field"
-                                options={[]}
+                                label="Field Name"
+                                placeholder="Field Name"
+                                options={fieldNameList}
                             />
                         </Form.Item>
                     </Col>
-                    <Col xs={8} sm={8} md={8} lg={8}>
+                    <Col xs={12} sm={12} md={12} lg={12}>
                         <Form.Item
                             name="variable_name"
                             rules={[
@@ -109,7 +135,10 @@ export default function VariableModalForm(props) {
                                 },
                             ]}
                         >
-                            <FloatInput label="Title" placeholder="Title" />
+                            <FloatInput
+                                label="Variable Name"
+                                placeholder="Variable Name"
+                            />
                         </Form.Item>
                     </Col>
                 </Row>

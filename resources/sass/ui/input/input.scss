@@ -22,17 +22,18 @@
 //     }
 // }
 
-// .ant-input-outlined,
-// .ant-input-outlined:focus,
-// .ant-input-outlined:focus-within {
-//     box-shadow: none;
-//     border-color: transparent;
-// }
+.ant-input-outlined,
+.ant-input-outlined:focus,
+.ant-input-outlined:focus-within {
+    box-shadow: none;
+    border: 0;
+    // border-color: transparent;
+}
 
-// .ant-input {
-//     border: 0px;
-//     box-shadow: none;
-// }
+.ant-input {
+    // border: 0px;
+    box-shadow: none;
+}
 
 .ant-input,
 .ant-input-number-input,
@@ -228,6 +229,8 @@
     }
 
     .quill {
+        border: 1px solid #58585a;
+
         .ql-toolbar.ql-snow {
             border: 0px;
             border-bottom: 1px solid #58585a;
@@ -239,14 +242,9 @@
                     content: attr(data-value);
                 }
             }
-            .ql-picker.ql-variable {
-                width: 110px;
-
+            .ql-picker.ql-font {
+                .ql-picker-item::before,
                 .ql-picker-label::before {
-                    content: "Variables "; /* Displayed as the dropdown's placeholder */
-                    color: black; /* Light gray for placeholder text */
-                }
-                .ql-picker-item::before {
                     content: attr(data-value);
                 }
             }
@@ -262,6 +260,22 @@
                     &::before {
                         left: 10px;
                     }
+                }
+
+                .ql-font-Arial {
+                    font-family: Arial, sans-serif;
+                }
+                .ql-font-Georgia {
+                    font-family: Georgia, serif;
+                }
+                .ql-font-Courier {
+                    font-family: "Courier New", monospace;
+                }
+                .ql-font-Verdana {
+                    font-family: Verdana, sans-serif;
+                }
+                .ql-font-Times {
+                    font-family: "Times New Roman", Times, serif;
                 }
             }
         }
