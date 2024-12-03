@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button, Col, Flex, Layout, Row } from "antd";
-
-import ApprovedListTable from "./components/ApprovedListTable/ApprovedListTable";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/pro-regular-svg-icons";
+
+import ApprovedListTable from "./components/ApprovedListTable/ApprovedListTable";
 import AddModalForm from "./components/AddModalForm/AddModalForm";
 
 export default function PageCompanies() {

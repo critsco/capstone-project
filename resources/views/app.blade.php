@@ -29,7 +29,7 @@
         :root,
         html,
         body {
-            font-family: "Poppins" !important;
+            font-family: "Poppins";
             font-size: 1rem;
         }
 

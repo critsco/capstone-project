@@ -31,30 +31,46 @@
                                 width: 100%;
                                 row-gap: 0px;
                                 .ant-space-item {
-                                    .ant-radio-button-wrapper {
-                                        width: 100%;
-                                        border: 0;
-                                        border-radius: 0;
-                                        background: #f8f9fa;
-                                        display: flex;
-                                        height: 50px;
-                                        align-items: center;
-                                        padding-inline: 26px;
+                                    .ant-list {
+                                        .ant-list-items {
+                                            .ant-list-item {
+                                                padding: 0;
 
-                                        .ant-radio-button:hover {
-                                            color: #2c3d8f;
+                                                .ant-list-item-action {
+                                                    margin: 0;
+
+                                                    .ant-btn {
+                                                        border: 0;
+                                                        background: none;
+                                                    }
+                                                }
+                                                .ant-radio-button-wrapper {
+                                                    width: 100%;
+                                                    border: 0;
+                                                    border-radius: 0;
+                                                    background: #f8f9fa;
+                                                    display: flex;
+                                                    height: 50px;
+                                                    align-items: center;
+                                                    padding-inline: 26px;
+
+                                                    .ant-radio-button:hover {
+                                                        color: #2c3d8f;
+                                                    }
+                                                    .ant-radio-button.ant-radio-button-checked {
+                                                        background: #d9d9d9;
+                                                    }
+                                                }
+                                                .ant-radio-button-wrapper-checked {
+                                                    border: 0;
+                                                    color: black;
+                                                }
+                                                .ant-radio-button-wrapper:hover {
+                                                    color: black;
+                                                    background: #d9d9d94e;
+                                                }
+                                            }
                                         }
-                                        .ant-radio-button.ant-radio-button-checked {
-                                            background: #d9d9d9;
-                                        }
-                                    }
-                                    .ant-radio-button-wrapper-checked {
-                                        border: 0;
-                                        color: black;
-                                    }
-                                    .ant-radio-button-wrapper:hover {
-                                        color: black;
-                                        background: #d9d9d94e;
                                     }
                                 }
                             }

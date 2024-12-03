@@ -42,6 +42,7 @@ export default function VariableModalForm(props) {
                         open: false,
                         data: null,
                     });
+                    form.resetFields();
                 } else {
                     notification.error({
                         message: "Document Variable",

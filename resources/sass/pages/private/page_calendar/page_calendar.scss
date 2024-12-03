@@ -1,0 +1,45 @@
+#PageCalendar {
+    .ant-layout-content {
+        padding-block: 30px;
+        padding-inline: 10rem;
+
+        .ant-row {
+            .ant-col {
+                .dashboard-title {
+                    font-weight: bolder;
+                    font-size: 18px;
+                    padding-bottom: 16px;
+                }
+                .ant-flex {
+                    margin-bottom: 16px;
+
+                    .dashboard-title {
+                        font-weight: bolder;
+                        font-size: 18px;
+                        padding: 0;
+                    }
+                    .ant-segmented {
+                        .ant-segmented-group {
+                            background: #dedfe3;
+                            border-radius: 4px;
+                            padding: 2px;
+
+                            .ant-segmented-item-selected {
+                                background: #ffffff;
+                            }
+                        }
+                    }
+                    .ant-btn {
+                        background: #2c3d8f;
+                        color: white;
+                        border: 1px solid #2c3d8f;
+                    }
+                    .ant-btn:hover {
+                        background: white;
+                        color: #2c3d8f;
+                    }
+                }
+            }
+        }
+    }
+}

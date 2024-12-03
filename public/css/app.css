@@ -184,6 +184,41 @@ body {
   transform: scale(1.05);
 }
 
+#PageCalendar .ant-layout-content {
+  padding-block: 30px;
+  padding-inline: 10rem;
+}
+#PageCalendar .ant-layout-content .ant-row .ant-col .dashboard-title {
+  font-weight: bolder;
+  font-size: 18px;
+  padding-bottom: 16px;
+}
+#PageCalendar .ant-layout-content .ant-row .ant-col .ant-flex {
+  margin-bottom: 16px;
+}
+#PageCalendar .ant-layout-content .ant-row .ant-col .ant-flex .dashboard-title {
+  font-weight: bolder;
+  font-size: 18px;
+  padding: 0;
+}
+#PageCalendar .ant-layout-content .ant-row .ant-col .ant-flex .ant-segmented .ant-segmented-group {
+  background: #dedfe3;
+  border-radius: 4px;
+  padding: 2px;
+}
+#PageCalendar .ant-layout-content .ant-row .ant-col .ant-flex .ant-segmented .ant-segmented-group .ant-segmented-item-selected {
+  background: #ffffff;
+}
+#PageCalendar .ant-layout-content .ant-row .ant-col .ant-flex .ant-btn {
+  background: #2c3d8f;
+  color: white;
+  border: 1px solid #2c3d8f;
+}
+#PageCalendar .ant-layout-content .ant-row .ant-col .ant-flex .ant-btn:hover {
+  background: white;
+  color: #2c3d8f;
+}
+
 #PageCompanies .ant-layout-content {
   padding-block: 24px;
   padding-inline: 10rem;
@@ -374,7 +409,17 @@ body {
   width: 100%;
   row-gap: 0px;
 }
-#PageDocuments .ant-layout-content .ant-row .ant-col .ant-flex.document-sidebar .documents .ant-radio-group .ant-space .ant-space-item .ant-radio-button-wrapper {
+#PageDocuments .ant-layout-content .ant-row .ant-col .ant-flex.document-sidebar .documents .ant-radio-group .ant-space .ant-space-item .ant-list .ant-list-items .ant-list-item {
+  padding: 0;
+}
+#PageDocuments .ant-layout-content .ant-row .ant-col .ant-flex.document-sidebar .documents .ant-radio-group .ant-space .ant-space-item .ant-list .ant-list-items .ant-list-item .ant-list-item-action {
+  margin: 0;
+}
+#PageDocuments .ant-layout-content .ant-row .ant-col .ant-flex.document-sidebar .documents .ant-radio-group .ant-space .ant-space-item .ant-list .ant-list-items .ant-list-item .ant-list-item-action .ant-btn {
+  border: 0;
+  background: none;
+}
+#PageDocuments .ant-layout-content .ant-row .ant-col .ant-flex.document-sidebar .documents .ant-radio-group .ant-space .ant-space-item .ant-list .ant-list-items .ant-list-item .ant-radio-button-wrapper {
   width: 100%;
   border: 0;
   border-radius: 0;
@@ -384,17 +429,17 @@ body {
   align-items: center;
   padding-inline: 26px;
 }
-#PageDocuments .ant-layout-content .ant-row .ant-col .ant-flex.document-sidebar .documents .ant-radio-group .ant-space .ant-space-item .ant-radio-button-wrapper .ant-radio-button:hover {
+#PageDocuments .ant-layout-content .ant-row .ant-col .ant-flex.document-sidebar .documents .ant-radio-group .ant-space .ant-space-item .ant-list .ant-list-items .ant-list-item .ant-radio-button-wrapper .ant-radio-button:hover {
   color: #2c3d8f;
 }
-#PageDocuments .ant-layout-content .ant-row .ant-col .ant-flex.document-sidebar .documents .ant-radio-group .ant-space .ant-space-item .ant-radio-button-wrapper .ant-radio-button.ant-radio-button-checked {
+#PageDocuments .ant-layout-content .ant-row .ant-col .ant-flex.document-sidebar .documents .ant-radio-group .ant-space .ant-space-item .ant-list .ant-list-items .ant-list-item .ant-radio-button-wrapper .ant-radio-button.ant-radio-button-checked {
   background: #d9d9d9;
 }
-#PageDocuments .ant-layout-content .ant-row .ant-col .ant-flex.document-sidebar .documents .ant-radio-group .ant-space .ant-space-item .ant-radio-button-wrapper-checked {
+#PageDocuments .ant-layout-content .ant-row .ant-col .ant-flex.document-sidebar .documents .ant-radio-group .ant-space .ant-space-item .ant-list .ant-list-items .ant-list-item .ant-radio-button-wrapper-checked {
   border: 0;
   color: black;
 }
-#PageDocuments .ant-layout-content .ant-row .ant-col .ant-flex.document-sidebar .documents .ant-radio-group .ant-space .ant-space-item .ant-radio-button-wrapper:hover {
+#PageDocuments .ant-layout-content .ant-row .ant-col .ant-flex.document-sidebar .documents .ant-radio-group .ant-space .ant-space-item .ant-list .ant-list-items .ant-list-item .ant-radio-button-wrapper:hover {
   color: black;
   background: rgba(217, 217, 217, 0.3058823529);
 }
@@ -867,6 +912,20 @@ body {
 .float-wrapper .quill .ql-toolbar.ql-snow .ql-picker.ql-font .ql-picker-label::before {
   content: attr(data-value);
 }
+.float-wrapper .quill .ql-better-table-wrapper {
+  overflow-x: auto;
+  margin-bottom: 16px;
+}
+.float-wrapper .quill .ql-better-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.float-wrapper .quill .ql-better-table th,
+.float-wrapper .quill .ql-better-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
 .float-wrapper .quill .ql-container {
   border: 0px;
   height: 150px;
@@ -876,21 +935,6 @@ body {
 }
 .float-wrapper .quill .ql-container .ql-editor.ql-blank::before {
   left: 10px;
-}
-.float-wrapper .quill .ql-container .ql-editor .ql-font-Arial {
-  font-family: Arial, sans-serif;
-}
-.float-wrapper .quill .ql-container .ql-editor .ql-font-Georgia {
-  font-family: Georgia, serif;
-}
-.float-wrapper .quill .ql-container .ql-editor .ql-font-Courier {
-  font-family: "Courier New", monospace;
-}
-.float-wrapper .quill .ql-container .ql-editor .ql-font-Verdana {
-  font-family: Verdana, sans-serif;
-}
-.float-wrapper .quill .ql-container .ql-editor .ql-font-Times {
-  font-family: "Times New Roman", Times, serif;
 }
 
 .ant-modal-root .ant-modal-wrap .ant-modal {
@@ -1448,6 +1492,9 @@ body {
 }
 .ant-modal-root .ant-modal-wrap.template-form .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-row .ant-col .ant-flex.variable-list .ant-list {
   width: 100%;
+}
+.ant-modal-root .ant-modal-wrap.template-form .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-row .ant-col .ant-flex.variable-list .ant-list .ant-list-items .ant-list-item {
+  padding: 0;
 }
 .ant-modal-root .ant-modal-wrap.template-form .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-row .ant-col .ant-flex.variable-list .ant-list .ant-list-items .ant-list-item .list-item {
   font-size: 14px;

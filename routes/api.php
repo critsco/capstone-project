@@ -20,7 +20,8 @@ Route::get('pub_region_dropdown', [App\Http\Controllers\RefRegionController::cla
 Route::get('pub_department_dropdown', [App\Http\Controllers\RefDepartmentController::class, 'pub_department_dropdown']);
 Route::get('pub_course_list', [App\Http\Controllers\RefCourseController::class, 'pub_course_list']);
 Route::get('pub_year_level_list', [App\Http\Controllers\RefYearLevelController::class, 'pub_year_level_list']);
-Route::get("documents/{type}", [App\Http\Controllers\DocumentController::class, "viewDocument"]);
+Route::get("documents/{title}", [App\Http\Controllers\DocumentController::class, "viewDocument"]);
+Route::get("pdf/{type}", [App\Http\Controllers\DocumentController::class, "pdf"]);
 
 
 Route::middleware('auth:api')->group(function () {
@@ -45,7 +46,7 @@ Route::middleware('auth:api')->group(function () {
     // END CompanyController
 
     // DocumentTemplateController
-    Route::apiResource("document_template", App\Http\Controllers\DocumentTemplateController::class);
+    Route::apiResource("document_templates", App\Http\Controllers\DocumentTemplateController::class);
     // END DocumentTemplateController
 
     // DocumentTemplateVariablesController

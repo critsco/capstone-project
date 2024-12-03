@@ -1,10 +1,11 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import ReactQuill, { Quill } from "react-quill";
 import ImageResize from "quill-image-resize-module-react";
 import "react-quill/dist/quill.snow.css";
 import {
     Button,
     Col,
+    Empty,
     Flex,
     Form,
     List,
@@ -13,27 +14,26 @@ import {
     Popconfirm,
     Row,
 } from "antd";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faInfoCircle } from "@fortawesome/pro-regular-svg-icons";
 
 import { GET, POST } from "../../../../../../../../../providers/useAxiosQuery";
 import notificationErrors from "../../../../../../../../../providers/notificationErrors";
 import FloatInput from "../../../../../../../../../providers/FloatInput";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faInfoCircle } from "@fortawesome/pro-regular-svg-icons";
 
 const fontSizes = [
-    "6px",
-    "8px",
-    "10px",
-    "12px",
-    "14px",
-    "16px",
-    "18px",
-    "20px",
-    "22px",
-    "24px",
-    "26px",
-    "28px",
-    "30px",
+    "8pt",
+    "10pt",
+    "12pt",
+    "14pt",
+    "16pt",
+    "18pt",
+    "20pt",
+    "22pt",
+    "24pt",
+    "26pt",
+    "28pt",
+    "30pt",
 ];
 
 const fonts = ["Arial", "Georgia", "Courier", "Verdana", "Times New Roman"];
@@ -93,14 +93,27 @@ export default function TemplateModalForm(props) {
     const {
         mutate: mutateDocumentTemplate,
         isLoading: isLoadingDocumentTemplate,
-    } = POST(`api/document_template`, "document_template_list");
+    } = POST(`api/document_templates`, "document_templates_list");
 
-    const { data: dataDocumentVariables } = GET(
-        `api/document_variables`,
-        "document_variables_list"
-    );
+    const {
+        data: dataDocumentVariables,
+        isLoading: isLoadingDocumentVariables,
+    } = GET(`api/document_variables`, "document_variables_list");
 
-    console.log("dataDocumentVariables", dataDocumentVariables);
+    useEffect(() => {
+        if (toggleTemplateModalForm.open) {
+            if (toggleTemplateModalForm.data) {
+                form.setFieldsValue({
+                    ...toggleTemplateModalForm.data,
+                });
+            }
+        } else {
+            form.resetFields();
+        }
+
+        return () => {};
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [toggleTemplateModalForm]);
 
     const onFinish = (values) => {
         let data = {
@@ -115,6 +128,7 @@ export default function TemplateModalForm(props) {
                         message: "Document Template",
                         description: res.message,
                     });
+                    form.resetFields();
                     setToggleTemplateModalForm({
                         open: false,
                         data: null,
@@ -278,7 +292,12 @@ export default function TemplateModalForm(props) {
                                     dataDocumentVariables &&
                                     dataDocumentVariables?.data
                                 }
-                                locale={null}
+                                locale={{
+                                    emptyText: (
+                                        <Empty description="No variable found" />
+                                    ),
+                                }}
+                                loading={isLoadingDocumentVariables}
                                 renderItem={(item) => (
                                     <List.Item>
                                         <div

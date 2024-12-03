@@ -8,22 +8,24 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare, faPlus } from "@fortawesome/pro-regular-svg-icons";
 
 export default function DocumentSidebar(props) {
-    const { selectedDocument, setSelectedDocument } = props;
-    const [toggleTemplateModalForm, setToggleTemplateModalForm] = useState({
-        open: false,
-        data: null,
-    });
-    const [toggleVariableModalForm, setToggleVariableModalForm] = useState({
-        open: false,
-        data: null,
-    });
+    const {
+        setSelectedDocument,
+        toggleTemplateModalForm,
+        setToggleTemplateModalForm,
+        toggleVariableModalForm,
+        setToggleVariableModalForm,
+    } = props;
 
     return (
         <>
             <Flex vertical className="document-sidebar">
                 <div className="title">Printable Documents</div>
                 <div className="documents">
-                    <DocumentRadio setSelectedDocument={setSelectedDocument} />
+                    <DocumentRadio
+                        setSelectedDocument={setSelectedDocument}
+                        toggleTemplateModalForm={toggleTemplateModalForm}
+                        setToggleTemplateModalForm={setToggleTemplateModalForm}
+                    />
                 </div>
                 <Flex justify="center" align="center" gap={6}>
                     <Button

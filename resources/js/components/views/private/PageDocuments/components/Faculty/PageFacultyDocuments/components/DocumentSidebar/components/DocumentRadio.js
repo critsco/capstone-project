@@ -1,26 +1,51 @@
 import React from "react";
-import { Radio, Space } from "antd";
+import { Button, List, Radio, Space } from "antd";
+import { GET } from "../../../../../../../../../providers/useAxiosQuery";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPenToSquare } from "@fortawesome/pro-regular-svg-icons";
 
 export default function DocumentRadio(props) {
-    const { setSelectedDocument } = props;
+    const { setSelectedDocument, setToggleTemplateModalForm } = props;
 
     const onChange = (e) => {
         console.log("radio checked:", e.target.value);
         setSelectedDocument(e.target.value);
     };
 
+    const {
+        data: dataDocumentTemplates,
+        isLoading: isLoadingDocumentTemplates,
+    } = GET(`api/document_templates`, "document_templates_list");
+
     return (
         <Radio.Group onChange={onChange} buttonStyle="solid">
             <Space direction="vertical">
-                <Radio.Button value="moa">Memorandum of Agreement</Radio.Button>
-                <Radio.Button value="ltp">Letter to Parents</Radio.Button>
-                <Radio.Button value="wfp">Waiver from Parents</Radio.Button>
-                <Radio.Button value="wfs">Waiver from School</Radio.Button>
-                <Radio.Button value="endorsement">
-                    Endorsement Letter
-                </Radio.Button>
-                <Radio.Button value="eval_form">Evaluation Form</Radio.Button>
-                <Radio.Button value="term_rep">Terminal Report</Radio.Button>
+                <List
+                    dataSource={
+                        dataDocumentTemplates && dataDocumentTemplates?.data
+                    }
+                    loading={isLoadingDocumentTemplates}
+                    renderItem={(item) => (
+                        <List.Item
+                            actions={[
+                                <Button
+                                    onClick={() =>
+                                        setToggleTemplateModalForm({
+                                            open: true,
+                                            data: item,
+                                        })
+                                    }
+                                >
+                                    <FontAwesomeIcon icon={faPenToSquare} />
+                                </Button>,
+                            ]}
+                        >
+                            <Radio.Button value={item.title}>
+                                {item.title}
+                            </Radio.Button>
+                        </List.Item>
+                    )}
+                />
             </Space>
         </Radio.Group>
     );

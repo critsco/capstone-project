@@ -33,6 +33,8 @@
         "ldrs": "^1.0.2",
         "lodash": "^4.17.19",
         "postcss": "^8.1.14",
+        "quill-better-table": "^1.2.10",
+        "quill-better-table-picker": "^1.0.2",
         "quill-image-resize": "^3.0.9",
         "quill-image-resize-module-react": "^3.0.0",
         "quill-table-ui": "^1.0.7",

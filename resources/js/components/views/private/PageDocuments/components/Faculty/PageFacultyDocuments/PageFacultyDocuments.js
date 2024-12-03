@@ -7,6 +7,14 @@ import DocumentCard from "./components/DocumentCard/DocumentCard";
 
 export default function PageFacultyDocuments() {
     const [selectedDocument, setSelectedDocument] = useState();
+    const [toggleTemplateModalForm, setToggleTemplateModalForm] = useState({
+        open: false,
+        data: null,
+    });
+    const [toggleVariableModalForm, setToggleVariableModalForm] = useState({
+        open: false,
+        data: null,
+    });
 
     return (
         <Layout.Content>
@@ -25,7 +33,10 @@ export default function PageFacultyDocuments() {
                 <Col xs={24} sm={24} md={6} lg={6}>
                     <DocumentSidebar
                         setSelectedDocument={setSelectedDocument}
-                        selectedDocument={selectedDocument}
+                        toggleTemplateModalForm={toggleTemplateModalForm}
+                        setToggleTemplateModalForm={setToggleTemplateModalForm}
+                        toggleVariableModalForm={toggleVariableModalForm}
+                        setToggleVariableModalForm={setToggleVariableModalForm}
                     />
                 </Col>
                 <Col xs={24} sm={24} md={18} lg={18}>

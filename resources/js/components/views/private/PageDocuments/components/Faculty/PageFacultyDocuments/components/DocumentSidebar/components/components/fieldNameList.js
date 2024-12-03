@@ -20,6 +20,10 @@ const fieldNameList = [
         label: "student_fullName",
     },
     {
+        value: "student_email",
+        label: "student_email",
+    },
+    {
         value: "student_course",
         label: "student_course",
     },
@@ -50,6 +54,10 @@ const fieldNameList = [
     {
         value: "faculty_fullName",
         label: "faculty_fullName",
+    },
+    {
+        value: "faculty_email",
+        label: "faculty_email",
     },
     {
         value: "faculty_schoolId",
@@ -94,6 +102,10 @@ const fieldNameList = [
     {
         value: "company_address",
         label: "company_address",
+    },
+    {
+        value: "date_now",
+        label: "date_now",
     },
 ];
 
