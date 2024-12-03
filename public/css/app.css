@@ -202,12 +202,14 @@ body {
   padding: 0;
 }
 #PageCalendar .ant-layout-content .ant-row .ant-col .ant-flex .ant-segmented .ant-segmented-group {
-  background: #dedfe3;
+  background: #2c3d8f;
+  color: white;
   border-radius: 4px;
   padding: 2px;
 }
 #PageCalendar .ant-layout-content .ant-row .ant-col .ant-flex .ant-segmented .ant-segmented-group .ant-segmented-item-selected {
   background: #ffffff;
+  color: #2c3d8f;
 }
 #PageCalendar .ant-layout-content .ant-row .ant-col .ant-flex .ant-btn {
   background: #2c3d8f;
@@ -418,6 +420,7 @@ body {
 #PageDocuments .ant-layout-content .ant-row .ant-col .ant-flex.document-sidebar .documents .ant-radio-group .ant-space .ant-space-item .ant-list .ant-list-items .ant-list-item .ant-list-item-action .ant-btn {
   border: 0;
   background: none;
+  box-shadow: none;
 }
 #PageDocuments .ant-layout-content .ant-row .ant-col .ant-flex.document-sidebar .documents .ant-radio-group .ant-space .ant-space-item .ant-list .ant-list-items .ant-list-item .ant-radio-button-wrapper {
   width: 100%;
@@ -961,10 +964,6 @@ body {
 }
 .ant-modal-root .ant-modal-wrap .ant-modal .ant-modal-content .ant-modal-footer {
   padding: 20px;
-}
-.ant-modal-root .ant-modal-wrap.signup-form * {
-  font-family: "Poppins";
-  font-size: 16px;
 }
 .ant-modal-root .ant-modal-wrap.signup-form .ant-modal .ant-modal-content {
   border-radius: 16px;
@@ -1531,7 +1530,24 @@ body {
   background: white;
   color: #2c3d8f;
 }
-
+.ant-modal-root .ant-modal-wrap.schedule-modal .ant-modal .ant-modal-content {
+  border-radius: 16px;
+  padding-inline: 30px;
+}
+.ant-modal-root .ant-modal-wrap.schedule-modal .ant-modal .ant-modal-content .ant-modal-close {
+  color: black;
+  margin-right: 10px;
+}
+.ant-modal-root .ant-modal-wrap.schedule-modal .ant-modal .ant-modal-content .ant-modal-header {
+  background: none;
+  border-bottom: 1.5px solid #dee1e6;
+}
+.ant-modal-root .ant-modal-wrap.schedule-modal .ant-modal .ant-modal-content .ant-modal-header .ant-modal-title {
+  color: black;
+  font-weight: bold;
+  font-size: 24px;
+  margin-left: -20px;
+}
 .navbar {
   background: #f3f4f6;
   padding: 0;
@@ -1789,6 +1805,7 @@ body {
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
   border-color: rgba(118, 118, 118, 0.5) !important;
+  border: 1px solid;
   font-size: 14px;
 }
 .tbl-top-filter .tbl-search-wrapper .ant-input-group-wrapper .ant-input.ant-input-lg {

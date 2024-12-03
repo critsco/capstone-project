@@ -63,6 +63,9 @@ class DocumentTemplateVariableController extends Controller
             "field_name" => "required",
         ]);
 
+        // Wrap variable_name in curly braces
+        $data['variable_name'] = "{" . $data['variable_name'] . "}";
+
         $document_variable = DocumentTemplateVariable::updateOrCreate(
             ["id" => $request->id],
             $data,

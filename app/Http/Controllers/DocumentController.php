@@ -10,36 +10,11 @@ class DocumentController extends Controller
 {
     public function viewDocument($title)
     {
-        $document = DocumentTemplate::where("title", $title)->first();
-
-        if (!$document) {
-            return response()->json(['error' => 'Document not found'], 404);
-        }
-
-        $data = [
-            'faculty name' => 'Dr. John Doe',
-            'faculty email' => 'john.doe@example.com',
-            'date now' => now()->format('F d, Y'),
-            'parent name' => 'Mr. and Mrs. Smith',
-            'parent address' => '123 Elm Street, Springfield',
-            'student name' => 'Jane Smith',
-            'student course' => 'Bachelor of Science in Computer Science',
-        ];
-
-        // Replace placeholders in the content
-        $content = $document->content;
-        foreach ($data as $key => $value) {
-            $content = str_replace("{" . $key . "}", $value, $content);
-    }
-
-        // Render the PDF
-        $pdf = Pdf::loadView('pdf.document-template', ['content' => $content, 'title' => $title]);
-
-        // Option 1: Stream the PDF (display in browser)
-        return $pdf->stream($document->title . '.pdf');
-
-        // Option 2: Download the PDF file
-        // return $pdf->download($type . '.pdf');
+        return $this->document_template([
+            'title' => $title,
+            'student_id' => 2,
+            'faculty_id' => 1,
+        ]);
     }
 
     public function pdf($type)

@@ -66,6 +66,22 @@ export default function TemplateModalForm(props) {
         "align",
     ];
 
+    const bindings = {
+        tab: {
+            key: 9,
+            handler: function (range) {
+                console.log("Tab key pressed at range: ", range); // Debugging log
+                this.quill.insertText(
+                    range.index,
+                    "\u00A0\u00A0\u00A0\u00A0",
+                    "user"
+                ); // Insert four non-breaking spaces
+                this.quill.setSelection(range.index + 4); // Move the cursor after the inserted spaces
+                return false; // Prevent default Tab behavior
+            },
+        },
+    };
+
     const modulesToolBar = {
         toolbar: [
             [{ font: fonts }],
@@ -84,6 +100,9 @@ export default function TemplateModalForm(props) {
         ],
         imageResize: {
             modules: ["Resize", "DisplaySize"],
+        },
+        keyboard: {
+            bindings: bindings,
         },
     };
 
@@ -111,9 +130,25 @@ export default function TemplateModalForm(props) {
             form.resetFields();
         }
 
-        return () => {};
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [toggleTemplateModalForm]);
+        const quillInstance = quillRef.current?.getEditor();
+
+        if (quillInstance) {
+            // Add a listener to save content on change
+            const handleChange = (delta, oldDelta, source) => {
+                if (source === "user") {
+                    form.setFieldValue("content", quillInstance.root.innerHTML);
+                }
+            };
+            quillInstance.on("text-change", handleChange);
+
+            // Cleanup function
+            return () => {
+                quillInstance.off("text-change", handleChange);
+            };
+        }
+
+        return () => {}; // Return an empty function to satisfy the linter
+    }, [toggleTemplateModalForm, form, bindings]);
 
     const onFinish = (values) => {
         let data = {
@@ -261,6 +296,21 @@ export default function TemplateModalForm(props) {
                                             theme="snow"
                                             modules={modulesToolBar}
                                             formats={formats}
+                                            value={
+                                                form.getFieldValue("content") ||
+                                                ""
+                                            }
+                                            onChange={(
+                                                value,
+                                                delta,
+                                                source,
+                                                editor
+                                            ) => {
+                                                form.setFieldValue(
+                                                    "content",
+                                                    value
+                                                );
+                                            }}
                                         />
                                     </Form.Item>
                                 </div>

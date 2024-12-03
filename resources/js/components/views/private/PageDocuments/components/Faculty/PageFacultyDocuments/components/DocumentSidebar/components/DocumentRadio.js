@@ -8,7 +8,6 @@ export default function DocumentRadio(props) {
     const { setSelectedDocument, setToggleTemplateModalForm } = props;
 
     const onChange = (e) => {
-        console.log("radio checked:", e.target.value);
         setSelectedDocument(e.target.value);
     };
 

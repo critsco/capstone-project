@@ -33,11 +33,6 @@
         }
     }
     .ant-modal-wrap.signup-form {
-        * {
-            font-family: "Poppins";
-            font-size: 16px;
-        }
-
         .ant-modal {
             .ant-modal-content {
                 border-radius: 16px;
@@ -791,6 +786,32 @@
                         background: white;
                         color: #2c3d8f;
                     }
+                }
+            }
+        }
+    }
+    .ant-modal-wrap.schedule-modal {
+        .ant-modal {
+            .ant-modal-content {
+                border-radius: 16px;
+                padding-inline: 30px;
+
+                .ant-modal-close {
+                    color: black;
+                    margin-right: 10px;
+                }
+                .ant-modal-header {
+                    background: none;
+                    border-bottom: 1.5px solid #dee1e6;
+
+                    .ant-modal-title {
+                        color: black;
+                        font-weight: bold;
+                        font-size: 24px;
+                        margin-left: -20px;
+                    }
+                }
+                .ant-modal-body {
                 }
             }
         }

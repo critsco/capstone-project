@@ -3,9 +3,14 @@ import { Button, Col, Flex, Layout, Row, Segmented } from "antd";
 
 import VisitationTable from "./components/VisitationTable/VisitationTable";
 import OthersTable from "./components/OthersTable/OthersTable";
+import ScheduleModalForm from "./components/ScheduleModalForm/ScheduleModalForm";
 
 export default function PageCalendar() {
-    const [sort, setSort] = useState([]);
+    const [sort, setSort] = useState("Visitation");
+    const [toggleModalForm, setToggleModalForm] = useState({
+        open: false,
+        data: null,
+    });
 
     return (
         <Layout.Content>
@@ -38,6 +43,11 @@ export default function PageCalendar() {
                     )}
                 </Col>
             </Row>
+
+            <ScheduleModalForm
+                toggleModalForm={toggleModalForm}
+                setToggleModalForm={setToggleModalForm}
+            />
         </Layout.Content>
     );
 }

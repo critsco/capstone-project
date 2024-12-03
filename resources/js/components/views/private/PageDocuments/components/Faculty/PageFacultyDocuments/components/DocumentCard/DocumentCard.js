@@ -1,16 +1,15 @@
 import React from "react";
 import { Flex } from "antd";
+import { apiUrl } from "../../../../../../../../providers/companyInfo";
 
 export default function DocumentCard(props) {
     const { selectedDocument } = props;
-
-    console.log("selectedDocument", selectedDocument);
 
     return (
         <Flex justify="center" className="document-card">
             {selectedDocument ? (
                 <iframe
-                    src={`api/documents/${selectedDocument}`}
+                    src={apiUrl(`api/documents/${selectedDocument}`)}
                     style={{
                         width: "100%",
                         height: "100%",

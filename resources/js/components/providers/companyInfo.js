@@ -1,6 +1,6 @@
 import CryptoJS from "crypto-js";
 
-export const apiUrl = (url) => `http://localhost:8000/${url}`;
+export const apiUrl = (url) => `${window.location.origin}/${url}`;
 
 export const date = new Date();
 

@@ -4,6 +4,10 @@ const fieldNameList = [
         label: "student_firstName",
     },
     {
+        value: "student_middleName",
+        label: "student_middleName",
+    },
+    {
         value: "student_middleInitial",
         label: "student_middleInitial",
     },
@@ -40,6 +44,10 @@ const fieldNameList = [
         label: "faculty_firstName",
     },
     {
+        value: "faculty_middleName",
+        label: "faculty_middleName",
+    },
+    {
         value: "faculty_middleInitial",
         label: "faculty_middleInitial",
     },
@@ -70,6 +78,10 @@ const fieldNameList = [
     {
         value: "parent_middleName",
         label: "parent_middleName",
+    },
+    {
+        value: "parent_middleInitial",
+        label: "parent_middleInitial",
     },
     {
         value: "parent_lastName",
