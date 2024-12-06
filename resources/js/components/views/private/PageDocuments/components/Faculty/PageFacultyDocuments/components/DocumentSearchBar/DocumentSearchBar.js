@@ -3,7 +3,9 @@ import { Flex, Input } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/pro-regular-svg-icons";
 
-export default function DocumentSearchBar() {
+export default function DocumentSearchBar(props) {
+    const { filter, setFilter } = props;
+
     return (
         <Flex justify="center" className="document-searchbar">
             <Input.Search
@@ -16,6 +18,14 @@ export default function DocumentSearchBar() {
                         }}
                     />
                 }
+                onChange={(e) => {
+                    setTimeout(() => {
+                        setFilter({
+                            ...filter,
+                            search: e.target.value,
+                        });
+                    });
+                }}
             />
         </Flex>
     );

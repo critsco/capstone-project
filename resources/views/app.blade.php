@@ -10,21 +10,6 @@
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
     <style>
-        @font-face {
-            font-family: 'PoppinsBold';
-            src: url("/fonts/Poppins/Poppins-Bold.ttf") format("truetype");
-        }
-
-        @font-face {
-            font-family: 'PoppinsMedium';
-            src: url("/fonts/Poppins/Poppins-Medium.ttf") format("truetype");
-        }
-
-        @font-face {
-            font-family: 'PoppinsRegular';
-            src: url("/fonts/Poppins/Poppins-Regular.ttf") format("truetype");
-        }
-
         *,
         :root,
         html,

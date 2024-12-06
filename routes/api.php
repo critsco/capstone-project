@@ -66,6 +66,7 @@ Route::middleware('auth:api')->group(function () {
     // InternClassController
     Route::apiResource("intern_classes", App\Http\Controllers\InternClassController::class);
     Route::get("get_classes/{instructor_id}", [App\Http\Controllers\InternClassController::class, "show"]);
+    Route::get("get_interns", [App\Http\Controllers\InternClassController::class, "get_interns"]);
     // END InternClassController
 
     // SETTINGS

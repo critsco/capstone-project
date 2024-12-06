@@ -1,0 +1,139 @@
+.slate_editor {
+    blockquote {
+        border-left: 2px solid #ddd;
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 10px;
+        color: #aaa;
+        font-style: italic;
+    }
+    table,
+    th,
+    td {
+        border: 1px solid black;
+    }
+    table {
+        border-collapse: collapse;
+    }
+    button {
+        background-color: white;
+        border: none;
+        opacity: 0.5;
+    }
+    .btnActive {
+        opacity: 1;
+    }
+    .editor-wrapper {
+        border: 1px solid;
+        font-family: "Times New Roman", Times, serif;
+        padding: 0 10px;
+        background: #ffffff;
+        min-height: 350px;
+        height: fit-content;
+    }
+    table {
+        width: 100%;
+    }
+    td {
+        height: 50px;
+        padding: 0 5px;
+    }
+    .popup-wrapper {
+        display: inline;
+        position: relative;
+    }
+    .popup {
+        position: absolute;
+        left: 0;
+        background-color: white;
+        padding: 6px 10px;
+        border: 1px solid lightgray;
+        height: fit-content;
+        z-index: 1;
+
+        .ant-flex {
+            .ant-upload-wrapper {
+                .ant-upload {
+                    width: 100%;
+                }
+            }
+        }
+    }
+    button {
+        cursor: pointer;
+    }
+
+    .toolbar {
+        border: 1px solid;
+        background: #ffffff;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        padding: 15px 10px;
+        row-gap: 15px;
+
+        .toolbar-grp > * {
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        .toolbar-grp {
+            margin: 0 10px;
+
+            select {
+                height: 30px;
+                border: none;
+                width: 6.9rem;
+            }
+            button {
+                width: 30px;
+                height: 20px;
+                margin: 0 2px;
+            }
+            .color-picker {
+                button {
+                    margin: 0;
+                    padding: 0;
+                    cursor: pointer;
+                }
+                .clicked {
+                    border: 1px solid lightgray;
+                    border-bottom: none;
+                }
+                .color-options {
+                    display: grid;
+                    grid-template-columns: auto auto auto auto auto auto auto;
+                    align-items: center;
+                    gap: 5px;
+
+                    .option {
+                        width: 16px;
+                        height: 16px;
+                        background-color: #000000;
+                    }
+                }
+                form {
+                    display: flex;
+                    align-items: center;
+                    column-gap: 5px;
+                    width: 100%;
+
+                    .hexPreview {
+                        width: 16px;
+                        height: 16px;
+                        background-color: #000000;
+                    }
+                    input {
+                        width: 65%;
+                        height: 1.3em;
+                        border: 1px solid lightgray;
+                        border-radius: 5px;
+                        padding-left: 5px;
+                    }
+                    input:focus {
+                        outline: none;
+                    }
+                }
+            }
+        }
+    }
+}

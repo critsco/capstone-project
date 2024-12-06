@@ -33,7 +33,15 @@ export default function PageCalendar() {
                                 }}
                             />
                         </Flex>
-                        <Button>Set Schedule</Button>
+                        <Button
+                            onClick={() =>
+                                setToggleModalForm({
+                                    open: true,
+                                })
+                            }
+                        >
+                            Set Schedule
+                        </Button>
                     </Flex>
 
                     {sort === "Visitation" ? (

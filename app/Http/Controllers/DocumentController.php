@@ -31,6 +31,13 @@ class DocumentController extends Controller
             return response()->json(['error' => 'Document template not found: ' . $type], 404);
         }
 
+        if ($type) {
+            $system_logo_bg = base64_encode(file_get_contents(public_path("images/FSUU_Logo.png")));
+            $system_logo_bg = 'data:image/png;base64,' . $system_logo_bg;
+            $department_logo_bg = base64_encode(file_get_contents(public_path("images/CSP_Logo.png")));
+            $department_logo_bg = 'data:image/png;base64,' . $department_logo_bg;
+        }
+
         // Example data to pass to the template (replace with real data)
         $data = [
             'name' => 'John Doe',

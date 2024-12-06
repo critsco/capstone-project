@@ -24,7 +24,16 @@ class ScheduleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $ret = [
+            "success" => false,
+            "message" => "Schedule was not created"
+        ];
+
+        if ($request->intern_name) {
+            $data = $request->validate([
+                ""
+            ]);
+        }
     }
 
     /**

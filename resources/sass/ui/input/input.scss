@@ -236,18 +236,50 @@
             border-bottom: 1px solid #58585a;
             padding: 5px;
 
-            .ql-picker.ql-size {
-                .ql-picker-item::before,
-                .ql-picker-label::before {
-                    content: attr(data-value);
+            .ql-picker {
+                &.ql-size {
+                    .ql-picker-label::before {
+                        content: attr(data-value) !important;
+                    }
+                    .ql-picker-item::before {
+                        content: attr(data-value) !important;
+                    }
+                }
+                .ql-font {
+                    .ql-picker-item[data-value="Times New Roman"]::before,
+                    .ql-picker-label[data-value="Times New Roman"]::before {
+                        content: "Times New Roman";
+                    }
+                    .ql-picker-item[data-value="Arial"]::before,
+                    .ql-picker-label[data-value="Arial"]::before {
+                        content: "Arial";
+                    }
+                    .ql-picker-item[data-value="Georgia"]::before,
+                    .ql-picker-label[data-value="Georgia"]::before {
+                        content: "Georgia";
+                    }
+                    .ql-picker-item[data-value="Courier"]::before,
+                    .ql-picker-label[data-value="Courier"]::before {
+                        content: "Courier";
+                    }
+                    .ql-picker-item[data-value="Verdana"]::before,
+                    .ql-picker-label[data-value="Verdana"]::before {
+                        content: "Verdana";
+                    }
                 }
             }
-            .ql-picker.ql-font {
-                .ql-picker-item::before,
-                .ql-picker-label::before {
-                    content: attr(data-value);
-                }
-            }
+            // .ql-picker.ql-size {
+            //     .ql-picker-label::before,
+            //     .ql-picker-item::before {
+            //         content: attr(data-value);
+            //     }
+            // }
+            // .ql-picker.ql-font {
+            //     .ql-picker-label::before,
+            //     .ql-picker-item::before {
+            //         content: attr(data-value);
+            //     }
+            // }
         }
         .ql-better-table-wrapper {
             overflow-x: auto;

@@ -15,6 +15,10 @@ export default function PageFacultyDocuments() {
         open: false,
         data: null,
     });
+    const [filter, setFilter] = useState({
+        search: "",
+        type: selectedDocument || "",
+    });
 
     return (
         <Layout.Content>

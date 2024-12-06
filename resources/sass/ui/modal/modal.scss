@@ -24,6 +24,12 @@
 
                 .ant-modal-body {
                     padding: 20px;
+
+                    .ant-form-item {
+                        .ant-form-item-label > label {
+                            font-size: 16px;
+                        }
+                    }
                 }
 
                 .ant-modal-footer {
@@ -128,7 +134,6 @@
                                         }
                                         .ant-form-item-label {
                                             font-weight: bold;
-                                            font-size: 20px;
 
                                             .ant-form-item-required::before {
                                                 display: none;
@@ -181,7 +186,6 @@
                                         }
                                         .ant-form-item-label {
                                             font-weight: bold;
-                                            font-size: 20px;
                                         }
                                     }
                                 }
@@ -332,7 +336,6 @@
                                         }
                                         .ant-form-item-label {
                                             font-weight: bold;
-                                            font-size: 20px;
 
                                             .ant-form-item-required::before {
                                                 display: none;
@@ -480,7 +483,6 @@
                                         }
                                         .ant-form-item-label {
                                             font-weight: bold;
-                                            font-size: 20px;
 
                                             .ant-form-item-required::before {
                                                 display: none;
@@ -595,7 +597,6 @@
                                         }
                                         .ant-form-item-label {
                                             font-weight: bold;
-                                            font-size: 20px;
 
                                             .ant-form-item-required::before {
                                                 display: none;
@@ -715,7 +716,6 @@
                                         }
                                         .ant-form-item-label {
                                             font-weight: bold;
-                                            font-size: 20px;
 
                                             .ant-form-item-required::before {
                                                 display: none;
@@ -812,6 +812,92 @@
                     }
                 }
                 .ant-modal-body {
+                    padding: 0;
+
+                    .ant-form {
+                        .ant-row {
+                            margin-bottom: -14px;
+
+                            .ant-col {
+                                .ant-form-item {
+                                    .ant-form-item-row {
+                                        .ant-form-item-control {
+                                            .ant-form-item-control-input {
+                                                .ant-form-item-control-input-content {
+                                                    .ant-radio-group {
+                                                        background: #2c3d8f;
+                                                        padding: 2px;
+                                                        border-radius: 4px;
+
+                                                        .ant-radio-button-wrapper {
+                                                            background: #2c3d8f;
+                                                            color: white;
+                                                            border: 0;
+                                                        }
+                                                        .ant-radio-button-wrapper-checked {
+                                                            border-radius: 2px;
+                                                            background: white;
+                                                            color: #2c3d8f;
+                                                        }
+                                                        .ant-radio-button-wrapper::before {
+                                                            background: none !important;
+                                                        }
+                                                    }
+                                                    .float-wrapper {
+                                                        border: 1px solid
+                                                            #d9d9d9;
+                                                        color: #bdc1ca;
+                                                        border-radius: 8px;
+
+                                                        .ant-input {
+                                                            border-radius: 8px;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        .ant-form-item-label {
+                                            font-weight: bold;
+
+                                            .ant-form-item-required::before {
+                                                display: none;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .ant-modal-footer {
+                    border-top: 1.5px solid #dee1e6;
+                    padding-inline: 0px;
+                    padding-block: 15px;
+
+                    .ant-btn {
+                        border-radius: 8px !important;
+                        padding-block: 20px;
+                    }
+                    .ant-btn.cancel-btn {
+                        border: 1px solid #9095a1;
+                        background: #9095a1;
+                        color: white;
+                        font-weight: normal;
+                    }
+                    .ant-btn.cancel-btn:hover {
+                        background: white;
+                        color: #9095a1;
+                    }
+                    .ant-btn.submit-btn {
+                        border: 1px solid #2c3d8f;
+                        background: #2c3d8f;
+                        color: white;
+                        font-weight: normal;
+                    }
+                    .ant-btn.submit-btn:hover {
+                        background: white;
+                        color: #2c3d8f;
+                    }
                 }
             }
         }

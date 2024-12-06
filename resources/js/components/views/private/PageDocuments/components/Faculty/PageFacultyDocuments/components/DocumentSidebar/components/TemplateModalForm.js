@@ -20,6 +20,7 @@ import { faInfoCircle } from "@fortawesome/pro-regular-svg-icons";
 import { GET, POST } from "../../../../../../../../../providers/useAxiosQuery";
 import notificationErrors from "../../../../../../../../../providers/notificationErrors";
 import FloatInput from "../../../../../../../../../providers/FloatInput";
+// import SlateEditor from "../../../../../../../../../providers/slateQuill/slateQuill";
 
 const fontSizes = [
     "8pt",
@@ -36,7 +37,7 @@ const fontSizes = [
     "30pt",
 ];
 
-const fonts = ["Arial", "Georgia", "Courier", "Verdana", "Times New Roman"];
+const fonts = ["timesnewroman" /*, "Arial", "Georgia", "Courier", "Verdana" */];
 
 const FontSize = Quill.import("attributors/style/size");
 const Font = Quill.import("attributors/style/font");
@@ -51,7 +52,7 @@ export default function TemplateModalForm(props) {
 
     const formats = [
         "header",
-        "font",
+        // "font",
         "size",
         "bold",
         "italic",
@@ -70,13 +71,9 @@ export default function TemplateModalForm(props) {
         tab: {
             key: 9,
             handler: function (range) {
-                console.log("Tab key pressed at range: ", range); // Debugging log
-                this.quill.insertText(
-                    range.index,
-                    "\u00A0\u00A0\u00A0\u00A0",
-                    "user"
-                ); // Insert four non-breaking spaces
-                this.quill.setSelection(range.index + 4); // Move the cursor after the inserted spaces
+                // console.log("Tab key pressed at range: ", range); // Debugging log
+                this.quill.insertText(range.index, "\u00A0", "user");
+                this.quill.setSelection(range.index + 1); // Move the cursor after the inserted spaces
                 return false; // Prevent default Tab behavior
             },
         },
@@ -84,7 +81,7 @@ export default function TemplateModalForm(props) {
 
     const modulesToolBar = {
         toolbar: [
-            [{ font: fonts }],
+            // [{ font: fonts }],
             [{ header: [1, 2, 3, 4, 5, false] }],
             [{ size: fontSizes }],
             ["bold", "italic", "underline", "strike", "blockquote"],
@@ -128,8 +125,18 @@ export default function TemplateModalForm(props) {
             }
         } else {
             form.resetFields();
+            setTimeout(() => {
+                const quillInstance = quillRef.current?.getEditor();
+                if (quillInstance) {
+                    // Reset editor content to match the modal's data
+                    const content = toggleTemplateModalForm.data?.content || "";
+                    quillInstance.root.innerHTML = content;
+                }
+            }, 0); // Small delay to ensure the editor is ready
         }
+    }, [toggleTemplateModalForm]);
 
+    useEffect(() => {
         const quillInstance = quillRef.current?.getEditor();
 
         if (quillInstance) {
@@ -139,16 +146,15 @@ export default function TemplateModalForm(props) {
                     form.setFieldValue("content", quillInstance.root.innerHTML);
                 }
             };
+
             quillInstance.on("text-change", handleChange);
 
-            // Cleanup function
+            // Cleanup listener on unmount
             return () => {
                 quillInstance.off("text-change", handleChange);
             };
         }
-
-        return () => {}; // Return an empty function to satisfy the linter
-    }, [toggleTemplateModalForm, form, bindings]);
+    }, [form, bindings]);
 
     const onFinish = (values) => {
         let data = {
@@ -278,6 +284,7 @@ export default function TemplateModalForm(props) {
                         <Row>
                             <Col xs={24} sm={24} md={24} lg={24}>
                                 <div
+                                    // className="slate_editor"
                                     onDrop={handleDrop}
                                     onDragOver={handleDragOver}
                                 >
@@ -296,6 +303,7 @@ export default function TemplateModalForm(props) {
                                             theme="snow"
                                             modules={modulesToolBar}
                                             formats={formats}
+                                            placeholder="Write something"
                                             value={
                                                 form.getFieldValue("content") ||
                                                 ""
@@ -312,6 +320,7 @@ export default function TemplateModalForm(props) {
                                                 );
                                             }}
                                         />
+                                        {/* <SlateEditor /> */}
                                     </Form.Item>
                                 </div>
                             </Col>

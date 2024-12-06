@@ -31,6 +31,10 @@
             text-align: left !important;
         }
 
+        .ql-align-justify {
+            text-align: justify !important;
+        }
+
         .ql-indent-1 {
             padding-left: 3em;
         }

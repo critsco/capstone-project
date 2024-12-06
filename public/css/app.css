@@ -1,8 +1,4 @@
 @import url(https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap);
-body {
-  margin: 0;
-}
-
 #PageLogin * {
   font-family: "Poppins" !important;
 }
@@ -210,6 +206,7 @@ body {
 #PageCalendar .ant-layout-content .ant-row .ant-col .ant-flex .ant-segmented .ant-segmented-group .ant-segmented-item-selected {
   background: #ffffff;
   color: #2c3d8f;
+  border-radius: 2px;
 }
 #PageCalendar .ant-layout-content .ant-row .ant-col .ant-flex .ant-btn {
   background: #2c3d8f;
@@ -907,13 +904,31 @@ body {
   border-bottom: 1px solid #58585a;
   padding: 5px;
 }
-.float-wrapper .quill .ql-toolbar.ql-snow .ql-picker.ql-size .ql-picker-item::before,
 .float-wrapper .quill .ql-toolbar.ql-snow .ql-picker.ql-size .ql-picker-label::before {
-  content: attr(data-value);
+  content: attr(data-value) !important;
 }
-.float-wrapper .quill .ql-toolbar.ql-snow .ql-picker.ql-font .ql-picker-item::before,
-.float-wrapper .quill .ql-toolbar.ql-snow .ql-picker.ql-font .ql-picker-label::before {
-  content: attr(data-value);
+.float-wrapper .quill .ql-toolbar.ql-snow .ql-picker.ql-size .ql-picker-item::before {
+  content: attr(data-value) !important;
+}
+.float-wrapper .quill .ql-toolbar.ql-snow .ql-picker .ql-font .ql-picker-item[data-value="Times New Roman"]::before,
+.float-wrapper .quill .ql-toolbar.ql-snow .ql-picker .ql-font .ql-picker-label[data-value="Times New Roman"]::before {
+  content: "Times New Roman";
+}
+.float-wrapper .quill .ql-toolbar.ql-snow .ql-picker .ql-font .ql-picker-item[data-value=Arial]::before,
+.float-wrapper .quill .ql-toolbar.ql-snow .ql-picker .ql-font .ql-picker-label[data-value=Arial]::before {
+  content: "Arial";
+}
+.float-wrapper .quill .ql-toolbar.ql-snow .ql-picker .ql-font .ql-picker-item[data-value=Georgia]::before,
+.float-wrapper .quill .ql-toolbar.ql-snow .ql-picker .ql-font .ql-picker-label[data-value=Georgia]::before {
+  content: "Georgia";
+}
+.float-wrapper .quill .ql-toolbar.ql-snow .ql-picker .ql-font .ql-picker-item[data-value=Courier]::before,
+.float-wrapper .quill .ql-toolbar.ql-snow .ql-picker .ql-font .ql-picker-label[data-value=Courier]::before {
+  content: "Courier";
+}
+.float-wrapper .quill .ql-toolbar.ql-snow .ql-picker .ql-font .ql-picker-item[data-value=Verdana]::before,
+.float-wrapper .quill .ql-toolbar.ql-snow .ql-picker .ql-font .ql-picker-label[data-value=Verdana]::before {
+  content: "Verdana";
 }
 .float-wrapper .quill .ql-better-table-wrapper {
   overflow-x: auto;
@@ -961,6 +976,9 @@ body {
 }
 .ant-modal-root .ant-modal-wrap .ant-modal .ant-modal-content .ant-modal-body {
   padding: 20px;
+}
+.ant-modal-root .ant-modal-wrap .ant-modal .ant-modal-content .ant-modal-body .ant-form-item .ant-form-item-label > label {
+  font-size: 16px;
 }
 .ant-modal-root .ant-modal-wrap .ant-modal .ant-modal-content .ant-modal-footer {
   padding: 20px;
@@ -1039,7 +1057,6 @@ body {
 }
 .ant-modal-root .ant-modal-wrap.signup-form .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-row .ant-col .ant-form-item .ant-form-item-row .ant-form-item-label {
   font-weight: bold;
-  font-size: 20px;
 }
 .ant-modal-root .ant-modal-wrap.signup-form .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-row .ant-col .ant-form-item .ant-form-item-row .ant-form-item-label .ant-form-item-required::before {
   display: none;
@@ -1082,7 +1099,6 @@ body {
 }
 .ant-modal-root .ant-modal-wrap.signup-form .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-row.password-input-row .ant-col .ant-form-item .ant-form-item-row .ant-form-item-label {
   font-weight: bold;
-  font-size: 20px;
 }
 .ant-modal-root .ant-modal-wrap.signup-form .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-row.password-input-row .ant-col .ant-form-item.confirm-input .ant-form-item-row .ant-form-item-label {
   text-align: left;
@@ -1195,7 +1211,6 @@ body {
 }
 .ant-modal-root .ant-modal-wrap.company-form .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-row .ant-col .ant-form-item .ant-form-item-row .ant-form-item-label {
   font-weight: bold;
-  font-size: 20px;
 }
 .ant-modal-root .ant-modal-wrap.company-form .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-row .ant-col .ant-form-item .ant-form-item-row .ant-form-item-label .ant-form-item-required::before {
   display: none;
@@ -1305,7 +1320,6 @@ body {
 }
 .ant-modal-root .ant-modal-wrap.add-class-form .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-row .ant-col .ant-form-item .ant-form-item-row .ant-form-item-label {
   font-weight: bold;
-  font-size: 20px;
 }
 .ant-modal-root .ant-modal-wrap.add-class-form .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-row .ant-col .ant-form-item .ant-form-item-row .ant-form-item-label .ant-form-item-required::before {
   display: none;
@@ -1391,7 +1405,6 @@ body {
 }
 .ant-modal-root .ant-modal-wrap.view-class .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-row .ant-col .ant-form-item .ant-form-item-row .ant-form-item-label {
   font-weight: bold;
-  font-size: 20px;
 }
 .ant-modal-root .ant-modal-wrap.view-class .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-row .ant-col .ant-form-item .ant-form-item-row .ant-form-item-label .ant-form-item-required::before {
   display: none;
@@ -1472,7 +1485,6 @@ body {
 }
 .ant-modal-root .ant-modal-wrap.template-form .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-row .ant-col .ant-form-item .ant-form-item-row .ant-form-item-label {
   font-weight: bold;
-  font-size: 20px;
 }
 .ant-modal-root .ant-modal-wrap.template-form .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-row .ant-col .ant-form-item .ant-form-item-row .ant-form-item-label .ant-form-item-required::before {
   display: none;
@@ -1548,6 +1560,74 @@ body {
   font-size: 24px;
   margin-left: -20px;
 }
+.ant-modal-root .ant-modal-wrap.schedule-modal .ant-modal .ant-modal-content .ant-modal-body {
+  padding: 0;
+}
+.ant-modal-root .ant-modal-wrap.schedule-modal .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-row {
+  margin-bottom: -14px;
+}
+.ant-modal-root .ant-modal-wrap.schedule-modal .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-row .ant-col .ant-form-item .ant-form-item-row .ant-form-item-control .ant-form-item-control-input .ant-form-item-control-input-content .ant-radio-group {
+  background: #2c3d8f;
+  padding: 2px;
+  border-radius: 4px;
+}
+.ant-modal-root .ant-modal-wrap.schedule-modal .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-row .ant-col .ant-form-item .ant-form-item-row .ant-form-item-control .ant-form-item-control-input .ant-form-item-control-input-content .ant-radio-group .ant-radio-button-wrapper {
+  background: #2c3d8f;
+  color: white;
+  border: 0;
+}
+.ant-modal-root .ant-modal-wrap.schedule-modal .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-row .ant-col .ant-form-item .ant-form-item-row .ant-form-item-control .ant-form-item-control-input .ant-form-item-control-input-content .ant-radio-group .ant-radio-button-wrapper-checked {
+  border-radius: 2px;
+  background: white;
+  color: #2c3d8f;
+}
+.ant-modal-root .ant-modal-wrap.schedule-modal .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-row .ant-col .ant-form-item .ant-form-item-row .ant-form-item-control .ant-form-item-control-input .ant-form-item-control-input-content .ant-radio-group .ant-radio-button-wrapper::before {
+  background: none !important;
+}
+.ant-modal-root .ant-modal-wrap.schedule-modal .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-row .ant-col .ant-form-item .ant-form-item-row .ant-form-item-control .ant-form-item-control-input .ant-form-item-control-input-content .float-wrapper {
+  border: 1px solid #d9d9d9;
+  color: #bdc1ca;
+  border-radius: 8px;
+}
+.ant-modal-root .ant-modal-wrap.schedule-modal .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-row .ant-col .ant-form-item .ant-form-item-row .ant-form-item-control .ant-form-item-control-input .ant-form-item-control-input-content .float-wrapper .ant-input {
+  border-radius: 8px;
+}
+.ant-modal-root .ant-modal-wrap.schedule-modal .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-row .ant-col .ant-form-item .ant-form-item-row .ant-form-item-label {
+  font-weight: bold;
+}
+.ant-modal-root .ant-modal-wrap.schedule-modal .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-row .ant-col .ant-form-item .ant-form-item-row .ant-form-item-label .ant-form-item-required::before {
+  display: none;
+}
+.ant-modal-root .ant-modal-wrap.schedule-modal .ant-modal .ant-modal-content .ant-modal-footer {
+  border-top: 1.5px solid #dee1e6;
+  padding-inline: 0px;
+  padding-block: 15px;
+}
+.ant-modal-root .ant-modal-wrap.schedule-modal .ant-modal .ant-modal-content .ant-modal-footer .ant-btn {
+  border-radius: 8px !important;
+  padding-block: 20px;
+}
+.ant-modal-root .ant-modal-wrap.schedule-modal .ant-modal .ant-modal-content .ant-modal-footer .ant-btn.cancel-btn {
+  border: 1px solid #9095a1;
+  background: #9095a1;
+  color: white;
+  font-weight: normal;
+}
+.ant-modal-root .ant-modal-wrap.schedule-modal .ant-modal .ant-modal-content .ant-modal-footer .ant-btn.cancel-btn:hover {
+  background: white;
+  color: #9095a1;
+}
+.ant-modal-root .ant-modal-wrap.schedule-modal .ant-modal .ant-modal-content .ant-modal-footer .ant-btn.submit-btn {
+  border: 1px solid #2c3d8f;
+  background: #2c3d8f;
+  color: white;
+  font-weight: normal;
+}
+.ant-modal-root .ant-modal-wrap.schedule-modal .ant-modal .ant-modal-content .ant-modal-footer .ant-btn.submit-btn:hover {
+  background: white;
+  color: #2c3d8f;
+}
+
 .navbar {
   background: #f3f4f6;
   padding: 0;

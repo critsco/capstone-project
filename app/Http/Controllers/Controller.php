@@ -89,7 +89,6 @@ class Controller extends BaseController
                 } else {
                     return "student_firstName";
                 }
-                break;
 
             case "student_middleName":
                 $dataStudent = User::with(['profiles'])->where("id", $student_id)->first();
@@ -99,7 +98,6 @@ class Controller extends BaseController
                 } else {
                     return "student_middleName";
                 }
-                break;
 
             case "student_middleInitial":
                 $dataStudent = User::with(['profiles'])->where("id", $student_id)->first();
@@ -111,7 +109,6 @@ class Controller extends BaseController
                 } else {
                     return "student_middleInitial";
                 }
-                break;
 
             case "student_lastName":
                 $dataStudent = User::with(['profiles'])->where("id", $student_id)->first();
@@ -121,7 +118,6 @@ class Controller extends BaseController
                 } else {
                     return "student_lastName";
                 }
-                break;
 
             case "student_suffix":
                 $dataStudent = User::with(['profiles'])->where("id", $student_id)->first();
@@ -131,7 +127,6 @@ class Controller extends BaseController
                 } else {
                     return "student_suffix";
                 }
-                break;
 
             case "student_fullName":
                 $dataStudent = User::with(['profiles'])->where("id", $student_id)->first();
@@ -148,7 +143,6 @@ class Controller extends BaseController
                 } else {
                     return "student_fullName";
                 }
-                break;
 
             case "student_email":
                 $dataStudent = User::where("id", $student_id)->first();
@@ -158,7 +152,6 @@ class Controller extends BaseController
                 } else {
                     return "student_email";
                 }
-                break;
 
             case "student_course":
                 $dataStudent = User::with(['profiles'])->where("id", $student_id)->first();
@@ -170,22 +163,20 @@ class Controller extends BaseController
                 } else {
                     return "student_course";
                 }
-                break;
 
             case "student_address":
                 $dataStudent = User::with(['profiles'])->where("id", $student_id)->first();
 
                 if ($dataStudent) {
                     $studentProfile = Profile::with(['profile_address'])->where("user_id", $student_id)->first();
-                    $street_address = $studentProfile->profile_address->street_address;
+                    $street_address = strtoupper($studentProfile->profile_address->street_address);
                     $barangay = $studentProfile->profile_address->ref_barangay->barangay;
                     $municipality = $studentProfile->profile_address->ref_municipality->municipality;
 
-                    return trim("Str::upper($street_address), $barangay, $municipality");
+                    return trim("$street_address, $barangay, $municipality");
                 } else {
                     return "student_address";
                 }
-                break;
 
             case "student_schoolId":
                 $dataStudent = User::with(['profiles'])->where("id", $student_id)->first();
@@ -195,7 +186,6 @@ class Controller extends BaseController
                 } else {
                     return "student_schoolId";
                 }
-                break;
 
             case "faculty_firstName":
                 $dataFaculty = User::with(['profiles'])->where("id", $faculty_id)->first();
@@ -205,7 +195,6 @@ class Controller extends BaseController
                 } else {
                     return "faculty_firstName";
                 }
-                break;
 
             case "faculty_middleName":
                 $dataFaculty = User::with(['profiles'])->where("id", $faculty_id)->first();
@@ -215,7 +204,6 @@ class Controller extends BaseController
                 } else {
                     return "faculty_middleName";
                 }
-                break;
 
             case "faculty_middleInitial":
                 $dataFaculty = User::with(['profiles'])->where("id", $faculty_id)->first();
@@ -227,7 +215,6 @@ class Controller extends BaseController
                 } else {
                     return "faculty_middleInitial";
                 }
-                break;
 
             case "faculty_lastName":
                 $dataFaculty = User::with(['profiles'])->where("id", $faculty_id)->first();
@@ -237,7 +224,6 @@ class Controller extends BaseController
                 } else {
                     return "faculty_lastName";
                 }
-                break;
 
             case "faculty_suffix":
                 $dataFaculty = User::with(['profiles'])->where("id", $faculty_id)->first();
@@ -247,7 +233,6 @@ class Controller extends BaseController
                 } else {
                     return "faculty_suffix";
                 }
-                break;
 
             case "faculty_fullName":
                 $dataFaculty = User::with(['profiles'])->where("id", $faculty_id)->first();
@@ -264,7 +249,6 @@ class Controller extends BaseController
                 } else {
                     return "faculty_fullName";
                 }
-                break;
 
             case "faculty_email":
                 $dataFaculty = User::where("id", $faculty_id)->first();
@@ -274,7 +258,6 @@ class Controller extends BaseController
                 } else {
                     return "faculty_email";
                 }
-                break;
 
             case "faculty_schoolId":
                 $dataFaculty = User::with(['profiles'])->where("id", $faculty_id)->first();
@@ -284,7 +267,6 @@ class Controller extends BaseController
                 } else {
                     return "faculty_schoolId";
                 }
-                break;
 
             case "parent_firstName":
                 $dataStudent = User::with(['profiles'])->where("id", $student_id)->first();
@@ -296,7 +278,6 @@ class Controller extends BaseController
                 } else {
                     return "parent_firstName";
                 }
-                break;
 
             case "parent_middleName":
                 $dataStudent = User::with(['profiles'])->where("id", $student_id)->first();
@@ -308,7 +289,6 @@ class Controller extends BaseController
                 } else {
                     return "parent_middleName";
                 }
-                break;
 
             case "parent_middleInitial":
                 $dataStudent = User::with(['profiles'])->where("id", $student_id)->first();
@@ -321,7 +301,6 @@ class Controller extends BaseController
                 } else {
                     return "parent_middleInitial";
                 }
-                break;
 
             case "parent_lastName":
                 $dataStudent = User::with(['profiles'])->where("id", $student_id)->first();
@@ -333,7 +312,6 @@ class Controller extends BaseController
                 } else {
                     return "parent_lastName";
                 }
-                break;
 
             case "parent_suffix":
                 $dataStudent = User::with(['profiles'])->where("id", $student_id)->first();
@@ -345,7 +323,6 @@ class Controller extends BaseController
                 } else {
                     return "parent_suffix";
                 }
-                break;
 
             case "parent_fullName":
                 $dataStudent = User::with(['profiles'])->where("id", $student_id)->first();
@@ -363,7 +340,6 @@ class Controller extends BaseController
                 } else {
                     return "parent_fullName";
                 }
-                break;
 
             case "company_name":
                 $dataStudent = User::with(['profiles'])->where("id", $student_id)->first();
@@ -375,7 +351,6 @@ class Controller extends BaseController
                 } else {
                     return "company_name";
                 }
-                break;
 
             case "company_office":
                 $dataStudent = User::with(['profiles'])->where("id", $student_id)->first();
@@ -387,7 +362,6 @@ class Controller extends BaseController
                 } else {
                     return "company_office";
                 }
-                break;
 
             case "company_officeHead":
                 $dataStudent = User::with(['profiles'])->where("id", $student_id)->first();
@@ -399,7 +373,6 @@ class Controller extends BaseController
                 } else {
                     return "company_officeHead";
                 }
-                break;
 
             case "company_email":
                 $dataStudent = User::with(['profiles'])->where("id", $student_id)->first();
@@ -411,7 +384,6 @@ class Controller extends BaseController
                 } else {
                     return "company_email";
                 }
-                break;
 
             case "company_address":
                 $dataStudent = User::with(['profiles'])->where("id", $student_id)->first();
@@ -420,20 +392,17 @@ class Controller extends BaseController
                     $dataCompany = Profile::with(['company'])->where("id", $student_id)->first();
                     $dataAddress = Company::with(['profile_address'])->where("id", $dataCompany->id)->first();
 
-                    $street_address = $dataAddress->profile_address->street_address;
+                    $street_address = strtoupper($dataAddress->profile_address->street_address);
                     $barangay = $dataAddress->profile_address->ref_barangay->barangay;
                     $municipality = $dataAddress->profile_address->ref_municipality->municipality;
 
-                    return trim("Str::upper($street_address), $barangay, $municipality");
+                    return trim("$street_address, $barangay, $municipality");
                 } else {
                     return "company_address";
                 }
-                break;
 
             case "date_now":
                 return now()->format('F d, Y');
-
-                break;
 
             default:
                 return "";

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\InternClass;
+use App\Models\Profile;
+use DB;
 use Illuminate\Http\Request;
 
 class InternClassController extends Controller
@@ -123,5 +125,23 @@ class InternClassController extends Controller
         }
 
         return response()->json($ret, 200);
+    }
+
+    public function get_interns(Request $request)
+    {
+        $fullname = "TRIM(CONCAT_WS(' ', profiles.first_name, IF(profiles.middle_name='', NULL, profiles.middle_name), profiles.last_name, IF(profiles.suffix='', NULL, profiles.suffix)))";
+
+        $data = Profile::select([
+            "*",
+            DB::raw("$fullname fullname"),
+        ])
+            ->with("user")
+            ->where("intern_class_id", $request->id)
+            ->get();
+
+        return response()->json([
+            "success" => true,
+            "data" => $data
+        ], 200);
     }
 }

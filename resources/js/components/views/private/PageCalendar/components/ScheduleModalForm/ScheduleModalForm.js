@@ -9,24 +9,27 @@ import {
     Popconfirm,
     Radio,
     Row,
+    TimePicker,
 } from "antd";
 
-import FloatInput from "../../../../../providers/FloatInput";
+import FloatSelect from "../../../../../providers/FloatSelect";
 
 export default function ScheduleModalForm(props) {
     const { toggleModalForm, setToggleModalForm } = props;
     const [purpose, setPurpose] = useState("Visitation");
     const { form } = Form.useForm();
 
-    const radioChange = (value) => {};
+    const radioChange = (e) => {
+        const value = e.target.value;
+        setPurpose(value);
+    };
 
     return (
         <Modal
             title="Set Schedule"
             wrapClassName="schedule-modal"
             open={toggleModalForm.open}
-            width={550}
-            centered
+            width={350}
             onCancel={() =>
                 setToggleModalForm({
                     open: false,
@@ -57,21 +60,17 @@ export default function ScheduleModalForm(props) {
                         okText="Yes"
                         cancelText="No"
                     >
-                        <Button
-                            className="submit-btn"
-                            loading={isLoadingCompany}
-                        >
-                            Submit
-                        </Button>
+                        <Button className="submit-btn">Submit</Button>
                     </Popconfirm>
                 </Flex>
             }
         >
             <Form form={form} layout="vertical" autoComplete="off">
                 <Row gutter={[8, 0]}>
-                    <Col xs={24} sm={24} md={12} lg={12}>
+                    <Col xs={24} sm={24} md={24} lg={24}>
                         <Form.Item label="Purpose" name="purpose">
                             <Radio.Group
+                                defaultValue="Visitation"
                                 onChange={radioChange}
                                 buttonStyle="solid"
                             >
@@ -85,10 +84,10 @@ export default function ScheduleModalForm(props) {
                         </Form.Item>
                     </Col>
                 </Row>
-                <Row gutter={[8, 0]}>
+                <Row gutter={[8, 0]} style={{ marginTop: "15px" }}>
                     <Col xs={24} sm={24} md={24} lg={24}>
                         <Form.Item name="intern_name">
-                            <FloatInput
+                            <FloatSelect
                                 label="Intern Name"
                                 placeholder="Intern Name"
                             />
@@ -96,7 +95,7 @@ export default function ScheduleModalForm(props) {
                     </Col>
                 </Row>
                 {purpose === "Others" ? (
-                    <Row gutter={[8, 0]}>
+                    <Row gutter={[8, 0]} style={{ marginTop: "10px" }}>
                         <Col xs={12} sm={12} md={12} lg={12}>
                             <Form.Item name="document">
                                 <FloatInput
@@ -112,10 +111,15 @@ export default function ScheduleModalForm(props) {
                         </Col>
                     </Row>
                 ) : null}
-                <Row>
+                <Row gutter={[8, 0]} style={{ marginTop: "10px" }}>
                     <Col xs={12} sm={12} md={12} lg={12}>
                         <Form.Item label="Set Date" name="date">
                             <DatePicker placeholder="Select date" />
+                        </Form.Item>
+                    </Col>
+                    <Col xs={12} sm={12} md={12} lg={12}>
+                        <Form.Item label="Set Time" name="time">
+                            <TimePicker format="HH:mm" />
                         </Form.Item>
                     </Col>
                 </Row>

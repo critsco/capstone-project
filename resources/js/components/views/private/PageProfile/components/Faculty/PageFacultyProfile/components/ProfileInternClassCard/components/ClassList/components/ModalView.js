@@ -3,7 +3,10 @@ import { Button, Col, Flex, Form, Input, Modal, notification, Row } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFolder } from "@fortawesome/pro-regular-svg-icons";
 
-import { POST } from "../../../../../../../../../../../providers/useAxiosQuery";
+import {
+    GET,
+    POST,
+} from "../../../../../../../../../../../providers/useAxiosQuery";
 import InternList from "./components/InternList";
 import notificationErrors from "../../../../../../../../../../../providers/notificationErrors";
 
@@ -19,6 +22,7 @@ export default function ModalView(props) {
     const onFinish = (values) => {
         let data = {
             ...values,
+            id: toggleModalView.data?.id,
             class_code: toggleModalView.data?.class_code,
         };
 
@@ -65,7 +69,6 @@ export default function ModalView(props) {
             wrapClassName="view-class"
             open={toggleModalView.open}
             width={500}
-            centered
             onCancel={() =>
                 setToggleModalView({
                     open: false,
@@ -94,7 +97,7 @@ export default function ModalView(props) {
                 </Row>
                 <Row>
                     <Col xs={24} sm={24} md={24} lg={24}>
-                        <InternList />
+                        <InternList toggleModalView={toggleModalView} />
                     </Col>
                 </Row>
             </Form>

@@ -19,7 +19,8 @@ class CreateSchedulesTable extends Migration
             $table->integer('profile_id')->nullable();
             $table->string('purpose')->nullable();
             $table->string('document')->nullable();
-            $table->string('date_time')->nullable();
+            $table->date('date')->nullable();
+            $table->time('time')->nullable();
 
             $table->bigInteger('created_by')->nullable();
             $table->bigInteger('updated_by')->nullable();
