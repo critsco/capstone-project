@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\InternClass;
 use App\Models\Profile;
-use DB;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class InternClassController extends Controller
@@ -16,9 +16,7 @@ class InternClassController extends Controller
      */
     public function index(Request $request)
     {
-        $data = InternClass::select([
-            '*'
-        ])->where('instructor_id', $request->instructor_id);
+        $data = InternClass::where('instructor_id', $request->instructor_id)->get();
 
         return response()->json([
             "success" => true,
@@ -127,7 +125,7 @@ class InternClassController extends Controller
         return response()->json($ret, 200);
     }
 
-    public function get_interns(Request $request)
+    public function get_class_interns(Request $request)
     {
         $fullname = "TRIM(CONCAT_WS(' ', profiles.first_name, IF(profiles.middle_name='', NULL, profiles.middle_name), profiles.last_name, IF(profiles.suffix='', NULL, profiles.suffix)))";
 
@@ -136,7 +134,26 @@ class InternClassController extends Controller
             DB::raw("$fullname fullname"),
         ])
             ->with("user")
-            ->where("intern_class_id", $request->id)
+            ->where("intern_class_id", $request->class_id)
+            ->get();
+
+        return response()->json([
+            "success" => true,
+            "data" => $data
+        ], 200);
+    }
+
+    public function get_interns()
+    {
+        $fullname = "TRIM(CONCAT_WS(' ', profiles.first_name, IF(profiles.middle_name='', NULL, profiles.middle_name), profiles.last_name, IF(profiles.suffix='', NULL, profiles.suffix)))";
+
+        $data = Profile::select([
+            "*",
+            DB::raw("$fullname fullname"),
+        ])
+            ->join("intern_classes", "intern_classes.id", "=", "profiles.intern_class_id")
+            ->with("user", "intern_class")
+            ->where("intern_classes.instructor_id", auth()->user()->id)
             ->get();
 
         return response()->json([

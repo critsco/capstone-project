@@ -9,24 +9,21 @@ export default function InternList(props) {
     const { toggleModalView } = props;
 
     const [filter, setFilter] = useState({
-        id: toggleModalView.data?.id,
-        class_code: toggleModalView.data?.class_code,
+        class_id: toggleModalView.data?.id,
     });
 
-    const { data: dataInterns, isLoading: isLoadingInterns } = GET(
-        `api/get_interns?${new URLSearchParams(filter)}`,
+    const { data: dataClassInterns, isLoading: isLoadingClassInterns } = GET(
+        `api/get_class_interns?${new URLSearchParams(filter)}`,
         "interns_list"
     );
-
-    console.log("dataInterns: ", dataInterns);
 
     return (
         <Flex vertical gap={8}>
             <div className="info-header">Interns</div>
             <List
-                dataSource={dataInterns && dataInterns?.data}
+                dataSource={dataClassInterns && dataClassInterns?.data}
                 bordered={false}
-                loading={isLoadingInterns}
+                loading={isLoadingClassInterns}
                 itemLayout="horizontal"
                 renderItem={(item) => (
                     <List.Item

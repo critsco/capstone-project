@@ -65,9 +65,13 @@ Route::middleware('auth:api')->group(function () {
 
     // InternClassController
     Route::apiResource("intern_classes", App\Http\Controllers\InternClassController::class);
-    Route::get("get_classes/{instructor_id}", [App\Http\Controllers\InternClassController::class, "show"]);
+    Route::get("get_class_interns", [App\Http\Controllers\InternClassController::class, "get_class_interns"]);
     Route::get("get_interns", [App\Http\Controllers\InternClassController::class, "get_interns"]);
     // END InternClassController
+
+    // ScheduleController
+    Route::apiResource("schedules", App\Http\Controllers\ScheduleController::class);
+    // END ScheduleController
 
     // SETTINGS
     Route::apiResource('ref_regions', App\Http\Controllers\RefRegionController::class);

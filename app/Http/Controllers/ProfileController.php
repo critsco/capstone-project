@@ -20,7 +20,6 @@ class ProfileController extends Controller
         $fullname = "TRIM(CONCAT_WS(' ', first_name, IF(middle_name='', NULL, middle_name), last_name, IF(suffix='', NULL, suffix)))";
         $email = "(SELECT email FROM users WHERE users.id = profiles.user_id)";
         $created_at_formatted = "DATE_FORMAT(profiles.created_at, '%m-%d-%Y')";
-        $user_role_id = "(SELECT user_role_id FROM users WHERE users.id = profiles.user_id)";
 
         $data = Profile::select([
             "*",

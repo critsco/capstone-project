@@ -61,4 +61,9 @@ class Profile extends Model
     {
         return $this->hasMany(InternClass::class, "instructor_id");
     }
+
+    public function schedules()
+    {
+        return $this->hasMany(Schedule::class, "profile_id");
+    }
 }

@@ -9,12 +9,6 @@ import {
     Row,
     Table,
 } from "antd";
-import {
-    TableGlobalSearch,
-    TablePageSize,
-    TablePagination,
-    TableShowingEntries,
-} from "../../../../../providers/CustomTableFilter";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faBoxArchive,
@@ -22,14 +16,37 @@ import {
     faPencil,
 } from "@fortawesome/pro-regular-svg-icons";
 
+import { GET } from "../../../../../providers/useAxiosQuery";
+import {
+    TableGlobalSearch,
+    TablePageSize,
+    TablePagination,
+    TableShowingEntries,
+} from "../../../../../providers/CustomTableFilter";
+
 export default function VisitationTable() {
+    const [toggleModalForm, setToggleModalForm] = useState({
+        open: false,
+        data: null,
+    });
     const [tableFilter, setTableFilter] = useState({
         page: 1,
         page_size: 10,
         search: "",
-        sort_field: "date_time",
+        sort_field: "date",
         sort_order: "asc",
+        purpose: "Visitation",
     });
+
+    const {
+        data: dataSource,
+        refetch: refetchSource,
+        isLoading: isLoadingDataSource,
+        isFetching: isFetchingDataSource,
+    } = GET(
+        `api/schedules?${new URLSearchParams(tableFilter)}`,
+        "schedules_list"
+    );
 
     const onChangeTable = (pagination, filters, sorter) => {
         setTableFilter((prevState) => ({
@@ -38,7 +55,6 @@ export default function VisitationTable() {
             sort_order: sorter.order ? sorter.order.replace("end", "") : null,
             page: 1,
             page_size: "10",
-            company_name: filters.company_name || "",
         }));
     };
 
@@ -65,7 +81,7 @@ export default function VisitationTable() {
     };
 
     useEffect(() => {
-        // refetchSource();
+        refetchSource();
 
         return () => {};
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -91,10 +107,10 @@ export default function VisitationTable() {
 
                         <Col xs={24} sm={24} md={24}>
                             <Table
-                                // dataSource={dataSource && dataSource.data.data}
-                                // loading={
-                                //     isLoadingDataSource || isFetchingDataSource
-                                // }
+                                dataSource={dataSource && dataSource.data.data}
+                                loading={
+                                    isLoadingDataSource || isFetchingDataSource
+                                }
                                 rowKey={(record) => record.id}
                                 pagination={false}
                                 bordered={true}
@@ -227,7 +243,7 @@ export default function VisitationTable() {
                                 <TablePagination
                                     tableFilter={tableFilter}
                                     setTableFilter={setTableFilter}
-                                    // setPaginationTotal={dataSource?.data.total}
+                                    setPaginationTotal={dataSource?.data.total}
                                     showLessItems={true}
                                     showSizeChanger={false}
                                     tblIdWrapper="tbl_wrapper"

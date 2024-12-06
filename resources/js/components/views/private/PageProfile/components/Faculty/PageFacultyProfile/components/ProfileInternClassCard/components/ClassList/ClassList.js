@@ -18,8 +18,12 @@ export default function ClassList(props) {
 
     const { dataProfile } = props;
 
+    const [filter, setFilter] = useState({
+        instructor_id: dataProfile?.id,
+    });
+
     const { data: dataInternClasses } = GET(
-        `api/get_classes/${dataProfile?.id}`,
+        `api/intern_classes?${new URLSearchParams(filter)}`,
         "intern_classes_list"
     );
 

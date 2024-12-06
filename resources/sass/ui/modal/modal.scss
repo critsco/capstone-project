@@ -686,12 +686,31 @@
                                                                 solid #58585a;
                                                             padding: 5px;
 
-                                                            .ql-picker.ql-size {
-                                                                .ql-picker-item::before,
-                                                                .ql-picker-label::before {
-                                                                    content: attr(
-                                                                        data-value
-                                                                    );
+                                                            .ql-formats {
+                                                                margin-right: 0;
+
+                                                                .ql-picker.ql-size {
+                                                                    width: 60px;
+
+                                                                    .ql-picker-item::before,
+                                                                    .ql-picker-label::before {
+                                                                        content: attr(
+                                                                            data-value
+                                                                        );
+                                                                    }
+                                                                }
+                                                                .ql-picker.ql-font {
+                                                                    width: 120px;
+
+                                                                    .ql-picker-item::before,
+                                                                    .ql-picker-label::before {
+                                                                        content: attr(
+                                                                            data-value
+                                                                        );
+                                                                    }
+                                                                    .ql-picker-label {
+                                                                        overflow: hidden;
+                                                                    }
                                                                 }
                                                             }
                                                         }
@@ -707,6 +726,11 @@
                                                                     &::before {
                                                                         left: 10px;
                                                                     }
+                                                                }
+                                                                p {
+                                                                    font-family: "Times New Roman",
+                                                                        Times,
+                                                                        serif;
                                                                 }
                                                             }
                                                         }

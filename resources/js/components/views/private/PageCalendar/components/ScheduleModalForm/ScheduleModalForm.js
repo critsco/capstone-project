@@ -6,22 +6,78 @@ import {
     Flex,
     Form,
     Modal,
+    notification,
     Popconfirm,
     Radio,
     Row,
     TimePicker,
 } from "antd";
+import dayjs from "dayjs";
 
+import { GET, POST } from "../../../../../providers/useAxiosQuery";
+import notificationErrors from "../../../../../providers/notificationErrors";
 import FloatSelect from "../../../../../providers/FloatSelect";
+import FloatInput from "../../../../../providers/FloatInput";
 
 export default function ScheduleModalForm(props) {
     const { toggleModalForm, setToggleModalForm } = props;
+    const [form] = Form.useForm();
     const [purpose, setPurpose] = useState("Visitation");
-    const { form } = Form.useForm();
+
+    const { data: dataInterns } = GET(`api/get_interns`, "interns_list");
+
+    console.log("dataInterns: ", dataInterns);
 
     const radioChange = (e) => {
         const value = e.target.value;
         setPurpose(value);
+    };
+
+    const { mutate: mutateSchedule, isLoading: isLoadingSchedule } = POST(
+        `api/schedules`,
+        "schedules_list"
+    );
+
+    const onFinish = (values) => {
+        console.log("onFinish: ", values);
+
+        const formattedDate = values.date
+            ? dayjs(values.date).format("YYYY-MM-DD")
+            : null;
+        const formattedTime = values.time
+            ? dayjs(values.time).format("HH:mm")
+            : null;
+
+        let data = {
+            ...values,
+            id: toggleModalForm.data?.id || "",
+            date: formattedDate,
+            time: formattedTime,
+        };
+
+        mutateSchedule(data, {
+            onSuccess: (res) => {
+                if (res.success) {
+                    setToggleModalForm({
+                        open: false,
+                        data: null,
+                    });
+                    form.resetFields();
+                    notification.success({
+                        message: "Schedule",
+                        description: res.message,
+                    });
+                } else {
+                    notification.error({
+                        message: "Schedule",
+                        description: res.message,
+                    });
+                }
+            },
+            onError: (err) => {
+                notificationErrors(err);
+            },
+        });
     };
 
     return (
@@ -44,6 +100,7 @@ export default function ScheduleModalForm(props) {
                         onClick={() =>
                             setToggleModalForm({
                                 open: false,
+                                data: null,
                             })
                         }
                     >
@@ -60,17 +117,29 @@ export default function ScheduleModalForm(props) {
                         okText="Yes"
                         cancelText="No"
                     >
-                        <Button className="submit-btn">Submit</Button>
+                        <Button
+                            className="submit-btn"
+                            loading={isLoadingSchedule}
+                        >
+                            Submit
+                        </Button>
                     </Popconfirm>
                 </Flex>
             }
         >
-            <Form form={form} layout="vertical" autoComplete="off">
+            <Form
+                form={form}
+                layout="vertical"
+                autoComplete="off"
+                onFinish={onFinish}
+                initialValues={{
+                    purpose: "Visitation",
+                }}
+            >
                 <Row gutter={[8, 0]}>
                     <Col xs={24} sm={24} md={24} lg={24}>
                         <Form.Item label="Purpose" name="purpose">
                             <Radio.Group
-                                defaultValue="Visitation"
                                 onChange={radioChange}
                                 buttonStyle="solid"
                             >
@@ -86,10 +155,18 @@ export default function ScheduleModalForm(props) {
                 </Row>
                 <Row gutter={[8, 0]} style={{ marginTop: "15px" }}>
                     <Col xs={24} sm={24} md={24} lg={24}>
-                        <Form.Item name="intern_name">
+                        <Form.Item name="profile_id">
                             <FloatSelect
                                 label="Intern Name"
                                 placeholder="Intern Name"
+                                options={
+                                    dataInterns && dataInterns.data
+                                        ? dataInterns.data.map((item) => ({
+                                              value: item.id,
+                                              label: item.fullname,
+                                          }))
+                                        : []
+                                }
                             />
                         </Form.Item>
                     </Col>

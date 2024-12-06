@@ -904,32 +904,6 @@
   border-bottom: 1px solid #58585a;
   padding: 5px;
 }
-.float-wrapper .quill .ql-toolbar.ql-snow .ql-picker.ql-size .ql-picker-label::before {
-  content: attr(data-value) !important;
-}
-.float-wrapper .quill .ql-toolbar.ql-snow .ql-picker.ql-size .ql-picker-item::before {
-  content: attr(data-value) !important;
-}
-.float-wrapper .quill .ql-toolbar.ql-snow .ql-picker .ql-font .ql-picker-item[data-value="Times New Roman"]::before,
-.float-wrapper .quill .ql-toolbar.ql-snow .ql-picker .ql-font .ql-picker-label[data-value="Times New Roman"]::before {
-  content: "Times New Roman";
-}
-.float-wrapper .quill .ql-toolbar.ql-snow .ql-picker .ql-font .ql-picker-item[data-value=Arial]::before,
-.float-wrapper .quill .ql-toolbar.ql-snow .ql-picker .ql-font .ql-picker-label[data-value=Arial]::before {
-  content: "Arial";
-}
-.float-wrapper .quill .ql-toolbar.ql-snow .ql-picker .ql-font .ql-picker-item[data-value=Georgia]::before,
-.float-wrapper .quill .ql-toolbar.ql-snow .ql-picker .ql-font .ql-picker-label[data-value=Georgia]::before {
-  content: "Georgia";
-}
-.float-wrapper .quill .ql-toolbar.ql-snow .ql-picker .ql-font .ql-picker-item[data-value=Courier]::before,
-.float-wrapper .quill .ql-toolbar.ql-snow .ql-picker .ql-font .ql-picker-label[data-value=Courier]::before {
-  content: "Courier";
-}
-.float-wrapper .quill .ql-toolbar.ql-snow .ql-picker .ql-font .ql-picker-item[data-value=Verdana]::before,
-.float-wrapper .quill .ql-toolbar.ql-snow .ql-picker .ql-font .ql-picker-label[data-value=Verdana]::before {
-  content: "Verdana";
-}
 .float-wrapper .quill .ql-better-table-wrapper {
   overflow-x: auto;
   margin-bottom: 16px;
@@ -1469,9 +1443,25 @@
   border-bottom: 1px solid #58585a;
   padding: 5px;
 }
-.ant-modal-root .ant-modal-wrap.template-form .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-row .ant-col .ant-form-item .ant-form-item-row .ant-form-item-control .ant-form-item-control-input .ant-form-item-control-input-content .quill .ql-toolbar.ql-snow .ql-picker.ql-size .ql-picker-item::before,
-.ant-modal-root .ant-modal-wrap.template-form .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-row .ant-col .ant-form-item .ant-form-item-row .ant-form-item-control .ant-form-item-control-input .ant-form-item-control-input-content .quill .ql-toolbar.ql-snow .ql-picker.ql-size .ql-picker-label::before {
+.ant-modal-root .ant-modal-wrap.template-form .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-row .ant-col .ant-form-item .ant-form-item-row .ant-form-item-control .ant-form-item-control-input .ant-form-item-control-input-content .quill .ql-toolbar.ql-snow .ql-formats {
+  margin-right: 0;
+}
+.ant-modal-root .ant-modal-wrap.template-form .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-row .ant-col .ant-form-item .ant-form-item-row .ant-form-item-control .ant-form-item-control-input .ant-form-item-control-input-content .quill .ql-toolbar.ql-snow .ql-formats .ql-picker.ql-size {
+  width: 60px;
+}
+.ant-modal-root .ant-modal-wrap.template-form .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-row .ant-col .ant-form-item .ant-form-item-row .ant-form-item-control .ant-form-item-control-input .ant-form-item-control-input-content .quill .ql-toolbar.ql-snow .ql-formats .ql-picker.ql-size .ql-picker-item::before,
+.ant-modal-root .ant-modal-wrap.template-form .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-row .ant-col .ant-form-item .ant-form-item-row .ant-form-item-control .ant-form-item-control-input .ant-form-item-control-input-content .quill .ql-toolbar.ql-snow .ql-formats .ql-picker.ql-size .ql-picker-label::before {
   content: attr(data-value);
+}
+.ant-modal-root .ant-modal-wrap.template-form .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-row .ant-col .ant-form-item .ant-form-item-row .ant-form-item-control .ant-form-item-control-input .ant-form-item-control-input-content .quill .ql-toolbar.ql-snow .ql-formats .ql-picker.ql-font {
+  width: 120px;
+}
+.ant-modal-root .ant-modal-wrap.template-form .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-row .ant-col .ant-form-item .ant-form-item-row .ant-form-item-control .ant-form-item-control-input .ant-form-item-control-input-content .quill .ql-toolbar.ql-snow .ql-formats .ql-picker.ql-font .ql-picker-item::before,
+.ant-modal-root .ant-modal-wrap.template-form .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-row .ant-col .ant-form-item .ant-form-item-row .ant-form-item-control .ant-form-item-control-input .ant-form-item-control-input-content .quill .ql-toolbar.ql-snow .ql-formats .ql-picker.ql-font .ql-picker-label::before {
+  content: attr(data-value);
+}
+.ant-modal-root .ant-modal-wrap.template-form .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-row .ant-col .ant-form-item .ant-form-item-row .ant-form-item-control .ant-form-item-control-input .ant-form-item-control-input-content .quill .ql-toolbar.ql-snow .ql-formats .ql-picker.ql-font .ql-picker-label {
+  overflow: hidden;
 }
 .ant-modal-root .ant-modal-wrap.template-form .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-row .ant-col .ant-form-item .ant-form-item-row .ant-form-item-control .ant-form-item-control-input .ant-form-item-control-input-content .quill .ql-container {
   border: 0px;
@@ -1482,6 +1472,9 @@
 }
 .ant-modal-root .ant-modal-wrap.template-form .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-row .ant-col .ant-form-item .ant-form-item-row .ant-form-item-control .ant-form-item-control-input .ant-form-item-control-input-content .quill .ql-container .ql-editor.ql-blank::before {
   left: 10px;
+}
+.ant-modal-root .ant-modal-wrap.template-form .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-row .ant-col .ant-form-item .ant-form-item-row .ant-form-item-control .ant-form-item-control-input .ant-form-item-control-input-content .quill .ql-container .ql-editor p {
+  font-family: "Times New Roman", Times, serif;
 }
 .ant-modal-root .ant-modal-wrap.template-form .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-row .ant-col .ant-form-item .ant-form-item-row .ant-form-item-label {
   font-weight: bold;
