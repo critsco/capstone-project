@@ -49,7 +49,7 @@ class InternClassController extends Controller
             $internClassData
         );
 
-        if ($internClassData) {
+        if ($internClassDetail) {
             $ret = [
                 "success" => true,
                 "message" => "Data ceated successfully"
@@ -149,10 +149,11 @@ class InternClassController extends Controller
 
         $data = Profile::select([
             "*",
+            'profiles.id',
             DB::raw("$fullname fullname"),
         ])
             ->join("intern_classes", "intern_classes.id", "=", "profiles.intern_class_id")
-            ->with("user", "intern_class")
+            ->with("user")
             ->where("intern_classes.instructor_id", auth()->user()->id)
             ->get();
 

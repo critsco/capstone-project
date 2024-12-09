@@ -114,6 +114,130 @@
                                         .ant-table-tbody {
                                             .ant-table-cell {
                                                 font-size: 14px;
+
+                                                .ant-btn {
+                                                    width: 0;
+                                                    border: 0;
+                                                    box-shadow: none;
+                                                    color: black;
+                                                    background: none;
+                                                }
+
+                                                .ant-select.status,
+                                                .ant-select.moa,
+                                                .ant-select.ltp,
+                                                .ant-select.wfp,
+                                                .ant-select.endorsement,
+                                                .ant-select.dtr,
+                                                .ant-select.eval_form,
+                                                .ant-select.term_rep {
+                                                    width: 95px;
+                                                }
+                                                .ant-select.status.applied
+                                                    .ant-select-selector {
+                                                    background: #eef8ae;
+                                                }
+                                                .ant-select.status.accepted
+                                                    .ant-select-selector {
+                                                    background: #93bade;
+                                                }
+                                                .ant-select.status.started
+                                                    .ant-select-selector {
+                                                    background: #99de93;
+                                                }
+                                                .ant-select.status.tograde
+                                                    .ant-select-selector {
+                                                    background: #f6cb23;
+                                                }
+                                                .ant-select.status.completed
+                                                    .ant-select-selector {
+                                                    background: #11734b;
+                                                    color: white;
+                                                }
+
+                                                .ant-select.moa.inprogress {
+                                                    .ant-select-selector {
+                                                        background: #eef8ae;
+                                                    }
+                                                }
+                                                .ant-select.moa.completed {
+                                                    .ant-select-selector {
+                                                        background: #11734b;
+                                                        color: white;
+                                                    }
+                                                }
+
+                                                .ant-select.ltp.inprogress {
+                                                    .ant-select-selector {
+                                                        background: #eef8ae;
+                                                    }
+                                                }
+                                                .ant-select.ltp.completed {
+                                                    .ant-select-selector {
+                                                        background: #11734b;
+                                                        color: white;
+                                                    }
+                                                }
+
+                                                .ant-select.wfp.inprogress {
+                                                    .ant-select-selector {
+                                                        background: #eef8ae;
+                                                    }
+                                                }
+                                                .ant-select.wfp.completed {
+                                                    .ant-select-selector {
+                                                        background: #11734b;
+                                                        color: white;
+                                                    }
+                                                }
+
+                                                .ant-select.endorsement.inprogress {
+                                                    .ant-select-selector {
+                                                        background: #eef8ae;
+                                                    }
+                                                }
+                                                .ant-select.endorsement.completed {
+                                                    .ant-select-selector {
+                                                        background: #11734b;
+                                                        color: white;
+                                                    }
+                                                }
+
+                                                .ant-select.dtr.inprogress {
+                                                    .ant-select-selector {
+                                                        background: #eef8ae;
+                                                    }
+                                                }
+                                                .ant-select.dtr.completed {
+                                                    .ant-select-selector {
+                                                        background: #11734b;
+                                                        color: white;
+                                                    }
+                                                }
+
+                                                .ant-select.eval_form.inprogress {
+                                                    .ant-select-selector {
+                                                        background: #eef8ae;
+                                                    }
+                                                }
+                                                .ant-select.eval_form.completed {
+                                                    .ant-select-selector {
+                                                        background: #11734b;
+                                                        color: white;
+                                                    }
+                                                }
+
+                                                .ant-select.term_rep.inprogress {
+                                                    .ant-select-selector {
+                                                        background: #eef8ae;
+                                                    }
+                                                }
+                                                .ant-select.term_rep.completed {
+                                                    .ant-select-selector {
+                                                        background: #11734b;
+                                                        color: white;
+                                                    }
+                                                }
                                             }
                                         }
                                     }

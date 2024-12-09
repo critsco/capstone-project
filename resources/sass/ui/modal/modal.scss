@@ -926,4 +926,82 @@
             }
         }
     }
+    .ant-modal-wrap.table-notes-modal {
+        .ant-modal {
+            .ant-modal-content {
+                border-radius: 16px;
+                padding-inline: 30px;
+
+                .ant-modal-close {
+                    color: black;
+                    margin-right: 10px;
+                }
+                .ant-modal-header {
+                    background: none;
+                    border-bottom: 1.5px solid #dee1e6;
+
+                    .ant-modal-title {
+                        color: black;
+                        font-weight: bold;
+                        font-size: 24px;
+                        margin-left: -20px;
+                    }
+                }
+                .ant-modal-body {
+                    padding: 0;
+
+                    .ant-form {
+                        .ant-flex {
+                            border: 1px solid #dee1e6;
+                            border-radius: 6px;
+                            padding-right: 8px;
+                            margin-top: 12px;
+
+                            .ant-form-item {
+                                border: 0;
+                                border-radius: 2px;
+                                width: 100%;
+                                margin-bottom: 0;
+                            }
+                            .ant-btn {
+                                width: 0;
+                                border: 0;
+                                box-shadow: none;
+                            }
+                        }
+                    }
+                }
+                .ant-modal-footer {
+                    border-top: 1.5px solid #dee1e6;
+                    padding-inline: 0px;
+                    padding-block: 15px;
+
+                    .ant-btn {
+                        border-radius: 8px !important;
+                        padding-block: 20px;
+                    }
+                    .ant-btn.cancel-btn {
+                        border: 1px solid #9095a1;
+                        background: #9095a1;
+                        color: white;
+                        font-weight: normal;
+                    }
+                    .ant-btn.cancel-btn:hover {
+                        background: white;
+                        color: #9095a1;
+                    }
+                    .ant-btn.submit-btn {
+                        border: 1px solid #2c3d8f;
+                        background: #2c3d8f;
+                        color: white;
+                        font-weight: normal;
+                    }
+                    .ant-btn.submit-btn:hover {
+                        background: white;
+                        color: #2c3d8f;
+                    }
+                }
+            }
+        }
+    }
 }

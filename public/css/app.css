@@ -184,10 +184,30 @@
   padding-block: 30px;
   padding-inline: 10rem;
 }
-#PageCalendar .ant-layout-content .ant-row .ant-col .dashboard-title {
-  font-weight: bolder;
-  font-size: 18px;
-  padding-bottom: 16px;
+#PageCalendar .ant-layout-content .ant-row .ant-col #tbl-wrapper {
+  margin-top: 20px;
+}
+#PageCalendar .ant-layout-content .ant-row .ant-col #tbl-wrapper .ant-col .ant-row .ant-col .ant-table-wrapper .ant-spin-container .ant-table-content .ant-table-tbody .ant-table-row .ant-table-cell .action-buttons {
+  justify-content: center;
+}
+#PageCalendar .ant-layout-content .ant-row .ant-col #tbl-wrapper .ant-col .ant-row .ant-col .ant-table-wrapper .ant-spin-container .ant-table-content .ant-table-tbody .ant-table-row .ant-table-cell .action-buttons .ant-btn {
+  border-radius: 4px;
+  padding-inline: 8px;
+  border: none;
+  background: none;
+  box-shadow: none;
+}
+#PageCalendar .ant-layout-content .ant-row .ant-col #tbl-wrapper .ant-col .ant-row .ant-col .ant-table-wrapper .ant-spin-container .ant-table-content .ant-table-tbody .ant-table-row .ant-table-cell .action-buttons .ant-btn.edit-btn {
+  color: #114eaf;
+}
+#PageCalendar .ant-layout-content .ant-row .ant-col #tbl-wrapper .ant-col .ant-row .ant-col .ant-table-wrapper .ant-spin-container .ant-table-content .ant-table-tbody .ant-table-row .ant-table-cell .action-buttons .ant-btn.edit-btn:hover {
+  color: rgba(17, 78, 175, 0.7333333333);
+}
+#PageCalendar .ant-layout-content .ant-row .ant-col #tbl-wrapper .ant-col .ant-row .ant-col .ant-table-wrapper .ant-spin-container .ant-table-content .ant-table-tbody .ant-table-row .ant-table-cell .action-buttons .ant-btn.archive-btn {
+  color: #d4a003;
+}
+#PageCalendar .ant-layout-content .ant-row .ant-col #tbl-wrapper .ant-col .ant-row .ant-col .ant-table-wrapper .ant-spin-container .ant-table-content .ant-table-tbody .ant-table-row .ant-table-cell .action-buttons .ant-btn.archive-btn:hover {
+  color: rgba(212, 160, 3, 0.7333333333);
 }
 #PageCalendar .ant-layout-content .ant-row .ant-col .ant-flex {
   margin-bottom: 16px;
@@ -208,14 +228,77 @@
   color: #2c3d8f;
   border-radius: 2px;
 }
-#PageCalendar .ant-layout-content .ant-row .ant-col .ant-flex .ant-btn {
+#PageCalendar .ant-layout-content .ant-row .ant-col .ant-flex .ant-btn.add-btn {
   background: #2c3d8f;
   color: white;
   border: 1px solid #2c3d8f;
 }
-#PageCalendar .ant-layout-content .ant-row .ant-col .ant-flex .ant-btn:hover {
+#PageCalendar .ant-layout-content .ant-row .ant-col .ant-flex .ant-btn.add-btn:hover {
   background: white;
   color: #2c3d8f;
+}
+#PageCalendar .ant-layout-content .ant-row .ant-col .ant-flex .ant-btn.archive-btn {
+  background: #9095a1;
+  color: white;
+  border: 1px solid #9095a1;
+}
+#PageCalendar .ant-layout-content .ant-row .ant-col .ant-flex .ant-btn.archive-btn:hover {
+  background: white;
+  color: #9095a1;
+}
+
+#PageCalendarArchive .ant-layout-content {
+  padding-block: 30px;
+  padding-inline: 10rem;
+}
+#PageCalendarArchive .ant-layout-content .ant-row .ant-col .dashboard-title {
+  font-weight: bolder;
+  font-size: 18px;
+  padding-bottom: 16px;
+}
+#PageCalendarArchive .ant-layout-content .ant-row .ant-col #tbl-wrapper {
+  margin-top: 20px;
+}
+#PageCalendarArchive .ant-layout-content .ant-row .ant-col #tbl-wrapper .ant-col .ant-row .ant-col .ant-table-wrapper .ant-spin-container .ant-table-content .ant-table-tbody .ant-table-row .ant-table-cell .action-buttons {
+  justify-content: center;
+}
+#PageCalendarArchive .ant-layout-content .ant-row .ant-col #tbl-wrapper .ant-col .ant-row .ant-col .ant-table-wrapper .ant-spin-container .ant-table-content .ant-table-tbody .ant-table-row .ant-table-cell .action-buttons .ant-btn {
+  border-radius: 4px;
+  padding-inline: 8px;
+  border: none;
+  background: none;
+  box-shadow: none;
+}
+#PageCalendarArchive .ant-layout-content .ant-row .ant-col #tbl-wrapper .ant-col .ant-row .ant-col .ant-table-wrapper .ant-spin-container .ant-table-content .ant-table-tbody .ant-table-row .ant-table-cell .action-buttons .ant-btn.edit-btn {
+  color: #114eaf;
+}
+#PageCalendarArchive .ant-layout-content .ant-row .ant-col #tbl-wrapper .ant-col .ant-row .ant-col .ant-table-wrapper .ant-spin-container .ant-table-content .ant-table-tbody .ant-table-row .ant-table-cell .action-buttons .ant-btn.edit-btn:hover {
+  color: rgba(17, 78, 175, 0.7333333333);
+}
+#PageCalendarArchive .ant-layout-content .ant-row .ant-col #tbl-wrapper .ant-col .ant-row .ant-col .ant-table-wrapper .ant-spin-container .ant-table-content .ant-table-tbody .ant-table-row .ant-table-cell .action-buttons .ant-btn.archive-btn {
+  color: #d4a003;
+}
+#PageCalendarArchive .ant-layout-content .ant-row .ant-col #tbl-wrapper .ant-col .ant-row .ant-col .ant-table-wrapper .ant-spin-container .ant-table-content .ant-table-tbody .ant-table-row .ant-table-cell .action-buttons .ant-btn.archive-btn:hover {
+  color: rgba(212, 160, 3, 0.7333333333);
+}
+#PageCalendarArchive .ant-layout-content .ant-row .ant-col .ant-flex {
+  margin-bottom: 16px;
+}
+#PageCalendarArchive .ant-layout-content .ant-row .ant-col .ant-flex .dashboard-title {
+  font-weight: bolder;
+  font-size: 18px;
+  padding: 0;
+}
+#PageCalendarArchive .ant-layout-content .ant-row .ant-col .ant-flex .ant-segmented .ant-segmented-group {
+  background: #2c3d8f;
+  color: white;
+  border-radius: 4px;
+  padding: 2px;
+}
+#PageCalendarArchive .ant-layout-content .ant-row .ant-col .ant-flex .ant-segmented .ant-segmented-group .ant-segmented-item-selected {
+  background: #ffffff;
+  color: #2c3d8f;
+  border-radius: 2px;
 }
 
 #PageCompanies .ant-layout-content {
@@ -377,6 +460,88 @@
 #PageDashboard .ant-layout-content#faculty-dashboard .ant-row .ant-col #faculty-intern-status-table .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell {
   font-size: 14px;
 }
+#PageDashboard .ant-layout-content#faculty-dashboard .ant-row .ant-col #faculty-intern-status-table .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-btn {
+  width: 0;
+  border: 0;
+  box-shadow: none;
+  color: black;
+  background: none;
+}
+#PageDashboard .ant-layout-content#faculty-dashboard .ant-row .ant-col #faculty-intern-status-table .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.status,
+#PageDashboard .ant-layout-content#faculty-dashboard .ant-row .ant-col #faculty-intern-status-table .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.moa,
+#PageDashboard .ant-layout-content#faculty-dashboard .ant-row .ant-col #faculty-intern-status-table .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.ltp,
+#PageDashboard .ant-layout-content#faculty-dashboard .ant-row .ant-col #faculty-intern-status-table .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.wfp,
+#PageDashboard .ant-layout-content#faculty-dashboard .ant-row .ant-col #faculty-intern-status-table .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.endorsement,
+#PageDashboard .ant-layout-content#faculty-dashboard .ant-row .ant-col #faculty-intern-status-table .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.dtr,
+#PageDashboard .ant-layout-content#faculty-dashboard .ant-row .ant-col #faculty-intern-status-table .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.eval_form,
+#PageDashboard .ant-layout-content#faculty-dashboard .ant-row .ant-col #faculty-intern-status-table .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.term_rep {
+  width: 95px;
+}
+#PageDashboard .ant-layout-content#faculty-dashboard .ant-row .ant-col #faculty-intern-status-table .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.status.applied .ant-select-selector {
+  background: #eef8ae;
+}
+#PageDashboard .ant-layout-content#faculty-dashboard .ant-row .ant-col #faculty-intern-status-table .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.status.accepted .ant-select-selector {
+  background: #93bade;
+}
+#PageDashboard .ant-layout-content#faculty-dashboard .ant-row .ant-col #faculty-intern-status-table .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.status.started .ant-select-selector {
+  background: #99de93;
+}
+#PageDashboard .ant-layout-content#faculty-dashboard .ant-row .ant-col #faculty-intern-status-table .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.status.tograde .ant-select-selector {
+  background: #f6cb23;
+}
+#PageDashboard .ant-layout-content#faculty-dashboard .ant-row .ant-col #faculty-intern-status-table .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.status.completed .ant-select-selector {
+  background: #11734b;
+  color: white;
+}
+#PageDashboard .ant-layout-content#faculty-dashboard .ant-row .ant-col #faculty-intern-status-table .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.moa.inprogress .ant-select-selector {
+  background: #eef8ae;
+}
+#PageDashboard .ant-layout-content#faculty-dashboard .ant-row .ant-col #faculty-intern-status-table .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.moa.completed .ant-select-selector {
+  background: #11734b;
+  color: white;
+}
+#PageDashboard .ant-layout-content#faculty-dashboard .ant-row .ant-col #faculty-intern-status-table .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.ltp.inprogress .ant-select-selector {
+  background: #eef8ae;
+}
+#PageDashboard .ant-layout-content#faculty-dashboard .ant-row .ant-col #faculty-intern-status-table .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.ltp.completed .ant-select-selector {
+  background: #11734b;
+  color: white;
+}
+#PageDashboard .ant-layout-content#faculty-dashboard .ant-row .ant-col #faculty-intern-status-table .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.wfp.inprogress .ant-select-selector {
+  background: #eef8ae;
+}
+#PageDashboard .ant-layout-content#faculty-dashboard .ant-row .ant-col #faculty-intern-status-table .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.wfp.completed .ant-select-selector {
+  background: #11734b;
+  color: white;
+}
+#PageDashboard .ant-layout-content#faculty-dashboard .ant-row .ant-col #faculty-intern-status-table .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.endorsement.inprogress .ant-select-selector {
+  background: #eef8ae;
+}
+#PageDashboard .ant-layout-content#faculty-dashboard .ant-row .ant-col #faculty-intern-status-table .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.endorsement.completed .ant-select-selector {
+  background: #11734b;
+  color: white;
+}
+#PageDashboard .ant-layout-content#faculty-dashboard .ant-row .ant-col #faculty-intern-status-table .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.dtr.inprogress .ant-select-selector {
+  background: #eef8ae;
+}
+#PageDashboard .ant-layout-content#faculty-dashboard .ant-row .ant-col #faculty-intern-status-table .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.dtr.completed .ant-select-selector {
+  background: #11734b;
+  color: white;
+}
+#PageDashboard .ant-layout-content#faculty-dashboard .ant-row .ant-col #faculty-intern-status-table .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.eval_form.inprogress .ant-select-selector {
+  background: #eef8ae;
+}
+#PageDashboard .ant-layout-content#faculty-dashboard .ant-row .ant-col #faculty-intern-status-table .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.eval_form.completed .ant-select-selector {
+  background: #11734b;
+  color: white;
+}
+#PageDashboard .ant-layout-content#faculty-dashboard .ant-row .ant-col #faculty-intern-status-table .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.term_rep.inprogress .ant-select-selector {
+  background: #eef8ae;
+}
+#PageDashboard .ant-layout-content#faculty-dashboard .ant-row .ant-col #faculty-intern-status-table .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.term_rep.completed .ant-select-selector {
+  background: #11734b;
+  color: white;
+}
 
 #PageDocuments .ant-layout-content {
   padding-block: 30px;
@@ -494,6 +659,108 @@
   background: #f1f1f1;
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
+}
+
+#PageInternStatus .ant-layout-content {
+  padding-block: 30px;
+  padding-inline: 4rem;
+}
+#PageInternStatus .ant-layout-content .ant-row .ant-col .dashboard-title {
+  font-weight: bolder;
+  font-size: 18px;
+  padding-bottom: 16px;
+}
+#PageInternStatus .ant-layout-content .ant-row .ant-col #tbl-wrapper {
+  margin-top: 20px;
+}
+#PageInternStatus .ant-layout-content .ant-row .ant-col #tbl-wrapper .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-thead .ant-table-cell {
+  font-size: 14px;
+}
+#PageInternStatus .ant-layout-content .ant-row .ant-col #tbl-wrapper .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-thead .ant-table-cell .ant-table-column-title {
+  font-size: 14px;
+}
+#PageInternStatus .ant-layout-content .ant-row .ant-col #tbl-wrapper .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell {
+  font-size: 14px;
+}
+#PageInternStatus .ant-layout-content .ant-row .ant-col #tbl-wrapper .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-btn {
+  width: 0;
+  border: 0;
+  box-shadow: none;
+}
+#PageInternStatus .ant-layout-content .ant-row .ant-col #tbl-wrapper .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.status,
+#PageInternStatus .ant-layout-content .ant-row .ant-col #tbl-wrapper .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.moa,
+#PageInternStatus .ant-layout-content .ant-row .ant-col #tbl-wrapper .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.ltp,
+#PageInternStatus .ant-layout-content .ant-row .ant-col #tbl-wrapper .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.wfp,
+#PageInternStatus .ant-layout-content .ant-row .ant-col #tbl-wrapper .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.endorsement,
+#PageInternStatus .ant-layout-content .ant-row .ant-col #tbl-wrapper .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.dtr,
+#PageInternStatus .ant-layout-content .ant-row .ant-col #tbl-wrapper .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.eval_form,
+#PageInternStatus .ant-layout-content .ant-row .ant-col #tbl-wrapper .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.term_rep {
+  width: 95px;
+}
+#PageInternStatus .ant-layout-content .ant-row .ant-col #tbl-wrapper .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.status.applied .ant-select-selector {
+  background: #eef8ae;
+}
+#PageInternStatus .ant-layout-content .ant-row .ant-col #tbl-wrapper .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.status.accepted .ant-select-selector {
+  background: #93bade;
+}
+#PageInternStatus .ant-layout-content .ant-row .ant-col #tbl-wrapper .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.status.started .ant-select-selector {
+  background: #99de93;
+}
+#PageInternStatus .ant-layout-content .ant-row .ant-col #tbl-wrapper .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.status.tograde .ant-select-selector {
+  background: #f6cb23;
+}
+#PageInternStatus .ant-layout-content .ant-row .ant-col #tbl-wrapper .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.status.completed .ant-select-selector {
+  background: #11734b;
+  color: white;
+}
+#PageInternStatus .ant-layout-content .ant-row .ant-col #tbl-wrapper .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.moa.inprogress .ant-select-selector {
+  background: #eef8ae;
+}
+#PageInternStatus .ant-layout-content .ant-row .ant-col #tbl-wrapper .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.moa.completed .ant-select-selector {
+  background: #11734b;
+  color: white;
+}
+#PageInternStatus .ant-layout-content .ant-row .ant-col #tbl-wrapper .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.ltp.inprogress .ant-select-selector {
+  background: #eef8ae;
+}
+#PageInternStatus .ant-layout-content .ant-row .ant-col #tbl-wrapper .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.ltp.completed .ant-select-selector {
+  background: #11734b;
+  color: white;
+}
+#PageInternStatus .ant-layout-content .ant-row .ant-col #tbl-wrapper .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.wfp.inprogress .ant-select-selector {
+  background: #eef8ae;
+}
+#PageInternStatus .ant-layout-content .ant-row .ant-col #tbl-wrapper .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.wfp.completed .ant-select-selector {
+  background: #11734b;
+  color: white;
+}
+#PageInternStatus .ant-layout-content .ant-row .ant-col #tbl-wrapper .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.endorsement.inprogress .ant-select-selector {
+  background: #eef8ae;
+}
+#PageInternStatus .ant-layout-content .ant-row .ant-col #tbl-wrapper .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.endorsement.completed .ant-select-selector {
+  background: #11734b;
+  color: white;
+}
+#PageInternStatus .ant-layout-content .ant-row .ant-col #tbl-wrapper .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.dtr.inprogress .ant-select-selector {
+  background: #eef8ae;
+}
+#PageInternStatus .ant-layout-content .ant-row .ant-col #tbl-wrapper .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.dtr.completed .ant-select-selector {
+  background: #11734b;
+  color: white;
+}
+#PageInternStatus .ant-layout-content .ant-row .ant-col #tbl-wrapper .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.eval_form.inprogress .ant-select-selector {
+  background: #eef8ae;
+}
+#PageInternStatus .ant-layout-content .ant-row .ant-col #tbl-wrapper .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.eval_form.completed .ant-select-selector {
+  background: #11734b;
+  color: white;
+}
+#PageInternStatus .ant-layout-content .ant-row .ant-col #tbl-wrapper .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.term_rep.inprogress .ant-select-selector {
+  background: #eef8ae;
+}
+#PageInternStatus .ant-layout-content .ant-row .ant-col #tbl-wrapper .ant-col .ant-table-wrapper .ant-table .ant-table-container .ant-table-content .ant-table-tbody .ant-table-cell .ant-select.term_rep.completed .ant-select-selector {
+  background: #11734b;
+  color: white;
 }
 
 #PageProfile .ant-layout-content {
@@ -1620,6 +1887,73 @@
   background: white;
   color: #2c3d8f;
 }
+.ant-modal-root .ant-modal-wrap.table-notes-modal .ant-modal .ant-modal-content {
+  border-radius: 16px;
+  padding-inline: 30px;
+}
+.ant-modal-root .ant-modal-wrap.table-notes-modal .ant-modal .ant-modal-content .ant-modal-close {
+  color: black;
+  margin-right: 10px;
+}
+.ant-modal-root .ant-modal-wrap.table-notes-modal .ant-modal .ant-modal-content .ant-modal-header {
+  background: none;
+  border-bottom: 1.5px solid #dee1e6;
+}
+.ant-modal-root .ant-modal-wrap.table-notes-modal .ant-modal .ant-modal-content .ant-modal-header .ant-modal-title {
+  color: black;
+  font-weight: bold;
+  font-size: 24px;
+  margin-left: -20px;
+}
+.ant-modal-root .ant-modal-wrap.table-notes-modal .ant-modal .ant-modal-content .ant-modal-body {
+  padding: 0;
+}
+.ant-modal-root .ant-modal-wrap.table-notes-modal .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-flex {
+  border: 1px solid #dee1e6;
+  border-radius: 6px;
+  padding-right: 8px;
+  margin-top: 12px;
+}
+.ant-modal-root .ant-modal-wrap.table-notes-modal .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-flex .ant-form-item {
+  border: 0;
+  border-radius: 2px;
+  width: 100%;
+  margin-bottom: 0;
+}
+.ant-modal-root .ant-modal-wrap.table-notes-modal .ant-modal .ant-modal-content .ant-modal-body .ant-form .ant-flex .ant-btn {
+  width: 0;
+  border: 0;
+  box-shadow: none;
+}
+.ant-modal-root .ant-modal-wrap.table-notes-modal .ant-modal .ant-modal-content .ant-modal-footer {
+  border-top: 1.5px solid #dee1e6;
+  padding-inline: 0px;
+  padding-block: 15px;
+}
+.ant-modal-root .ant-modal-wrap.table-notes-modal .ant-modal .ant-modal-content .ant-modal-footer .ant-btn {
+  border-radius: 8px !important;
+  padding-block: 20px;
+}
+.ant-modal-root .ant-modal-wrap.table-notes-modal .ant-modal .ant-modal-content .ant-modal-footer .ant-btn.cancel-btn {
+  border: 1px solid #9095a1;
+  background: #9095a1;
+  color: white;
+  font-weight: normal;
+}
+.ant-modal-root .ant-modal-wrap.table-notes-modal .ant-modal .ant-modal-content .ant-modal-footer .ant-btn.cancel-btn:hover {
+  background: white;
+  color: #9095a1;
+}
+.ant-modal-root .ant-modal-wrap.table-notes-modal .ant-modal .ant-modal-content .ant-modal-footer .ant-btn.submit-btn {
+  border: 1px solid #2c3d8f;
+  background: #2c3d8f;
+  color: white;
+  font-weight: normal;
+}
+.ant-modal-root .ant-modal-wrap.table-notes-modal .ant-modal .ant-modal-content .ant-modal-footer .ant-btn.submit-btn:hover {
+  background: white;
+  color: #2c3d8f;
+}
 
 .navbar {
   background: #f3f4f6;
@@ -1731,6 +2065,14 @@
 .ant-popover.edit-confirm-btn .ant-popover-content .ant-popover-inner .ant-popover-inner-content .ant-popconfirm-inner-content .ant-popconfirm-buttons .ant-btn-primary:hover {
   background: white;
   color: #2c3d8f;
+}
+
+.ant-popover.table-notes .ant-popover-content .ant-popover-inner .ant-popover-inner-content .ant-form .ant-flex .ant-form-item {
+  margin: 0;
+}
+.ant-popover.table-notes .ant-popover-content .ant-popover-inner .ant-popover-inner-content .ant-form .ant-flex .ant-form-item .ant-row .ant-col .ant-form-item-control-input .ant-form-item-control-input-content {
+  display: flex;
+  align-items: center;
 }
 
 .private-layout {

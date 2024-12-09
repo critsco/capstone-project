@@ -16,7 +16,8 @@ import {
     faPencil,
 } from "@fortawesome/pro-regular-svg-icons";
 
-import { GET } from "../../../../../providers/useAxiosQuery";
+import { DELETE, GET } from "../../../../../providers/useAxiosQuery";
+import notificationErrors from "../../../../../providers/notificationErrors";
 import {
     TableGlobalSearch,
     TablePageSize,
@@ -24,11 +25,8 @@ import {
     TableShowingEntries,
 } from "../../../../../providers/CustomTableFilter";
 
-export default function VisitationTable() {
-    const [toggleModalForm, setToggleModalForm] = useState({
-        open: false,
-        data: null,
-    });
+export default function VisitationTable(props) {
+    const { setToggleModalForm } = props;
     const [tableFilter, setTableFilter] = useState({
         page: 1,
         page_size: 10,
@@ -48,6 +46,9 @@ export default function VisitationTable() {
         "schedules_list"
     );
 
+    const { mutate: mutateDeleteSchedule, isLoading: isLoadingDeleteSchedule } =
+        DELETE(`api/schedules`, "schedules_list");
+
     const onChangeTable = (pagination, filters, sorter) => {
         setTableFilter((prevState) => ({
             ...prevState,
@@ -59,25 +60,27 @@ export default function VisitationTable() {
     };
 
     const handleArchive = (record) => {
-        // mutateDeleteScholarshipDetail(record, {
-        // 	onSuccess: (res) => {
-        // 		// console.log("res", res);
-        // 		if (res.success) {
-        // 			notification.success({
-        // 				message: "Scholarship",
-        // 				description: res.message,
-        // 			});
-        // 		} else {
-        // 			notification.error({
-        // 				message: "Scholarship",
-        // 				description: res.message,
-        // 			});
-        // 		}
-        // 	},
-        // 	onError: (err) => {
-        // 		notificationErrors(err);
-        // 	},
-        // });
+        console.log("record: ", record);
+
+        mutateDeleteSchedule(record, {
+            onSuccess: (res) => {
+                // console.log("res", res);
+                if (res.success) {
+                    notification.success({
+                        message: "Scholarship",
+                        description: res.message,
+                    });
+                } else {
+                    notification.error({
+                        message: "Scholarship",
+                        description: res.message,
+                    });
+                }
+            },
+            onError: (err) => {
+                notificationErrors(err);
+            },
+        });
     };
 
     useEffect(() => {
@@ -171,12 +174,9 @@ export default function VisitationTable() {
                                                 >
                                                     <Button
                                                         type="link"
-                                                        className="delete-btn"
-                                                        onClick={() =>
-                                                            setToggleModalForm({
-                                                                open: true,
-                                                                data: record,
-                                                            })
+                                                        className="archive-btn"
+                                                        loading={
+                                                            isLoadingDeleteSchedule
                                                         }
                                                     >
                                                         <FontAwesomeIcon
@@ -201,8 +201,8 @@ export default function VisitationTable() {
                                 />
                                 <Table.Column
                                     title="Student ID"
-                                    key="student_id"
-                                    dataIndex="student_id"
+                                    key="school_id"
+                                    dataIndex="school_id"
                                     sorter={true}
                                     align="center"
                                 />
@@ -222,15 +222,22 @@ export default function VisitationTable() {
                                 />
                                 <Table.Column
                                     title="Company Head"
-                                    key="company_head"
-                                    dataIndex="company_head"
+                                    key="office_head"
+                                    dataIndex="office_head"
                                     sorter={true}
                                     align="center"
                                 />
                                 <Table.Column
-                                    title="Date and Time"
-                                    key="date_time"
-                                    dataIndex="date_time"
+                                    title="Date"
+                                    key="date"
+                                    dataIndex="date"
+                                    sorter={true}
+                                    align="center"
+                                />
+                                <Table.Column
+                                    title="Time"
+                                    key="time"
+                                    dataIndex="time"
                                     sorter={true}
                                     align="center"
                                 />

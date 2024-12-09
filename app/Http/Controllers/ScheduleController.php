@@ -16,14 +16,23 @@ class ScheduleController extends Controller
      */
     public function index(Request $request)
     {
-        $intern_name = "TRIM(CONCAT_WS(' ', profiles.first_name, IF(profiles.middle_name='', NULL, profiles.middle_name), profiles.last_name, IF(profiles.suffix='', NULL, profiles.suffix)))";
+        $intern_name = "TRIM(CONCAT_WS(' ', intern.first_name, IF(intern.middle_name='', NULL, intern.middle_name), intern.last_name, IF(intern.suffix='', NULL, intern.suffix)))";
+        $instructor_name = "TRIM(CONCAT_WS(' ', instructor.first_name, IF(instructor.middle_name='', NULL, instructor.middle_name), instructor.last_name, IF(instructor.suffix='', NULL, instructor.suffix)))";
 
         $data = Schedule::select([
-            "*",
-            // DB::raw("$intern_name intern_name"),
+            "schedules.*",
+            "intern.school_id",
+            "companies.company_name",
+            "companies.office_head",
+            DB::raw("$intern_name intern_name"),
+            DB::raw("$instructor_name instructor_name"),
         ])
-            ->join('profiles', 'profiles.id', '=', 'schedules.profile_id')
-            ->with("profile");
+            ->join('profiles as intern', 'intern.id', '=', 'schedules.profile_id')
+            ->join('intern_classes', "intern_classes.id", "=", "intern.intern_class_id")
+            ->join('profiles as instructor', "intern_classes.instructor_id", "=", "instructor.id")
+            ->join('companies', "companies.id", "=", "intern.company_id")
+            ->where("intern_classes.instructor_id", auth()->user()->id);
+            // ->with("profile");
 
         $data->where(function ($query) use ($request) {
             if ($request->search) {
@@ -31,10 +40,12 @@ class ScheduleController extends Controller
             }
         });
 
-        if ($request->purpose == "Visitation") {
-            $data->where("purpose", "Visitation");
-        } else {
-            $data->where("purpose", "Others");
+        if ($request->purpose) {
+            $data->where("purpose", $request->purpose);
+        }
+
+        if ($request->isTrash) {
+            $data->onlyTrashed();
         }
 
         if ($request->sort_field && $request->sort_order) {
@@ -72,19 +83,28 @@ class ScheduleController extends Controller
     {
         $ret = [
             "success" => false,
-            "message" => "Schedule was not created"
+            "message" => "Schedule was not " . ($request->id ? "updated" : "created") . " .",
         ];
 
         if (!$request->document) {
             $data = [
                 "purpose" => $request->purpose,
                 "profile_id" => $request->profile_id,
+                "note" => "For visitation",
                 "date" => $request->date,
-                "time" => date('H:i A', strtotime($request->time)),
+                "time" => $request->time,
             ];
 
+            $data += $request->id ? ["updated_by" => auth()->user()->id] : ["created_by" => auth()->user()->id];
+
+            $findArchivedData = Schedule::withTrashed()->find($request->id);
+
+            if ($findArchivedData) {
+                Schedule::where('id', $request->id)->restore();
+            }
+
             $schedule = Schedule::updateOrCreate(
-                ["id" => $request->id],
+                ["id" => $request->id ?? null],
                 $data,
             );
 
@@ -101,11 +121,19 @@ class ScheduleController extends Controller
                 "document" => $request->document,
                 "note" => $request->note,
                 "date" => $request->date,
-                "time" => date('H:i A', strtotime($request->time)),
+                "time" => $request->time,
             ];
 
+            $data += $request->id ? ["updated_by" => auth()->user()->id] : ["created_by" => auth()->user()->id];
+
+            $findArchivedData = Schedule::withTrashed()->find($request->id);
+            
+            if ($findArchivedData) {
+                Schedule::where('id', $request->id)->restore();
+            }
+
             $schedule = Schedule::updateOrCreate(
-                ["id" => $request->id],
+                ["id" => $request->id ?? null],
                 $data,
             );
 
@@ -116,6 +144,8 @@ class ScheduleController extends Controller
                 ];
             }
         }
+
+        
 
         return response()->json($ret, 200);
     }
@@ -151,6 +181,22 @@ class ScheduleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $ret = [
+            "success" => false,
+            "message" => "Data not archived"
+        ];
+
+        $findData = Schedule::find($id);
+
+        if ($findData) {
+            if ($findData->delete()) {
+                $ret = [
+                    "success" => true,
+                    "message" => "Schedule archived successfully"
+                ];
+            }
+        }
+
+        return response()->json($ret, 200);
     }
 }

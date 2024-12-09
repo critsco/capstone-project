@@ -1,0 +1,63 @@
+.ant-popover.edit-confirm-btn {
+    .ant-popover-content {
+        .ant-popover-inner {
+            .ant-popover-inner-content {
+                .ant-popconfirm-inner-content {
+                    .ant-popconfirm-buttons {
+                        .ant-btn {
+                            border-radius: 8px;
+                            padding-block: 16px;
+                            padding-inline: 8px;
+                        }
+                        .ant-btn-default {
+                            border: 1px solid #9095a1;
+                            background: #9095a1;
+                            color: white;
+                            font-weight: normal;
+                        }
+                        .ant-btn-default:hover {
+                            background: white;
+                            color: #9095a1;
+                        }
+                        .ant-btn-primary {
+                            border: 1px solid #2c3d8f;
+                            background: #2c3d8f;
+                            color: white;
+                            font-weight: normal;
+                        }
+                        .ant-btn-primary:hover {
+                            background: white;
+                            color: #2c3d8f;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.ant-popover.table-notes {
+    .ant-popover-content {
+        .ant-popover-inner {
+            .ant-popover-inner-content {
+                .ant-form {
+                    .ant-flex {
+                        .ant-form-item {
+                            margin: 0;
+
+                            .ant-row {
+                                .ant-col {
+                                    .ant-form-item-control-input {
+                                        .ant-form-item-control-input-content {
+                                            display: flex;
+                                            align-items: center;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

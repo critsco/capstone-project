@@ -20,6 +20,9 @@ class DatabaseSeeder extends Seeder
             RefDepartmentSeeder::class,
             RefRegionSeeder::class,
             RefYearLevelSeeder::class,
+            InternClassSeeder::class,
+            OJTDetailSeeder::class,
+            DocumentTemplateSeeder::class,
         ]);
     }
 }

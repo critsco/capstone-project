@@ -10,20 +10,17 @@ class OJTDetail extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $guarded = [];
+    protected $table = 'ojt_details';
 
-    public function company()
-    {
-        return $this->belongsTo(Company::class, "company_id");
-    }
+    protected $guarded = [];
 
     public function profile()
     {
         return $this->belongsTo(Profile::class, "profile_id");
     }
 
-    public function document_status()
-    {
-        return $this->belongsTo(DocumentStatus::class, "document_status_id");
-    }
+    // public function document_status()
+    // {
+    //     return $this->belongsTo(DocumentStatus::class, "document_status_id");
+    // }
 }

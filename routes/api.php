@@ -73,6 +73,12 @@ Route::middleware('auth:api')->group(function () {
     Route::apiResource("schedules", App\Http\Controllers\ScheduleController::class);
     // END ScheduleController
 
+    // OJTDetailController
+    Route::apiResource("ojt_details", App\Http\Controllers\OJTDetailController::class);
+    Route::get("ojt_details/{id}", [App\Http\Controllers\OJTDetailController::class, "show"]);
+    // Route::put("ojt_details/{id}", [App\Http\Controllers\OJTDetailController::class, "update"]);
+    // END OJTDetailController
+
     // SETTINGS
     Route::apiResource('ref_regions', App\Http\Controllers\RefRegionController::class);
     Route::apiResource('ref_provinces', App\Http\Controllers\RefProvinceController::class);

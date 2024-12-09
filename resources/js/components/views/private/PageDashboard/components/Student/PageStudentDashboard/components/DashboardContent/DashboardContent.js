@@ -7,7 +7,8 @@ import ReportList from "./components/ReportList/ReportList";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/pro-regular-svg-icons";
 
-export default function DashboardContent() {
+export default function DashboardContent(props) {
+    const { dataProfile } = props;
     const [sort, setSort] = useState([]);
 
     return (
@@ -15,7 +16,7 @@ export default function DashboardContent() {
             <Row gutter={[20, 0]}>
                 <Col xs={24} sm={24} md={17} lg={17}>
                     <div className="dashboard-title">My Documents Status</div>
-                    <StatusTable />
+                    <StatusTable dataProfile={dataProfile} />
                 </Col>
                 <Col
                     xs={24}

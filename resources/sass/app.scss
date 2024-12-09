@@ -9,10 +9,12 @@
 
 // Private Pages
 @import "./pages/private/page_calendar/page_calendar.scss";
+@import "./pages/private/page_calendar_archive/page_calendar_archive.scss";
 @import "./pages/private/page_companies/page_companies.scss";
 @import "./pages/private/page_company_archive/page_company_archive.scss";
 @import "./pages/private/page_dashboard/page_dashboard.scss";
 @import "./pages/private/page_documents/page_documents.scss";
+@import "./pages/private/page_intern_status/page_intern_status.scss";
 @import "./pages/private/page_profile/page_profile.scss";
 
 // UI
@@ -24,7 +26,7 @@
 @import "./ui/navbar/navbar.scss";
 @import "./ui/page403/page403.scss";
 @import "./ui/page404/page404.scss";
-@import "./ui/popconfirm/popconfirm.scss";
+@import "./ui/popover/popover.scss";
 @import "./ui/private-layout/private-layout.scss";
 @import "./ui/public-layout/public-layout.scss";
 // @import "./ui/slateQuill/slateQuill.scss";

@@ -21,7 +21,7 @@ class CreateSchedulesTable extends Migration
             $table->string('document')->nullable();
             $table->string('note')->nullable();
             $table->date('date')->nullable();
-            $table->time('time')->nullable();
+            $table->string('time')->nullable();
 
             $table->bigInteger('created_by')->nullable();
             $table->bigInteger('updated_by')->nullable();

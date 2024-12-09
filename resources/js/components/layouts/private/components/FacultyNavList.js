@@ -57,7 +57,10 @@ export default function FacultyNavList() {
                     <Button
                         type="text"
                         className={`${
-                            location.pathname === "/calendar" ? "selected" : ""
+                            location.pathname === "/calendar" ||
+                            location.pathname === "/calendar/archive"
+                                ? "selected"
+                                : ""
                         }`}
                     >
                         Calendar

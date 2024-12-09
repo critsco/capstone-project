@@ -9,12 +9,6 @@ import {
     Row,
     Table,
 } from "antd";
-import {
-    TableGlobalSearch,
-    TablePageSize,
-    TablePagination,
-    TableShowingEntries,
-} from "../../../../../providers/CustomTableFilter";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faBoxArchive,
@@ -22,14 +16,38 @@ import {
     faPencil,
 } from "@fortawesome/pro-regular-svg-icons";
 
-export default function OthersTable() {
+import { DELETE, GET } from "../../../../../providers/useAxiosQuery";
+import notificationErrors from "../../../../../providers/notificationErrors";
+import {
+    TableGlobalSearch,
+    TablePageSize,
+    TablePagination,
+    TableShowingEntries,
+} from "../../../../../providers/CustomTableFilter";
+
+export default function OthersTable(props) {
+    const { setToggleModalForm } = props;
     const [tableFilter, setTableFilter] = useState({
         page: 1,
         page_size: 10,
         search: "",
-        sort_field: "date_time",
+        sort_field: "date",
         sort_order: "asc",
+        purpose: "Others",
     });
+
+    const {
+        data: dataSource,
+        refetch: refetchSource,
+        isLoading: isLoadingDataSource,
+        isFetching: isFetchingDataSource,
+    } = GET(
+        `api/schedules?${new URLSearchParams(tableFilter)}`,
+        "schedules_list"
+    );
+
+    const { mutate: mutateDeleteSchedule, isLoading: isLoadingDeleteSchedule } =
+        DELETE(`api/schedules`, "schedules_list");
 
     const onChangeTable = (pagination, filters, sorter) => {
         setTableFilter((prevState) => ({
@@ -43,29 +61,29 @@ export default function OthersTable() {
     };
 
     const handleArchive = (record) => {
-        // mutateDeleteScholarshipDetail(record, {
-        // 	onSuccess: (res) => {
-        // 		// console.log("res", res);
-        // 		if (res.success) {
-        // 			notification.success({
-        // 				message: "Scholarship",
-        // 				description: res.message,
-        // 			});
-        // 		} else {
-        // 			notification.error({
-        // 				message: "Scholarship",
-        // 				description: res.message,
-        // 			});
-        // 		}
-        // 	},
-        // 	onError: (err) => {
-        // 		notificationErrors(err);
-        // 	},
-        // });
+        mutateDeleteSchedule(record, {
+            onSuccess: (res) => {
+                // console.log("res", res);
+                if (res.success) {
+                    notification.success({
+                        message: "Scholarship",
+                        description: res.message,
+                    });
+                } else {
+                    notification.error({
+                        message: "Scholarship",
+                        description: res.message,
+                    });
+                }
+            },
+            onError: (err) => {
+                notificationErrors(err);
+            },
+        });
     };
 
     useEffect(() => {
-        // refetchSource();
+        refetchSource();
 
         return () => {};
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -91,10 +109,10 @@ export default function OthersTable() {
 
                         <Col xs={24} sm={24} md={24}>
                             <Table
-                                // dataSource={dataSource && dataSource.data.data}
-                                // loading={
-                                //     isLoadingDataSource || isFetchingDataSource
-                                // }
+                                dataSource={dataSource && dataSource.data.data}
+                                loading={
+                                    isLoadingDataSource || isFetchingDataSource
+                                }
                                 rowKey={(record) => record.id}
                                 pagination={false}
                                 bordered={true}
@@ -155,12 +173,9 @@ export default function OthersTable() {
                                                 >
                                                     <Button
                                                         type="link"
-                                                        className="delete-btn"
-                                                        onClick={() =>
-                                                            setToggleModalForm({
-                                                                open: true,
-                                                                data: record,
-                                                            })
+                                                        className="archive-btn"
+                                                        loading={
+                                                            isLoadingDeleteSchedule
                                                         }
                                                     >
                                                         <FontAwesomeIcon
@@ -185,15 +200,15 @@ export default function OthersTable() {
                                 />
                                 <Table.Column
                                     title="Student ID"
-                                    key="student_id"
-                                    dataIndex="student_id"
+                                    key="school_id"
+                                    dataIndex="school_id"
                                     sorter={true}
                                     align="center"
                                 />
                                 <Table.Column
-                                    title="Documents"
-                                    key="documents"
-                                    dataIndex="documents"
+                                    title="Document"
+                                    key="document"
+                                    dataIndex="document"
                                     sorter={true}
                                     align="center"
                                 />
@@ -205,9 +220,16 @@ export default function OthersTable() {
                                     align="center"
                                 />
                                 <Table.Column
-                                    title="Date and Time"
-                                    key="date_time"
-                                    dataIndex="date_time"
+                                    title="Date"
+                                    key="date"
+                                    dataIndex="date"
+                                    sorter={true}
+                                    align="center"
+                                />
+                                <Table.Column
+                                    title="Time"
+                                    key="time"
+                                    dataIndex="time"
                                     sorter={true}
                                     align="center"
                                 />
@@ -220,7 +242,7 @@ export default function OthersTable() {
                                 <TablePagination
                                     tableFilter={tableFilter}
                                     setTableFilter={setTableFilter}
-                                    // setPaginationTotal={dataSource?.data.total}
+                                    setPaginationTotal={dataSource?.data.total}
                                     showLessItems={true}
                                     showSizeChanger={false}
                                     tblIdWrapper="tbl_wrapper"

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
     Button,
     Col,
@@ -26,8 +26,6 @@ export default function ScheduleModalForm(props) {
 
     const { data: dataInterns } = GET(`api/get_interns`, "interns_list");
 
-    console.log("dataInterns: ", dataInterns);
-
     const radioChange = (e) => {
         const value = e.target.value;
         setPurpose(value);
@@ -38,6 +36,23 @@ export default function ScheduleModalForm(props) {
         "schedules_list"
     );
 
+    useEffect(() => {
+        if (toggleModalForm.open) {
+            form.setFieldsValue({
+                ...toggleModalForm.data,
+                date: toggleModalForm.data?.date
+                    ? dayjs(toggleModalForm.data.date)
+                    : null,
+                time: toggleModalForm.data?.time
+                    ? dayjs(toggleModalForm.data.time, "h:mm A")
+                    : null,
+            });
+            setPurpose(toggleModalForm.data?.purpose);
+        }
+
+        return () => {};
+    }, [toggleModalForm.open]);
+
     const onFinish = (values) => {
         console.log("onFinish: ", values);
 
@@ -45,7 +60,7 @@ export default function ScheduleModalForm(props) {
             ? dayjs(values.date).format("YYYY-MM-DD")
             : null;
         const formattedTime = values.time
-            ? dayjs(values.time).format("HH:mm")
+            ? dayjs(values.time).format("h:mm A")
             : null;
 
         let data = {
@@ -82,7 +97,7 @@ export default function ScheduleModalForm(props) {
 
     return (
         <Modal
-            title="Set Schedule"
+            title={toggleModalForm.data?.id ? "Edit Schedule" : "Set Schedule"}
             wrapClassName="schedule-modal"
             open={toggleModalForm.open}
             width={350}
@@ -196,7 +211,7 @@ export default function ScheduleModalForm(props) {
                     </Col>
                     <Col xs={12} sm={12} md={12} lg={12}>
                         <Form.Item label="Set Time" name="time">
-                            <TimePicker format="HH:mm" />
+                            <TimePicker use12Hours format="h:mm A" />
                         </Form.Item>
                     </Col>
                 </Row>

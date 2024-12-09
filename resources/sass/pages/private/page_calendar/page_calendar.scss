@@ -5,10 +5,50 @@
 
         .ant-row {
             .ant-col {
-                .dashboard-title {
-                    font-weight: bolder;
-                    font-size: 18px;
-                    padding-bottom: 16px;
+                #tbl-wrapper {
+                    margin-top: 20px;
+
+                    .ant-col {
+                        .ant-row {
+                            .ant-col {
+                                .ant-table-wrapper {
+                                    .ant-spin-container {
+                                        .ant-table-content {
+                                            .ant-table-tbody {
+                                                .ant-table-row {
+                                                    .ant-table-cell {
+                                                        .action-buttons {
+                                                            justify-content: center;
+
+                                                            .ant-btn {
+                                                                border-radius: 4px;
+                                                                padding-inline: 8px;
+                                                                border: none;
+                                                                background: none;
+                                                                box-shadow: none;
+                                                            }
+                                                            .ant-btn.edit-btn {
+                                                                color: #114eaf;
+                                                            }
+                                                            .ant-btn.edit-btn:hover {
+                                                                color: #114eafbb;
+                                                            }
+                                                            .ant-btn.archive-btn {
+                                                                color: #d4a003;
+                                                            }
+                                                            .ant-btn.archive-btn:hover {
+                                                                color: #d4a003bb;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
                 .ant-flex {
                     margin-bottom: 16px;
@@ -32,14 +72,23 @@
                             }
                         }
                     }
-                    .ant-btn {
+                    .ant-btn.add-btn {
                         background: #2c3d8f;
                         color: white;
                         border: 1px solid #2c3d8f;
                     }
-                    .ant-btn:hover {
+                    .ant-btn.add-btn:hover {
                         background: white;
                         color: #2c3d8f;
+                    }
+                    .ant-btn.archive-btn {
+                        background: #9095a1;
+                        color: white;
+                        border: 1px solid #9095a1;
+                    }
+                    .ant-btn.archive-btn:hover {
+                        background: white;
+                        color: #9095a1;
                     }
                 }
             }

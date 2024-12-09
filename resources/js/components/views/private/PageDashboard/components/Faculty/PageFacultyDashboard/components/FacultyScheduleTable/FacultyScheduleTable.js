@@ -1,83 +1,62 @@
-import React from "react";
-
+import React, { useState } from "react";
 import { Col, Row, Table } from "antd";
 
-export default function FacultyScheduleTable() {
-    const data = [
-        {
-            key: "1",
-            name: "Oliver Wendell Ceniza",
-            date: "April 1, 2024",
-            time: "1:00 PM",
-            reason: "Visitation",
-        },
-        {
-            key: "2",
-            name: "Jona Mae Gitalada",
-            date: "April 1, 2024",
-            time: "2:00 PM",
-            reason: "Visitation",
-        },
-        {
-            key: "3",
-            name: "Jezreel Pulido",
-            date: "April 1, 2024",
-            time: "3:00 PM",
-            reason: "Visitation",
-        },
-        {
-            key: "4",
-            name: "Jasmine Acido",
-            date: "April 1, 2024",
-            time: "4:00 PM",
-            reason: "Signature",
-        },
-        {
-            key: "5",
-            name: "Christian John Ibe",
-            date: "April 2, 2024",
-            time: "1:00 PM",
-            reason: "Signature",
-        },
-    ];
+import { GET } from "../../../../../../../../providers/useAxiosQuery";
 
-    const columns = [
-        {
-            title: "Name",
-            dataIndex: "name",
-            key: "name",
-            align: "center",
-        },
-        {
-            title: "Date",
-            dataIndex: "date",
-            key: "date",
-            align: "center",
-        },
-        {
-            title: "Time",
-            dataIndex: "time",
-            key: "time",
-            align: "center",
-        },
-        {
-            title: "Reason",
-            dataIndex: "reason",
-            key: "reason",
-            align: "center",
-        },
-    ];
+export default function FacultyScheduleTable() {
+    const [tableFilter, setTableFilter] = useState({
+        page: 1,
+        page_size: 4,
+        search: "",
+        sort_field: "date",
+        sort_order: "asc",
+    });
+
+    const { data: dataSource, isLoading: isLoadingDataSource } = GET(
+        `api/schedules?${new URLSearchParams(tableFilter)}`,
+        "schedules_list"
+    );
+
+    console.log("dataSource: ", dataSource?.data?.data);
 
     return (
         <>
             <Row id="tbl-wrapper">
                 <Col xs={24} sm={24} md={24} lg={24}>
                     <Table
-                        dataSource={data}
-                        columns={columns}
+                        dataSource={dataSource && dataSource.data.data}
+                        loading={isLoadingDataSource}
+                        rowKey={(record) => record.id}
                         pagination={false}
                         bordered={true}
-                    />
+                    >
+                        <Table.Column
+                            title="Name"
+                            key="intern_name"
+                            dataIndex="intern_name"
+                            width={225}
+                            align="center"
+                        />
+                        <Table.Column
+                            title="Date"
+                            key="date"
+                            dataIndex="date"
+                            align="center"
+                        />
+                        <Table.Column
+                            title="Time"
+                            key="time"
+                            dataIndex="time"
+                            align="center"
+                        />
+                        <Table.Column
+                            title="Reason"
+                            key="note"
+                            dataIndex="note"
+                            width={120}
+                            align="center"
+                        />
+                    </Table>
                 </Col>
             </Row>
         </>

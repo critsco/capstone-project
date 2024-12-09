@@ -1,11 +1,11 @@
 import React, { useEffect, useMemo, useRef } from "react";
-// import ReactQuill, { Quill } from "react-quill";
-import ReactQuill, { Quill } from "react-quill-with-table";
-import QuillBetterTable from "quill-better-table";
-import "react-quill-with-table/dist/quill.snow.css";
-import "quill-better-table/dist/quill-better-table.css";
-// import ImageResize from "quill-image-resize-module-react";
-// import "react-quill/dist/quill.snow.css";
+import ReactQuill, { Quill } from "react-quill";
+// import ReactQuill, { Quill } from "react-quill-with-table";
+// import QuillBetterTable from "quill-better-table";
+// import "react-quill-with-table/dist/quill.snow.css";
+// import "quill-better-table/dist/quill-better-table.css";
+import ImageResize from "quill-image-resize-module-react";
+import "react-quill/dist/quill.snow.css";
 import {
     Button,
     Col,
@@ -26,32 +26,32 @@ import notificationErrors from "../../../../../../../../../providers/notificatio
 import FloatInput from "../../../../../../../../../providers/FloatInput";
 // import SlateEditor from "../../../../../../../../../providers/slateQuill/slateQuill";
 
-// const fontSizes = [
-//     "8pt",
-//     "10pt",
-//     "12pt",
-//     "14pt",
-//     "16pt",
-//     "18pt",
-//     "20pt",
-//     "22pt",
-//     "24pt",
-//     "26pt",
-//     "28pt",
-//     "30pt",
-// ];
+const fontSizes = [
+    "8pt",
+    "10pt",
+    "12pt",
+    "14pt",
+    "16pt",
+    "18pt",
+    "20pt",
+    "22pt",
+    "24pt",
+    "26pt",
+    "28pt",
+    "30pt",
+];
 
-// const fonts = ["Times New Roman", "Arial", "Georgia", "Courier", "Verdana"];
+const fonts = ["Times New Roman", "Arial", "Georgia", "Courier", "Verdana"];
 
-// const FontSize = Quill.import("attributors/style/size");
-// const Font = Quill.import("attributors/style/font");
-// FontSize.whitelist = fontSizes;
-// Font.whitelist = fonts;
-// Quill.register(FontSize, true);
-// Quill.register(Font, true);
-// Quill.register("modules/imageResize", ImageResize);
+const FontSize = Quill.import("attributors/style/size");
+const Font = Quill.import("attributors/style/font");
+FontSize.whitelist = fontSizes;
+Font.whitelist = fonts;
+Quill.register(FontSize, true);
+Quill.register(Font, true);
+Quill.register("modules/imageResize", ImageResize);
 
-Quill.register({ "modules/better-table": QuillBetterTable });
+// Quill.register({ "modules/better-table": QuillBetterTable });
 
 export default function TemplateModalForm(props) {
     const { toggleTemplateModalForm, setToggleTemplateModalForm } = props;
@@ -59,119 +59,119 @@ export default function TemplateModalForm(props) {
     const reactQuillRef = useRef();
     const [form] = Form.useForm();
 
-    // const formats = [
-    //     "header",
-    //     "font",
-    //     "size",
-    //     "bold",
-    //     "italic",
-    //     "underline",
-    //     "strike",
-    //     "blockquote",
-    //     "list",
-    //     "bullet",
-    //     "indent",
-    //     "link",
-    //     "image",
-    //     "align",
-    // ];
+    const formats = [
+        "header",
+        "font",
+        "size",
+        "bold",
+        "italic",
+        "underline",
+        "strike",
+        "blockquote",
+        "list",
+        "bullet",
+        "indent",
+        "link",
+        "image",
+        "align",
+    ];
 
-    const insertTable = () => {
-        const editor = reactQuillRef.current.getEditor();
-        const tableModule = editor.getModule("better-table");
-        tableModule.insertTable(3, 3);
-    };
+    // const insertTable = () => {
+    //     const editor = reactQuillRef.current.getEditor();
+    //     const tableModule = editor.getModule("better-table");
+    //     tableModule.insertTable(3, 3);
+    // };
 
-    const handleEditorStateChange = (val) => {
-        setEditorState(val);
-    };
+    // const handleEditorStateChange = (val) => {
+    //     setEditorState(val);
+    // };
 
-    useEffect(() => {
-        console.log("reactQuillRef.current: ", reactQuillRef.current);
+    // useEffect(() => {
+    //     console.log("reactQuillRef.current: ", reactQuillRef.current);
 
-        // const initializeEditor = () => {
-        //     const editor = reactQuillRef.current.getEditor();
+    //     // const initializeEditor = () => {
+    //     //     const editor = reactQuillRef.current.getEditor();
 
-        //     const toolbar = editor.getModule("toolbar");
-        //     toolbar.addHandler("table", () => {
-        //         insertTable();
-        //     });
-        // };
+    //     //     const toolbar = editor.getModule("toolbar");
+    //     //     toolbar.addHandler("table", () => {
+    //     //         insertTable();
+    //     //     });
+    //     // };
 
-        // const timeout = setTimeout(initializeEditor, 100);
-        // return () => clearTimeout(timeout); // Cleanup timeout
-    }, []);
+    //     // const timeout = setTimeout(initializeEditor, 100);
+    //     // return () => clearTimeout(timeout); // Cleanup timeout
+    // }, []);
 
-    const modules = useMemo(
-        () => ({
-            table: false,
-            "better-table": {
-                operationMenu: {
-                    items: {
-                        unmergeCells: {
-                            text: "Another unmerge cells name",
-                        },
-                    },
-                },
-            },
-            keyboard: {
-                bindings: QuillBetterTable.keyboardBindings,
-            },
-            toolbar: [
-                [
-                    "bold",
-                    "italic",
-                    "underline",
-                    "strike",
-                    { align: [] },
-                    { script: "sub" },
-                    { script: "super" },
-                    { list: "ordered" },
-                    { list: "bullet" },
-                    { indent: "-1" },
-                    { indent: "+1" },
-                ], // toggled buttons
-                ["formula", "table"],
-            ],
-        }),
-        []
-    );
-
-    // c    onst bindings = {
-    //     tab: {
-    //         key: 9,
-    //         handler: function (range) {
-    //             // console.log("Tab key pressed at range: ", range); // Debugging log
-    //             this.quill.insertText(range.index, "\u00A0", "user");
-    //             this.quill.setSelection(range.index + 1); // Move the cursor after the inserted spaces
-    //             return false; // Prevent default Tab behavior
+    // const modules = useMemo(
+    //     () => ({
+    //         table: false,
+    //         "better-table": {
+    //             operationMenu: {
+    //                 items: {
+    //                     unmergeCells: {
+    //                         text: "Another unmerge cells name",
+    //                     },
+    //                 },
+    //             },
     //         },
-    //     },
-    // };
-
-    // const modulesToolBar = {
-    //     toolbar: [
-    //         [{ font: fonts }],
-    //         [{ header: [1, 2, 3, 4, 5, false] }],
-    //         [{ size: fontSizes }],
-    //         ["bold", "italic", "underline", "strike", "blockquote"],
-    //         [{ align: [] }],
-    //         [
-    //             { list: "ordered" },
-    //             { list: "bullet" },
-    //             { indent: "-1" },
-    //             { indent: "+1" },
+    //         keyboard: {
+    //             bindings: QuillBetterTable.keyboardBindings,
+    //         },
+    //         toolbar: [
+    //             [
+    //                 "bold",
+    //                 "italic",
+    //                 "underline",
+    //                 "strike",
+    //                 { align: [] },
+    //                 { script: "sub" },
+    //                 { script: "super" },
+    //                 { list: "ordered" },
+    //                 { list: "bullet" },
+    //                 { indent: "-1" },
+    //                 { indent: "+1" },
+    //             ], // toggled buttons
+    //             ["formula", "table"],
     //         ],
-    //         ["link", "image"],
-    //         ["clean"],
-    //     ],
-    //     imageResize: {
-    //         modules: ["Resize", "DisplaySize"],
-    //     },
-    //     keyboard: {
-    //         bindings: bindings,
-    //     },
-    // };
+    //     }),
+    //     []
+    // );
+
+    const bindings = {
+        tab: {
+            key: 9,
+            handler: function (range) {
+                // console.log("Tab key pressed at range: ", range); // Debugging log
+                this.quill.insertText(range.index, "\u00A0", "user");
+                this.quill.setSelection(range.index + 1); // Move the cursor after the inserted spaces
+                return false; // Prevent default Tab behavior
+            },
+        },
+    };
+
+    const modulesToolBar = {
+        toolbar: [
+            [{ font: fonts }],
+            [{ header: [1, 2, 3, 4, 5, false] }],
+            [{ size: fontSizes }],
+            ["bold", "italic", "underline", "strike", "blockquote"],
+            [{ align: [] }],
+            [
+                { list: "ordered" },
+                { list: "bullet" },
+                { indent: "-1" },
+                { indent: "+1" },
+            ],
+            ["link", "image"],
+            ["clean"],
+        ],
+        imageResize: {
+            modules: ["Resize", "DisplaySize"],
+        },
+        keyboard: {
+            bindings: bindings,
+        },
+    };
 
     const {
         mutate: mutateDocumentTemplate,
@@ -257,19 +257,19 @@ export default function TemplateModalForm(props) {
     };
 
     const handleDragStart = (event) => {
-        // event.dataTransfer.setData("text/plain", event.target.innerText);
+        event.dataTransfer.setData("text/plain", event.target.innerText);
     };
 
     // Handle dropping the text
     const handleDrop = (event) => {
-        // event.preventDefault();
-        // const draggedText = event.dataTransfer.getData("text/plain");
-        // const quill = quillRef.current?.getEditor();
-        // if (quill && draggedText) {
-        //     const cursorPosition = quill.getSelection()?.index || 0;
-        //     quill.insertText(cursorPosition, `${draggedText}`, "user");
-        //     quill.setSelection(cursorPosition + draggedText.length + 2); // Adjust cursor position
-        // }
+        event.preventDefault();
+        const draggedText = event.dataTransfer.getData("text/plain");
+        const quill = quillRef.current?.getEditor();
+        if (quill && draggedText) {
+            const cursorPosition = quill.getSelection()?.index || 0;
+            quill.insertText(cursorPosition, `${draggedText}`, "user");
+            quill.setSelection(cursorPosition + draggedText.length + 2); // Adjust cursor position
+        }
     };
 
     // Allow dropping by preventing the default behavior
@@ -369,21 +369,21 @@ export default function TemplateModalForm(props) {
                                         <ReactQuill
                                             ref={reactQuillRef}
                                             theme="snow"
-                                            modules={modules}
-                                            // formats={formats}
-                                            onChange={handleEditorStateChange}
+                                            modules={modulesToolBar}
+                                            formats={formats}
+                                            // onChange={handleEditorStateChange}
                                             placeholder="Write something"
-                                            // onChange={(
-                                            //     value,
-                                            //     delta,
-                                            //     source,
-                                            //     editor
-                                            // ) => {
-                                            //     form.setFieldValue(
-                                            //         "content",
-                                            //         value
-                                            //     );
-                                            // }}
+                                            onChange={(
+                                                value,
+                                                delta,
+                                                source,
+                                                editor
+                                            ) => {
+                                                form.setFieldValue(
+                                                    "content",
+                                                    value
+                                                );
+                                            }}
                                         />
                                     </Form.Item>
                                 </div>

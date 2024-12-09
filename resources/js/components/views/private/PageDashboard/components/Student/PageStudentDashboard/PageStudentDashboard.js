@@ -32,7 +32,7 @@ export default function PageStudentDashboard() {
     return (
         <>
             {dataProfile?.data.parent_id ? (
-                <DashboardContent />
+                <DashboardContent dataProfile={dataProfile} />
             ) : (
                 <Result
                     icon={

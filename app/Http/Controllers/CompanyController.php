@@ -114,7 +114,6 @@ class CompanyController extends Controller
 
         // Check if the record exists, including soft-deleted records
         $findArchivedData = Company::withTrashed()->find($request->id);
-
         if ($findArchivedData) {
             Company::where('id', $request->id)->restore();
         }

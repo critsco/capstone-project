@@ -11,6 +11,7 @@ import Page404 from "../views/errors/Page404";
 import PageLogin from "../views/public/PageLogin/PageLogin";
 
 import PageCalendar from "../views/private/PageCalendar/PageCalendar";
+import PageCalendarArchive from "../views/private/PageCalendar/pages/PageCalendarArchive/PageCalendarArchive";
 import PageDashboard from "../views/private/PageDashboard/PageDashboard";
 import PageDocuments from "../views/private/PageDocuments/PageDocuments";
 import PageInternStatus from "../views/private/PageInternStatus/PageInternStatus";
@@ -85,6 +86,16 @@ export default function RouteList() {
                                 title="AutoForm | Calendar"
                                 pageId="PageCalendar"
                                 component={PageCalendar}
+                            />
+                        }
+                    />
+                    <Route
+                        path="/calendar/archive"
+                        element={
+                            <PrivateRoute
+                                title="AutoForm | Calendar"
+                                pageId="PageCalendarArchive"
+                                component={PageCalendarArchive}
                             />
                         }
                     />
